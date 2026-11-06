@@ -1,0 +1,49 @@
+# Mission manifest id -> myKSP contracts.
+#
+# The manifest itself (dates, status, confidence, sources) is owned by the
+# research thread: docs/research/artemis-manifest.yaml. Ids here are that
+# file's permanent ids. When a manifest entry changes status or details,
+# re-tune the contracts listed against it. Entries marked `heritage` are
+# pre-2026 missions kept because RP2000 careers start on 2000-01-01.
+
+manifest: docs/research/artemis-manifest.yaml
+manifest_version_reviewed: 1   # as_of 2026-11-06
+
+missions:
+  ARTEMIS-II: [MKSP_Artemis2]
+  STARSHIP-PROP-TRANSFER-DEMO: [MKSP_HLS_PropellantTransfer]
+  ARTEMIS-III: [MKSP_Artemis3]
+  STARSHIP-HLS-UNCREWED-LANDING: [MKSP_HLS_UncrewedLanding]     # repeatable x2, one per provider
+  BLUE-MOON-MK2-UNCREWED-LANDING: [MKSP_HLS_UncrewedLanding]
+  ARTEMIS-IV: [MKSP_Artemis4]
+  ARTEMIS-V: [MKSP_Artemis5]
+  ARTEMIS-VI: [MKSP_Artemis6]          # speculative in manifest
+  ARTEMIS-VII: [MKSP_Artemis7]         # speculative in manifest
+  ARTEMIS-VIII: [MKSP_Artemis8]        # speculative in manifest
+  MOON-BASE-I: [MKSP_MoonBase1_Endurance]
+  MOON-BASE-II: [MKSP_MoonBase2_Griffin]
+  MOON-BASE-III: [MKSP_MoonBase3_ReinerGamma, MKSP_Precursor_LunarRelay]
+  CAPSTONE-02: [MKSP_Precursor_CAPSTONE02]
+  BLUE-GHOST-M2: [MKSP_CLPS_FarSide]
+  VIPER: [MKSP_Precursor_VIPER]
+  LTV-DELIVERY: [MKSP_LTV_Delivery]
+  MOONFALL: [MKSP_CLPS_MoonFall]
+  PEREGRINE-2: [MKSP_CLPS_Gruithuisen]  # repeatable x2
+  PEREGRINE-3: [MKSP_CLPS_Gruithuisen]
+  BLUE-GHOST-M3: [MKSP_CLPS_Delivery]   # site TBD in manifest -> generic task order
+  CLPS-2028-OTHER: [MKSP_CLPS_Delivery]
+  LID-1: [MKSP_LID_Node]                # repeatable x3
+  LID-2: [MKSP_LID_Node]
+  LID-3: [MKSP_LID_Node]
+  FISSION-SURFACE-POWER: [MKSP_Base_FissionPower]
+  MOON-BASE-PHASE-2-HABITAT: [MKSP_Base_Habitat, MKSP_Ops_Resupply]
+
+program_context:
+  moon_base_program: [MKSP_Base_ISRU, MKSP_Base_PressurizedRover, MKSP_Base_Permanent]
+  landing_cadence: [MKSP_Ops_CrewRotation]
+  clps_cadence: [MKSP_CLPS_Delivery, MKSP_Ops_Resupply]
+  gateway_paused: []        # no Gateway contracts by design
+
+heritage:
+  LRO: [MKSP_Precursor_PolarMapper]
+  ARTEMIS-I: [MKSP_Artemis1]
