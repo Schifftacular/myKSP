@@ -16,6 +16,18 @@ for dp, _, fs in os.walk(pack):
         if f.endswith(".cfg"):
             expected |= set(re.findall(r"^CONTRACT_TYPE\s*\{\s*name = (\S+)", open(os.path.join(dp, f)).read(), re.M))
 
+if not expected:
+    # Pack folder not found (e.g. script run from a `git show` copy): fall back to
+    # the installed pack, then to every MKSP_ name the log mentions.
+    inst = "/Applications/KSP-RP2000/GameData/myKSP_Artemis"
+    for dp, _, fs in os.walk(inst):
+        for f in fs:
+            if f.endswith(".cfg"):
+                expected |= set(re.findall(r"^CONTRACT_TYPE\s*\{\s*name = (\S+)", open(os.path.join(dp, f)).read(), re.M))
+    if not expected:
+        expected = set(re.findall(r"CONTRACT_TYPE '(MKSP_[^']+)'", "\n".join(log)))
+        print(f"warning: pack folder not found; using the {len(expected)} MKSP_ names seen in the log")
+
 ok, bad, errs = set(), set(), []
 for line in log:
     m = re.search(r"Successfully loaded CONTRACT_TYPE '([^']+)'", line)
@@ -24,6 +36,8 @@ for line in log:
     m = re.search(r"Errors encountered while trying to load CONTRACT_TYPE '([^']+)'", line)
     if m:
         bad.add(m.group(1))
+    if "unexpected attribute 'vessel'" in line:
+        continue  # IsNotVessel reads `vessel` itself; CC's generic attribute check still warns
     if "ContractConfigurator" in line and ("MKSP_" in line or "MKSP" in line) and ("[ERR" in line or "[WRN" in line or "[EXC" in line):
         errs.append(line)
 

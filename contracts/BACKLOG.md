@@ -2,9 +2,9 @@
 
 Ordered by value. The contracts thread works this list continuously.
 
-1. **In-game load test.** Run 1 (2026-11-06) loaded 11/30; the two causes are
-   fixed and now linted. Relaunch, confirm 30/30 with `tools/check_ksp_log.py`. Then force-offer each contract in the CC debug window on a
-   copy of a career save.
+1. **Force-offer test.** Load passes (30/30, 2026-11-06). Next: force-offer each
+   contract in the CC debug window (Alt+F10) on a copy of a career save. Optionally
+   give the groups an `agent` to silence that warning.
 2. **Play-test the multi-vessel contracts** (Artemis III, Artemis IV, CAPSTONE 02,
    Moon Base II/III, crew rotation): confirm `define` / `IsNotVessel` keep the
    vehicles apart and that docking keeps vessel keys as expected.
