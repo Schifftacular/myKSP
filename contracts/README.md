@@ -95,7 +95,7 @@ Checked against the CC 2.13.4 source, not just the wiki:
 | Validator catches faults | seeded typo'd type, bad prerequisite, bad biome, bad attribute, unbalanced brace, undefined vessel | all 6 caught |
 | Prerequisite graph | acyclic; every contract reachable from RP2000 milestones | clean |
 | Manifest coverage | every research-manifest mission id maps to a contract, every contract maps to an id | clean |
-| Loads in KSP | launch KSP, then `tools/check_ksp_log.py /Applications/KSP-RP2000/KSP.log` | **not yet run** |
+| Loads in KSP | launch KSP, then `tools/check_ksp_log.py /Applications/KSP-RP2000/KSP.log` | 2026-11-06 run 1: 11/30 loaded (HasCrew `maxCrew = 0` without `minCrew = 0`; Artemis IV Orbit with no limits). Fixed, and the validator now catches both. Run 2 pending |
 | Offers / completes in play | CC debug window (Alt+F10) on a copy of a career save | **not yet run** |
 
 ## Tools

@@ -38,6 +38,20 @@ REQUIRED_CT = ["name", "group", "title", "description", "synopsis", "completedMe
 DURATION = re.compile(r"^\s*(\d+[ydhms],?\s*)+$")  # CC DurationUtil: integers only
 
 
+# Value rules CC enforces at load time (Validation.GE / ConfigNodeUtil.AtLeastOne in
+# the 2.13.4 factories). Found by the first in-game load test: they reject the whole
+# CONTRACT_TYPE, so check them offline. (min attr, max attr, default min)
+MIN_MAX_RULES = {
+    "HasCrew": [("minCrew", "maxCrew", 1), ("minExperience", "maxExperience", 0)],
+    "HasPassengers": [("minPassengers", "maxPassengers", 1)],
+}
+AT_LEAST_ONE = {
+    "Orbit": ["minAltitude", "maxAltitude", "minApA", "maxApA", "minPeA", "maxPeA",
+              "minEccentricity", "maxEccentricity", "minInclination", "maxInclination",
+              "minArgumentOfPeriapsis", "maxArgumentOfPeriapsis", "minPeriod", "maxPeriod"],
+}
+
+
 class Node:
     def __init__(self, name, line):
         self.name, self.line, self.values, self.nodes = name, line, [], []
@@ -162,6 +176,17 @@ class Linter:
             self.err(pw, f"unknown PARAMETER type '{t}'")
             return
         self.check_attrs(pw, p, set(SCHEMA["PARAMETER"][t]), f"PARAMETER {t}")
+        for lo, hi, dflt in MIN_MAX_RULES.get(t, []):
+            if p.get(hi) is not None:
+                try:
+                    lov, hiv = float(p.get(lo, dflt)), float(p.get(hi))
+                    if hiv < lov:
+                        self.err(pw, f"{hi} = {p.get(hi)} is below {lo} = {p.get(lo, dflt)}"
+                                 f"{'' if p.get(lo) else ' (default)'}; CC rejects the contract")
+                except ValueError:
+                    pass
+        if t in AT_LEAST_ONE and not any(p.get(a) is not None for a in AT_LEAST_ONE[t]):
+            self.err(pw, f"{t} needs at least one of: {', '.join(AT_LEAST_ONE[t])}")
         body = p.get("targetBody", body or info["body"])
         for n in p.nodes:
             if n.name != "PARAMETER":
