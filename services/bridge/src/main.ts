@@ -19,7 +19,7 @@ const cfg = {
   telemachus: process.env.TELEMACHUS_URL ?? 'ws://127.0.0.1:8085/datalink',
   rateMs: Number(process.env.TELEMACHUS_RATE_MS ?? 250),
   recordingsDir: process.env.MYKSP_RECORDINGS ?? path.join(repoRoot, 'data/recordings'),
-  staticDir: path.join(repoRoot, 'apps/ops-center/dist'),
+  staticDir: process.env.MYKSP_STATIC ?? path.join(repoRoot, 'apps/ops-center/dist'),
   startMode: (process.env.MYKSP_MODE ?? 'live') as Mode,
   simSpeed: Number(process.env.MYKSP_SIM_SPEED ?? 1),
 };
