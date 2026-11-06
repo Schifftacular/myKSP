@@ -1,0 +1,116 @@
+GAME
+{
+	version = 1.12.5
+	Title = Fixture (CAREER)
+	Mode = CAREER
+	versionFull = 1.12.5.3190 (OSXPlayer)
+	persistentTimestamp = 2026-11-04T23:18:29.3840780Z
+	SCENARIO
+	{
+		name = Funding
+		scene = 7, 8, 5, 6
+		funds = 561953.93
+	}
+	SCENARIO
+	{
+		name = ResearchAndDevelopment
+		sci = 13.9
+		Tech
+		{
+			id = start
+			sci = 7 // nested sci must not be read as the program total
+		}
+	}
+	SCENARIO
+	{
+		name = Reputation
+		rep = 42.5
+	}
+	SCENARIO
+	{
+		name = ScenarioUpgradeableFacilities
+		SpaceCenter/LaunchPad
+		{
+			lvl = 0.5
+		}
+		SpaceCenter/MissionControl { lvl = 1 }
+	}
+	SCENARIO
+	{
+		name = ContractSystem
+		CONTRACTS
+		{
+			CONTRACT
+			{
+				guid = a1
+				type = ConfiguredContract
+				state = Offered
+				agent = Rockomax Conglomerate
+				values = 262440,31536000,262500,262500,437500,0,262,262,5014509.13977185,0,0,0
+				subtype = MoonOrbitUncrewed
+				title = Moon Orbit (Uncrewed)
+				PARAM
+				{
+					state = Incomplete
+					title = Achieve lunar orbit and receive data.
+				}
+			}
+			CONTRACT
+			{
+				guid = a2
+				state = Active
+				agent = NASA
+				values = 0,63072000,100000,500000,250000,10,50,100,0,4000000,67072000,0
+				title = Artemis I: Uncrewed Lunar Flyby
+			}
+			CONTRACT
+			{
+				guid = a3
+				state = Completed
+				title = First Orbit
+			}
+		}
+		CONTRACTS_FINISHED
+		{
+		}
+	}
+	FLIGHTSTATE
+	{
+		version = 1.12.5
+		UT = 4861109.172655127
+		VESSEL
+		{
+			name = Pathfinder
+			type = Probe
+			sit = ORBITING
+			met = 1234.5
+			ORBIT
+			{
+				REF = 1
+			}
+			PART
+			{
+				name = probeCore
+			}
+		}
+	}
+	ROSTER
+	{
+		KERBAL
+		{
+			name = Jebediah Kerman
+			type = Crew
+			trait = Pilot
+			state = Available
+			inactive = False
+		}
+		KERBAL
+		{
+			name = Bill Kerman
+			type = Crew
+			trait = Engineer
+			state = Assigned
+			inactive = False
+		}
+	}
+}

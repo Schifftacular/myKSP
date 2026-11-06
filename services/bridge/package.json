@@ -1,0 +1,18 @@
+{
+  "name": "@myksp/bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Relays KSP telemetry (Telemachus) and career state (read-only save parsing) to the myKSP ops center",
+  "scripts": {
+    "start": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "@myksp/shared": "0.1.0",
+    "ws": "8.18.3",
+    "tsx": "4.20.6"
+  },
+  "devDependencies": {
+    "@types/ws": "8.18.1"
+  }
+}
