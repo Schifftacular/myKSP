@@ -225,7 +225,12 @@ export function fromTelemachus(m: Record<string, unknown>, t = Date.now()): Tele
   f.thermal = { hottestRatio: num(m['therm.hottestPartTempRatio']), hottestName: partName(m['therm.hottestPartName']) };
   f.aero = { aoa: num(m['far.aoa']), stall: num(m['far.stallFrac']) };
   f.comm = { signal: num(m['comm.signalStrength']) };
-  f.target = { name: str(m['tar.name']), distance: num(m['tar.distance']), relVel: num(m['tar.o.relativeVelocity']) };
+  // With nothing targeted Telemachus sends the text "No Target Selected." and zeros, not nulls.
+  const tarName = str(m['tar.name']);
+  const hasTarget = tarName !== null && !/^no target/i.test(tarName.trim());
+  f.target = hasTarget
+    ? { name: tarName, distance: num(m['tar.distance']), relVel: num(m['tar.o.relativeVelocity']) }
+    : { name: null, distance: null, relVel: null };
   f.landing = { timeToImpact: num(m['land.timeToImpact']), suicideBurn: num(m['land.suicideBurnCountdown']) };
   return f;
 }

@@ -68,6 +68,13 @@ describe('telemetry normalization', () => {
     expect(f.prop.totalDv).toBe(4600);
     expect(f.prop.stages).toHaveLength(2);
   });
+  it('treats "No Target Selected." as no target (seen live on Telemachus 1.7.0)', () => {
+    const none = fromTelemachus({ 'tar.name': 'No Target Selected.', 'tar.distance': 0, 'tar.o.relativeVelocity': 0 });
+    expect(none.target).toEqual({ name: null, distance: null, relVel: null });
+    const some = fromTelemachus({ 'tar.name': 'Station', 'tar.distance': 1200 });
+    expect(some.target.name).toBe('Station');
+    expect(some.target.distance).toBe(1200);
+  });
   it('rejects numeric hottest-part names', () => {
     expect(partName('1')).toBeNull();
     expect(partName('Upper Fuel Tank')).toBe('Upper Fuel Tank');

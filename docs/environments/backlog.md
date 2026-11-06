@@ -28,3 +28,12 @@ Ordered. Each item names the acceptance check that closes it.
 * Original agency identity for the UI (research thread: do not use NASA marks).
 * Bundle Inter / JetBrains Mono (OFL) locally so typography does not depend on system fonts.
 * Console monitors are single wide screens; real FCR desks have three to four displays.
+
+## From the first live test (2026-11-06)
+
+* Measure the room's cost in Chrome or Safari, visible and hidden, with KSP in flight. Each 4 Hz
+  frame currently redraws the clock strip and all eight console textures; cut that to changed
+  consoles only if the GPU cost matters.
+* INCO signal reads 0 % on the "default" sandbox craft. Find out whether CommNet is off there, and
+  show "CommNet off" rather than a WARNING when it is.
+* Re-check the three live fixes (number keys, wall lag, no-target) on the next live session.

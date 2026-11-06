@@ -122,7 +122,7 @@ function makeFallback(w: number, h: number) { const c = document.createElement('
 
 let lastWarnings = new Set<string>();
 let lastWallDraw = 0;
-let lastWallSource: string | undefined;
+let lastWallKey = '';
 
 function wallCanvases() { return room?.wallCanvas ?? flatCanvases; }
 
@@ -134,9 +134,12 @@ function updateDisplays() {
   // Big wall displays change slowly: redraw and re-upload them at most once a second
   // (a 2048×1152 texture upload at 4 Hz is wasted GPU bandwidth while KSP is running).
   const now = performance.now();
-  if (now - lastWallDraw > 1000 || f?.source !== lastWallSource) {
+  // ...but redraw at once when what they show changes state (source, vessel, entering or leaving
+  // the flight scene, the first plottable samples arriving), so they never lag the side panel.
+  const wallKey = `${f?.source}|${f?.vessel.name}|${f?.paused === 5}|${f?.vessel.situation === null}|${Math.min(store.history.length, 2)}`;
+  if (now - lastWallDraw > 1000 || wallKey !== lastWallKey) {
     lastWallDraw = now;
-    lastWallSource = f?.source;
+    lastWallKey = wallKey;
     drawGroundTrack(wc.ground, f, store.history);
     drawTrajectory(wc.traj, f, store.history);
     drawOrbit(wc.orbit, f);
@@ -231,7 +234,10 @@ async function loadReplayOptions() {
 }
 
 $<HTMLSelectElement>('#source').addEventListener('change', async (e) => {
-  const v = (e.target as HTMLSelectElement).value;
+  const sel = e.target as HTMLSelectElement;
+  const v = sel.value;
+  // Hand focus back to the page so the 1–8 console keys work straight away.
+  sel.blur();
   if (v.startsWith('replay:')) await setSource('replay', v.slice(7), 1);
   else await setSource(v as 'live' | 'sim');
 });
@@ -249,7 +255,8 @@ nav.addEventListener('click', (e) => {
 if (room) room.onPick = (id) => goto(focus === id ? null : id);
 
 document.addEventListener('keydown', (e) => {
-  if ((e.target as HTMLElement).tagName === 'SELECT' || e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = (e.target as HTMLElement).tagName;
+  if (tag === 'SELECT' || tag === 'INPUT' || tag === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
   const n = Number(e.key);
   if (n >= 1 && n <= ORDER.length) goto(ORDER[n - 1]);
   else if (e.key === 'Escape' || e.key === '0') { goto(null); $('#help').hidden = true; }
