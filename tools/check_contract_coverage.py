@@ -2,7 +2,8 @@
 """Cross-check the research manifest against the contracts thread's contract map.
 
 Reports:
-  * manifest missions with no contract mapped (gaps the contracts thread should fill)
+  * manifest missions with no contract mapped (gaps the contracts thread should fill),
+    except ids listed under `no_contract_by_design` (a list, or a map of id -> reason)
   * contract-map ids that are not in the manifest (typos or removed ids)
   * contract-map reviewed an older manifest version (contracts need re-tuning)
 
@@ -26,16 +27,22 @@ def check(manifest_path, map_path):
     mission_ids = {m["id"] for m in manifest["missions"]}
     context_keys = {c["key"] for c in manifest.get("program_context", [])}
     mapped = cmap.get("missions") or {}
+    by_design = cmap.get("no_contract_by_design") or {}
+    by_design = set(by_design if isinstance(by_design, (list, dict)) else [])
 
     errors, warnings = [], []
     for mid in sorted(set(mapped) - mission_ids):
         errors.append(f"contract map lists unknown mission id '{mid}'")
+    for mid in sorted(by_design - mission_ids):
+        errors.append(f"no_contract_by_design lists unknown mission id '{mid}'")
+    for mid in sorted(by_design & {k for k, v in mapped.items() if v}):
+        warnings.append(f"{mid} is both mapped and listed as no_contract_by_design")
     for key in sorted(set(cmap.get("program_context") or {}) - context_keys):
         errors.append(f"contract map lists unknown program_context key '{key}'")
     for m in manifest["missions"]:
         if m["status"] == "cancelled":
             continue
-        if not mapped.get(m["id"]):
+        if not mapped.get(m["id"]) and m["id"] not in by_design:
             warnings.append(f"no contract mapped for {m['id']} ({m['confidence']})")
     reviewed = cmap.get("manifest_version_reviewed")
     if reviewed is not None and reviewed < manifest["manifest_version"]:

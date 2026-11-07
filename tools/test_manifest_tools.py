@@ -105,5 +105,16 @@ class ManifestTests(unittest.TestCase):
         self.assertTrue(any("reviewed manifest v0" in w for w in warnings))
 
 
+class CoverageByDesignTests(unittest.TestCase):
+    def test_by_design_ids_are_skipped_and_checked(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            cmap = {"missions": {}, "no_contract_by_design": {"NEW-GLENN-RTF": "world event", "BOGUS-ID": "x"}}
+            mp = write_yaml(tmp, "cmap.yaml", cmap)
+            errors, warnings, _ = check_contract_coverage.check(MANIFEST, mp)
+            self.assertFalse(any("NEW-GLENN-RTF" in w for w in warnings))
+            self.assertTrue(any("ARTEMIS-II" in w for w in warnings))
+            self.assertTrue(any("BOGUS-ID" in e for e in errors))
+
+
 if __name__ == "__main__":
     sys.exit(unittest.main())
