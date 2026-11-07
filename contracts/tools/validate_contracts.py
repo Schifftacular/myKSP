@@ -330,14 +330,49 @@ def main():
         for n in root.nodes:
             if n.name == "CONTRACT_GROUP":
                 lint.lint_group(f, n)
+    if "--with-optional" in sys.argv:
+        # Apply contracts/Optional/*/ @CONTRACT_TYPE[...] patches (append-only), as
+        # ModuleManager would, so the merged result is linted.
+        opt = os.path.join(HERE, "..", "Optional")
+        types = {n.get("name"): n for _, r in roots for n in r.nodes if n.name == "CONTRACT_TYPE"}
+        for dp, _, fs in os.walk(opt):
+            for fn in sorted(fs):
+                if not fn.endswith(".cfg"):
+                    continue
+                pf = os.path.join(dp, fn)
+                for n in parse(pf).nodes:
+                    m = re.match(r"@CONTRACT_TYPE\[([^\]]+)\]", n.name)
+                    if not m:
+                        lint.err(pf, f"unsupported optional node '{n.name}'")
+                    elif m.group(1) not in types:
+                        lint.err(pf, f"patch targets unknown contract '{m.group(1)}'")
+                    elif n.values:
+                        lint.err(pf, f"{n.name}: only appending child nodes is supported")
+                    else:
+                        types[m.group(1)].nodes.extend(n.nodes)
+                files.append(pf)
     for f, root in roots:
         for n in root.nodes:
             if n.name == "CONTRACT_TYPE":
                 lint.lint_contract(f, n)
-            elif n.name.startswith("@") or n.name == "CONTRACT_GROUP":
+            elif n.name.startswith("@") or n.name in ("CONTRACT_GROUP", "AGENT"):
                 pass
             else:
                 lint.err(f, f"unexpected top-level node '{n.name}'")
+    agents = {n.get("name") for _, r in roots for n in r.nodes if n.name == "AGENT"}
+    for f, root in roots:
+        for n in root.nodes:
+            if n.name == "AGENT":
+                for k in ("name", "title", "logoURL", "logoScaledURL", "mentality"):
+                    if not n.get(k):
+                        lint.err(f, f"AGENT '{n.get('name')}' has no {k}")
+                for k in ("logoURL", "logoScaledURL"):
+                    rel = (n.get(k) or "").split("/", 1)[-1]
+                    if n.get(k, "").startswith(os.path.basename(os.path.normpath(pack)) + "/") and \
+                            not os.path.exists(os.path.join(pack, rel + ".png")):
+                        lint.err(f, f"AGENT {k} texture '{n.get(k)}' not found in the pack")
+            elif n.name == "CONTRACT_GROUP" and n.get("agent") and n.get("agent") not in agents:
+                lint.warn(f, f"group agent '{n.get('agent')}' is not defined in this pack (must exist in the install)")
     lint.lint_graph()
 
     if "--tree" in sys.argv:

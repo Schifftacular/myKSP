@@ -1,0 +1,579 @@
+{
+  "generated_by": "contracts/tools/build_contract_meta.py",
+  "manifest_version": 1,
+  "manifest_as_of": "2026-11-06",
+  "phases": [
+    {
+      "id": "heritage",
+      "label": "Heritage (pre-2026)"
+    },
+    {
+      "id": "precursor",
+      "label": "Artemis precursors"
+    },
+    {
+      "id": "moon_base_phase_1",
+      "label": "Moon Base Phase 1: access and experiment (now-2029)"
+    },
+    {
+      "id": "moon_base_phase_2",
+      "label": "Moon Base Phase 2: build and expand (2029-2032)"
+    },
+    {
+      "id": "moon_base_phase_3",
+      "label": "Moon Base Phase 3: live and work (2032+)"
+    }
+  ],
+  "contracts": {
+    "MKSP_Artemis1": {
+      "title": "Artemis I: Uncrewed Crew Vehicle Lunar Test",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis1.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-I",
+          "name": "ARTEMIS-I"
+        }
+      ],
+      "phase": "heritage",
+      "window": null,
+      "confidence": null
+    },
+    "MKSP_Precursor_PolarMapper": {
+      "title": "Lunar Polar Mapping Orbiter",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/PolarMapper.cfg",
+      "missions": [
+        {
+          "id": "LRO",
+          "name": "LRO"
+        }
+      ],
+      "phase": "heritage",
+      "window": null,
+      "confidence": null
+    },
+    "MKSP_Artemis2": {
+      "title": "Artemis II: Crewed Lunar Flyby",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis2.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-II",
+          "name": "Artemis II"
+        }
+      ],
+      "phase": "precursor",
+      "window": {
+        "start": "2026-Q2",
+        "end": "2026-Q2"
+      },
+      "confidence": "confirmed"
+    },
+    "MKSP_HLS_PropellantTransfer": {
+      "title": "HLS Orbital Propellant Transfer Demo",
+      "group": "MKSP_HLS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/03_HLS/PropellantTransfer.cfg",
+      "missions": [
+        {
+          "id": "STARSHIP-PROP-TRANSFER-DEMO",
+          "name": "Starship orbital propellant transfer demonstration"
+        }
+      ],
+      "phase": "precursor",
+      "window": {
+        "start": "2027-Q1",
+        "end": "2027-Q3"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Artemis3": {
+      "title": "Artemis III: Lander Docking Test in Earth Orbit",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis3.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-III",
+          "name": "Artemis III"
+        }
+      ],
+      "phase": "precursor",
+      "window": {
+        "start": "2027-Q2",
+        "end": "2027-Q4"
+      },
+      "confidence": "confirmed"
+    },
+    "MKSP_HLS_UncrewedLanding": {
+      "title": "HLS Uncrewed Lunar Landing Demo",
+      "group": "MKSP_HLS",
+      "maxCompletions": 2,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/03_HLS/UncrewedLanding.cfg",
+      "missions": [
+        {
+          "id": "STARSHIP-HLS-UNCREWED-LANDING",
+          "name": "Starship HLS uncrewed lunar landing demo"
+        },
+        {
+          "id": "BLUE-MOON-MK2-UNCREWED-LANDING",
+          "name": "Blue Moon MK2 uncrewed lunar landing demo"
+        }
+      ],
+      "phase": "precursor",
+      "window": {
+        "start": "2027-Q4",
+        "end": "2028-Q3"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_MoonBase1_Endurance": {
+      "title": "Moon Base I: Cargo Lander to Shackleton Ridge",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase1_Endurance.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-I",
+          "name": "Moon Base I — Blue Moon MK1 \"Endurance\""
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2026-Q4",
+        "end": "2027-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_MoonBase2_Griffin": {
+      "title": "Moon Base II: Lander with Deployable Rover",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase2_Griffin.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-II",
+          "name": "Moon Base II — Griffin-1"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2026-Q4",
+        "end": "2027-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_MoonBase3_ReinerGamma": {
+      "title": "Moon Base III: Reiner Gamma Swirl and Relay",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase3_ReinerGamma.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-III",
+          "name": "Moon Base III — IM-3 \"Trinity\""
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2026-Q4",
+        "end": "2027-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Precursor_LunarRelay": {
+      "title": "Lunar Communications Relay",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 3,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/LunarRelay.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-III",
+          "name": "Moon Base III — IM-3 \"Trinity\""
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2026-Q4",
+        "end": "2027-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Precursor_CAPSTONE02": {
+      "title": "Lunar Proximity Operations Smallsat",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/CAPSTONE02.cfg",
+      "missions": [
+        {
+          "id": "CAPSTONE-02",
+          "name": "CAPSTONE 02"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q1",
+        "end": "2027-Q4"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_CLPS_FarSide": {
+      "title": "Far-Side Landing via Lunar Relay",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/FarSide_BlueGhost2.cfg",
+      "missions": [
+        {
+          "id": "BLUE-GHOST-M2",
+          "name": "Blue Ghost Mission 2"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q2",
+        "end": "2028-Q1"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_LTV_Delivery": {
+      "title": "Lunar Terrain Vehicle Delivery",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/LTVDelivery.cfg",
+      "missions": [
+        {
+          "id": "LTV-DELIVERY",
+          "name": "Lunar Terrain Vehicle delivery (Astrolab CLV-1 and Lunar Outpost Pegasus)"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q4",
+        "end": "2028-Q3"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Precursor_VIPER": {
+      "title": "South Pole Ice Prospecting Rover",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/VIPER.cfg",
+      "missions": [
+        {
+          "id": "VIPER",
+          "name": "VIPER (Volatiles Investigating Polar Exploration Rover)"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q4",
+        "end": "2028-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Artemis4": {
+      "title": "Artemis IV: First South Pole Landing",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis4.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-IV",
+          "name": "Artemis IV"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q1",
+        "end": "2028-Q4"
+      },
+      "confidence": "confirmed"
+    },
+    "MKSP_CLPS_Delivery": {
+      "title": "CLPS Task Order: Science Delivery",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 0,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/CLPS_Delivery.cfg",
+      "missions": [
+        {
+          "id": "BLUE-GHOST-M3",
+          "name": "Blue Ghost Mission 3"
+        },
+        {
+          "id": "CLPS-2028-OTHER",
+          "name": "Other June 2026 Moon Base CLPS awards (unnamed)"
+        },
+        {
+          "id": "clps_cadence",
+          "name": "clps_cadence"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q1",
+        "end": "2029-Q2"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_CLPS_MoonFall": {
+      "title": "MoonFall: Hopping Site Scout",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonFall_Hopper.cfg",
+      "missions": [
+        {
+          "id": "MOONFALL",
+          "name": "MoonFall"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q1",
+        "end": "2028-Q4"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_LID_Node": {
+      "title": "Lunar Infrastructure Demo Node",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 3,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/LID_Node.cfg",
+      "missions": [
+        {
+          "id": "LID-1",
+          "name": "Lunar Infrastructure Demo 1 (HALO-derived)"
+        },
+        {
+          "id": "LID-2",
+          "name": "Lunar Infrastructure Demo 2 (HALO-derived)"
+        },
+        {
+          "id": "LID-3",
+          "name": "Lunar Infrastructure Demo 3 (HALO-derived)"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q1",
+        "end": "2029-Q4"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_CLPS_Gruithuisen": {
+      "title": "Gruithuisen Domes Science Lander",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 2,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/Peregrine_Gruithuisen.cfg",
+      "missions": [
+        {
+          "id": "PEREGRINE-2",
+          "name": "Peregrine Mission Two"
+        },
+        {
+          "id": "PEREGRINE-3",
+          "name": "Peregrine Mission Three"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q2",
+        "end": "2029-Q1"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Artemis5": {
+      "title": "Artemis V: Base Site Landing and LTV Traverse",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis5.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-V",
+          "name": "Artemis V"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q3",
+        "end": "2029-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Ops_CrewRotation": {
+      "title": "Base Crew Rotation",
+      "group": "MKSP_Operations",
+      "maxCompletions": 0,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/06_Operations/CrewRotation.cfg",
+      "missions": [
+        {
+          "id": "landing_cadence",
+          "name": "landing_cadence"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": null,
+      "confidence": null
+    },
+    "MKSP_Artemis6": {
+      "title": "Artemis VI: First Week at the Base",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis6.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-VI",
+          "name": "Artemis VI (projected)"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q1",
+        "end": "2029-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Artemis7": {
+      "title": "Artemis VII: Habitat Occupation",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis7.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-VII",
+          "name": "Artemis VII (projected)"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q3",
+        "end": "2030-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Base_FissionPower": {
+      "title": "Fission Surface Power Reactor",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/FissionPower.cfg",
+      "missions": [
+        {
+          "id": "FISSION-SURFACE-POWER",
+          "name": "Lunar Fission Surface Power reactor"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q3",
+        "end": "2031-Q4"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Base_Habitat": {
+      "title": "First Surface Habitat",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/Habitat.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-PHASE-2-HABITAT",
+          "name": "First surface habitat (Phase 2 \"Build and Expand\")"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q3",
+        "end": "2032-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Ops_Resupply": {
+      "title": "Base Resupply Delivery",
+      "group": "MKSP_Operations",
+      "maxCompletions": 0,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/06_Operations/Resupply.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-PHASE-2-HABITAT",
+          "name": "First surface habitat (Phase 2 \"Build and Expand\")"
+        },
+        {
+          "id": "clps_cadence",
+          "name": "clps_cadence"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q3",
+        "end": "2032-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Artemis8": {
+      "title": "Artemis VIII: Through the Lunar Night",
+      "group": "MKSP_Crewed",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/04_Crewed/Artemis8.cfg",
+      "missions": [
+        {
+          "id": "ARTEMIS-VIII",
+          "name": "Artemis VIII (projected)"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2030-Q1",
+        "end": "2030-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Base_ISRU": {
+      "title": "Base ISRU: Harvest Polar Regolith",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/ISRU.cfg",
+      "missions": [
+        {
+          "id": "moon_base_program",
+          "name": "moon_base_program"
+        }
+      ],
+      "phase": "moon_base_phase_3",
+      "window": null,
+      "confidence": null
+    },
+    "MKSP_Base_Permanent": {
+      "title": "Permanent Lunar Base",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/Permanent.cfg",
+      "missions": [
+        {
+          "id": "moon_base_program",
+          "name": "moon_base_program"
+        }
+      ],
+      "phase": "moon_base_phase_3",
+      "window": null,
+      "confidence": null
+    },
+    "MKSP_Base_PressurizedRover": {
+      "title": "Pressurized Rover Expedition",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/PressurizedRover.cfg",
+      "missions": [
+        {
+          "id": "moon_base_program",
+          "name": "moon_base_program"
+        }
+      ],
+      "phase": "moon_base_phase_3",
+      "window": null,
+      "confidence": null
+    }
+  }
+}

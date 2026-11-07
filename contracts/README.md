@@ -110,3 +110,15 @@ Checked against the CC 2.13.4 source, not just the wiki:
 ## Backlog
 
 See [BACKLOG.md](BACKLOG.md).
+
+## Optional and test folders
+
+| Folder | Install | What it does |
+|---|---|---|
+| `Optional/MKSP_HistoricalCadence` | copy into GameData | holds each contract until 4 quarters before its real-world window (off by default) |
+| `Testing/MKSP_TestHarness` | copy into GameData **for tests only** | traces every real contract and adds unrestricted `MKSPT_*` copies so each one generates; read results with `tools/check_generation.py` |
+
+Generated files: `manifest/contract-meta.json` (`tools/build_contract_meta.py <manifest>`)
+and `Optional/MKSP_HistoricalCadence/HistoricalCadence.cfg`
+(`tools/build_historical_cadence.py`). Both have `--check`.
+`python3 tools/validate_contracts.py --with-optional` lints the pack with the optional patches applied.
