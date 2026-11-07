@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Render docs/research/artemis-manifest.yaml into docs/research/artemis-manifest.md.
+"""Render docs/research/artemis-manifest.yaml into generated companions:
 
-The YAML is the source of truth; never edit the .md by hand.
-Usage: python3 tools/render_manifest.py
+  docs/research/artemis-manifest.md    readable manifest
+  docs/research/artemis-manifest.json  same data as JSON for the TypeScript apps (no YAML dependency)
+
+The YAML is the source of truth; never edit the generated files by hand.
+Usage: python3 tools/render_manifest.py [--check]
+  --check  exit 1 if the generated files are out of date (for CI) instead of writing them
 """
+import json
+import sys
 from pathlib import Path
 
 import yaml
@@ -11,6 +17,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs/research/artemis-manifest.yaml"
 OUT = ROOT / "docs/research/artemis-manifest.md"
+OUT_JSON = ROOT / "docs/research/artemis-manifest.json"
 
 PHASE_TITLES = {
     "precursor": "Precursors (2026–2027)",
@@ -26,8 +33,7 @@ def link(sources, key):
     return f"[{s.get('publisher', key)}]({s.get('url', '#')})"
 
 
-def main():
-    d = yaml.safe_load(SRC.read_text())
+def render_md(d):
     src = d["sources"]
     ms = d["missions"]
     L = []
@@ -53,6 +59,12 @@ def main():
         L.append(f"- **{c['key']}** ({BADGE[c['confidence']]}): {c['fact'].strip()} _Sources: {refs}_")
     L.append("")
 
+    sites = {x["id"]: x for x in d.get("sites", [])}
+
+    def site_str(sid):
+        x = sites[sid]
+        return f"{x['name']} ({x['lat']}, {x['lon']}; {x['precision']})"
+
     for phase, title in PHASE_TITLES.items():
         group = [m for m in ms if m["phase"] == phase]
         if not group:
@@ -66,6 +78,10 @@ def main():
                              ("destination", "Destination")):
                 if m.get(f):
                     L.append(f"- **{label}:** {m[f]}")
+            if m.get("site"):
+                L.append(f"- **Site:** {site_str(m['site'])}")
+            if m.get("candidate_sites"):
+                L.append("- **Candidate sites:** " + "; ".join(site_str(x) for x in m["candidate_sites"]))
             if m.get("crew"):
                 L.append(f"- **Crew:** {', '.join(m['crew'])}")
             if m.get("payloads"):
@@ -73,6 +89,9 @@ def main():
             if m.get("objectives"):
                 L.append("- **Objectives:**")
                 L += [f"  - {o}" for o in m["objectives"]]
+            if m.get("flight_plan"):
+                L.append("- **Flight plan:**")
+                L += [f"  - {o}" for o in m["flight_plan"]]
             if m.get("base_contribution"):
                 L.append(f"- **Toward the base:** {m['base_contribution']}")
             if m.get("game_hooks"):
@@ -84,6 +103,17 @@ def main():
                 L.append(f"- **Notes:** {m['notes']}")
             L.append(f"- **Sources:** {', '.join(link(src, k) for k in m['sources'])}")
             L.append("")
+
+    if sites:
+        L.append("## Landing sites\n")
+        L.append("Selenographic degrees, longitude east-positive. Precision: high = published aim point or "
+                 "feature centre; medium = centre of NASA's LROC region mosaic; low = estimated. "
+                 "Use a landing radius of a few km for medium/low points.\n")
+        L.append("| Site | Lat | Lon | Precision | Role | Basis |")
+        L.append("|---|---|---|---|---|---|")
+        for x in sites.values():
+            L.append(f"| **{x['name']}** (`{x['id']}`) | {x['lat']} | {x['lon']} | {x['precision']} | {x['role']} | {x['basis']} |")
+        L.append("")
 
     t = d.get("clps_template")
     if t:
@@ -98,9 +128,34 @@ def main():
     L.append("## Sources\n")
     for k, s in src.items():
         L.append(f"- `{k}`: [{s['title']}]({s['url']}) ({s['publisher']}, {s['date']})")
-    OUT.write_text("\n".join(L) + "\n")
-    print(f"wrote {OUT.relative_to(ROOT)}")
+    return "\n".join(L) + "\n"
+
+
+def render_json(d):
+    return json.dumps(d, indent=2, ensure_ascii=False, default=str) + "\n"
+
+
+def main():
+    d = yaml.safe_load(SRC.read_text())
+    outputs = {OUT: render_md(d), OUT_JSON: render_json(d)}
+    check = "--check" in sys.argv[1:]
+    stale = []
+    for path, text in outputs.items():
+        current = path.read_text() if path.exists() else None
+        if current == text:
+            continue
+        if check:
+            stale.append(path.relative_to(ROOT))
+        else:
+            path.write_text(text)
+            print(f"wrote {path.relative_to(ROOT)}")
+    if stale:
+        print("Out of date (run python3 tools/render_manifest.py):", ", ".join(map(str, stale)))
+        return 1
+    if check:
+        print("Generated manifest files are up to date")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

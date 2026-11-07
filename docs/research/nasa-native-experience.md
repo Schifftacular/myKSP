@@ -2,75 +2,110 @@
 
 Research notes from the Artemis research thread. Each idea is tied to how NASA actually
 runs Artemis today (late 2026), says what it does for gameplay, and flags what still needs
-verifying. Ideas are proposals for the environments, contracts and mods threads; nothing
-here is built yet.
+checking. Concrete work items handed to other threads are in [`handoff.md`](handoff.md).
 
-Legend: **[V]** verified against a 2026 source in `artemis-manifest.yaml` · **[K]** general
-NASA practice, well documented but not re-checked this pass · **[?]** needs research.
+Legend: **[V]** verified against a cited 2026 source · **[K]** well-documented NASA practice,
+not re-checked this pass · **[?]** still open.
 
 ## 1. The program, not just the rocket
 
 | Idea | Real-world basis | Gameplay value |
 |---|---|---|
-| **Program board with three phases** (Phase 1 access/experiment → Phase 2 build → Phase 3 live) that unlocks as milestones complete | NASA Moon Base phases: now–2029, 2029–2032, 2032+ **[V]** | Gives the career a visible spine toward the permanent base instead of a flat contract list |
-| **Two-provider lander competition**: the player funds two lander lines; whichever passes its uncrewed landing first gets the first crew | Starship and Blue Moon MK2 both in plan, neither assigned; one uncrewed landing each required **[V]** | Meaningful risk/redundancy choices; mirrors real program management |
-| **"Delivery as a service" contracts** where the player is the CLPS provider | CLPS model; ~10 deliveries/yr goal from 2027 **[V]** | Steady robotic income and site-survey data between crewed flights |
-| **Schedule slip as a mechanic**: real target dates shown as "NET" and allowed to slip, with reputation cost scaled to how public the date was | Every CLPS order has slipped; Artemis III "90 days broken to schedule" **[V]** | Realistic pressure without hard failures |
-| **Oversight events**: Aerospace Safety Advisory Panel and Inspector General reports flag risks (e.g. "only one uncrewed landing test") and can force an extra test flight or cost a budget penalty if ignored | ASAP and OIG findings on Artemis in 2026 **[V]** | Safety culture as a gameplay layer, not flavour text |
-| **Fiscal year budget cycle** starting 1 October, with appropriations that can arrive late | US federal FY **[K]** | Long-term planning; ties to RP-1's budget model **[?] confirm RP-1 mechanics with the mods thread** |
-| **Competitor timeline**: China's south-pole missions (Chang'e-7, crewed landing goal by 2030) as world events that raise political urgency | **[V]** | Narrative pressure that matches the real race framing |
-| **Lessons-learned carry-over**: each flight writes findings that unlock reliability or procedure upgrades | NASA lessons-learned practice **[K]** | Rewards flying test missions (Artemis III-style) instead of skipping to landings |
+| **Program board with three phases** (Phase 1 access/experiment → Phase 2 build → Phase 3 live) that unlocks as milestones complete | NASA Moon Base phases: now–2029, 2029–2032, 2032+ **[V]** | Gives the career a visible spine toward the permanent base |
+| **Map onto RP-1 Programs** rather than inventing a parallel system | RP-1 v4.8.1.0 has `RP0_PROGRAM` nodes with duration, funding curve, confidence cost, requirements and objectives (e.g. CrewedLunar, EarlyLunarHabitation) **[V]** | Real funding and reputation consequences for keeping NASA's schedule |
+| **Two-provider lander competition**: the player funds two lander lines; whichever passes its uncrewed landing first gets the first crew | Starship and Blue Moon MK2 both in plan, neither assigned; one uncrewed landing each required **[V]** | Risk and redundancy choices that mirror real program management |
+| **"Delivery as a service" contracts** where the player is the CLPS provider | CLPS model; about 10 deliveries per year planned from 2027; NASA plans 17 surface deliveries **[V]** | Steady robotic income and site data between crewed flights |
+| **Schedule slip as a mechanic**: dates shown as NET and allowed to slip, with reputation cost scaled to how public the date was | Every 2026 CLPS mission slipped (Moon Base I and III to 2027); New Glenn pad explosion delayed three NASA deliveries **[V]** | Realistic pressure without hard failures |
+| **Oversight events**: Aerospace Safety Advisory Panel and Inspector General findings can force an extra test flight or cost budget if ignored | ASAP and OIG findings on Artemis in 2026 **[V]** | Safety culture as a gameplay layer |
+| **Single points of failure in the supply chain**: one launcher grounding blocks every payload that depends on it | New Glenn grounding blocks Moon Base I, VIPER and the LTVs (`NEW-GLENN-RTF` in the manifest) **[V]** | Rewards contracting more than one launch provider |
+| **Fiscal year budget cycle** starting 1 October | US federal FY **[K]**; RP-1 budgets by subsidy + program funding **[V]** | Long-term planning |
+| **Competitor timeline**: China's south-pole missions and 2030 crewed-landing goal as world events | Chang'e-7 stood down Aug 2026 **[V]** | Narrative urgency |
+| **International partner seats** earned through partner contracts | ESA's Parmitano on Artemis III, CSA's Hansen on Artemis II; JAXA trades its pressurised rover for seats **[V]** | Partner hardware (Canadarm3, JAXA rover) arrives as contract rewards |
 
-## 2. Mission lifecycle the player actually walks through
+## 2. Mission lifecycle the player walks through
 
-1. **Mission definition** — objectives, crew size, lander provider, landing site shortlist. South-pole sites need robotic survey data first **[V]**, so site options unlock from CLPS/VIPER/MoonFall results.
-2. **Crew assignment announcement** — four-person crews with international seats (ESA's Parmitano on Artemis III, CSA's Hansen on Artemis II) **[V]**. Partner seats can be earned through partner contracts.
-3. **Hardware flow** — booster stacking, core-stage mate in VAB High Bay 3, Orion integration, rollout to LC-39B **[V]** for SLS flights. A build/stack timeline view is a strong candidate for the first immersive environment.
-4. **Wet dress rehearsal** — Artemis II's WDR found a helium-flow issue that delayed launch **[V]**. A WDR step with a chance to discover faults is a good "realism with consequences" beat.
-5. **Flight Readiness Review → launch countdown with built-in holds → go/no-go poll** **[K]**.
-6. **Campaign execution** — multi-launch missions are the norm now: Artemis III needs three launches; a Starship landing needs many tanker flights (estimates 6–8 to 22) **[V]**. The UI must track a *campaign*, not a single vessel.
-7. **Surface ops** — first landings: two crew down, two in Orion, two moonwalks of about two hours total **[V]**. EVA timelines with consumables are the core surface loop.
-8. **Recovery and post-flight** — ocean splashdown and recovery (Artemis II off San Diego) **[V]**, then a post-flight report that feeds lessons-learned.
+1. **Mission definition**: objectives, crew, lander provider, landing-site shortlist. South-pole sites unlock from CLPS, VIPER and MoonFall data **[V]**.
+2. **Crew assignment announcement**: four-person crews, international seats **[V]**.
+3. **Hardware flow**: booster stacking, core-stage mate in VAB High Bay 3, Orion integration, rollout to LC-39B **[V]**.
+4. **Wet dress rehearsal** that can uncover faults (Artemis II's helium-flow issue delayed launch) **[V]**.
+5. **Countdown in the Launch Control Center** (Artemis II as flown) **[V]**:
+   - Call to stations L-49h50m; clock starts L-49h40m.
+   - Built-in holds: L-12h35m (2h45m), L-5h10m (1h10m), L-40m (30 min, the "T-10 hold").
+   - Ground Launch Sequencer active L-13h15m; tanking go/no-go L-10h50m; crew boards L-4h; hatch closed about L-1h40m; final NASA Test Director briefing L-50m; visors down L-15m.
+   - Launch Director's go/no-go poll before terminal count.
+   - Terminal count: T-10m GLS start; T-8m crew access arm retracts; T-33s hand-off to the automated launch sequencer; T-6.36s RS-25 start; T-0 booster ignition.
+   - Recycle rules: can hold at T-6m for the rest of the window; holds of up to 3 minutes between T-6m and T-1:30, longer recycles to T-10; after the automated sequencer takes over, any stop scrubs the day.
+   - Control passes from Kennedy to Houston at booster ignition.
+6. **Campaign execution**: multi-launch missions are normal now (Artemis III needs three launches; a Starship landing needs many tanker flights) **[V]**. The UI tracks a campaign, not a single vessel.
+7. **Surface ops**: two crew down, two in Orion, two moonwalks of about two hours total; LTVs support up to three moonwalks, 10 km per charge **[V]**.
+8. **Recovery and post-flight**: ocean splashdown (Artemis II off San Diego), then a lessons-learned report **[V]**.
 
 ## 3. Mission Control and interfaces
 
-- **Mission Elapsed Time and GMT side by side**, flight days ("FD3 docking") as the planning unit **[K]**. Artemis III's plan is expressed in flight days **[V]**.
-- **Console positions as UI lenses** (Flight Director, CAPCOM, trajectory/FDO, systems) so the same telemetry is filtered for the job at hand **[K]**; **[?]** confirm current Orion-era position names before using them on screen.
-- **Comm coverage as a constraint**: far-side and polar sites need relays (IM-3 deploys the Altus-1 relay, Blue Ghost M2 lands on the far side) **[V]**. Show the comm geometry; ties to RemoteTech/CommNet choices in the mod stack.
-- **Lunar day/night and illumination** at the pole as a planning overlay: the reason NASA needs fission power and night-survivable hardware **[V]**.
-- **Plain-language NASA vocabulary**: NET, L-minus, T-minus, scrub, recycle, MET, go/no-go, nominal, off-nominal, FRR **[K]**.
+**Houston Mission Control positions used on Artemis** (NASA's Artemis I roster, plus CAPCOM for crewed flights) **[V]**:
+
+| Call sign | Job | Useful as a myKSP lens for |
+|---|---|---|
+| FLIGHT | Flight Director | Overall go/no-go, mission rules |
+| CAPCOM | Talks to the crew (crewed flights) | Crew comms, procedures |
+| FDO | Trajectory and aborts | Orbit, manoeuvres, abort options |
+| BOOSTER | SLS boosters, core stage, upper stage through TLI | Ascent |
+| CONTROL | SLS/upper-stage guidance until TLI | Ascent guidance |
+| GNC | Orion navigation and attitude | Attitude, nav state |
+| PROP | Propulsion and burns | Burn execution, propellant |
+| EECOM | Environment, life support, emergency procedures | Cabin, consumables |
+| C&DH | Avionics, computers, data | Vessel computers, errors |
+| MPO | Power, mechanical, structures, landing and recovery | Electrical, recovery |
+| INCO | Data, telemetry, video and command links | Comm links, signal |
+| GC | Ground systems, Near Space and Deep Space Network links | Ground stations |
+| FAO | Flight plan timeline | Flight-day plan strip |
+| PAO | Public commentary | Optional broadcast audio |
+
+ISS-era call signs (e.g. ODIN, ECLSS) are not confirmed for Orion; avoid them.
+
+**Kennedy launch team** (Firing Room 1, ~90 people): Launch Director (runs the polls), NASA Test Director, Ground Launch Sequencer software, closeout crew, Eastern Range and weather **[V]**.
+
+**Other interface ideas**
+- Mission Elapsed Time and GMT side by side, flight days ("FD3 docking") as the planning unit **[V]**.
+- Comm coverage as a constraint: far-side and polar sites need relays (Altus-1 on IM-3, ESA Lunar Pathfinder with Blue Ghost M2) **[V]**.
+- Lunar illumination at the pole as a planning overlay **[V]**.
+- NASA vocabulary: NET, L-minus, T-minus, scrub, recycle, built-in hold, MET, go/no-go, FRR **[K]**.
 
 ## 4. Base-building that follows NASA's logic
 
-- **Survey before build**: VIPER ice maps, MoonFall drone hops and Griffin/FLIP rover drives reveal resources and hazards that decide the base site **[V]**.
-- **Utility nodes first**: Northrop's three HALO-derived Lunar Infrastructure Demos (power, thermal, comms, night survival) are the template for the first base modules **[V]**.
-- **Mobility before habitation**: LTVs delivered ahead of the Artemis IV crew **[V]**.
-- **Power gates permanence**: a ~40 kWe fission reactor by 2030 is the hard prerequisite for permanent occupancy **[V]**. Make "survive a lunar night with crew" the boss fight of Phase 2.
-- **Plume hazards**: SCALPSS on Blue Moon MK1 studies landing-plume ejecta **[V]**; base layout should keep landing pads a safe distance from habitats.
+- **Survey before build**: VIPER, MoonFall and Griffin-1/FLIP data decide the base site **[V]**.
+- **Utility nodes first**: three HALO-derived Lunar Infrastructure Demos (power, thermal, comms, night survival) **[V]**.
+- **Mobility before habitation**: LTVs land ahead of the Artemis IV crew; pressurised rover (JAXA) around 2029–2031 **[V]**.
+- **Robotics for logistics**: Canadarm3 repurposed for surface cargo and assembly **[V]**.
+- **Power gates permanence**: NASA wants a fission reactor by 2030, but paused the procurement in March 2026 to rethink it **[V]**. Make "survive a lunar night with crew" the Phase 2 boss fight.
+- **Plume hazards**: SCALPSS flies on most Moon Base landers; keep pads away from habitats **[V]**.
 
-## 5. Brand and licensing caution
+## 5. Brand and licensing (verified)
 
-Using the NASA insignia ("meatball"), logotype ("worm") or mission patches in myKSP UI is
-restricted by NASA's media usage guidelines, which forbid implying endorsement **[K]**;
-**[?]** confirm current guidance before shipping any NASA mark, even in a private build that
-might be shared. Recommended approach: an original agency identity styled after NASA's
-design language (typography, colour discipline, flight-day nomenclature), and real mission
-*names* only where they appear as historical/world data. Public-domain NASA imagery and
-data are generally usable with credit **[K]**.
+- The NASA insignia (meatball), logotype (worm) and seal **may not be used without NASA's explicit permission**, and never as branding on third-party products; the seal is for the Administrator only (14 CFR 1221) **[V]**.
+- Mission identifiers such as the Artemis identifier and crew emblems are not cleared for outside use; requests go to NASA's Associate Administrator for Communications **[V]**.
+- NASA photos, video and audio are generally not copyrighted. Credit "NASA" (or the named photographer), never imply endorsement, and check third-party credits **[V]**.
+- No NASA page covers games or mods specifically **[?]**.
 
-## 6. Live data candidates for keeping the game in sync
+**Decision for myKSP**: an original agency identity in NASA's design spirit. Real mission names
+appear only as world data. NASA imagery may be used with credit. If Mike ever wants real marks,
+the request goes to agency-brand@mail.nasa.gov.
 
-| Source | Use | Status |
+## 6. Live data for keeping the game in sync
+
+| Source | Use | Facts |
 |---|---|---|
-| NASA Artemis blog and Moon Base pages | Primary schedule changes | Manual watch by research thread |
-| Launch Library 2 (The Space Devs) API | Machine-readable launch dates for an in-game "real world" ticker | **[?]** check terms, rate limits and licence |
-| NASA Image and Video Library | Reference imagery for environment art | **[?]** check usage terms per asset |
-| JPL Horizons | Ephemerides if we ever sync real lunar lighting | **[?]** only if the environments thread needs it |
+| NASA Artemis blog and Moon Base pages | Primary schedule changes | Watched daily by the research thread |
+| Launch Library 2 (The Space Devs) | Machine-readable launch dates for a "real world" ticker | API 2.3.0; free tier 15 requests/hour/IP; they ask you to cache; no licence page found; CLPS launches are present but not reliably tagged with the CLPS program, so match by name too **[V]** |
+| NASA Image and Video Library | Reference imagery for environments | Credit NASA; check third-party credits **[V]** |
+| Official NASA launch feed | — | None exists (no API, RSS or iCal) **[V]** |
 
-## Open research questions
+Recommendation: the bridge service fetches LL2 at most a few times a day, caches the result,
+and joins it to the manifest by mission id.
 
-- Which three companies / four missions did NASA select on 2026-06-30 beyond Astrobotic's two Peregrine flights?
-- What happens to Gateway's PPE and ESA I-Hab? Partner contributions (ESA, JAXA, CSA) to the surface base.
-- JAXA's pressurised rover timing and whether it falls before 2030.
-- Artemis IV crew and which lander flies first; SLS upper stage choice for Artemis IV.
-- Which commercial launcher carries crews after the current SLS flights.
+## Open questions
+
+- Landing sites of the Firefly and Intuitive Machines June 2026 awards.
+- ESA's I-Hab decision (December 2026 ministerial).
+- Artemis IV crew and which lander flies first; SLS upper-stage choice (around summer 2027).
+- What NASA announced at the 2026-11-07 Moon Base update.

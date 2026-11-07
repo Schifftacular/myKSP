@@ -68,6 +68,30 @@ def validate(path):
         if m.get("confidence") == "speculative" and not m.get("notes"):
             errors.append(f"{mid}: speculative entries must explain themselves in 'notes'")
 
+    site_ids = set()
+    for site in data.get("sites") or []:
+        sid = site.get("id", "<no id>")
+        if sid in site_ids:
+            errors.append(f"site {sid}: duplicate id")
+        site_ids.add(sid)
+        lat, lon = site.get("lat"), site.get("lon")
+        if not isinstance(lat, (int, float)) or not -90 <= lat <= 90:
+            errors.append(f"site {sid}: lat must be a number in -90..90")
+        if not isinstance(lon, (int, float)) or not -180 <= lon <= 180:
+            errors.append(f"site {sid}: lon must be a number in -180..180 (east-positive)")
+        if site.get("precision") not in {"high", "medium", "low"}:
+            errors.append(f"site {sid}: precision must be high, medium or low")
+        for src in site.get("sources") or []:
+            if src not in sources:
+                errors.append(f"site {sid}: unknown source '{src}'")
+        if not site.get("sources"):
+            errors.append(f"site {sid}: missing sources")
+    for m in missions:
+        refs = ([m["site"]] if m.get("site") else []) + list(m.get("candidate_sites") or [])
+        for ref in refs:
+            if ref not in site_ids:
+                errors.append(f"{m.get('id')}: unknown site '{ref}'")
+
     for c in data.get("program_context") or []:
         for src in c.get("sources") or []:
             if src not in sources:
@@ -90,7 +114,7 @@ def main():
         return 1
     ms = data["missions"]
     print(f"OK: manifest v{data['manifest_version']} as of {data['as_of']}: "
-          f"{len(ms)} missions, {len(data['sources'])} sources")
+          f"{len(ms)} missions, {len(data.get('sites') or [])} sites, {len(data['sources'])} sources")
     return 0
 
 
