@@ -12049,9 +12049,10 @@ import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline";
 var Recorder = class {
-  constructor(dir, minIntervalMs = 250) {
+  constructor(dir, minIntervalMs = 250, coastIntervalMs = 5e3) {
     this.dir = dir;
     this.minIntervalMs = minIntervalMs;
+    this.coastIntervalMs = coastIntervalMs;
     fs.mkdirSync(dir, { recursive: true });
   }
   stream = null;
@@ -12059,6 +12060,7 @@ var Recorder = class {
   vessel = null;
   lastT = 0;
   lastWritten = 0;
+  lastSig = "";
   get current() {
     return this.file ? path.basename(this.file) : null;
   }
@@ -12068,7 +12070,10 @@ var Recorder = class {
     const gap = f.t - this.lastT > 6e4;
     if (!this.stream || gap || f.vessel.name !== this.vessel) this.rotate(f);
     this.lastT = f.t;
-    if (f.t - this.lastWritten < this.minIntervalMs) return;
+    const sig = `${f.vessel.situation}|${f.prop.stageCount}|${(f.control.throttle ?? 0) > 0}`;
+    const changed = sig !== this.lastSig;
+    this.lastSig = sig;
+    if (!changed && f.t - this.lastWritten < (isCoasting(f) ? this.coastIntervalMs : this.minIntervalMs)) return;
     this.lastWritten = f.t;
     this.stream.write(JSON.stringify(f) + "\n");
   }
@@ -12085,6 +12090,10 @@ var Recorder = class {
     this.stream = null;
   }
 };
+function isCoasting(f) {
+  if ((f.control.throttle ?? 0) > 0) return false;
+  return /orbiting|escaping/i.test(f.vessel.situation ?? "");
+}
 function listRecordings(dirs) {
   const out = [];
   for (const dir of dirs) {

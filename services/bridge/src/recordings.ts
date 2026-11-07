@@ -6,6 +6,11 @@ import { fromCompactLog, type TelemetryFrame } from '@myksp/shared';
 /**
  * Records live flights to JSONL (one normalized frame per line) and replays them.
  * A new file starts when the active vessel changes or after a 60 s gap in flight telemetry.
+ *
+ * Rate adapts to the flight phase: every frame (4 Hz) during powered flight, atmospheric flight
+ * and on the ground; one frame every 5 s while coasting in orbit or on an escape or solar orbit.
+ * A long coast at full rate is about 16 MB an hour, and the iMac's disk is nearly full.
+ * A change of situation, stage count or throttle is always written at once.
  */
 export class Recorder {
   private stream: fs.WriteStream | null = null;
@@ -14,7 +19,9 @@ export class Recorder {
   private lastT = 0;
   private lastWritten = 0;
 
-  constructor(private dir: string, private minIntervalMs = 250) {
+  private lastSig = '';
+
+  constructor(private dir: string, private minIntervalMs = 250, private coastIntervalMs = 5000) {
     fs.mkdirSync(dir, { recursive: true });
   }
 
@@ -26,7 +33,10 @@ export class Recorder {
     const gap = f.t - this.lastT > 60_000;
     if (!this.stream || gap || f.vessel.name !== this.vessel) this.rotate(f);
     this.lastT = f.t;
-    if (f.t - this.lastWritten < this.minIntervalMs) return;
+    const sig = `${f.vessel.situation}|${f.prop.stageCount}|${(f.control.throttle ?? 0) > 0}`;
+    const changed = sig !== this.lastSig;
+    this.lastSig = sig;
+    if (!changed && f.t - this.lastWritten < (isCoasting(f) ? this.coastIntervalMs : this.minIntervalMs)) return;
     this.lastWritten = f.t;
     this.stream!.write(JSON.stringify(f) + '\n');
   }
@@ -41,6 +51,12 @@ export class Recorder {
   }
 
   close() { this.stream?.end(); this.stream = null; }
+}
+
+/** Unpowered and out of the atmosphere on an orbit or escape trajectory. */
+export function isCoasting(f: TelemetryFrame): boolean {
+  if ((f.control.throttle ?? 0) > 0) return false;
+  return /orbiting|escaping/i.test(f.vessel.situation ?? '');
 }
 
 export interface RecordingInfo { file: string; bytes: number; modified: string }
