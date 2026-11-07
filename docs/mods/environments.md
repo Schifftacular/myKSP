@@ -57,5 +57,5 @@ For an Artemis-flavoured experience, 39B plus the SLS and Orion parts is the clo
 At 2560×1440 on the M4, measure before and after each visual change with the same save and view (on the pad at 39B, and in LEO over daylight Earth):
 
 - Flight scene: ≥ 30 fps on the pad, ≥ 45 fps in orbit.
-- Scene load: KSP start to main menu currently takes about 14 minutes in the last log (06:36 to 06:50, including a full ModuleManager rebuild). A warm start with the MM cache intact should be much shorter. Keep `ModuleManager.ConfigCache` valid; anything that invalidates it costs the full rebuild.
+- Scene load (measured 2026-11-07): **2 m 33 s** warm (MM cache reused), **6 m 07 s** after any GameData change (full ModuleManager rebuild, ~69,300 patches). Before the fix it was 15 m 13 s: Distant Object's KSPe.Light library walks the whole KSP root at startup and spent 7 m 41 s on a 21.5k-file `_tools/docking-cards/node_modules` folder (moved to `~/Projects/myKSP/_tools`, logged in `LocalFixBackups/README-moves.txt`). **Keep the KSP folder free of tooling** (node_modules, repos, venvs), and batch GameData edits so each launch pays the rebuild at most once.
 - Front-end budget alongside KSP: it shares the same GPU and memory, so the front end should stay well under a few hundred MB of GPU memory and avoid continuous 60 fps WebGL rendering while KSP is in flight.
