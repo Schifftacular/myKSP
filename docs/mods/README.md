@@ -41,7 +41,7 @@ To refresh the inventory after a mod change, see [tools/mod-inventory](../../too
 
 ## Findings that matter to the other workstreams
 
-1. **There is no build-time or failure simulation.** RP2000 ships Kerbal Construction Time presets and TestFlight configs, and OhScrap patches are in GameData, but **KCT, TestFlight, OhScrap and ScrapYard have no DLL installed.** The game ignores those configs, so contracts and the front end cannot assume build queues, integration time, or engine reliability exist. See [backlog.md](backlog.md).
+1. **Build time and reliability now exist (since 2026-11-07: KCT 1.4.13.1 + TestFlight 2.12.1.0 installed).** Before that there was no build-time or failure simulation: RP2000 ships Kerbal Construction Time presets and TestFlight configs, and OhScrap patches are in GameData, but **KCT, TestFlight, OhScrap and ScrapYard have no DLL installed.** The game ignores those configs, so contracts and the front end cannot assume build queues, integration time, or engine reliability exist. See [backlog.md](backlog.md).
 2. **RP2000 is not RP-1.** No RP-1 plugin is loaded, so there are no RP-1 Programs, Leaders, confidence, or KCT-driven budgets. Funding is stock contracts plus Custom Barn Kit facility costs. The `RP-1` save is a leftover.
 3. **All three live-data interfaces work**: Telemachus on 8085, kRPC on 50000/50001, and (since 2026-11-07) KSPBridge publishing to a local MQTT broker on 1883 / WebSocket 9002. See [integration.md](integration.md).
 4. **kRPC listens on 0.0.0.0 with `autoAcceptConnections = True`.** Anyone on the LAN or tailnet can fly the vessel. Telemachus is also bound to every interface. Fine for a home network, worth tightening before the front end ships.
