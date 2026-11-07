@@ -17,7 +17,7 @@
 #   * Bump `manifest_version` and add a line to changelog.md on every edit.
 #   * Run: python3 tools/validate_manifest.py
 #
-manifest_version: 2
+manifest_version: 3
 as_of: "2026-11-07"
 career_goal: >-
   Permanent crewed lunar base at the lunar south pole, mirroring NASA's
@@ -71,10 +71,11 @@ program_context:
   - key: clps_cadence
     fact: >-
       Isaacman wants about 10 CLPS deliveries per year for three years starting 2027.
+      NASA (Aug 2026): Phase I includes "more than twenty robotic landings" through 2029.
       CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task
       order so far has slipped substantially; schedule all robotic missions with slack.
     confidence: likely
-    sources: [spo-2026-05-26, nasa-2026-05-26]
+    sources: [spo-2026-05-26, nasa-2026-05-26, nasa-2026-08-04-landers]
   - key: two_lander_strategy
     fact: >-
       Both SpaceX Starship HLS and Blue Origin Blue Moon MK2 are in the plan; neither
@@ -574,13 +575,13 @@ missions:
     window: {start: 2028-Q2, end: 2029-Q1}
     spacecraft: Peregrine lander
     destination: Gruithuisen Domes (near side)
-    payloads: [LETS radiation spectrometer, plus two other NASA payloads]
+    payloads: [LETS radiation spectrometer, SCALPSS, LRA]
     base_contribution: Radiation environment data for crew dose planning.
     game_hooks:
       - Non-polar science landing; radiation-monitoring experiment running for N days.
     site: NS-GRUITHUISEN-GAMMA
     sources: [astrobotic-2026-06-30, wiki-clps]
-    notes: Site per Astrobotic's June 2026 release; Wikipedia lists no site, and Gruithuisen was also Peregrine Mission One's (failed) target. Re-check.
+    notes: Site confirmed in Astrobotic's 2026-06-30 release ("an autonomous landing near the Gruithuisen Domes"). NASA's own pages have not named the site yet. Payloads LETS, SCALPSS, LRA.
 
   - id: PEREGRINE-3
     name: Peregrine Mission Three
@@ -594,13 +595,13 @@ missions:
     window: {start: 2028-Q2, end: 2029-Q1}
     spacecraft: Peregrine lander
     destination: Gruithuisen Domes (near side)
-    payloads: [three NASA-sponsored payloads]
+    payloads: [LETS radiation spectrometer, SCALPSS, LRA]
     base_contribution: Science and environment data.
     game_hooks:
       - Second landing at the same site; precision landing near Peregrine-2.
     site: NS-GRUITHUISEN-GAMMA
     sources: [astrobotic-2026-06-30, wiki-clps]
-    notes: Same site caveat as PEREGRINE-2.
+    notes: Same site and payloads as PEREGRINE-2 per Astrobotic's release.
 
   - id: CLPS-2028-OTHER
     name: Firefly and Intuitive Machines Moon Base deliveries (late 2028)
@@ -887,3 +888,4 @@ sources:
   nasa-artemis-iv-page: {title: "Artemis IV", url: "https://www.nasa.gov/mission/artemis-iv/", publisher: NASA, date: 2026-03-16}
   sciam-2026-10-23-a3-schedule: {title: "NASA lays out a packed 14-day schedule for 2027's Artemis III moon mission", url: "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/", publisher: Scientific American, date: 2026-10-23}
   nasa-2026-04-10-fd10: {title: "Artemis II Flight Day 10: Crew Sets for Final Burn, Splashdown", url: "https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-crew-sets-for-final-burn-splashdown/", publisher: NASA, date: 2026-04-10}
+  nasa-2026-08-04-landers: {title: "NASA Provides Updates on Moon Base Cargo Landers, Tech Demonstrations", url: "https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/", publisher: NASA, date: 2026-08-04}

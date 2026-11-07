@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "as_of": "2026-11-07",
   "career_goal": "Permanent crewed lunar base at the lunar south pole, mirroring NASA's three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032, Phase 3 2032+).",
   "program_context": [
@@ -47,11 +47,12 @@
     },
     {
       "key": "clps_cadence",
-      "fact": "Isaacman wants about 10 CLPS deliveries per year for three years starting 2027. CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack.",
+      "fact": "Isaacman wants about 10 CLPS deliveries per year for three years starting 2027. NASA (Aug 2026): Phase I includes \"more than twenty robotic landings\" through 2029. CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack.",
       "confidence": "likely",
       "sources": [
         "spo-2026-05-26",
-        "nasa-2026-05-26"
+        "nasa-2026-05-26",
+        "nasa-2026-08-04-landers"
       ]
     },
     {
@@ -848,7 +849,8 @@
       "destination": "Gruithuisen Domes (near side)",
       "payloads": [
         "LETS radiation spectrometer",
-        "plus two other NASA payloads"
+        "SCALPSS",
+        "LRA"
       ],
       "base_contribution": "Radiation environment data for crew dose planning.",
       "game_hooks": [
@@ -859,7 +861,7 @@
         "astrobotic-2026-06-30",
         "wiki-clps"
       ],
-      "notes": "Site per Astrobotic's June 2026 release; Wikipedia lists no site, and Gruithuisen was also Peregrine Mission One's (failed) target. Re-check."
+      "notes": "Site confirmed in Astrobotic's 2026-06-30 release (\"an autonomous landing near the Gruithuisen Domes\"). NASA's own pages have not named the site yet. Payloads LETS, SCALPSS, LRA."
     },
     {
       "id": "PEREGRINE-3",
@@ -878,7 +880,9 @@
       "spacecraft": "Peregrine lander",
       "destination": "Gruithuisen Domes (near side)",
       "payloads": [
-        "three NASA-sponsored payloads"
+        "LETS radiation spectrometer",
+        "SCALPSS",
+        "LRA"
       ],
       "base_contribution": "Science and environment data.",
       "game_hooks": [
@@ -889,7 +893,7 @@
         "astrobotic-2026-06-30",
         "wiki-clps"
       ],
-      "notes": "Same site caveat as PEREGRINE-2."
+      "notes": "Same site and payloads as PEREGRINE-2 per Astrobotic's release."
     },
     {
       "id": "CLPS-2028-OTHER",
@@ -1726,6 +1730,12 @@
       "url": "https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-crew-sets-for-final-burn-splashdown/",
       "publisher": "NASA",
       "date": "2026-04-10"
+    },
+    "nasa-2026-08-04-landers": {
+      "title": "NASA Provides Updates on Moon Base Cargo Landers, Tech Demonstrations",
+      "url": "https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/",
+      "publisher": "NASA",
+      "date": "2026-08-04"
     }
   }
 }

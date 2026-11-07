@@ -1,5 +1,11 @@
 # Manifest changelog
 
+## v3 — 2026-11-07 (daily check)
+
+- `PEREGRINE-2`, `PEREGRINE-3`: Gruithuisen Domes site confirmed from Astrobotic's release; payloads listed (LETS, SCALPSS, LRA). No contract change needed.
+- `clps_cadence`: NASA says Phase I has more than twenty robotic landings through 2029.
+- NASA's Moon Base news conference is at 22:00 UTC today (after this check); the next daily check covers it.
+
 ## v2 — 2026-11-07
 
 31 missions (+4), 14 landing sites (new), 58 sources.
