@@ -1,0 +1,889 @@
+# myKSP — NASA lunar mission manifest, now through 2030
+#
+# Owner: research thread ("Track NASA Artemis plans through 2030").
+# Consumer: contracts thread. Build contracts from these entries; never hard-code
+# real-world dates in contracts without reading `status` and `confidence` first.
+#
+# Rules for editors
+#   * `id` is permanent. Never delete or rename an entry. If a mission is cancelled,
+#     set status: cancelled and explain in `notes`. Contracts key off `id`.
+#   * Every fact needs a source in `sources`. Prefer nasa.gov; trade press second.
+#   * `confidence` describes how sure we are the mission flies roughly as described:
+#       confirmed   – NASA has announced it with hardware/contract/crew in work
+#       likely      – announced or contracted, but date or details are soft
+#       speculative – our projection from NASA's stated cadence; not announced
+#   * `target` is the real-world target as NASA (or the best source) states it.
+#     `window` is a normalised year/quarter range for game scheduling.
+#   * Bump `manifest_version` and add a line to changelog.md on every edit.
+#   * Run: python3 tools/validate_manifest.py
+#
+manifest_version: 2
+as_of: "2026-11-07"
+career_goal: >-
+  Permanent crewed lunar base at the lunar south pole, mirroring NASA's
+  three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032,
+  Phase 3 2032+).
+
+# ---------------------------------------------------------------------------
+# Program-level facts the contracts thread should treat as world state.
+# ---------------------------------------------------------------------------
+program_context:
+  - key: gateway_paused
+    fact: >-
+      Lunar Gateway was paused "in its current form" on 2026-03-24 (several outlets
+      call it effectively cancelled). Orion now docks with landers directly; there is
+      no NRHO station in the plan. HALO hardware is being converted by Northrop
+      Grumman into three Lunar Infrastructure Demo (LID) surface missions. PPE is being
+      repurposed as the propulsion element of the SR-1 Freedom nuclear-electric spacecraft
+      (~Dec 2028, not lunar). ESA continues I-Hab through critical design review and decides
+      on repurposing at its Dec 2026 interim ministerial. CSA repurposes Canadarm3 for
+      surface robotics.
+    confidence: confirmed
+    sources: [sfn-2026-03-25, sfn-2026-08-06, sciam-2026-03-24, nsf-2026-03-gateway, esf-2026-06-gateway, mda-2026-08-06]
+  - key: sls_block1_only
+    fact: >-
+      SLS Block 1B, Block 2, the Exploration Upper Stage and Mobile Launcher 2 were
+      cancelled (announced 2026-02-26/27). SLS stays near-Block 1. For Artemis IV NASA
+      is weighing the existing ICPS or a stretched Centaur V upper stage. NASA has
+      said it intends to move crews to commercial launchers after the current SLS
+      flights; which vehicle is not decided.
+    confidence: confirmed
+    sources: [nasa-2026-03-03, satnews-2026-02-27, nasa-2026-11-04]
+  - key: moon_base_program
+    fact: >-
+      NASA "Moon Base" program announced at the Ignition event 2026-03-24: about
+      $20B over seven years (Isaacman; Scientific American reported $30B by 2036),
+      three phases at the south pole. Phase 1 "Now–2029" gain access / experiment /
+      learn; Phase 2 2029–2032 "Build and Expand" (habitats, regular surface ops);
+      Phase 3 2032+ "Live and Work on the Moon" (fission + solar power, crewed and
+      uncrewed rovers, site-prep machines, surface comms network, lunar GPS, relay
+      and observation constellations).
+    confidence: confirmed
+    sources: [sfn-2026-03-25, nasa-moonbase-phases, sciam-2026-03-24]
+  - key: landing_cadence
+    fact: >-
+      Isaacman's stated goal is crewed landings about every six months with at least
+      two lander providers. NASA's March architecture note said "about one lunar
+      mission per year" after Artemis V. Treat two-per-year as the aspiration and
+      one-per-year as the baseline.
+    confidence: likely
+    sources: [sfn-2026-03-25, nasa-2026-03-03]
+  - key: clps_cadence
+    fact: >-
+      Isaacman wants about 10 CLPS deliveries per year for three years starting 2027.
+      CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task
+      order so far has slipped substantially; schedule all robotic missions with slack.
+    confidence: likely
+    sources: [spo-2026-05-26, nasa-2026-05-26]
+  - key: two_lander_strategy
+    fact: >-
+      Both SpaceX Starship HLS and Blue Origin Blue Moon MK2 are in the plan; neither
+      is assigned to a specific landing as of 2026-10-23. Starship reaches the Moon by
+      refuelling in LEO (tanker count estimates range 6–8 to 22) and then carries
+      itself to low lunar orbit to meet Orion. Blue Moon MK2 uses three Blue Moon MK1
+      derived transfer stages to reach an elliptical polar lunar orbit. Each provider
+      must fly one uncrewed landing before a crewed one.
+    confidence: confirmed
+    sources: [nasa-2026-10-23-landers, spo-2026-10-23, satnews-2026-11-03]
+  - key: surface_ops_first_landings
+    fact: >-
+      Two crew descend, two stay in Orion. First landings target two moonwalks
+      totalling about two hours, in a simplified Axiom "sortie" suit.
+    confidence: confirmed
+    sources: [spo-2026-10-23, nasa-2026-11-04]
+  - key: south_pole_site_open
+    fact: >-
+      South pole remains the target. NASA says robotic data is still needed before
+      choosing a crew landing site. A NASEM report (Oct 2026) proposed four non-polar
+      sites; Isaacman called an Apollo-site return "very cool at some point."
+    confidence: likely
+    sources: [spo-2026-10-23]
+  - key: fission_power_2030
+    fact: >-
+      NASA and DOE goal (MOU, Jan 2026): a lunar surface fission reactor by 2030,
+      about 40 kWe class, 10+ year life. NASA paused the draft solicitation to reassess
+      its approach (2026-03-26); no flight award as of 2026-11-07. Treat 2030 as a stretch.
+    confidence: speculative
+    sources: [doe-2026-01, lockheed-fsp-2026, nasa-glenn-fsp]
+  - key: china_competition
+    fact: >-
+      China targets a crewed landing by 2030. Chang'e-7 (south pole orbiter, lander,
+      rover, hopper) was stood down a day before launch in Aug 2026; next window
+      possibly early 2027. Useful as world "pressure" events, not NASA contracts.
+    confidence: likely
+    sources: [ap-2026-08-23, sciam-2026-03-24]
+
+# ---------------------------------------------------------------------------
+# Missions
+# ---------------------------------------------------------------------------
+missions:
+
+  # ---------------- Crewed Artemis line ----------------
+  - id: ARTEMIS-II
+    name: Artemis II
+    category: crewed
+    phase: precursor
+    agency: NASA
+    provider: NASA (SLS / Orion)
+    status: flown
+    confidence: confirmed
+    target: "Launched 2026-04-01, splashdown 2026-04-10"
+    window: {start: 2026-Q2, end: 2026-Q2}
+    launch_vehicle: SLS Block 1 (with ICPS)
+    spacecraft: Orion
+    destination: Lunar free-return flyby
+    crew: [Reid Wiseman (CDR), Victor Glover (PLT), Christina Koch (MS), Jeremy Hansen (MS, CSA)]
+    objectives:
+      - First crewed flight of SLS/Orion; crewed lunar flyby
+      - Set the record for farthest human distance from Earth (passed Apollo 13 on 2026-04-06)
+      - Pacific splashdown off San Diego
+    base_contribution: Validates the crew transport leg every later base mission depends on.
+    game_hooks:
+      - Historical/tutorial contract: crewed lunar free-return flyby with 4 crew and ocean recovery.
+    flight_plan:
+      - "FD1 (Apr 1): launch 6:35 pm EDT from LC-39B; perigee raise; upper-stage apogee raise to ~70,000 km; ~70 min manual proximity ops around the upper stage"
+      - "FD2: translunar injection by Orion's service module (5 min 50 s burn)"
+      - "FD3–5: outbound coast; one 17.5 s correction burn on FD5 (two planned burns cancelled); manual piloting demo on FD4"
+      - "FD6 (Apr 6): far-side flyby at 6,545 km altitude; record 406,771 km from Earth; ~40 min loss of signal"
+      - "FD7–9: return coast with correction burns"
+      - "FD10 (Apr 10): final burn, crew/service module separation, entry, splashdown 8:07 pm EDT off San Diego"
+    sources: [nasa-2026-04-10-fd10, wiki-artemis-ii, nasa-artemis-ii-return]
+
+  - id: STARSHIP-PROP-TRANSFER-DEMO
+    name: Starship orbital propellant transfer demonstration
+    category: robotic
+    phase: precursor
+    agency: SpaceX (for NASA HLS)
+    provider: SpaceX
+    status: planned
+    confidence: likely
+    target: "Early 2027"
+    window: {start: 2027-Q1, end: 2027-Q3}
+    launch_vehicle: Starship / Super Heavy
+    spacecraft: Starship (tanker + receiver or depot)
+    destination: LEO
+    objectives:
+      - Ship-to-ship cryogenic propellant transfer at scale
+    base_contribution: Prerequisite for every Starship lunar landing; same skill a base needs for surface/orbital refuelling.
+    game_hooks:
+      - Rendezvous + transfer N tonnes of LOX/methane between two vessels in LEO; boil-off matters in RP-1.
+    sources: [spo-2026-10-23, satnews-2026-11-03]
+    notes: NASA's Oct 2026 lander page instead says propellant aggregation is shown during the uncrewed demo; sources differ on whether this is a separate flight.
+
+  - id: ARTEMIS-III
+    name: Artemis III
+    category: crewed
+    phase: precursor
+    agency: NASA
+    provider: NASA (SLS / Orion) with SpaceX and Blue Origin test landers
+    status: scheduled
+    confidence: confirmed
+    target: "Mid-2027 (NASA reaffirmed 2026-10-23)"
+    window: {start: 2027-Q2, end: 2027-Q4}
+    launch_vehicle: SLS Block 1 with a spacer in place of the ICPS
+    spacecraft: Orion; Blue Moon MK2 test article; Starship V3 HLS test article
+    destination: Low Earth orbit, ~14 days
+    crew: [Randy Bresnik, Frank Rubio, Andre Douglas, Luca Parmitano (ESA)]
+    objectives:
+      - Blue Origin launches the Blue Moon MK2 test article first (can loiter ~30 days)
+      - Orion docks with Blue Moon around flight day 3; crew enters and tests for ~2 days
+      - Starship test article (passive docking system on its nose) launches ~day 6; Orion docks ~2 hours, no crew entry
+      - Test Axiom AxEMU suit, life support crossover, docking and proximity ops
+    base_contribution: Proves the Orion-to-lander docking every crew rotation to the base will use.
+    game_hooks:
+      - Multi-launch campaign contract: two target vehicles + crew vehicle, dock with both inside one mission.
+      - Bonus for pressurised crew transfer into the first target.
+    dependencies: [STARSHIP-PROP-TRANSFER-DEMO]
+    flight_plan:
+      - "Before launch: Blue Moon MK2 test article launches on New Glenn and is checked out in orbit"
+      - "Orion launches on SLS (no upper stage) to LEO; ~14-day mission, extendable to 17"
+      - "~FD3: Orion docks with Blue Moon; ~2 days of docked tests, crew enters the lander"
+      - "~FD6: Starship V3 test article launches; Orion undocks from Blue Moon and docks with Starship for ~2 hours, no crew entry"
+      - "Remaining test objectives, deorbit and splashdown"
+    sources: [sciam-2026-10-23-a3-schedule, nasa-2026-11-04, spo-2026-10-23, nasa-2026-10-13-stacking]
+    notes: Crew named 2026-06-09. Isaacman called the mid-2027 date "90 days broken to schedule" in September. Booster stacking finished mid-Oct 2026; core stage mated 2026-10-28.
+
+  - id: STARSHIP-HLS-UNCREWED-LANDING
+    name: Starship HLS uncrewed lunar landing demo
+    category: robotic
+    phase: precursor
+    agency: SpaceX (for NASA HLS)
+    provider: SpaceX
+    status: planned
+    confidence: likely
+    target: "Late 2027"
+    window: {start: 2027-Q4, end: 2028-Q2}
+    launch_vehicle: Starship / Super Heavy + tankers
+    spacecraft: Starship HLS
+    destination: Lunar south pole
+    objectives:
+      - Required uncrewed landing before any crewed Starship landing
+    base_contribution: Qualifies the high-mass lander that can later deliver large base hardware.
+    game_hooks:
+      - Uncrewed precision landing at a pole site after LEO refuelling; reward scales with landing accuracy.
+    dependencies: [STARSHIP-PROP-TRANSFER-DEMO]
+    sources: [spo-2026-10-23, nasa-2026-10-23-landers]
+
+  - id: BLUE-MOON-MK2-UNCREWED-LANDING
+    name: Blue Moon MK2 uncrewed lunar landing demo
+    category: robotic
+    phase: precursor
+    agency: Blue Origin (for NASA HLS)
+    provider: Blue Origin
+    status: planned
+    confidence: likely
+    target: "Before its first crewed landing; date not published"
+    window: {start: 2027-Q4, end: 2028-Q3}
+    launch_vehicle: New Glenn
+    spacecraft: Blue Moon MK2 + three MK1-derived transfer stages
+    destination: Lunar south pole
+    objectives:
+      - Required uncrewed landing before a crewed Blue Moon landing
+    base_contribution: Qualifies the second, independent crew lander.
+    game_hooks:
+      - Stack three transfer stages to push a lander into elliptical polar lunar orbit, then land uncrewed.
+    sources: [spo-2026-10-23, nasa-2026-10-23-landers]
+    notes: Date is our inference from the 2028 crewed target; NASA has not published it.
+
+  - id: ARTEMIS-IV
+    name: Artemis IV
+    category: crewed
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: NASA (SLS / Orion) + SpaceX or Blue Origin lander (not yet assigned)
+    status: scheduled
+    confidence: confirmed
+    target: "Early 2028 (NASA: 2028)"
+    window: {start: 2028-Q1, end: 2028-Q4}
+    launch_vehicle: SLS Block 1 (ICPS or stretched Centaur V upper stage, under study)
+    spacecraft: Orion + Starship HLS or Blue Moon MK2
+    destination: Lunar south pole region (final site pending robotic data)
+    crew: [TBD — 4 crew, 2 to the surface]
+    objectives:
+      - First Artemis crewed landing; first humans on the Moon since 1972
+      - Two moonwalks, ~2 hours total, Axiom sortie suit
+      - Use the LTVs delivered in advance (if on the surface)
+    base_contribution: First crewed footprint at the base site; drives LTV and site survey.
+    game_hooks:
+      - Crewed landing contract with two EVA objectives and a minimum surface stay.
+      - Starship path: Orion meets a refuelled lander in Earth orbit, lander performs TLI.
+      - Blue Moon path: rendezvous in elliptical polar lunar orbit.
+    dependencies: [ARTEMIS-III, STARSHIP-HLS-UNCREWED-LANDING, BLUE-MOON-MK2-UNCREWED-LANDING, LTV-DELIVERY]
+    candidate_sites: [SP-PEAK-NEAR-CABEUS-B, SP-HAWORTH, SP-MALAPERT-MASSIF, SP-MONS-MOUTON, SP-MONS-MOUTON-PLATEAU, SP-NOBILE-RIM-1, SP-NOBILE-RIM-2, SP-DE-GERLACHE-RIM-2, SP-SLATER-PLAIN]
+    sources: [nasa-artemis-iv-page, register-2026-03-09-centaur, nasa-2026-11-04, nasa-2026-10-23-landers, spo-2026-10-23, satnews-2026-11-03, nasa-2026-03-03]
+    notes: NASA's Artemis IV page (Mar 2026) says two crew stay about a week near the south pole; the Oct 2026 briefing describes two moonwalks of ~2 hours total. Design contracts for a short stay first, longer optional. ULA was contracted in March 2026 for Centaur V upper stages (Artemis IV, V and a spare); the ICPS-vs-Centaur V choice is expected around summer 2027 and Centaur V needs Mobile Launcher changes. Original contracts gave Artemis III/IV to Starship and V to Blue Moon; NASA now says neither lander is tied to a mission. NASA OIG and GAO have warned 2028 is at risk.
+
+  - id: ARTEMIS-V
+    name: Artemis V
+    category: crewed
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: NASA + whichever lander did not fly Artemis IV (likely)
+    status: scheduled
+    confidence: likely
+    target: "Late 2028 (NASA March plan); Oct 2026 briefing said 2028 for IV and V"
+    window: {start: 2028-Q3, end: 2029-Q2}
+    launch_vehicle: SLS Block 1 (upper stage TBD)
+    spacecraft: Orion + Starship HLS or Blue Moon MK2
+    destination: Lunar south pole
+    crew: [TBD]
+    objectives:
+      - Second crewed landing
+      - NASA (Mar 2026): "when NASA is expected to begin building its Moon base"
+    base_contribution: Start of base construction on the crewed side.
+    game_hooks:
+      - Crewed landing near the previous site; deploy or activate a base element delivered by cargo lander.
+    dependencies: [ARTEMIS-IV]
+    sources: [nasa-2026-03-03, spo-2026-10-23, sfn-2026-03-25]
+    notes: Spaceflight Now (Mar) called a second 2028 landing "possibly"; treat date as soft.
+
+  - id: ARTEMIS-VI
+    name: Artemis VI (projected)
+    category: crewed
+    phase: moon_base_phase_2
+    agency: NASA
+    provider: TBD (NASA intends commercial crew launch after current SLS flights)
+    status: proposed
+    confidence: speculative
+    target: "Not announced. Projection: 2029"
+    window: {start: 2029-Q1, end: 2029-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Longer surface stay, first use of base infrastructure (power, comms)
+    base_contribution: Bridges Phase 1 experiments and Phase 2 build-out.
+    game_hooks:
+      - Crewed landing at the base site with a multi-day stay; requires an active surface power source.
+    dependencies: [ARTEMIS-V]
+    sources: [nasa-2026-03-03, sfn-2026-03-25, nasa-moonbase-phases]
+    notes: Projection only, based on NASA's stated cadence (one to two crewed landings per year).
+
+  - id: ARTEMIS-VII
+    name: Artemis VII (projected)
+    category: crewed
+    phase: moon_base_phase_2
+    agency: NASA
+    provider: TBD
+    status: proposed
+    confidence: speculative
+    target: "Not announced. Projection: 2029–2030"
+    window: {start: 2029-Q3, end: 2030-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Crew rotation using early habitat / pressurised mobility
+    base_contribution: First crew to live in base habitat hardware (Phase 2).
+    game_hooks:
+      - Crew arrives, transfers into a pre-landed habitat, conducts extended EVA with LTV.
+    dependencies: [ARTEMIS-VI]
+    sources: [sfn-2026-03-25, nasa-moonbase-phases]
+    notes: Projection only.
+
+  - id: ARTEMIS-VIII
+    name: Artemis VIII (projected)
+    category: crewed
+    phase: moon_base_phase_2
+    agency: NASA
+    provider: TBD
+    status: proposed
+    confidence: speculative
+    target: "Not announced. Projection: 2030"
+    window: {start: 2030-Q1, end: 2030-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Crewed ops with the first lunar fission reactor (NASA/DOE 2030 goal)
+    base_contribution: Night-survivable power; precondition for permanent occupancy.
+    game_hooks:
+      - Crewed mission timed after reactor activation; contract requires surviving a lunar night on site.
+    dependencies: [ARTEMIS-VII, FISSION-SURFACE-POWER]
+    sources: [doe-2026-01, nasa-moonbase-phases]
+    notes: Projection only.
+
+  # ---------------- Moon Base Phase 1 robotic (CLPS and NASA-led) ----------------
+  - id: MOON-BASE-I
+    name: Moon Base I — Blue Moon MK1 "Endurance"
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Blue Origin
+    status: delayed
+    confidence: likely
+    target: "NET Q1 2027 (was NET fall 2026); depends on New Glenn return to flight"
+    window: {start: 2027-Q1, end: 2027-Q3}
+    launch_vehicle: New Glenn (LC-36)
+    spacecraft: Blue Moon MK1-101 cargo lander
+    destination: Shackleton connecting ridge, lunar south pole
+    payloads: [SCALPSS (plume-surface stereo cameras, Langley), Laser Retroreflector Array (Goddard)]
+    objectives:
+      - First Blue Moon landing; first privately funded lander mission (per Isaacman)
+      - Image plume-surface interaction for later crew landings
+    base_contribution: First hardware at the likely base region; characterises landing ejecta hazards.
+    game_hooks:
+      - Uncrewed cargo landing on the Shackleton ridge; science bonus for plume imaging during descent.
+    dependencies: [NEW-GLENN-RTF]
+    site: SP-CONNECTING-RIDGE
+    sources: [nasa-2026-05-26, nasa-moonbase-phases, sfn-2026-05-29, sfn-2026-08-06-ng, wiki-new-glenn-launches]
+    notes: >-
+      Not launched as of 2026-11-07. New Glenn GS1-3 exploded in a static fire at LC-36 on
+      2026-05-28 (BE-4 main oxygen valve named 2026-08-06). Return to flight reported as early
+      2027 (Reuters, Oct 2026; a secondary report cites a January 2027 internal memo). In Sept
+      2026 NASA said MK1 Pathfinder 1 slipped to 2027.
+
+  - id: NEW-GLENN-RTF
+    name: New Glenn return to flight
+    category: robotic
+    phase: precursor
+    agency: Blue Origin
+    provider: Blue Origin
+    status: delayed
+    confidence: likely
+    target: "Early 2027 (reports cite January 2027)"
+    window: {start: 2027-Q1, end: 2027-Q2}
+    launch_vehicle: New Glenn
+    destination: Earth orbit (first payload reported as Blue Ring 1 or an Amazon Leo batch; unclear)
+    objectives:
+      - Fly again after the 2026-05-28 pad explosion and LC-36 rebuild
+    base_contribution: Gates every Blue Moon MK1 delivery (Moon Base I, VIPER, LTVs) and Blue Moon MK2.
+    game_hooks:
+      - World event, not a player contract. Hold Blue-Origin-delivered contracts until it completes.
+    sources: [sfn-2026-05-29, sfn-2026-08-06-ng, newspace-2026-10-16, wiki-new-glenn-launches]
+    notes: Added in v2 because three NASA lunar deliveries depend on it.
+
+  - id: MOON-BASE-II
+    name: Moon Base II — Griffin-1
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Astrobotic (acquired by Voyager Technologies, agreement signed 2026-06-01)
+    status: scheduled
+    confidence: likely
+    target: "NASA (Oct 2026): late 2026; other reports NET January 2027"
+    window: {start: 2026-Q4, end: 2027-Q2}
+    launch_vehicle: Falcon Heavy (LC-39A)
+    spacecraft: Griffin lander
+    destination: Nobile crater region near Mons Mouton, lunar south pole
+    payloads: [Astrolab FLIP rover, LDES (JSC), Lunar LiDAR Demonstration (Marshall), two LRAs (Goddard), METAL with Interlune (Ames), CubeRover, ESA LandCam-X]
+    objectives:
+      - Deliver a commercial rover to mature mobility for later LTV operations
+    base_contribution: Early surface mobility and resource (helium-3/regolith) prospecting.
+    game_hooks:
+      - Land a lander that deploys a small rover; rover drive-distance objective.
+    site: SP-NOBILE-CRATER
+    sources: [nasa-2026-05-26, nasa-moonbase-phases, nasa-2026-10-20-rovers, wiki-griffin-1]
+    notes: Environmental testing at JPL finished 2026-10-13. Only CLPS mission still aiming for 2026. Not launched as of 2026-11-07.
+
+  - id: MOON-BASE-III
+    name: Moon Base III — IM-3 "Trinity"
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Intuitive Machines
+    status: delayed
+    confidence: likely
+    target: "NET Q1 2027 (NASA, Sept 2026: first part of 2027)"
+    window: {start: 2027-Q1, end: 2027-Q3}
+    launch_vehicle: Falcon 9 (LC-39A)
+    spacecraft: Nova-C lander (CP-11)
+    destination: Reiner Gamma (lunar swirl, near side, non-polar)
+    payloads: [Lunar Vertex (JHU/APL, PRISM) with a Lunar Outpost rover, CADRE rovers, LDES, Altus-1 relay satellite, NavCube3-mini, ESA MoonLIGHT, KASI LUSEM]
+    objectives:
+      - Study lunar swirl magnetism; deploy a relay satellite (12 payloads total per NASA, Aug 2026)
+    base_contribution: First piece of lunar relay/navigation infrastructure.
+    game_hooks:
+      - Land at a non-polar science site, deploy small rovers, and put a relay satellite into lunar orbit.
+    site: NS-REINER-GAMMA
+    sources: [nasa-2026-05-26, nasa-moonbase-phases, wiki-im-3]
+    notes: Not launched as of 2026-11-07.
+
+  - id: CAPSTONE-02
+    name: CAPSTONE 02
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (Space Technology Mission Directorate)
+    provider: Advanced Space (SBIR Phase III), spacecraft by Terran Orbital
+    status: scheduled
+    confidence: likely
+    target: "2027 (announced 2026-07-24; CDR complete Aug 2026)"
+    window: {start: 2027-Q1, end: 2027-Q4}
+    spacecraft: Two ~400 kg spacecraft that can swap chaser and target roles
+    destination: Lunar orbit
+    payloads: [LLNL optical payload, three NASA navigation software suites, CEPS radiation instrument]
+    objectives:
+      - Autonomous rendezvous and proximity operations in lunar orbit, analogous to Orion approaching a lander
+    base_contribution: Navigation and rendezvous experience for crew-to-lander dockings in lunar orbit.
+    game_hooks:
+      - Launch two small spacecraft to lunar orbit; perform rendezvous with each acting as chaser once.
+    sources: [nasa-2026-07-24-capstone2, advancedspace-2026-08]
+
+  - id: BLUE-GHOST-M2
+    name: Blue Ghost Mission 2
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Firefly Aerospace
+    status: delayed
+    confidence: likely
+    target: "NET 2027 (was NET Dec 2026)"
+    window: {start: 2027-Q3, end: 2028-Q2}
+    launch_vehicle: Falcon 9
+    spacecraft: Blue Ghost lander + Elytra Dark orbiter (carries ESA Lunar Pathfinder relay)
+    destination: Lunar far side
+    payloads: [LuSEE-Night radio telescope (NASA/DOE), JPL user terminal, SPIDER (Fleet Space), Rashid Rover 2 (UAE), Volta LightPort (Canada), ESA Lunar Pathfinder (on orbiter)]
+    objectives:
+      - First American far-side landing; far-side radio astronomy for up to 2 years
+    base_contribution: Far-side comms relay experience.
+    game_hooks:
+      - Far-side landing that only works if the relay orbiter is in place first.
+    sources: [nasa-moonbase-phases, wiki-blue-ghost-2, firefly-bgm2]
+    notes: As of Oct 2026 the lander was still waiting on engines and propulsion parts.
+
+  - id: VIPER
+    name: VIPER (Volatiles Investigating Polar Exploration Rover)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Blue Origin (second Blue Moon MK1)
+    status: planned
+    confidence: likely
+    target: "Late 2027"
+    window: {start: 2027-Q4, end: 2028-Q2}
+    launch_vehicle: New Glenn
+    spacecraft: "Blue Moon MK1-102 + VIPER rover"
+    destination: Lunar south pole
+    objectives:
+      - Map subsurface water ice and other volatiles in and near shadowed regions
+    base_contribution: Ice survey that decides where the base and ISRU plant go.
+    game_hooks:
+      - Drive a rover into/near a permanently shadowed region; survey N distinct points with a neutron/drill-style instrument.
+    dependencies: [MOON-BASE-I, NEW-GLENN-RTF]
+    site: SP-MONS-MOUTON
+    sources: [nasa-2025-09-viper, nasa-moonbase-phases, nasa-2026-10-20-rovers]
+    notes: Delivery is an option NASA exercises after reviewing Blue Moon MK1's first flight. NASA (2026-10-20) says VIPER is built and in final testing at JSC. Depends on New Glenn returning to flight.
+
+  - id: LTV-DELIVERY
+    name: Lunar Terrain Vehicle delivery (Astrolab CLV-1 and Lunar Outpost Pegasus)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (LTV Services + CLPS CX-2)
+    provider: Blue Origin (delivery); Astrolab and Lunar Outpost (rovers)
+    status: scheduled
+    confidence: likely
+    target: "2028, before the Artemis IV crew"
+    window: {start: 2027-Q4, end: 2028-Q3}
+    launch_vehicle: New Glenn
+    spacecraft: Blue Moon MK1-103 (cargo)
+    destination: Lunar south pole
+    payloads: ["Astrolab CLV-1 (~2,000 lb, >6 mph)", "Lunar Outpost Pegasus (>9 mph, up to 1 year ops, manual/autonomous/teleoperated)"]
+    objectives:
+      - Pre-position unpressurised crew rovers that also run uncrewed between missions
+    base_contribution: Core surface mobility for every crewed sortie and base logistics.
+    game_hooks:
+      - Deliver a rover, then drive it teleoperated to a rendezvous point near the planned crew landing site.
+    dependencies: [NEW-GLENN-RTF]
+    sources: [nasa-2026-05-26, spo-2026-05-26, nasa-2026-10-20-rovers]
+    notes: Astrolab $219M, Lunar Outpost $220M, Blue Origin delivery $188M (+ $280.4M options). NASA specs (Oct 2026) — up to 3 moonwalks per mission, 80 kg payload, 10 km per charge, 6 km/day uncrewed. PDRs Oct 2026 (Lunar Outpost) and Dec 2026 (Astrolab); flight hardware due end of 2027.
+
+  - id: MOONFALL
+    name: MoonFall
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (JPL)
+    provider: JPL drones; Firefly Elytra Dark carrier
+    status: planned
+    confidence: likely
+    target: "2028"
+    window: {start: 2028-Q1, end: 2028-Q4}
+    spacecraft: Firefly Elytra Dark + 4 propulsive hopping drones
+    destination: Lunar south pole
+    objectives:
+      - Drones separate ~50 km up and land ~1.6 km apart, then hop to scout terrain and landing sites
+      - Aim for each drone to cover ~30 miles by end of 2028
+    base_contribution: High-resolution site survey and base perimeter mapping.
+    game_hooks:
+      - Release multiple small landers from one carrier; each must visit waypoints by hopping.
+    sources: [nasa-2026-05-26, spo-2026-05-26]
+    notes: NASA says four drones; one briefing said three or four. Firefly subcontract $75M excluding launch.
+
+  - id: PEREGRINE-2
+    name: Peregrine Mission Two
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS Moon Base task order)
+    provider: Astrobotic
+    status: planned
+    confidence: likely
+    target: "By end of 2028"
+    window: {start: 2028-Q2, end: 2029-Q1}
+    spacecraft: Peregrine lander
+    destination: Gruithuisen Domes (near side)
+    payloads: [LETS radiation spectrometer, plus two other NASA payloads]
+    base_contribution: Radiation environment data for crew dose planning.
+    game_hooks:
+      - Non-polar science landing; radiation-monitoring experiment running for N days.
+    site: NS-GRUITHUISEN-GAMMA
+    sources: [astrobotic-2026-06-30, wiki-clps]
+    notes: Site per Astrobotic's June 2026 release; Wikipedia lists no site, and Gruithuisen was also Peregrine Mission One's (failed) target. Re-check.
+
+  - id: PEREGRINE-3
+    name: Peregrine Mission Three
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS Moon Base task order)
+    provider: Astrobotic
+    status: planned
+    confidence: likely
+    target: "By end of 2028"
+    window: {start: 2028-Q2, end: 2029-Q1}
+    spacecraft: Peregrine lander
+    destination: Gruithuisen Domes (near side)
+    payloads: [three NASA-sponsored payloads]
+    base_contribution: Science and environment data.
+    game_hooks:
+      - Second landing at the same site; precision landing near Peregrine-2.
+    site: NS-GRUITHUISEN-GAMMA
+    sources: [astrobotic-2026-06-30, wiki-clps]
+    notes: Same site caveat as PEREGRINE-2.
+
+  - id: CLPS-2028-OTHER
+    name: Firefly and Intuitive Machines Moon Base deliveries (late 2028)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Firefly Aerospace (one Blue Ghost, $144.2M) and Intuitive Machines (one Nova-C, $148.3M)
+    status: planned
+    confidence: likely
+    target: "Late 2028"
+    window: {start: 2028-Q3, end: 2029-Q2}
+    destination: Not announced
+    payloads: [SCALPSS, LRA, LETS (same three NASA instruments on each of the four June 2026 awards)]
+    objectives:
+      - Two more deliveries from the 2026-06-30 award (the other two are PEREGRINE-2 and PEREGRINE-3)
+    base_contribution: Plume, navigation and radiation data at more sites before crews land.
+    game_hooks:
+      - Generic CLPS delivery contract (see clps_template); two instances, different providers.
+    sources: [nasa-2026-06-30-clps, astrobotic-2026-06-30]
+    notes: One entry covers two missions until NASA names them or their sites. NASA also mentioned a plan for 17 surface deliveries and a lunar relay constellation in the same release.
+
+  - id: LID-1
+    name: Lunar Infrastructure Demo 1 (HALO-derived)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: Northrop Grumman
+    status: planned
+    confidence: likely
+    target: "Phase 1 (now–2029); dates not stated"
+    window: {start: 2028-Q1, end: 2029-Q4}
+    destination: Lunar south pole surface
+    objectives:
+      - Reuse Gateway HALO technology for surface power, thermal control, autonomy, comms and hosted payloads
+      - Survive the lunar night
+    base_contribution: "First base \"utility\" node: power, thermal, comms."
+    game_hooks:
+      - Land a utility module that must stay powered and above minimum temperature through a lunar night.
+    sources: [sfn-2026-08-06]
+
+  - id: LID-2
+    name: Lunar Infrastructure Demo 2 (HALO-derived)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: Northrop Grumman
+    status: planned
+    confidence: likely
+    target: "Phase 1 (now–2029); dates not stated"
+    window: {start: 2028-Q3, end: 2029-Q4}
+    destination: Lunar south pole surface
+    objectives: [Second HALO-derived infrastructure demo]
+    base_contribution: Expands the utility node network.
+    game_hooks: [Land within N km of LID-1 and link power/comms.]
+    dependencies: [LID-1]
+    sources: [sfn-2026-08-06]
+
+  - id: LID-3
+    name: Lunar Infrastructure Demo 3 (HALO-derived)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: Northrop Grumman
+    status: planned
+    confidence: likely
+    target: "Phase 1 (now–2029); dates not stated"
+    window: {start: 2029-Q1, end: 2029-Q4}
+    destination: Lunar south pole surface
+    objectives: [Third HALO-derived infrastructure demo]
+    base_contribution: Completes the Phase 1 utility demo set.
+    game_hooks: [Land a third node; network of three must be simultaneously powered.]
+    dependencies: [LID-2]
+    sources: [sfn-2026-08-06]
+
+  - id: BLUE-GHOST-M3
+    name: Blue Ghost Mission 3
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (CLPS)
+    provider: Firefly Aerospace
+    status: planned
+    confidence: likely
+    target: "2028"
+    window: {start: 2028-Q1, end: 2029-Q2}
+    destination: Gruithuisen Domes (near side)
+    base_contribution: Science on non-mare volcanism; extra CLPS delivery capacity.
+    game_hooks: [CLPS delivery to the Gruithuisen Domes.]
+    site: NS-GRUITHUISEN-GAMMA
+    sources: [spacenexus-clps, nasa-2026-06-30-clps]
+    notes: Awarded Dec 2024 ($179.6M) to the Gruithuisen Domes. Separate from Firefly's June 2026 Moon Base award.
+
+  # ---------------- Phase 2 and power ----------------
+  - id: FISSION-SURFACE-POWER
+    name: Lunar Fission Surface Power reactor
+    category: robotic
+    phase: moon_base_phase_2
+    agency: NASA + DOE
+    provider: "TBD (prior design studies: Lockheed Martin, Westinghouse, IX (Intuitive Machines/X-energy))"
+    status: planned
+    confidence: speculative
+    target: "By 2030 (NASA/DOE goal); procurement being reassessed"
+    window: {start: 2030-Q1, end: 2032-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - ~40 kWe reactor operating continuously for 10+ years
+    base_contribution: The single most important enabler of permanent occupancy (lunar night and shadowed regions).
+    game_hooks:
+      - Deliver a heavy reactor, place it a safe distance from the habitat site, run cable, activate.
+    sources: [doe-2026-01, lockheed-fsp-2026, sciam-2026-03-24, nasa-glenn-fsp, spo-fy2026-approps]
+    notes: On 2026-03-26 NASA said it would reassess the development approach and set the draft Space Act Agreement solicitation inactive. A NASA-DOE space nuclear MOU took effect 2026-11-01. FY2026 appropriations include $250M. No flight award, so 2030 is now a stretch; downgraded to speculative in v2.
+
+  - id: MOON-BASE-PHASE-2-HABITAT
+    name: First surface habitat (Phase 2 "Build and Expand")
+    category: robotic
+    phase: moon_base_phase_2
+    agency: NASA + partners
+    provider: TBD
+    status: proposed
+    confidence: speculative
+    target: "Phase 2 (2029–2032)"
+    window: {start: 2029-Q3, end: 2032-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Habitat and infrastructure supporting regular astronaut operations
+    base_contribution: The base itself.
+    game_hooks:
+      - Cargo landing of a habitat module; later crewed contract to occupy it for N days.
+    sources: [nasa-moonbase-phases, sfn-2026-03-25]
+    notes: NASA has published phase goals, not hardware. Re-check for I-Hab repurposing and partner (ESA/JAXA/CSA) contributions.
+
+  - id: JAXA-PRESSURIZED-ROVER
+    name: JAXA/Toyota pressurised rover ("Lunar Cruiser")
+    category: robotic
+    phase: moon_base_phase_2
+    agency: JAXA
+    provider: Toyota
+    status: planned
+    confidence: speculative
+    target: "Toyota: JAXA hopes for 2029 launch; older JAXA material: 2031, for Artemis VII+"
+    window: {start: 2029-Q3, end: 2031-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Pressurised crew rover for multi-day traverses without suits
+    base_contribution: Long-range crewed mobility; a mobile habitat before fixed habitats exist.
+    game_hooks:
+      - Deliver a pressurised rover; crew lives in it for N days on a traverse between two sites.
+    sources: [toyota-lunar-cruiser, jst-2024-lunar-cruiser]
+    notes: Japan's 2024 agreement with NASA trades this rover for crew seats. No 2026 re-baseline found.
+
+  - id: LUNAR-RELAY-CONSTELLATION
+    name: NASA lunar comms and navigation relay constellation
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA
+    provider: TBD
+    status: proposed
+    confidence: speculative
+    target: "Planned (June 2026 release); no dates"
+    window: {start: 2028-Q1, end: 2030-Q4}
+    destination: Lunar orbit
+    objectives:
+      - Relay and navigation coverage for south-pole and far-side operations (Phase 3 adds a lunar GPS)
+    base_contribution: Continuous comms with the base and rovers; enables teleoperation.
+    game_hooks:
+      - Place N relay satellites so a south-pole site has continuous coverage.
+    sources: [nasa-2026-06-30-clps, sfn-2026-03-25]
+    notes: Only announced as a plan. ESA is studying its Lunar Link element as part of Moonlight.
+
+  - id: CANADARM3-SURFACE
+    name: Canadarm3 repurposed for surface robotics
+    category: robotic
+    phase: moon_base_phase_2
+    agency: CSA
+    provider: MDA Space
+    status: proposed
+    confidence: speculative
+    target: "Announced Aug 2026; no dates"
+    window: {start: 2029-Q1, end: 2032-Q4}
+    destination: Lunar south pole base site
+    objectives:
+      - Surface robotic arm for cargo handling, infrastructure, inspection and crew assistance
+    base_contribution: Unloading landers and assembling base elements.
+    game_hooks:
+      - Deliver a robotic arm module; later contracts require unloading cargo landers without EVA.
+    sources: [mda-2026-08-06, spaceq-canadarm3]
+    notes: Repurposed from the paused Gateway. CSA's separate lunar utility rover is still in concept studies.
+
+# ---------------------------------------------------------------------------
+# Landing sites. Selenographic degrees, longitude east-positive (-180..180), south negative.
+# NASA has not published centre points for its candidate regions; most points below are
+# centres of the LROC NAC mosaics NASA commissioned for each region. `precision` says how
+# far to trust the point: high (published aim point/feature centre), medium (mosaic centre),
+# low (estimated). Contracts should use a landing radius of a few km for low/medium points.
+# ---------------------------------------------------------------------------
+sites:
+  - {id: SP-CONNECTING-RIDGE, name: "Shackleton connecting ridge (Shackleton–de Gerlache ridge)", lat: -89.5, lon: -135.5, precision: medium, role: "Moon Base I target; recommended base anchor point", basis: "Centre of LROC NAC_DTM_SHACKRDGE02 (lat -89.63..-89.37, lon 209.8..239.1 E)", sources: [lroc-rdr]}
+  - {id: SP-PEAK-NEAR-CABEUS-B, name: Peak near Cabeus B, lat: -83.6, lon: -68.8, precision: medium, role: Artemis candidate region (2024), basis: LROC mosaic centre, sources: [nasa-2024-10-regions, lroc-rdr]}
+  - {id: SP-HAWORTH, name: Haworth, lat: -86.7, lon: -23.7, precision: medium, role: Artemis candidate region (2024), basis: LROC mosaic centre, sources: [nasa-2024-10-regions, lroc-rdr]}
+  - {id: SP-MALAPERT-MASSIF, name: Malapert Massif, lat: -86.0, lon: 0.3, precision: medium, role: Artemis candidate region (2024), basis: LROC mosaic centre, sources: [nasa-2024-10-regions, lroc-rdr]}
+  - {id: SP-MONS-MOUTON, name: Mons Mouton (VIPER mission area), lat: -85.42088, lon: 31.6218, precision: high, role: "Artemis candidate region (2024); VIPER traverse area; Griffin's original site", basis: "VIPER site analysis paper; ~5x4 km area on the south edge of Mons Mouton", sources: [nasa-2024-10-regions, psj-viper-site]}
+  - {id: SP-MONS-MOUTON-PLATEAU, name: Mons Mouton Plateau, lat: -84.6, lon: 31.0, precision: low, role: Artemis candidate region (2024), basis: Mountain summit position, sources: [nasa-2024-10-regions, wiki-mons-mouton]}
+  - {id: SP-NOBILE-RIM-1, name: Nobile Rim 1, lat: -85.4, lon: 39.0, precision: low, role: Artemis candidate region (2024), basis: "Eastern part of LROC combined Mouton/Nobile mosaic; estimated", sources: [nasa-2024-10-regions, lroc-rdr]}
+  - {id: SP-NOBILE-RIM-2, name: Nobile Rim 2, lat: -83.9, lon: 58.7, precision: medium, role: Artemis candidate region (2024), basis: "LROC mosaic centre; a 2024 study's top site is -84.2016, 60.6999", sources: [nasa-2024-10-regions, lroc-rdr, arxiv-2406-19863]}
+  - {id: SP-DE-GERLACHE-RIM-2, name: de Gerlache Rim 2, lat: -88.5, lon: -66.7, precision: low, role: Artemis candidate region (2024), basis: "Centre of LROC de Gerlache Rim mosaic covering Rim 1 and 2", sources: [nasa-2024-10-regions, lroc-rdr]}
+  - {id: SP-SLATER-PLAIN, name: Slater Plain, lat: -87.9, lon: 115.0, precision: low, role: Artemis candidate region (2024), basis: "~20 km NE of Slater crater (-88.08, 111.29); estimated", sources: [nasa-2024-10-regions, jgr-2026-slater]}
+  - {id: SP-PEAK-NEAR-SHACKLETON, name: Peak near Shackleton, lat: -88.8, lon: 124.7, precision: medium, role: "2022 candidate region, dropped from the 2024 list", basis: LROC mosaic centre, sources: [lroc-rdr]}
+  - {id: SP-NOBILE-CRATER, name: Nobile crater region, lat: -85.28, lon: 53.27, precision: low, role: "Griffin-1 target region (no aim point published)", basis: Nobile crater centre, sources: [wiki-griffin-1]}
+  - {id: NS-REINER-GAMMA, name: Reiner Gamma (Lunar Vertex site), lat: 7.585, lon: -58.725, precision: high, role: Moon Base III (IM-3) target, basis: "Lunar Vertex team's chosen site, north edge of the central bright oval", sources: [wiki-reiner-gamma, jhuapl-lunar-vertex]}
+  - {id: NS-GRUITHUISEN-GAMMA, name: Gruithuisen Domes (Mons Gruithuisen Gamma), lat: 36.45715, lon: -40.79602, precision: high, role: "Blue Ghost M3 target; Peregrine 2/3 per Astrobotic", basis: "Lunar-VISE 100 m landing ellipse near the summit", sources: [psj-lunar-vise, firefly-bgm3]}
+
+# ---------------------------------------------------------------------------
+# Repeatable contract template derived from NASA's CLPS model.
+# ---------------------------------------------------------------------------
+clps_template:
+  description: >-
+    NASA buys delivery as a service: a commercial provider carries NASA payloads to a
+    named site for a fixed price. Most CLPS missions slip. Good fit for a recurring,
+    procedurally generated contract the player can fulfil as "the provider".
+  parameters:
+    - payload_mass_kg: 20–500 (Phase 1), larger later
+    - site: from destinations above, weighted toward south pole
+    - deadline: generous; late delivery reduces reward rather than failing
+    - bonus: precision landing radius, surviving the lunar night, deploying a rover
+
+# ---------------------------------------------------------------------------
+# Sources (accessed 2026-11-06 unless noted)
+# ---------------------------------------------------------------------------
+sources:
+  nasa-2026-11-04: {title: "NASA Shares Plans to Accelerate Artemis, Return to Moon", url: "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/", publisher: NASA, date: 2026-11-04}
+  nasa-2026-10-23-landers: {title: "NASA, Partners Accelerate Lander Development for 2028 Moon Missions", url: "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/", publisher: NASA, date: 2026-10-23}
+  nasa-2026-10-23-blog: {title: "NASA Shares Artemis Acceleration Plans for Moon Missions", url: "https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/", publisher: NASA, date: 2026-10-23}
+  nasa-2026-10-13-stacking: {title: "NASA Completes Artemis III Booster Stacking, Shares Status Update", url: "https://www.nasa.gov/blogs/missions/2026/10/13/nasa-completes-artemis-iii-booster-stacking-shares-status-update/", publisher: NASA, date: 2026-10-13}
+  nasa-2026-05-26: {title: "NASA Provides Update on Moon Base Rovers, Landers, Missions", url: "https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/", publisher: NASA, date: 2026-05-26}
+  nasa-2026-03-03: {title: "NASA Strengthens Artemis: Adds Mission, Refines Overall Architecture", url: "https://www.nasa.gov/directorates/esdmd/nasa-strengthens-artemis-adds-mission-refines-overall-architecture/", publisher: NASA, date: 2026-03-03}
+  nasa-moonbase-phases: {title: "Moon Base Phases", url: "https://www.nasa.gov/moonbase-phases/", publisher: NASA, date: 2026-10}
+  nasa-moonbase-about: {title: "Moon Base", url: "https://www.nasa.gov/reference/moonbase-about/", publisher: NASA, date: 2026}
+  nasa-artemis-ii-return: {title: "NASA Welcomes Record-Setting Artemis II Moonfarers Back to Earth", url: "https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/", publisher: NASA, date: 2026-04}
+  nasa-2025-09-viper: {title: "NASA Selects Blue Origin to Deliver VIPER Rover to Moon's South Pole", url: "https://www.nasa.gov/news-release/nasa-selects-blue-origin-to-deliver-viper-rover-to-moons-south-pole/", publisher: NASA, date: 2025-09}
+  doe-2026-01: {title: "U.S. Department of Energy and NASA to Develop Lunar Surface Reactor by 2030", url: "https://www.energy.gov/articles/us-department-energy-and-nasa-develop-lunar-surface-reactor-2030", publisher: DOE, date: 2026-01}
+  lockheed-fsp-2026: {title: "Fission Surface Power - Endless Power in the Lunar Night", url: "https://www.lockheedmartin.com/en-us/news/features/2026/fission-surface-power-endless-power-in-the-lunar-night.html", publisher: Lockheed Martin, date: 2026}
+  spo-2026-10-23: {title: "NASA is Full Steam Ahead on Artemis III, IV and V", url: "https://spacepolicyonline.com/news/nasa-is-full-steam-ahead-on-artemis-iii-iv-and-v/", publisher: SpacePolicyOnline, date: 2026-10-23}
+  spo-2026-05-26: {title: "NASA Awards Initial Moon Base Rover and Lander Contracts", url: "https://spacepolicyonline.com/news/nasa-awards-initial-moon-base-rover-and-lander-contracts/", publisher: SpacePolicyOnline, date: 2026-05-26}
+  sfn-2026-03-25: {title: "NASA outlines ambitious $20 billion plan for moon base", url: "https://spaceflightnow.com/2026/03/25/nasa-outlines-ambitious-20-billion-plan-for-moon-base/", publisher: Spaceflight Now, date: 2026-03-25}
+  sfn-2026-08-06: {title: "NASA, Northrop Grumman repurpose Gateway elements for Moon Base demo missions", url: "https://spaceflightnow.com/2026/08/06/nasa-northrop-grumman-repurpose-gateway-elements-for-moon-base-demo-missions/", publisher: Spaceflight Now, date: 2026-08-06}
+  sciam-2026-03-24: {title: "NASA unveils ambitious new moon base plans", url: "https://www.scientificamerican.com/article/nasa-unveils-new-ambitious-moon-base-plans/", publisher: Scientific American, date: 2026-03-24}
+  satnews-2026-02-27: {title: "NASA Overhauls Artemis Program: Scraps SLS Upgrades, Adds 2027 LEO Test Mission", url: "https://satnews.com/2026/02/27/nasa-overhauls-artemis-program-scraps-sls-upgrades-adds-2027-leo-test-mission/", publisher: SatNews, date: 2026-02-27}
+  satnews-2026-11-03: {title: "NASA Outlines Artemis IV Starship Refueling Architecture as Launch Estimates Vary", url: "https://satnews.com/2026/11/03/nasa-graphic-outlines-artemis-iv-starship-refueling-architecture-as-launch-estimates-vary/", publisher: SatNews, date: 2026-11-03}
+  astrobotic-2026-06-30: {title: "Astrobotic Awarded 2 NASA Contracts for CLPS Moon Base Missions", url: "https://www.astrobotic.com/astrobotic-awarded-2-nasa-contracts-for-clps-moon-base-missions/", publisher: Astrobotic, date: 2026-06-30}
+  spacenexus-clps: {title: "NASA CLPS tracker", url: "https://spacenexus.us/programs/clps", publisher: SpaceNexus (secondary tracker), date: 2026-09}
+  wiki-clps: {title: "Commercial Lunar Payload Services", url: "https://en.wikipedia.org/wiki/Commercial_Lunar_Payload_Services", publisher: Wikipedia, date: 2026-11}
+  wiki-artemis-ii: {title: "Artemis II", url: "https://en.wikipedia.org/wiki/Artemis_II", publisher: Wikipedia, date: 2026-11}
+  ap-2026-08-23: {title: "China abruptly postpones ambitious Chang'e-7 lunar mission launch", url: "https://www.local10.com/tech/2026/08/23/china-abruptly-postpones-ambitious-change-7-lunar-mission-launch/", publisher: Associated Press, date: 2026-08-23}
+  sfn-2026-05-29: {title: "Blue Origin's New Glenn rocket explodes during prelaunch testing at Cape Canaveral", url: "https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/", publisher: Spaceflight Now, date: 2026-05-29}
+  sfn-2026-08-06-ng: {title: "Blue Origin identifies engine issue behind New Glenn explosion", url: "https://spaceflightnow.com/2026/08/06/blue-origin-identifies-engine-issue-behind-new-glenn-explosion/", publisher: Spaceflight Now, date: 2026-08-06}
+  newspace-2026-10-16: {title: "Why is Blue Origin's New Glenn rocket now expected to return to flight in 2027?", url: "https://newspaceeconomy.ca/2026/10/16/why-is-blue-origins-new-glenn-rocket-now-expected-to-return-to-flight-in-2027/", publisher: New Space Economy (citing Reuters), date: 2026-10-16}
+  wiki-new-glenn-launches: {title: "List of New Glenn launches", url: "https://en.wikipedia.org/wiki/List_of_New_Glenn_launches", publisher: Wikipedia, date: 2026-11}
+  wiki-griffin-1: {title: "Griffin Mission One", url: "https://en.wikipedia.org/wiki/Griffin_Mission_One", publisher: Wikipedia, date: 2026-11-05}
+  wiki-im-3: {title: "IM-3", url: "https://en.wikipedia.org/wiki/IM-3", publisher: Wikipedia, date: 2026-11}
+  wiki-blue-ghost-2: {title: "Blue Ghost Mission 2", url: "https://en.wikipedia.org/wiki/Blue_Ghost_Mission_2", publisher: Wikipedia, date: 2026-11}
+  firefly-bgm2: {title: "Blue Ghost Mission 2", url: "https://fireflyspace.com/missions/blue-ghost-mission-2/", publisher: Firefly Aerospace, date: 2026}
+  nasa-2026-10-20-rovers: {title: "NASA Provides Progress Update on Moon Base Rovers", url: "https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/", publisher: NASA, date: 2026-10-20}
+  nasa-2026-06-30-clps: {title: "NASA Awards More Moon Base Science, Previews New Opportunities", url: "https://www.nasa.gov/news-release/nasa-awards-more-moon-base-science-previews-new-opportunities/", publisher: NASA, date: 2026-06-30}
+  nasa-2026-07-24-capstone2: {title: "NASA Announces New Spacecraft Technology Demonstration Mission at Moon", url: "https://www.nasa.gov/directorates/rtmd/nasa-announces-new-spacecraft-technology-demonstration-mission-at-moon/", publisher: NASA, date: 2026-07-24}
+  advancedspace-2026-08: {title: "Advanced Space Completes Critical Design Review Milestone for CAPSTONE 02", url: "https://advancedspace.com/advanced-space-completes-critical-design-review-milestone-for-capstone-02/", publisher: Advanced Space, date: 2026-08}
+  nasa-glenn-fsp: {title: "Fission Surface Power", url: "https://www.nasa.gov/glenn/fsps", publisher: NASA, date: 2026}
+  spo-fy2026-approps: {title: "Great News for NASA in the House-Senate FY2026 Appropriations Report", url: "https://spacepolicyonline.com/news/great-news-for-nasa-in-the-house-senate-fy2026-appropriations-report/", publisher: SpacePolicyOnline, date: 2026}
+  register-2026-03-09-centaur: {title: "NASA picks Centaur V for SLS", url: "https://www.theregister.com/2026/03/09/nasa_centaur_v_sls/", publisher: The Register, date: 2026-03-09}
+  nsf-2026-03-gateway: {title: "NASA Moon Base pivots away from Gateway", url: "https://www.nasaspaceflight.com/2026/03/nasa-moon-base-pivots-gateway/", publisher: NASASpaceFlight, date: 2026-03-24}
+  esf-2026-06-gateway: {title: "ESA details next steps for agency's Gateway contributions", url: "https://europeanspaceflight.com/esa-details-next-steps-for-agencys-gateway-contributions/", publisher: European Spaceflight, date: 2026-06}
+  mda-2026-08-06: {title: "MDA Space responds to Canadian Space Agency announcement on Canadarm3", url: "https://mda.space/article/mda-space-responds-to-canadian-space-agency-announcement-on-canadarm3", publisher: MDA Space, date: 2026-08-06}
+  spaceq-canadarm3: {title: "Canadian Space Agency confirms continuation of Canadarm3 space robotics program", url: "https://spaceq.ca/canadian-space-agency-confirms-continuation-of-canadarm3-space-robotics-program/", publisher: SpaceQ, date: 2026-08}
+  toyota-lunar-cruiser: {title: "Toyota Times: Lunar Cruiser (target launch 2029)", url: "https://toyotatimes.jp/en/toyota_news/1039.html", publisher: Toyota Times, date: 2023}
+  jst-2024-lunar-cruiser: {title: "Toyota pressurized lunar rover feature", url: "https://sj.jst.go.jp/stories/2024/s0124-01p.html", publisher: JST Science Japan, date: 2024-01}
+  nasa-2024-10-regions: {title: "NASA Provides Update on Artemis III Moon Landing Regions", url: "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/", publisher: NASA, date: 2024-10-28}
+  lroc-rdr: {title: "LROC NAC reduced data records (regional mosaics and DTMs)", url: "https://data.lroc.im-ldi.com/lroc/view_rdr/", publisher: Arizona State University LROC, date: 2026}
+  arxiv-2406-19863: {title: "Landing site analysis, Nobile Rim 2", url: "https://arxiv.org/pdf/2406.19863", publisher: Acta Astronautica (preprint), date: 2024}
+  jgr-2026-slater: {title: "Wueller et al., Slater Plain", url: "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025JE009434", publisher: JGR Planets, date: 2026}
+  psj-viper-site: {title: "VIPER Site Analysis", url: "https://iopscience.iop.org/article/10.3847/PSJ/ae061a", publisher: Planetary Science Journal, date: 2025}
+  wiki-mons-mouton: {title: "Mons Mouton", url: "https://en.wikipedia.org/wiki/Mons_Mouton", publisher: Wikipedia, date: 2026-11}
+  wiki-reiner-gamma: {title: "Reiner Gamma", url: "https://en.wikipedia.org/wiki/Reiner_Gamma", publisher: Wikipedia, date: 2026-11}
+  jhuapl-lunar-vertex: {title: "Lunar Vertex", url: "https://www.jhuapl.edu/news/news-releases/211118b-lunar-vertex", publisher: JHU APL, date: 2021-11-18}
+  psj-lunar-vise: {title: "Lunar-VISE landing site paper", url: "https://iopscience.iop.org/article/10.3847/PSJ/ae7d2c", publisher: Planetary Science Journal, date: 2026}
+  firefly-bgm3: {title: "Blue Ghost Mission 3", url: "https://fireflyspace.com/missions/blue-ghost-mission-3/", publisher: Firefly Aerospace, date: 2026}
+  nasa-artemis-iv-page: {title: "Artemis IV", url: "https://www.nasa.gov/mission/artemis-iv/", publisher: NASA, date: 2026-03-16}
+  sciam-2026-10-23-a3-schedule: {title: "NASA lays out a packed 14-day schedule for 2027's Artemis III moon mission", url: "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/", publisher: Scientific American, date: 2026-10-23}
+  nasa-2026-04-10-fd10: {title: "Artemis II Flight Day 10: Crew Sets for Final Burn, Splashdown", url: "https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-crew-sets-for-final-burn-splashdown/", publisher: NASA, date: 2026-04-10}

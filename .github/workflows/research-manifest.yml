@@ -1,0 +1,36 @@
+name: Research manifest
+
+on:
+  pull_request:
+    paths:
+      - "docs/research/**"
+      - "tools/*manifest*.py"
+      - "tools/check_contract_coverage.py"
+      - "contracts/manifest/**"
+      - ".github/workflows/research-manifest.yml"
+  push:
+    branches: [main]
+    paths:
+      - "docs/research/**"
+      - "contracts/manifest/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml==6.0.2
+      - name: Validate manifest
+        run: python3 tools/validate_manifest.py
+      - name: Generated files up to date
+        run: python3 tools/render_manifest.py --check
+      - name: Contract coverage
+        run: python3 tools/check_contract_coverage.py
+      - name: Unit tests
+        run: python3 -m unittest tools/test_manifest_tools.py
