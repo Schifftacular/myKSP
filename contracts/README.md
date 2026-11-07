@@ -57,10 +57,11 @@ Run `python3 tools/validate_contracts.py --tree` for the exact graph.
   `ModuleGenerator`, `ModuleResourceHarvester`, wheel modules) and crew
   capacity so any craft that does the job qualifies, including procedural or
   unreachable-in-career Orion/Starship parts being swapped out.
-- **One base site everywhere:** Shackleton connecting ridge, approx.
-  89.45 S 137.5 W (Moon Base I's real target). Reactor site 1.5 km away for
-  radiation standoff. Coordinates are approximate; RSS polar terrain is coarser
-  than LOLA.
+- **One base site everywhere:** manifest site SP-CONNECTING-RIDGE,
+  89.5 S 135.5 W (Moon Base I's real target, medium precision). Reactor site
+  1.5 km away for radiation standoff. Every surface point comes from manifest
+  `sites[]` (v2); first landings at medium/low-precision sites allow 3 km.
+  Artemis IV may land at any of NASA's nine 2024 candidate regions.
 - **Physics stand-ins, labelled.** RSS uses patched conics, so a true NRHO or
   Artemis I's DRO cannot exist. Artemis I is a high retrograde lunar orbit.
   No Gateway contracts: the manifest records Gateway as paused (2026-03-24).
