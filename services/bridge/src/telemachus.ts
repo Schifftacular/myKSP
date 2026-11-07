@@ -39,13 +39,31 @@ export class TelemachusClient {
     this.connect();
   }
 
-  stop() {
+  /**
+   * Leave Telemachus politely: unsubscribe, send a WebSocket close frame and wait for its reply.
+   * An abrupt TCP drop makes Telemachus's websocket-sharp log a Fatal mid-frame, and on 2026-11-07
+   * KSP crashed seconds after such a drop and a reconnect, so never just terminate an open socket.
+   */
+  stop(): Promise<void> {
     this.stopped = true;
     if (this.timer) clearTimeout(this.timer);
-    this.ws?.removeAllListeners();
-    this.ws?.terminate();
+    const ws = this.ws;
     this.ws = null;
     this.setStatus({ connected: false, reconnectInMs: null });
+    if (!ws) return Promise.resolve();
+    ws.removeAllListeners();
+    ws.on('error', () => {});
+    if (ws.readyState === WebSocket.CONNECTING) { ws.terminate(); return Promise.resolve(); }
+    if (ws.readyState !== WebSocket.OPEN) return Promise.resolve();
+    return new Promise((resolve) => {
+      const done = () => { clearTimeout(t); resolve(); };
+      const t = setTimeout(() => { ws.terminate(); resolve(); }, 2000);
+      ws.once('close', done);
+      try {
+        ws.send(JSON.stringify({ '-': [...TELEMACHUS_KEYS, ...stageKeys(this.subscribedStages)] }));
+        ws.close(1000, 'myKSP bridge shutting down');
+      } catch { ws.terminate(); done(); }
+    });
   }
 
   private setStatus(p: Partial<TelemachusStatus>) {

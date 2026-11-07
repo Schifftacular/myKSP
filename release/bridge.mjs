@@ -11949,13 +11949,44 @@ var TelemachusClient = class {
     this.stopped = false;
     this.connect();
   }
+  /**
+   * Leave Telemachus politely: unsubscribe, send a WebSocket close frame and wait for its reply.
+   * An abrupt TCP drop makes Telemachus's websocket-sharp log a Fatal mid-frame, and on 2026-11-07
+   * KSP crashed seconds after such a drop and a reconnect, so never just terminate an open socket.
+   */
   stop() {
     this.stopped = true;
     if (this.timer) clearTimeout(this.timer);
-    this.ws?.removeAllListeners();
-    this.ws?.terminate();
+    const ws = this.ws;
     this.ws = null;
     this.setStatus({ connected: false, reconnectInMs: null });
+    if (!ws) return Promise.resolve();
+    ws.removeAllListeners();
+    ws.on("error", () => {
+    });
+    if (ws.readyState === wrapper_default.CONNECTING) {
+      ws.terminate();
+      return Promise.resolve();
+    }
+    if (ws.readyState !== wrapper_default.OPEN) return Promise.resolve();
+    return new Promise((resolve) => {
+      const done = () => {
+        clearTimeout(t);
+        resolve();
+      };
+      const t = setTimeout(() => {
+        ws.terminate();
+        resolve();
+      }, 2e3);
+      ws.once("close", done);
+      try {
+        ws.send(JSON.stringify({ "-": [...TELEMACHUS_KEYS, ...stageKeys(this.subscribedStages)] }));
+        ws.close(1e3, "myKSP bridge shutting down");
+      } catch {
+        ws.terminate();
+        done();
+      }
+    });
   }
   setStatus(p) {
     this.status = { ...this.status, ...p };
@@ -12552,12 +12583,15 @@ server.listen(cfg.port, cfg.host, () => {
   telemachus.start();
   if (mode !== "live") setMode(mode, { speed: cfg.simSpeed }).catch((e) => console.error("[bridge]", e.message));
 });
-function shutdown() {
+var shuttingDown = false;
+async function shutdown() {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  setTimeout(() => process.exit(0), 4e3).unref();
   stopSource?.();
-  telemachus.stop();
+  await telemachus.stop();
   recorder.close();
   server.close(() => process.exit(0));
-  setTimeout(() => process.exit(0), 1e3).unref();
 }
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);

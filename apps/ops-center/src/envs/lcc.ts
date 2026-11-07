@@ -41,6 +41,11 @@ const MILESTONES: [number, string][] = [
 ];
 
 /** Count clock: game UT while KSP reports it (time warp moves the count), else wall time. */
+/** The vessel has a situation and it is not on the ground (pre-launch, landed or splashed). */
+function inFlight(ctx: Ctx) {
+  const sit = ctx.store.frame?.vessel.situation;
+  return !!sit && ctx.store.frame?.paused !== 5 && !/pre.?launch|landed|splash/i.test(sit) && st.count.state !== 'counting' && st.count.state !== 'launched';
+}
 function now(ctx: Ctx) { return ctx.store.frame?.source === 'live' && ctx.store.frame.ut !== null ? ctx.store.frame.ut : performance.now() / 1000; }
 
 function answers(ctx: Ctx) { return poll(ctx.store.frame, PROFILES[st.profile] ?? PROFILES.leo, ctx.store.status?.commNet ?? null); }
@@ -170,8 +175,14 @@ export const lcc: Env = {
     }
     // Vehicle board + the 3D vehicle on the pad.
     {
-      const { g, w, h } = blank(cv.pad, 'VEHICLE ON THE PAD', f?.vessel.name ?? 'none');
+      const airborne = inFlight(ctx);
+      const { g, w, h } = blank(cv.pad, airborne ? 'VEHICLE IN FLIGHT' : 'VEHICLE ON THE PAD', f?.vessel.name ?? 'none');
       if (!f || f.paused === 5 || !f.vessel.situation) centerNote(cv.pad, 'No vehicle: KSP is not in a flight scene');
+      else if (airborne) {
+        centerNote(cv.pad, `Already ${f.vessel.situation.toLowerCase()}`);
+        label(g, 'Follow this vehicle in the Flight Control Room.', w * 0.05, h * 0.62, h * 0.04, PAL.dim);
+        label(g, 'A count needs a vehicle on the pad.', w * 0.05, h * 0.68, h * 0.04, PAL.dim);
+      }
       else {
         const prof = PROFILES[st.profile] ?? PROFILES.leo;
         kpi(g, w * 0.05, h * 0.18, h * 0.07, 'Situation', f.vessel.situation ?? '—');
@@ -215,12 +226,13 @@ export const lcc: Env = {
     const pollRows = (st.lastPoll?.answers ?? ans).map((a) => `<div class="poll ${a.level}"><span>${a.station}</span><b>${a.level === 'nodata' ? 'NO DATA' : a.go ? 'GO' : 'NO-GO'}</b></div>`).join('');
     return `<header><div><div class="pos">LD</div><div class="ptitle">Launch Director</div></div><div class="lamp ${ans[0]?.level === 'nodata' ? 'nodata' : go ? 'nominal' : 'warning'}">${ans[0]?.level === 'nodata' ? 'NO VEHICLE' : go ? 'GO' : 'NO-GO'}</div></header>
       <div class="kpis"><div><span>Count</span><b>T${fmtCount(t)}</b></div><div><span>State</span><b class="small">${st.count.state.toUpperCase()}</b></div></div>
+      ${inFlight(ctx) ? `<div class="alert caution">${esc(ctx.store.frame?.vessel.name ?? 'The vessel')} is already in flight (${esc(ctx.store.frame?.vessel.situation ?? '')}). A count needs a vehicle on the pad.</div>` : ''}
       ${st.count.holdReason ? `<div class="alert caution">${esc(st.count.holdReason)}</div>` : ''}
       <h3>Mission profile</h3>
       <select data-act="profile" class="wide">${profiles}</select>
       <h3>Count control</h3>
       <div class="btns">
-        <button data-act="start">${st.count.state === 'hold' ? 'Resume count' : 'Start count'}</button>
+        <button data-act="start" ${inFlight(ctx) && st.count.state === 'idle' ? 'disabled' : ''}>${st.count.state === 'hold' ? 'Resume count' : 'Start count'}</button>
         <button data-act="hold">Hold</button>
         <button data-act="poll">Poll the team</button>
         <button data-act="recycle">Recycle to T-10:00</button>

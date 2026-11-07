@@ -212,12 +212,16 @@ server.listen(cfg.port, cfg.host, () => {
   if (mode !== 'live') setMode(mode, { speed: cfg.simSpeed }).catch((e) => console.error('[bridge]', e.message));
 });
 
-function shutdown() {
+let shuttingDown = false;
+async function shutdown() {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  setTimeout(() => process.exit(0), 4000).unref();
   stopSource?.();
-  telemachus.stop();
+  // Close the Telemachus socket cleanly before exiting (see TelemachusClient.stop).
+  await telemachus.stop();
   recorder.close();
   server.close(() => process.exit(0));
-  setTimeout(() => process.exit(0), 1000).unref();
 }
 process.on('SIGINT', shutdown);
 process.on('SIGTERM', shutdown);
