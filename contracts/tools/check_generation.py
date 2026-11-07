@@ -48,6 +48,23 @@ def param_tree(node, depth=0):
     return lines
 
 
+VALUE_KEYS = ("expiry", "deadline", "advance", "completion", "failure",
+              "science", "rep_completion", "rep_failure")
+
+
+def rewards(c):
+    # Stock Contract.OnSave writes rewards as one "values =" line, in this order
+    # (after difficulty and prestige multipliers), not as separate keys.
+    vals = [v.strip() for v in (c.get("values") or "").split(",")]
+    out = {}
+    for k, v in zip(VALUE_KEYS, vals):
+        try:
+            out[k] = float(v)
+        except ValueError:
+            out[k] = v
+    return {k: out.get(k) for k in ("advance", "completion", "failure", "rep_completion", "rep_failure")}
+
+
 def contracts_in(root):
     found = []
     for scen in root.nodes:
@@ -88,7 +105,7 @@ def main():
             wps = [n for n in walk(c) if n.name == "WAYPOINT"]
             entry.update(
                 where=where, state=c.get("state"), title=c.get("title"),
-                funds={k: c.get(k) for k in ("FundsAdvance", "FundsCompletion", "FundsFailure")},
+                funds=rewards(c),
                 params=param_tree(c),
                 behaviours=[b.get("name") or b.get("type") for b in c.nodes if b.name == "BEHAVIOUR"],
                 waypoints=[{"name": w.get("name"), "lat": w.get("latitude"), "lon": w.get("longitude"),

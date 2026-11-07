@@ -97,7 +97,8 @@ Checked against the CC 2.13.4 source, not just the wiki:
 | Prerequisite graph | acyclic; every contract reachable from RP2000 milestones | clean |
 | Manifest coverage | every research-manifest mission id maps to a contract, every contract maps to an id | clean |
 | Loads in KSP | launch KSP, then `tools/check_ksp_log.py /Applications/KSP-RP2000/KSP.log` | **Pass** 2026-11-06 run 2: 87/87 CONTRACT_TYPE, all 30 MKSP loaded, no errors. Run 1 had 11/30 (HasCrew min/max, Orbit with no limits); both now linted. Harmless warnings: IsNotVessel `vessel` (read directly by the factory) and groups without `agent` |
-| Offers / completes in play | CC debug window (Alt+F10) on a copy of a career save | **not yet run** |
+| Generates in a career | copy a clean RSS career, install `Testing/MKSP_TestHarness`, load it, save, then `tools/check_generation.py <save.sfs> KSP.log` | **Pass** 2026-11-06 run 3 (AFSA copy, 117/117 loaded incl. agency fix): 30/30 test copies generated with full objective trees, 0 MKSP errors in log. Saved rewards include the career's difficulty and prestige multipliers (Artemis I: 1.42M advance, 1.73M on completion, 5.25x the cfg values in that save) |
+| Completes in play | fly each contract | **not yet run** (play-testing) |
 
 ## Tools
 
