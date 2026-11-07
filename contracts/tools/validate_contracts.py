@@ -363,6 +363,10 @@ def main():
     for f, root in roots:
         for n in root.nodes:
             if n.name == "AGENT":
+                for mv in n.all("mentality"):
+                    # KSP: one mentality per line, "<Name> [factor]"
+                    if not re.fullmatch(r"[A-Za-z]+(\s+-?[\d.]+)?", mv):
+                        lint.err(f, f"AGENT mentality '{mv}' must be one name and an optional number per line")
                 for k in ("name", "title", "logoURL", "logoScaledURL", "mentality"):
                     if not n.get(k):
                         lint.err(f, f"AGENT '{n.get('name')}' has no {k}")
