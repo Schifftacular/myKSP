@@ -65,7 +65,7 @@ There is no Starship HLS crew-cabin part, no Gateway module pack, and no Blue Or
 
 ## Career blockers the contracts depend on
 
-1. **Unreachable parts.** 196 RO parts point at tech nodes that do not exist in the RP2000 tree, so they can never be researched in career: 128 ROCapsules parts, 37 ROTanks parts, 13 ROEngines launch clamps (`unlockParts`, `standardDockingPorts`), 15 Starship Block 3 and flap parts (`flightControlNF`, `orbitalRocketryNF`, `capsulesNF`), and 3 Modular Launch Pad bases. `ZZZ_RP2000_Fixes/OrphanTechNodes.cfg` fixed an earlier batch on 2026-08-20; the SEP update since then reintroduced the gap. If a contract requires one of these parts, the career cannot complete it. See [backlog.md](backlog.md).
+1. **Unreachable parts (fixed 2026-11-07).** 196 parts pointed at tech nodes missing from the RP2000 tree. `ZZZ_myKSP_Fixes/OrphanTechNodes2.cfg` now places 189 of them (Apollo, Gemini, Vostok/Voskhod, CST-100, RO tanks and clamps, Starship Block 3); the 9 left are deprecated. Re-check with the inventory tool after any mod update, since a mod update reintroduced this once already.
 2. **No build time, no reliability.** KCT and TestFlight are not installed, so "this launch takes two years to prepare" or "this engine has 98% reliability" cannot be enforced by the game. Contracts that want realistic cadence have to gate on dates instead.
 3. **Funding is stock-style.** Without RP-1 there is no budget per year. Advance funds and rewards are the economy, tuned by Custom Barn Kit facility costs (`RP2000/FromRP-0/CustomBarnKit.cfg`).
 
