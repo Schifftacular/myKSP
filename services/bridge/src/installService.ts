@@ -82,7 +82,7 @@ export class InstallService {
           const st = fs.statSync(file);
           const meta = fs.existsSync(metaFile) ? parseLoadmeta(this.read(metaFile) ?? '') : null;
           out.push({
-            ...(meta ?? { name: name.replace(/\.craft$/, ''), description: null, facility: folder as 'VAB' | 'SPH', partCount: null, stageCount: null, totalMass: null, totalCost: null, size: null, version: null, partNames: [] }),
+            ...(meta && !meta.name.startsWith('#autoLOC') ? meta : meta ? { ...meta, name: name.replace(/\.craft$/, '') } : { name: name.replace(/\.craft$/, ''), description: null, facility: folder as 'VAB' | 'SPH', partCount: null, stageCount: null, totalMass: null, totalCost: null, size: null, version: null, partNames: [] }),
             partNames: [],
             file: path.relative(this.kspRoot, file),
             folder,

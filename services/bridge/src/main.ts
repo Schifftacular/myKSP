@@ -10,7 +10,10 @@ import { CareerService } from './careerService.js';
 import { InstallService } from './installService.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(here, '../../..');
+// Source runs from services/bridge/src; the release bundle runs from release/. MYKSP_REPO wins.
+const repoRoot = process.env.MYKSP_REPO
+  ? path.resolve(process.env.MYKSP_REPO)
+  : path.basename(here) === 'release' ? path.resolve(here, '..') : path.resolve(here, '../../..');
 
 const cfg = {
   port: Number(process.env.MYKSP_PORT ?? 8787),
@@ -20,7 +23,7 @@ const cfg = {
   telemachus: process.env.TELEMACHUS_URL ?? 'ws://127.0.0.1:8085/datalink',
   rateMs: Number(process.env.TELEMACHUS_RATE_MS ?? 250),
   recordingsDir: process.env.MYKSP_RECORDINGS ?? path.join(repoRoot, 'data/recordings'),
-  staticDir: process.env.MYKSP_STATIC ?? path.join(repoRoot, 'apps/ops-center/dist'),
+  staticDir: process.env.MYKSP_STATIC ?? (path.basename(here) === 'release' ? path.join(here, 'ops-center') : path.join(repoRoot, 'apps/ops-center/dist')),
   startMode: (process.env.MYKSP_MODE ?? 'live') as Mode,
   simSpeed: Number(process.env.MYKSP_SIM_SPEED ?? 1),
 };

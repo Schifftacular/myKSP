@@ -77,7 +77,8 @@ Screenshots: headless Chromium, software GL, SIM source with a copy of the AFSA 
 | Unit tests (`npm test`) incl. new: body config parsing, Kepler propagation, Earth→Mars Hohmann (Δv 2.9–3.0 km/s, 255–262 d) and windows one synodic period apart, lunar Sun elevation, ground-station parsing and elevation, craft and loadmeta, countdown holds and auto-sequence hold, liftoff only during an active count, flight analysis, TAC LS rates | **Pass**, 31 tests |
 | Against the install copy: Sun declination −23.1° on 2000-01-01 and +23.4° on 21 June; next Mars window 2026-12-02 | **Pass** |
 | `scripts/rooms.mjs`: every room loads in headless Chromium against the bridge, with no page errors | **Pass**. Draw calls 13–87, CPU 0.5–5.5 ms per rendered frame in software GL |
-| Live check of the new rooms on the iMac | **Not yet done** (KSP was held by the contracts thread's test) |
+| Bridge against the real install on the iMac (read-only, KSP untouched) | **Pass**: epoch 2000-01-01 from RSSDateTimePatch.cfg, 33 bodies, 11 RealAntennas stations, 138 craft, TAC LS rates and CommNet off read from the save, manifest (31 missions, 14 sites) and contract metadata (30) loaded, Falcon 9 recording analysed (7 events, 5 violations). Found and fixed: the release bundle resolved the repo folder wrongly, so planning data and the front end were missing when started without run.sh |
+| Rooms in the live game on the iMac | **Not yet done** (KSP was in use by the contracts test) |
 
 ## Verification status, Flight Control Room (2026-11-06)
 

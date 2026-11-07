@@ -12170,7 +12170,7 @@ var InstallService = class {
           const st = fs3.statSync(file);
           const meta = fs3.existsSync(metaFile) ? parseLoadmeta(this.read(metaFile) ?? "") : null;
           out.push({
-            ...meta ?? { name: name.replace(/\.craft$/, ""), description: null, facility: folder, partCount: null, stageCount: null, totalMass: null, totalCost: null, size: null, version: null, partNames: [] },
+            ...meta && !meta.name.startsWith("#autoLOC") ? meta : meta ? { ...meta, name: name.replace(/\.craft$/, "") } : { name: name.replace(/\.craft$/, ""), description: null, facility: folder, partCount: null, stageCount: null, totalMass: null, totalCost: null, size: null, version: null, partNames: [] },
             partNames: [],
             file: path3.relative(this.kspRoot, file),
             folder,
@@ -12272,7 +12272,7 @@ function* walk(dir, depth) {
 
 // services/bridge/src/main.ts
 var here = path4.dirname(fileURLToPath(import.meta.url));
-var repoRoot = path4.resolve(here, "../../..");
+var repoRoot = process.env.MYKSP_REPO ? path4.resolve(process.env.MYKSP_REPO) : path4.basename(here) === "release" ? path4.resolve(here, "..") : path4.resolve(here, "../../..");
 var cfg = {
   port: Number(process.env.MYKSP_PORT ?? 8787),
   // Loopback by default: the bridge serves save data. Set MYKSP_HOST=0.0.0.0 for a LAN tablet.
@@ -12281,7 +12281,7 @@ var cfg = {
   telemachus: process.env.TELEMACHUS_URL ?? "ws://127.0.0.1:8085/datalink",
   rateMs: Number(process.env.TELEMACHUS_RATE_MS ?? 250),
   recordingsDir: process.env.MYKSP_RECORDINGS ?? path4.join(repoRoot, "data/recordings"),
-  staticDir: process.env.MYKSP_STATIC ?? path4.join(repoRoot, "apps/ops-center/dist"),
+  staticDir: process.env.MYKSP_STATIC ?? (path4.basename(here) === "release" ? path4.join(here, "ops-center") : path4.join(repoRoot, "apps/ops-center/dist")),
   startMode: process.env.MYKSP_MODE ?? "live",
   simSpeed: Number(process.env.MYKSP_SIM_SPEED ?? 1)
 };
