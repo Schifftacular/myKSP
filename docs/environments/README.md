@@ -70,7 +70,7 @@ front end on <http://127.0.0.1:5173>).
 
 Screenshots: headless Chromium, software GL, SIM source with a copy of the AFSA career save (game date 2000-02-26).
 
-## Verification status, all rooms (2026-11-07, headless)
+## Verification status, all rooms (2026-11-07)
 
 | Item | Status |
 |---|---|
@@ -78,7 +78,8 @@ Screenshots: headless Chromium, software GL, SIM source with a copy of the AFSA 
 | Against the install copy: Sun declination −23.1° on 2000-01-01 and +23.4° on 21 June; next Mars window 2026-12-02 | **Pass** |
 | `scripts/rooms.mjs`: every room loads in headless Chromium against the bridge, with no page errors | **Pass**. Draw calls 13–87, CPU 0.5–5.5 ms per rendered frame in software GL |
 | Bridge against the real install on the iMac (read-only, KSP untouched) | **Pass**: epoch 2000-01-01 from RSSDateTimePatch.cfg, 33 bodies, 11 RealAntennas stations, 138 craft, TAC LS rates and CommNet off read from the save, manifest (31 missions, 14 sites) and contract metadata (30) loaded, Falcon 9 recording analysed (7 events, 5 violations). Found and fixed: the release bundle resolved the repo folder wrongly, so planning data and the front end were missing when started without run.sh |
-| Rooms in the live game on the iMac | **Not yet done** (KSP was in use by the contracts test) |
+| Rooms in the live game on the iMac, main menu (2026-11-07, release bundle, Chrome) | **Pass.** All nine rooms load against the running game (KSP at the main menu, save copy MKSP_Test2) with no page errors; 13 to 87 draw calls per room; CommNet-off read from the save. Cost alongside KSP: bridge 0.1–0.2% CPU, 56–86 MB; Chrome 8–12% CPU. The only console error was a missing favicon, since fixed |
+| Rooms with a vehicle on the pad and in flight | **Not yet done.** Needs KSP control on the iMac to put a craft on the pad (LCC poll, FCR, NET elevation, MDC Δv, MER on a real recording) |
 
 ## Verification status, Flight Control Room (2026-11-06)
 
