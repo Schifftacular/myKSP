@@ -17,8 +17,12 @@ Ordered by value. The contracts thread works this list continuously.
    each contract until 4 quarters before its real window. Off unless installed.
 5. **Retire RP2000's buggy `MoonBaseCreate`** once `MKSP_Base_Habitat` is
    play-tested (ModuleManager `!CONTRACT_TYPE` or a `disabledContractType`).
-6. **Precise site coordinates** from the research thread (Shackleton ridge,
-   Artemis IV candidate regions, VIPER traverse) once it sources them.
+6. **Site coordinates.** Done 2026-11-07 from manifest v2 `sites[]`: base anchor
+   SP-CONNECTING-RIDGE (-89.5, -135.5) with every base point moved with it, VIPER at
+   Mons Mouton, Griffin at Nobile, Reiner Gamma and Gruithuisen at their published
+   points, Artemis IV at NASA's nine 2024 candidate regions (3 km). Still open:
+   a bonus when Artemis IV lands where a robotic precursor surveyed (C2), and
+   RP-1 `ProgramActive` gating (C6) once we confirm RP-0 is installed.
 7. **Surface night survival with real thermal limits** if a thermal / life
    support mod is added (Kerbalism is not installed).
 8. **Lander-specific variants** once the mod thread fixes the orphan tech nodes

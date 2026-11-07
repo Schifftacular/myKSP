@@ -7,7 +7,7 @@
 # pre-2026 missions kept because RP2000 careers start on 2000-01-01.
 
 manifest: docs/research/artemis-manifest.yaml
-manifest_version_reviewed: 1   # as_of 2026-11-06
+manifest_version_reviewed: 2   # as_of 2026-11-07 (sites[], slips, new ids)
 
 missions:
   ARTEMIS-II: [MKSP_Artemis2]
@@ -28,10 +28,12 @@ missions:
   VIPER: [MKSP_Precursor_VIPER]
   LTV-DELIVERY: [MKSP_LTV_Delivery]
   MOONFALL: [MKSP_CLPS_MoonFall]
-  PEREGRINE-2: [MKSP_CLPS_Gruithuisen]  # repeatable x2
+  BLUE-GHOST-M3: [MKSP_CLPS_Gruithuisen]  # Gruithuisen is BG M3's awarded site (Dec 2024)
+  PEREGRINE-2: [MKSP_CLPS_Gruithuisen]  # Gruithuisen only per Astrobotic; repeatable x3 total
   PEREGRINE-3: [MKSP_CLPS_Gruithuisen]
-  BLUE-GHOST-M3: [MKSP_CLPS_Delivery]   # site TBD in manifest -> generic task order
-  CLPS-2028-OTHER: [MKSP_CLPS_Delivery]
+  CLPS-2028-OTHER: [MKSP_CLPS_Delivery]   # Firefly + Intuitive Machines June 2026 awards
+  JAXA-PRESSURIZED-ROVER: [MKSP_Base_PressurizedRover]
+  LUNAR-RELAY-CONSTELLATION: [MKSP_Precursor_LunarRelay]
   LID-1: [MKSP_LID_Node]                # repeatable x3
   LID-2: [MKSP_LID_Node]
   LID-3: [MKSP_LID_Node]
@@ -43,6 +45,15 @@ program_context:
   landing_cadence: [MKSP_Ops_CrewRotation]
   clps_cadence: [MKSP_CLPS_Delivery, MKSP_Ops_Resupply]
   gateway_paused: []        # no Gateway contracts by design
+
+# Manifest ids that deliberately have no contract.
+no_contract_by_design:
+  NEW-GLENN-RTF: >-
+    World event. In a career the player is the launch provider, so there is no
+    contract to hold. The historical-cadence windows already carry the slip.
+  CANADARM3-SURFACE: >-
+    The install has no working robotic arm part (mod thread, lunar-base-parts.md).
+    Revisit if one is added.
 
 heritage:
   LRO: [MKSP_Precursor_PolarMapper]

@@ -1,7 +1,7 @@
 {
   "generated_by": "contracts/tools/build_contract_meta.py",
-  "manifest_version": 1,
-  "manifest_as_of": "2026-11-06",
+  "manifest_version": 2,
+  "manifest_as_of": "2026-11-07",
   "phases": [
     {
       "id": "heritage",
@@ -131,24 +131,6 @@
       },
       "confidence": "likely"
     },
-    "MKSP_MoonBase1_Endurance": {
-      "title": "Moon Base I: Cargo Lander to Shackleton Ridge",
-      "group": "MKSP_CLPS",
-      "maxCompletions": 1,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase1_Endurance.cfg",
-      "missions": [
-        {
-          "id": "MOON-BASE-I",
-          "name": "Moon Base I — Blue Moon MK1 \"Endurance\""
-        }
-      ],
-      "phase": "moon_base_phase_1",
-      "window": {
-        "start": "2026-Q4",
-        "end": "2027-Q2"
-      },
-      "confidence": "likely"
-    },
     "MKSP_MoonBase2_Griffin": {
       "title": "Moon Base II: Lander with Deployable Rover",
       "group": "MKSP_CLPS",
@@ -167,6 +149,24 @@
       },
       "confidence": "likely"
     },
+    "MKSP_MoonBase1_Endurance": {
+      "title": "Moon Base I: Cargo Lander to Shackleton Ridge",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase1_Endurance.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-I",
+          "name": "Moon Base I — Blue Moon MK1 \"Endurance\""
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q1",
+        "end": "2027-Q3"
+      },
+      "confidence": "likely"
+    },
     "MKSP_MoonBase3_ReinerGamma": {
       "title": "Moon Base III: Reiner Gamma Swirl and Relay",
       "group": "MKSP_CLPS",
@@ -180,26 +180,8 @@
       ],
       "phase": "moon_base_phase_1",
       "window": {
-        "start": "2026-Q4",
-        "end": "2027-Q2"
-      },
-      "confidence": "likely"
-    },
-    "MKSP_Precursor_LunarRelay": {
-      "title": "Lunar Communications Relay",
-      "group": "MKSP_Precursors",
-      "maxCompletions": 3,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/LunarRelay.cfg",
-      "missions": [
-        {
-          "id": "MOON-BASE-III",
-          "name": "Moon Base III — IM-3 \"Trinity\""
-        }
-      ],
-      "phase": "moon_base_phase_1",
-      "window": {
-        "start": "2026-Q4",
-        "end": "2027-Q2"
+        "start": "2027-Q1",
+        "end": "2027-Q3"
       },
       "confidence": "likely"
     },
@@ -221,6 +203,28 @@
       },
       "confidence": "likely"
     },
+    "MKSP_Precursor_LunarRelay": {
+      "title": "Lunar Communications Relay",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 3,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/LunarRelay.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-III",
+          "name": "Moon Base III — IM-3 \"Trinity\""
+        },
+        {
+          "id": "LUNAR-RELAY-CONSTELLATION",
+          "name": "NASA lunar comms and navigation relay constellation"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q1",
+        "end": "2030-Q4"
+      },
+      "confidence": "speculative"
+    },
     "MKSP_CLPS_FarSide": {
       "title": "Far-Side Landing via Lunar Relay",
       "group": "MKSP_CLPS",
@@ -234,8 +238,8 @@
       ],
       "phase": "moon_base_phase_1",
       "window": {
-        "start": "2027-Q2",
-        "end": "2028-Q1"
+        "start": "2027-Q3",
+        "end": "2028-Q2"
       },
       "confidence": "likely"
     },
@@ -293,23 +297,23 @@
       },
       "confidence": "confirmed"
     },
-    "MKSP_CLPS_Delivery": {
-      "title": "CLPS Task Order: Science Delivery",
+    "MKSP_CLPS_Gruithuisen": {
+      "title": "Gruithuisen Domes Science Lander",
       "group": "MKSP_CLPS",
-      "maxCompletions": 0,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/CLPS_Delivery.cfg",
+      "maxCompletions": 3,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/Peregrine_Gruithuisen.cfg",
       "missions": [
         {
           "id": "BLUE-GHOST-M3",
           "name": "Blue Ghost Mission 3"
         },
         {
-          "id": "CLPS-2028-OTHER",
-          "name": "Other June 2026 Moon Base CLPS awards (unnamed)"
+          "id": "PEREGRINE-2",
+          "name": "Peregrine Mission Two"
         },
         {
-          "id": "clps_cadence",
-          "name": "clps_cadence"
+          "id": "PEREGRINE-3",
+          "name": "Peregrine Mission Three"
         }
       ],
       "phase": "moon_base_phase_1",
@@ -317,7 +321,7 @@
         "start": "2028-Q1",
         "end": "2029-Q2"
       },
-      "confidence": "speculative"
+      "confidence": "likely"
     },
     "MKSP_CLPS_MoonFall": {
       "title": "MoonFall: Hopping Site Scout",
@@ -363,28 +367,6 @@
       },
       "confidence": "likely"
     },
-    "MKSP_CLPS_Gruithuisen": {
-      "title": "Gruithuisen Domes Science Lander",
-      "group": "MKSP_CLPS",
-      "maxCompletions": 2,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/Peregrine_Gruithuisen.cfg",
-      "missions": [
-        {
-          "id": "PEREGRINE-2",
-          "name": "Peregrine Mission Two"
-        },
-        {
-          "id": "PEREGRINE-3",
-          "name": "Peregrine Mission Three"
-        }
-      ],
-      "phase": "moon_base_phase_1",
-      "window": {
-        "start": "2028-Q2",
-        "end": "2029-Q1"
-      },
-      "confidence": "likely"
-    },
     "MKSP_Artemis5": {
       "title": "Artemis V: Base Site Landing and LTV Traverse",
       "group": "MKSP_Crewed",
@@ -394,6 +376,28 @@
         {
           "id": "ARTEMIS-V",
           "name": "Artemis V"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q3",
+        "end": "2029-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_CLPS_Delivery": {
+      "title": "CLPS Task Order: Science Delivery",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 0,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/CLPS_Delivery.cfg",
+      "missions": [
+        {
+          "id": "CLPS-2028-OTHER",
+          "name": "Firefly and Intuitive Machines Moon Base deliveries (late 2028)"
+        },
+        {
+          "id": "clps_cadence",
+          "name": "clps_cadence"
         }
       ],
       "phase": "moon_base_phase_1",
@@ -454,24 +458,6 @@
       },
       "confidence": "speculative"
     },
-    "MKSP_Base_FissionPower": {
-      "title": "Fission Surface Power Reactor",
-      "group": "MKSP_BaseCamp",
-      "maxCompletions": 1,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/FissionPower.cfg",
-      "missions": [
-        {
-          "id": "FISSION-SURFACE-POWER",
-          "name": "Lunar Fission Surface Power reactor"
-        }
-      ],
-      "phase": "moon_base_phase_2",
-      "window": {
-        "start": "2029-Q3",
-        "end": "2031-Q4"
-      },
-      "confidence": "likely"
-    },
     "MKSP_Base_Habitat": {
       "title": "First Surface Habitat",
       "group": "MKSP_BaseCamp",
@@ -487,6 +473,28 @@
       "window": {
         "start": "2029-Q3",
         "end": "2032-Q4"
+      },
+      "confidence": "speculative"
+    },
+    "MKSP_Base_PressurizedRover": {
+      "title": "Pressurized Rover Expedition",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/PressurizedRover.cfg",
+      "missions": [
+        {
+          "id": "JAXA-PRESSURIZED-ROVER",
+          "name": "JAXA/Toyota pressurised rover (\"Lunar Cruiser\")"
+        },
+        {
+          "id": "moon_base_program",
+          "name": "moon_base_program"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2029-Q3",
+        "end": "2031-Q4"
       },
       "confidence": "speculative"
     },
@@ -530,6 +538,24 @@
       },
       "confidence": "speculative"
     },
+    "MKSP_Base_FissionPower": {
+      "title": "Fission Surface Power Reactor",
+      "group": "MKSP_BaseCamp",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/FissionPower.cfg",
+      "missions": [
+        {
+          "id": "FISSION-SURFACE-POWER",
+          "name": "Lunar Fission Surface Power reactor"
+        }
+      ],
+      "phase": "moon_base_phase_2",
+      "window": {
+        "start": "2030-Q1",
+        "end": "2032-Q4"
+      },
+      "confidence": "speculative"
+    },
     "MKSP_Base_ISRU": {
       "title": "Base ISRU: Harvest Polar Regolith",
       "group": "MKSP_BaseCamp",
@@ -550,21 +576,6 @@
       "group": "MKSP_BaseCamp",
       "maxCompletions": 1,
       "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/Permanent.cfg",
-      "missions": [
-        {
-          "id": "moon_base_program",
-          "name": "moon_base_program"
-        }
-      ],
-      "phase": "moon_base_phase_3",
-      "window": null,
-      "confidence": null
-    },
-    "MKSP_Base_PressurizedRover": {
-      "title": "Pressurized Rover Expedition",
-      "group": "MKSP_BaseCamp",
-      "maxCompletions": 1,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/05_BaseCamp/PressurizedRover.cfg",
       "missions": [
         {
           "id": "moon_base_program",
