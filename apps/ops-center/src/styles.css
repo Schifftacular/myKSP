@@ -31,6 +31,10 @@ button:hover, select:hover { border-color: var(--accent); }
 .cell b { font-size: 15px; font-weight: 600; }
 .spacer { flex: 1; }
 .ctl { display: flex; gap: 6px; }
+#source { max-width: 210px; text-overflow: ellipsis; }
+#golive { background: #3a1010; border-color: #ff4d4d; color: #ffd6d6; max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; animation: golive 2s ease-in-out infinite; }
+@keyframes golive { 50% { border-color: #7a2020; } }
+@media (prefers-reduced-motion: reduce) { #golive { animation: none; } }
 .badge { font-weight: 800; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 3px; border: 1px solid currentColor; font-size: 12px; }
 .badge.nominal, .lampword.nominal { color: var(--nominal); }
 .badge.caution, .lampword.caution { color: var(--caution); }

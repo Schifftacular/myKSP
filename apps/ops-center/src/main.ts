@@ -27,6 +27,7 @@ document.body.innerHTML = `
     <div class="cell hide-s"><span>Rep</span><b id="rep">—</b></div>
     <div class="spacer"></div>
     <div class="ctl">
+      <button id="golive" hidden title="KSP is flying a vessel live; switch the rooms back to it"></button>
       <select id="source" aria-label="Telemetry source">
         <option value="live">Live (KSP)</option>
         <option value="sim">Simulator (demo)</option>
@@ -233,7 +234,13 @@ function syncSourceSelect() {
   const s = store.status;
   if (!s) return;
   sel.value = s.mode === 'replay' ? `replay:${s.replayFile}` : s.mode;
+  // While a replay or the simulator is on screen, say so when KSP is flying something live.
+  const lv = s.liveVessel;
+  const btn = $<HTMLButtonElement>('#golive');
+  btn.hidden = !(s.mode !== 'live' && lv && s.telemachus.connected);
+  if (!btn.hidden && lv) btn.textContent = `● LIVE: ${lv.name ?? 'vessel'} · switch`;
 }
+$<HTMLButtonElement>('#golive').addEventListener('click', async (e) => { (e.target as HTMLButtonElement).blur(); await setSource('live'); });
 
 async function loadReplayOptions() {
   const sel = $<HTMLSelectElement>('#source');

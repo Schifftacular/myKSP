@@ -90,6 +90,7 @@ function status() {
     mode,
     replayFile,
     telemachus: telemachus.status as TelemachusStatus,
+    liveVessel,
     recording: recorder.current,
     kspRoot: cfg.kspRoot,
     savesAvailable: career.available(),
@@ -97,10 +98,18 @@ function status() {
   };
 }
 
+/** What KSP is flying right now, whatever the rooms are showing (so a replay can point at it). */
+let liveVessel: { name: string | null; situation: string | null; at: number } | null = null;
+
 const telemachus = new TelemachusClient(
   cfg.telemachus,
   cfg.rateMs,
   (f) => {
+    const flying = f.paused !== 5 && !!f.vessel.situation;
+    const next = flying ? { name: f.vessel.name, situation: f.vessel.situation, at: f.t } : null;
+    const changed = (next?.name ?? null) !== (liveVessel?.name ?? null) || (next?.situation ?? null) !== (liveVessel?.situation ?? null);
+    liveVessel = next;
+    if (changed) broadcast(status());
     recorder.push(f); // Always record live flights, whatever the room is showing.
     if (mode === 'live') emit(f);
   },
