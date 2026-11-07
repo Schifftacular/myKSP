@@ -8,3 +8,4 @@ export * from './bodies.js';
 export * from './craft.js';
 export * from './launch.js';
 export * from './analysis.js';
+export * from './reliability.js';

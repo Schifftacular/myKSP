@@ -2,8 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import {
-  parseBodyCfg, parseCraft, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, summarizeCareer,
-  type Body, type CraftMeta, type GroundStation,
+  parseBodyCfg, parseCraft, parseTestFlight, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, summarizeCareer,
+  type Body, type CraftMeta, type GroundStation, type EngineReliability, type TfEngine,
 } from '@myksp/shared';
 
 /**
@@ -19,7 +19,7 @@ export interface InstallFacts {
   elementEpochUT: number | null;
   bodies: Body[];
   stations: GroundStation[];
-  mods: { tacLifeSupport: boolean; realAntennas: boolean; kerbalAlarmClock: boolean; transferWindowPlanner: boolean };
+  mods: { tacLifeSupport: boolean; realAntennas: boolean; kerbalAlarmClock: boolean; transferWindowPlanner: boolean; testFlight: boolean; kct: boolean };
 }
 
 export interface CraftEntry extends CraftMeta { file: string; folder: string; save: string | null; modified: string }
@@ -62,6 +62,8 @@ export class InstallService {
         realAntennas: fs.existsSync(path.join(gd, 'RealAntennas')),
         kerbalAlarmClock: fs.existsSync(path.join(gd, 'TriggerTech')),
         transferWindowPlanner: fs.existsSync(path.join(gd, 'TransferWindowPlanner')),
+        testFlight: fs.existsSync(path.join(gd, 'TestFlight')),
+        kct: fs.existsSync(path.join(gd, 'KerbalConstructionTime')),
       },
     };
     this.factsAt = Date.now();
@@ -104,7 +106,36 @@ export class InstallService {
   craftDetail(rel: string) {
     const file = path.resolve(this.kspRoot, rel);
     if (!file.startsWith(path.resolve(this.kspRoot) + path.sep) || !file.endsWith('.craft')) throw new Error('invalid craft path');
-    return parseCraft(fs.readFileSync(file, 'utf8'));
+    const craft = parseCraft(fs.readFileSync(file, 'utf8'));
+    const tf = this.testFlight();
+    const reliability: EngineReliability[] = craft.engines.map((e) => ({ ...e, tf: e.config ? tf.get(e.config) ?? null : null }));
+    return { ...craft, reliability, testFlightConfigs: tf.size };
+  }
+
+  /**
+   * TestFlight engine data by engine config name, from the RealismOverhaul engine configs and every
+   * *TestFlight*.cfg in GameData. Scanned once (about 800 entries), then every 10 minutes at most.
+   */
+  private tfCache: Map<string, TfEngine> | null = null;
+  private tfAt = 0;
+  testFlight(): Map<string, TfEngine> {
+    if (this.tfCache && Date.now() - this.tfAt < 600_000) return this.tfCache;
+    const out = new Map<string, TfEngine>();
+    const gd = this.p('GameData');
+    const files = [...walk(path.join(gd, 'RealismOverhaul', 'Engine_Configs'), 2)].filter((f) => f.endsWith('.cfg'));
+    for (const f of walk(gd, 6)) if (f.endsWith('.cfg') && /testflight/i.test(path.basename(f))) files.push(f);
+    for (const dir of ['ROEngines', 'ROCapsules', path.join('RealismOverhaul', 'RO_SuggestedMods')]) {
+      for (const f of walk(path.join(gd, dir), 4)) if (f.endsWith('.cfg')) files.push(f);
+    }
+    for (const f of new Set(files)) {
+      const text = this.read(f);
+      if (!text || !text.includes('TESTFLIGHT')) continue;
+      // RP2000's own files are patched after RO's, so a later file overrides an earlier one.
+      for (const e of parseTestFlight(text, path.relative(gd, f))) out.set(e.config, e);
+    }
+    this.tfCache = out;
+    this.tfAt = Date.now();
+    return out;
   }
 
   /**

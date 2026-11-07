@@ -21,6 +21,7 @@ const page = await browser.newPage({ viewport: { width: 1600, height: 900 } });
 const errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
+page.on('response', (r) => { if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`); });
 await page.goto(`http://127.0.0.1:${port}/#fcr`);
 await page.waitForTimeout(6000);
 const rooms = only ?? (await page.evaluate(() => [...document.querySelectorAll('#roomsel option')].map((o) => o.value)));

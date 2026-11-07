@@ -1,4 +1,5 @@
 import { children, get, getAll, getNum, parseCfg } from './sfs.js';
+import type { EngineGroup } from './reliability.js';
 
 /**
  * Vehicle designs from `Ships/VAB|SPH/*.craft` and the `.loadmeta` summaries KSP 1.12 writes next
@@ -43,6 +44,8 @@ export interface CraftDetail {
   resources: Record<string, { amount: number; max: number }>;
   crewSeats: number | null;
   stages: number;
+  /** Engine parts grouped by part, engine config and ignition stage (istg). */
+  engines: EngineGroup[];
 }
 
 /** Full craft parse: part positions for a silhouette, stage of each part, resource totals. */
@@ -66,10 +69,25 @@ export function parseCraft(text: string): CraftDetail {
       e.max += getNum(r, 'maxAmount') ?? 0;
     }
   }
+  const engines = new Map<string, EngineGroup>();
+  for (const p of children(root, 'PART')) {
+    const mods = children(p, 'MODULE');
+    const mec = mods.find((m) => /^Module\w*EngineConfigs$/.test(get(m, 'name') ?? ''));
+    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, 'name') ?? ''));
+    if (!isEngine) continue;
+    const part = (get(p, 'part') ?? '').replace(/_\d+$/, '');
+    const config = mec ? get(mec, 'configuration') || null : null;
+    const stage = getNum(p, 'istg') ?? 0;
+    const k = `${stage}|${part}|${config}`;
+    const e = engines.get(k);
+    if (e) e.count++;
+    else engines.set(k, { part, config, count: 1, stage });
+  }
   return {
     name: get(root, 'ship') ?? 'Untitled',
     parts,
     resources,
+    engines: [...engines.values()].sort((a, b) => b.stage - a.stage),
     crewSeats: null, // needs the part database (CrewCapacity); not in the craft file
     stages: parts.reduce((m, p) => Math.max(m, p.stage + 1), 0),
   };

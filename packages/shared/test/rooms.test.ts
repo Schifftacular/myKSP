@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   AscentSim, SolarSystem, analyzeFlight, elevationFrom, hohmann, keplerPos, lunarSunElevation, moonGeometry, newCountdown,
-  parseBodyCfg, parseCraft, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, realBodyName,
+  parseBodyCfg, parseCraft, parseTestFlight, vehicleSuccess, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, realBodyName,
   startCount, summarizeCareer, tickCount, transferWindows, type Body, type TelemetryFrame,
 } from '../src/index.js';
 
@@ -231,5 +231,96 @@ describe('TAC Life Support', () => {
     expect(c.tacRates!.food * 86400).toBeCloseTo(5.849, 2);
     expect(c.tacRates!.oxygen * 86400).toBeCloseTo(591.84, 1);
     expect(summarizeCareer('GAME\n{\n}').tacRates).toBeNull();
+  });
+});
+
+describe('TestFlight reliability', () => {
+  it('reads RO engine configs (name from the parent CONFIG) and RP2000 top-level blocks', () => {
+    const ro = parseTestFlight(`@PART[ROE-Merlin1D]:FOR[RealismOverhaulEngines]
+{
+	MODULE
+	{
+		name = ModuleEngineConfigs
+		CONFIG
+		{
+			name = Merlin1D
+			TESTFLIGHT:NEEDS[TestLite|TestFlight]
+			{
+				testedBurnTime = 1620		//rated for 10 flights
+				ratedBurnTime = 180
+				thrustModifier
+				{
+					key = 0.00 0.05 0 0
+				}
+				ignitionReliabilityStart = 0.986146
+				ignitionReliabilityEnd = 0.997813
+				cycleReliabilityStart = 0.983701
+				cycleReliabilityEnd = 0.997426
+				techTransfer = Merlin1CVac,Merlin1C:50&Merlin1DVac:100
+			}
+		}
+	}
+}`);
+    expect(ro).toHaveLength(1);
+    expect(ro[0]).toMatchObject({ config: 'Merlin1D', ratedBurnTime: 180, testedBurnTime: 1620, ignitionStart: 0.986146, cycleEnd: 0.997426 });
+    const rp = parseTestFlight(`@PART[*]:HAS[@MODULE[ModuleEngineConfigs]:HAS[@CONFIG[SE-1004]],!MODULE[TestFlightInterop]]:BEFORE[zTestFlight]
+{
+	TESTFLIGHT
+	{
+		name = SE-1004
+		ratedBurnTime = 720
+		ignitionReliabilityStart = 0.97
+		ignitionReliabilityEnd = 0.99
+		cycleReliabilityStart = 0.97
+		cycleReliabilityEnd = 0.99
+	}
+}
+@PART:HAS[@TESTFLIGHT]:FOR[zTestFlight]
+{
+	@TESTFLIGHT,*
+	{
+		@ignitionReliabilityStart *= -1
+	}
+}`);
+    expect(rp.map((e) => e.config)).toEqual(['SE-1004']);
+  });
+
+  it('groups craft engines by config and stage and combines their odds', () => {
+    const craft = parseCraft(`ship = Two Stage
+PART
+{
+  part = ROE-Merlin1D_1
+  istg = 1
+  MODULE
+  {
+    name = ModuleEngineConfigs
+    configuration = Merlin1D
+  }
+}
+PART
+{
+  part = ROE-Merlin1D_2
+  istg = 1
+  MODULE
+  {
+    name = ModuleEngineConfigs
+    configuration = Merlin1D
+  }
+}
+PART
+{
+  part = sepMotor_3
+  istg = 0
+  MODULE
+  {
+    name = ModuleEnginesRF
+  }
+}`);
+    expect(craft.engines).toEqual([{ part: 'ROE-Merlin1D', config: 'Merlin1D', count: 2, stage: 1 }, { part: 'sepMotor', config: null, count: 1, stage: 0 }]);
+    const tf = { config: 'Merlin1D', ratedBurnTime: 180, testedBurnTime: null, ignitionStart: 0.9, ignitionEnd: 1, cycleStart: 0.9, cycleEnd: 1, techTransfer: null };
+    const v = vehicleSuccess(craft.engines.map((e) => ({ ...e, tf: e.config ? tf : null })), false);
+    expect(v.covered).toBe(2);
+    expect(v.total).toBe(3);
+    expect(v.p!).toBeCloseTo(0.81 ** 2, 10);
   });
 });

@@ -371,26 +371,26 @@ var require_permessage_deflate = __commonJS({
             value = value[0];
             if (key === "client_max_window_bits") {
               if (value !== true) {
-                const num2 = +value;
-                if (!Number.isInteger(num2) || num2 < 8 || num2 > 15) {
+                const num3 = +value;
+                if (!Number.isInteger(num3) || num3 < 8 || num3 > 15) {
                   throw new TypeError(
                     `Invalid value for parameter "${key}": ${value}`
                   );
                 }
-                value = num2;
+                value = num3;
               } else if (!this._isServer) {
                 throw new TypeError(
                   `Invalid value for parameter "${key}": ${value}`
                 );
               }
             } else if (key === "server_max_window_bits") {
-              const num2 = +value;
-              if (!Number.isInteger(num2) || num2 < 8 || num2 > 15) {
+              const num3 = +value;
+              if (!Number.isInteger(num3) || num3 < 8 || num3 > 15) {
                 throw new TypeError(
                   `Invalid value for parameter "${key}": ${value}`
                 );
               }
-              value = num2;
+              value = num3;
             } else if (key === "client_no_context_takeover" || key === "server_no_context_takeover") {
               if (value !== true) {
                 throw new TypeError(
@@ -1085,8 +1085,8 @@ var require_receiver = __commonJS({
           return;
         }
         const buf = this.consume(8);
-        const num2 = buf.readUInt32BE(0);
-        if (num2 > Math.pow(2, 53 - 32) - 1) {
+        const num3 = buf.readUInt32BE(0);
+        if (num3 > Math.pow(2, 53 - 32) - 1) {
           const error = this.createError(
             RangeError,
             "Unsupported WebSocket frame: payload length > 2^53 - 1",
@@ -1097,7 +1097,7 @@ var require_receiver = __commonJS({
           cb(error);
           return;
         }
-        this._payloadLength = num2 * Math.pow(2, 32) + buf.readUInt32BE(4);
+        this._payloadLength = num3 * Math.pow(2, 32) + buf.readUInt32BE(4);
         this.haveLength(cb);
       }
       /**
@@ -5969,9 +5969,9 @@ var require_stringifyNumber = __commonJS({
     function stringifyNumber({ format, minFractionDigits, tag, value }) {
       if (typeof value === "bigint")
         return String(value);
-      const num2 = typeof value === "number" ? value : Number(value);
-      if (!isFinite(num2))
-        return isNaN(num2) ? ".nan" : num2 < 0 ? "-.inf" : ".inf";
+      const num3 = typeof value === "number" ? value : Number(value);
+      if (!isFinite(num3))
+        return isNaN(num3) ? ".nan" : num3 < 0 ? "-.inf" : ".inf";
       let n = JSON.stringify(value);
       if (!format && minFractionDigits && (!tag || tag === "tag:yaml.org,2002:float") && /^\d/.test(n)) {
         let i = n.indexOf(".");
@@ -6011,8 +6011,8 @@ var require_float = __commonJS({
       test: /^[-+]?(?:\.[0-9]+|[0-9]+(?:\.[0-9]*)?)[eE][-+]?[0-9]+$/,
       resolve: (str2) => parseFloat(str2),
       stringify(node) {
-        const num2 = Number(node.value);
-        return isFinite(num2) ? num2.toExponential() : stringifyNumber.stringifyNumber(node);
+        const num3 = Number(node.value);
+        return isFinite(num3) ? num3.toExponential() : stringifyNumber.stringifyNumber(node);
       }
     };
     var float = {
@@ -6451,8 +6451,8 @@ var require_float2 = __commonJS({
       test: /^[-+]?(?:[0-9][0-9_]*)?(?:\.[0-9_]*)?[eE][-+]?[0-9]+$/,
       resolve: (str2) => parseFloat(str2.replace(/_/g, "")),
       stringify(node) {
-        const num2 = Number(node.value);
-        return isFinite(num2) ? num2.toExponential() : stringifyNumber.stringifyNumber(node);
+        const num3 = Number(node.value);
+        return isFinite(num3) ? num3.toExponential() : stringifyNumber.stringifyNumber(node);
       }
     };
     var float = {
@@ -6654,23 +6654,23 @@ var require_timestamp = __commonJS({
     function parseSexagesimal(str2, asBigInt) {
       const sign = str2[0];
       const parts = sign === "-" || sign === "+" ? str2.substring(1) : str2;
-      const num2 = (n) => asBigInt ? BigInt(n) : Number(n);
-      const res = parts.replace(/_/g, "").split(":").reduce((res2, p) => res2 * num2(60) + num2(p), num2(0));
-      return sign === "-" ? num2(-1) * res : res;
+      const num3 = (n) => asBigInt ? BigInt(n) : Number(n);
+      const res = parts.replace(/_/g, "").split(":").reduce((res2, p) => res2 * num3(60) + num3(p), num3(0));
+      return sign === "-" ? num3(-1) * res : res;
     }
     function stringifySexagesimal(node) {
       let { value } = node;
-      let num2 = (n) => n;
+      let num3 = (n) => n;
       if (typeof value === "bigint")
-        num2 = (n) => BigInt(n);
+        num3 = (n) => BigInt(n);
       else if (isNaN(value) || !isFinite(value))
         return stringifyNumber.stringifyNumber(node);
       let sign = "";
       if (value < 0) {
         sign = "-";
-        value *= num2(-1);
+        value *= num3(-1);
       }
-      const _60 = num2(60);
+      const _60 = num3(60);
       const parts = [value % _60];
       if (value < 60) {
         parts.unshift(0);
@@ -11813,10 +11813,25 @@ function parseCraft(text) {
       e.max += getNum(r, "maxAmount") ?? 0;
     }
   }
+  const engines = /* @__PURE__ */ new Map();
+  for (const p of children(root, "PART")) {
+    const mods = children(p, "MODULE");
+    const mec = mods.find((m) => /^Module\w*EngineConfigs$/.test(get(m, "name") ?? ""));
+    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, "name") ?? ""));
+    if (!isEngine) continue;
+    const part = (get(p, "part") ?? "").replace(/_\d+$/, "");
+    const config = mec ? get(mec, "configuration") || null : null;
+    const stage = getNum(p, "istg") ?? 0;
+    const k = `${stage}|${part}|${config}`;
+    const e = engines.get(k);
+    if (e) e.count++;
+    else engines.set(k, { part, config, count: 1, stage });
+  }
   return {
     name: get(root, "ship") ?? "Untitled",
     parts,
     resources,
+    engines: [...engines.values()].sort((a, b) => b.stage - a.stage),
     crewSeats: null,
     // needs the part database (CrewCapacity); not in the craft file
     stages: parts.reduce((m, p) => Math.max(m, p.stage + 1), 0)
@@ -11879,6 +11894,38 @@ function analyzeFlight(frames, maxPoints = 1200) {
     violations,
     series
   };
+}
+
+// packages/shared/src/reliability.ts
+var base = (n) => n.replace(/:.*$/, "");
+var num2 = (n, k) => {
+  const v = get(n, k);
+  if (v === void 0 || v === "") return null;
+  const x = Number(v);
+  return Number.isFinite(x) ? x : null;
+};
+function configName(n) {
+  const m = /^[@%]?CONFIG\[([^\]]+)\]/.exec(n.name);
+  if (m) return m[1];
+  return base(n.name) === "CONFIG" ? get(n, "name") ?? null : null;
+}
+function parseTestFlight(text, source) {
+  const out = [];
+  const visit = (n, parentConfig) => {
+    const here2 = configName(n) ?? parentConfig;
+    for (const c of n.nodes) {
+      if (base(c.name) === "TESTFLIGHT") {
+        const name = get(c, "name") || here2;
+        const ignitionStart = num2(c, "ignitionReliabilityStart"), ignitionEnd = num2(c, "ignitionReliabilityEnd");
+        const cycleStart = num2(c, "cycleReliabilityStart"), cycleEnd = num2(c, "cycleReliabilityEnd");
+        const rated = num2(c, "ratedBurnTime");
+        if (!name || ignitionStart === null || ignitionEnd === null || cycleStart === null || cycleEnd === null || rated === null) continue;
+        out.push({ config: name, ratedBurnTime: rated, testedBurnTime: num2(c, "testedBurnTime"), ignitionStart, ignitionEnd, cycleStart, cycleEnd, techTransfer: get(c, "techTransfer") || null, source });
+      } else visit(c, here2);
+    }
+  };
+  visit(parseCfg(text), null);
+  return out;
 }
 
 // services/bridge/src/telemachus.ts
@@ -12150,7 +12197,9 @@ var InstallService = class {
         tacLifeSupport: fs3.existsSync(path3.join(gd, "ThunderAerospace")),
         realAntennas: fs3.existsSync(path3.join(gd, "RealAntennas")),
         kerbalAlarmClock: fs3.existsSync(path3.join(gd, "TriggerTech")),
-        transferWindowPlanner: fs3.existsSync(path3.join(gd, "TransferWindowPlanner"))
+        transferWindowPlanner: fs3.existsSync(path3.join(gd, "TransferWindowPlanner")),
+        testFlight: fs3.existsSync(path3.join(gd, "TestFlight")),
+        kct: fs3.existsSync(path3.join(gd, "KerbalConstructionTime"))
       }
     };
     this.factsAt = Date.now();
@@ -12191,7 +12240,34 @@ var InstallService = class {
   craftDetail(rel) {
     const file = path3.resolve(this.kspRoot, rel);
     if (!file.startsWith(path3.resolve(this.kspRoot) + path3.sep) || !file.endsWith(".craft")) throw new Error("invalid craft path");
-    return parseCraft(fs3.readFileSync(file, "utf8"));
+    const craft = parseCraft(fs3.readFileSync(file, "utf8"));
+    const tf = this.testFlight();
+    const reliability = craft.engines.map((e) => ({ ...e, tf: e.config ? tf.get(e.config) ?? null : null }));
+    return { ...craft, reliability, testFlightConfigs: tf.size };
+  }
+  /**
+   * TestFlight engine data by engine config name, from the RealismOverhaul engine configs and every
+   * *TestFlight*.cfg in GameData. Scanned once (about 800 entries), then every 10 minutes at most.
+   */
+  tfCache = null;
+  tfAt = 0;
+  testFlight() {
+    if (this.tfCache && Date.now() - this.tfAt < 6e5) return this.tfCache;
+    const out = /* @__PURE__ */ new Map();
+    const gd = this.p("GameData");
+    const files = [...walk(path3.join(gd, "RealismOverhaul", "Engine_Configs"), 2)].filter((f) => f.endsWith(".cfg"));
+    for (const f of walk(gd, 6)) if (f.endsWith(".cfg") && /testflight/i.test(path3.basename(f))) files.push(f);
+    for (const dir of ["ROEngines", "ROCapsules", path3.join("RealismOverhaul", "RO_SuggestedMods")]) {
+      for (const f of walk(path3.join(gd, dir), 4)) if (f.endsWith(".cfg")) files.push(f);
+    }
+    for (const f of new Set(files)) {
+      const text = this.read(f);
+      if (!text || !text.includes("TESTFLIGHT")) continue;
+      for (const e of parseTestFlight(text, path3.relative(gd, f))) out.set(e.config, e);
+    }
+    this.tfCache = out;
+    this.tfAt = Date.now();
+    return out;
   }
   /**
    * Funds/science/reputation history for a save: KSP's own Backup/ snapshots plus the current

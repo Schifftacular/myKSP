@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { RESOURCE_LABELS } from '@myksp/shared';
+import { RESOURCE_LABELS, groupSuccess, vehicleSuccess, type EngineReliability } from '@myksp/shared';
 import { RoomKit, v3 } from '../kit';
 import { blank, centerNote, kpi, label, PAL, table } from '../canvaskit';
 import { esc, fMoney, fNum } from '../format';
@@ -38,10 +38,12 @@ export const vih: Env = {
     { id: 'STACK', title: 'Stack and stages' },
     { id: 'LOAD', title: 'Propellant and consumables' },
     { id: 'INVENTORY', title: 'Design inventory' },
+    { id: 'REL', title: 'Engine reliability (TestFlight)' },
   ],
   screens: [
     { key: 'inventory', w: 1024, h: 1024, label: 'Design inventory' },
     { key: 'detail', w: 1024, h: 1024, label: 'Selected vehicle' },
+    { key: 'reliability', w: 1024, h: 1024, label: 'Engine reliability' },
   ],
 
   build() {
@@ -62,7 +64,8 @@ export const vih: Env = {
     // Displays at the floor-level gallery, consoles in front of them.
     k.screen('inventory', 1024, 1024, 11, 11, -W / 2 + 0.2, 9, 40, Math.PI / 2);
     k.screen('detail', 1024, 1024, 11, 11, W / 2 - 0.2, 9, 40, -Math.PI / 2);
-    const consoles: [string, number, number, number][] = [['INVENTORY', -22, 40, Math.PI / 2], ['VI', -5, 52, 0], ['STACK', 5, 52, 0], ['LOAD', 22, 40, -Math.PI / 2]];
+    k.screen('reliability', 1024, 1024, 11, 11, W / 2 - 0.2, 9, 26, -Math.PI / 2);
+    const consoles: [string, number, number, number][] = [['INVENTORY', -22, 40, Math.PI / 2], ['VI', -5, 52, 0], ['STACK', 5, 52, 0], ['LOAD', 22, 40, -Math.PI / 2], ['REL', 22, 26, -Math.PI / 2]];
     for (const [id, x, z, r] of consoles) {
       k.console(id, x, 0, z, { rotY: r, width: 3.4, view: r === 0 ? { pos: v3(x * 0.6, 3, z + 5), look: v3(0, 30, 0) } : { pos: v3(x * 0.6 + Math.sign(-x) * 2, 3.2, z + 3), look: v3(Math.sign(x) * W / 2, 8, 40) } });
     }
@@ -120,7 +123,8 @@ export const vih: Env = {
         if (c.description) label(g, c.description.slice(0, 80), w * 0.05, h * 0.97, h * 0.024, PAL.dim);
       }
     }
-    return ['inventory', 'detail'];
+    drawReliability(cv.reliability, c?.name ?? null, det);
+    return ['inventory', 'detail', 'reliability'];
   },
 
   sceneUpdate(room, ctx) {
@@ -148,6 +152,13 @@ export const vih: Env = {
       const res = det ? Object.entries(det.resources).filter(([, r]) => r.max > 0).sort((a, b) => b[1].max - a[1].max).slice(0, 5) : [];
       return { rows: res.length ? res.map(([n, r]) => [RESOURCE_LABELS[n] ?? n, `${Math.round((r.amount / r.max) * 100)}%`]) : [['Load', det ? 'none' : 'reading']], level: det ? 'nominal' : 'nodata' };
     }
+    if (id === 'REL') {
+      const rel = det?.reliability ?? [];
+      const v0 = vehicleSuccess(rel, false), v1 = vehicleSuccess(rel, true);
+      if (!det) return { rows: [['Engines', 'reading']], level: 'nodata' };
+      if (!rel.length) return { rows: [['Engines', 'none']], level: 'nodata' };
+      return { rows: [['Engines', `${v0.covered}/${v0.total} with data`], ['New', pct(v0.p)], ['Mature', pct(v1.p)]], level: v0.p !== null && v0.p < 0.9 ? 'caution' : 'nominal' };
+    }
     if (id === 'STACK') return { rows: [['Height', c.size ? `${fNum(c.size[1], 1)} m` : '—'], ['Parts', String(c.partCount ?? '—')], ['Stages', String(det?.stages ?? c.stageCount ?? '—')]], level: 'nominal' };
     return { rows: [['Design', c.name], ['Mass', c.totalMass === null ? '—' : `${fNum(c.totalMass, 1)} t`], ['Cost', fMoney(c.totalCost)]], level: 'nominal' };
   },
@@ -163,6 +174,13 @@ export const vih: Env = {
     else if (id === 'LOAD') {
       const res = det ? Object.entries(det.resources).filter(([, r]) => r.max > 0).sort((a, b) => b[1].max - a[1].max) : [];
       body = res.map(([n, r]) => `<div class="row"><span class="k">${esc(RESOURCE_LABELS[n] ?? n)}</span><span class="v small">${fNum(r.amount, 1)} / ${fNum(r.max, 1)}</span></div>`).join('') || `<p class="muted">${det ? 'No resources' : 'Reading the craft file…'}</p>`;
+    } else if (id === 'REL') {
+      const rel = det?.reliability ?? [];
+      const v0 = vehicleSuccess(rel, false), v1 = vehicleSuccess(rel, true);
+      body = !det ? '<p class="muted">Reading the craft file…</p>' : !rel.length ? '<p class="muted">No engines in this design.</p>'
+        : `<div class="kpis"><div><span>All engines work, new</span><b class="small">${pct(v0.p)}</b></div><div><span>Mature (full data)</span><b class="small">${pct(v1.p)}</b></div></div>`
+        + rel.map((e) => `<div class="row"><span class="k">${esc(e.config ?? e.part)}${e.count > 1 ? ` ×${e.count}` : ''} <span class="muted small">stage ${e.stage}</span></span><span class="v small">${e.tf ? `ign ${pct(e.tf.ignitionStart, 1)}→${pct(e.tf.ignitionEnd, 1)} · ${fNum(e.tf.ratedBurnTime, 0)} s ${pct(e.tf.cycleStart, 1)}→${pct(e.tf.cycleEnd, 1)}` : 'no TestFlight data'}</span></div>`).join('')
+        + `<p class="muted foot">From the TestFlight configs in the install (${det.testFlightConfigs ?? 0} engine configs). "New" uses each engine's starting reliability with no flight data; "mature" uses its ceiling. Each engine is counted for one ignition and its rated burn time; restarts and burns past the rated time are riskier. TestFlight's per-engine flight data is not in the save yet, so where an engine sits between the two is not shown. ${v0.total > v0.covered ? `${v0.total - v0.covered} engine(s) have no TestFlight data (separation motors, escape towers or unpatched engines) and are left out.` : ''}</p>`;
     } else if (id === 'STACK') {
       const byStage = new Map<number, number>();
       for (const p of det?.parts ?? []) byStage.set(p.stage, (byStage.get(p.stage) ?? 0) + 1);
@@ -184,3 +202,25 @@ export const vih: Env = {
     return false;
   },
 };
+
+const pct = (p: number | null | undefined, dp = 0) => (p === null || p === undefined ? '—' : `${(p * 100).toFixed(dp)}%`);
+
+/** Engine reliability board: each engine group's TestFlight numbers and the whole-vehicle odds. */
+function drawReliability(cv: HTMLCanvasElement, name: string | null, det: { reliability?: EngineReliability[]; testFlightConfigs?: number } | undefined) {
+  const { g, w, h } = blank(cv, 'ENGINE RELIABILITY', 'TestFlight');
+  if (!name) { centerNote(cv, 'No design selected'); return; }
+  if (!det) { centerNote(cv, 'Reading the craft file…'); return; }
+  const rel = det.reliability ?? [];
+  if (!rel.length) { centerNote(cv, 'No engines in this design'); return; }
+  const v0 = vehicleSuccess(rel, false), v1 = vehicleSuccess(rel, true);
+  kpi(g, w * 0.05, h * 0.13, h * 0.055, 'All engines work · new', pct(v0.p, 1));
+  kpi(g, w * 0.52, h * 0.13, h * 0.055, 'Mature (full data)', pct(v1.p, 1));
+  const rows = rel.slice(0, 14).map((e) => [
+    `${e.config ?? e.part}${e.count > 1 ? ` ×${e.count}` : ''}`, String(e.stage),
+    e.tf ? `${pct(e.tf.ignitionStart, 1)}` : '—', e.tf ? `${fNum(e.tf.ratedBurnTime, 0)} s` : '—', e.tf ? pct(e.tf.cycleStart, 1) : '—', pct(groupSuccess(e, false), 1),
+  ]);
+  table(g, w * 0.05, h * 0.3, w * 0.9, h * 0.045, [{ label: 'Engine', w: 3.4 }, { label: 'Stg', w: 0.7, align: 'right' }, { label: 'Ignition', w: 1.4, align: 'right' }, { label: 'Rated', w: 1.2, align: 'right' }, { label: 'Run', w: 1.3, align: 'right' }, { label: 'Group', w: 1.3, align: 'right' }], rows,
+    rel.map((e) => (e.tf ? (groupSuccess(e, false)! < 0.9 ? PAL.caution : undefined) : PAL.dim)));
+  label(g, `New-engine figures · ${v0.covered} of ${v0.total} engines have TestFlight data`, w * 0.05, h * 0.94, h * 0.024, PAL.dim);
+  label(g, 'One ignition each, run to rated time. Flight data moves these toward mature.', w * 0.05, h * 0.97, h * 0.022, PAL.dim);
+}

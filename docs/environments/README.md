@@ -8,7 +8,7 @@ at the top, or press **[** and **]**. The URL hash names the room (`#lcc`, `#mer
 |---|---|---|---|
 | Program Office | PO | Manifest timeline 2026–2032 against the game date, contracts by program phase, funds/science/reputation trends, lunar base goal, facilities | Research manifest, contract metadata, save, save `Backup/` snapshots, bridge history log |
 | Mission Design Center | MDC | Moon declination, distance and phase for 30 days; Mars and Venus departure windows; Δv budget (LEO, TLI, LOI, descent, TMI) against the live vehicle | RSS Kopernicus orbit elements from the install, Telemachus |
-| Vehicle Integration Hall | VIH | 140 m high bay with the selected design stacked at true scale; design inventory with KSP's editor mass and cost; propellant and consumables load | `Ships/` and per-save craft files, `.loadmeta` |
+| Vehicle Integration Hall | VIH | 140 m high bay with the selected design stacked at true scale; design inventory with KSP's editor mass and cost; propellant and consumables load; TestFlight engine reliability for the selected design (each engine's ignition and rated-burn reliability, new and mature, and the odds that every engine works) | `Ships/` and per-save craft files, `.loadmeta`; TestFlight data from `RealismOverhaul/Engine_Configs` and `*TestFlight*.cfg`, joined on the craft's engine config |
 | Astronaut Office | CB | Roster, status, flights, bodies flown to and landed on, assignments, availability | Save roster and `CAREER_LOG` |
 | Launch Control Center | LCC-FR1 | Terminal count (Artemis II structure: built-in hold at T-10 min, auto-sequence at T-33 s), GO/NO-GO poll answered from live data, vehicle on the pad | Telemachus; count runs on game time |
 | Flight Control Room | FCR-1 | Live flight (Phase 1 slice) | Telemachus |
@@ -74,7 +74,7 @@ Screenshots: headless Chromium, software GL, SIM source with a copy of the AFSA 
 
 | Item | Status |
 |---|---|
-| Unit tests (`npm test`) incl. new: body config parsing, Kepler propagation, Earth→Mars Hohmann (Δv 2.9–3.0 km/s, 255–262 d) and windows one synodic period apart, lunar Sun elevation, ground-station parsing and elevation, craft and loadmeta, countdown holds and auto-sequence hold, liftoff only during an active count, flight analysis, TAC LS rates | **Pass**, 31 tests |
+| Unit tests (`npm test`) incl. new: body config parsing, Kepler propagation, Earth→Mars Hohmann (Δv 2.9–3.0 km/s, 255–262 d) and windows one synodic period apart, lunar Sun elevation, ground-station parsing and elevation, craft and loadmeta, countdown holds and auto-sequence hold, liftoff only during an active count, flight analysis, TAC LS rates, TestFlight parsing (RO nested and RP2000 top-level blocks) and engine grouping | **Pass**, 33 tests |
 | Against the install copy: Sun declination −23.1° on 2000-01-01 and +23.4° on 21 June; next Mars window 2026-12-02 | **Pass** |
 | `scripts/rooms.mjs`: every room loads in headless Chromium against the bridge, with no page errors | **Pass**. Draw calls 13–87, CPU 0.5–5.5 ms per rendered frame in software GL |
 | Bridge against the real install on the iMac (read-only, KSP untouched) | **Pass**: epoch 2000-01-01 from RSSDateTimePatch.cfg, 33 bodies, 11 RealAntennas stations, 138 craft, TAC LS rates and CommNet off read from the save, manifest (31 missions, 14 sites) and contract metadata (30) loaded, Falcon 9 recording analysed (7 events, 5 violations). Found and fixed: the release bundle resolved the repo folder wrongly, so planning data and the front end were missing when started without run.sh |

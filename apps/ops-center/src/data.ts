@@ -1,5 +1,7 @@
-import { SolarSystem, type Body, type CraftDetail, type CraftMeta, type FlightAnalysis, type GroundStation } from '@myksp/shared';
+import { SolarSystem, type Body, type CraftDetail as CraftParsed, type CraftMeta, type EngineReliability, type FlightAnalysis, type GroundStation } from '@myksp/shared';
 import { setEpoch } from './format';
+/** Craft detail as the bridge serves it: the parsed craft plus TestFlight data joined per engine. */
+export type CraftDetail = CraftParsed & { reliability?: EngineReliability[]; testFlightConfigs?: number };
 
 /**
  * Slow-changing data the non-flight rooms use: install facts, craft, planning files, career
@@ -12,7 +14,7 @@ export interface InstallFacts {
   elementEpochUT: number | null;
   bodies: Body[];
   stations: GroundStation[];
-  mods: { tacLifeSupport: boolean; realAntennas: boolean; kerbalAlarmClock: boolean; transferWindowPlanner: boolean };
+  mods: { tacLifeSupport: boolean; realAntennas: boolean; kerbalAlarmClock: boolean; transferWindowPlanner: boolean; testFlight?: boolean; kct?: boolean };
 }
 export interface CraftEntry extends CraftMeta { file: string; folder: string; save: string | null; modified: string }
 export interface HistoryPoint { ut: number; funds: number | null; science: number | null; reputation: number | null; source: string }
