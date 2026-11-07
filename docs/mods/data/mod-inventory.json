@@ -1,0 +1,5494 @@
+{
+  "generated_at": "2026-11-06T22:20:34+00:00",
+  "install_root": "/Applications/KSP-RP2000",
+  "build": {
+    "file": "buildID.txt",
+    "build_id": "03190"
+  },
+  "log_header": {
+    "ksp_version": "1.12.5.3190",
+    "player": "OSXPlayer",
+    "os": "Mac OS X 27.2.0",
+    "cpu": "Apple M4 (10)",
+    "ram": "32768",
+    "gpu": "Apple M4 (25559MB)",
+    "sm": "46 (OpenGL 4.1 Metal - 91.7)"
+  },
+  "gamedata_folders": [
+    "000_ClickThroughBlocker",
+    "000_Harmony",
+    "000_KSPBurst",
+    "000_TexturesUnlimited",
+    "001_ToolbarControl",
+    "999_Scale_Redist.dll",
+    "999_Scale_Redist.version",
+    "AJE",
+    "AN-HTV",
+    "AN-JPLV",
+    "ASET",
+    "ATK_Propulsion_Pack",
+    "Alcentar_Add-ons",
+    "AnimatedDecouplers",
+    "B9PartSwitch",
+    "B9_Aerospace_ProceduralWings",
+    "BahaSP",
+    "Benjee10_Orion",
+    "Benjee10_sharedAssets",
+    "Blackrack_TUFX.cfg",
+    "BlazesTUFX",
+    "CameraTools",
+    "Chatterer",
+    "CommunityCategoryKit",
+    "CommunityResourcePack",
+    "CommunityTechTree",
+    "ConformalDecals",
+    "ContractConfigurator",
+    "CustomBarnKit",
+    "CustomPreLaunchChecks",
+    "Custom_FARAeroData.cfg",
+    "CxAerospace",
+    "DECQ_ENERGIA",
+    "DE_IVAExtension",
+    "Dan's TUFX",
+    "DeployableEngines",
+    "DepthMask",
+    "DistantObject",
+    "EDBMods",
+    "EditorExtensionsRedux",
+    "EngineGroupController",
+    "EnvironmentalVisualEnhancements",
+    "FASA",
+    "FShangarExtender",
+    "FerramAerospaceResearch",
+    "Firespitter",
+    "FlyByWireSASMode",
+    "FreeIva",
+    "HUDReplacer",
+    "HabTechProps",
+    "HullCameraVDS",
+    "ISS_Comunity",
+    "JSI",
+    "JSIA Vision",
+    "JanitorsCloset",
+    "JustReadTheInstructions",
+    "KK_Antares",
+    "KSCExtended",
+    "KSCSwitcher",
+    "KSPBridge",
+    "KSPCommunityFixes",
+    "KSPCommunityPartModules",
+    "KSPTextureLoader",
+    "KSPWheel",
+    "KWRocketry",
+    "Kartoffelkuchen",
+    "KerbalChangelog",
+    "KerbalConstructionTime",
+    "KerbalJointReinforcement",
+    "KerbalKonstructs",
+    "Kopernicus",
+    "Launchers Pack",
+    "LonesomeRobots",
+    "MechJeb2",
+    "ModularFlightIntegrator",
+    "ModularLaunchPads",
+    "ModuleManager.4.2.3.dll",
+    "ModuleManager.ConfigCache",
+    "ModuleManager.ConfigSHA",
+    "ModuleManager.Physics",
+    "ModuleManager.TechTree",
+    "MunksFixes",
+    "OSSNTR",
+    "OhScrap",
+    "PatchManager",
+    "PlanetShine",
+    "ProceduralFairings",
+    "ProceduralParts",
+    "RCSBuildAid",
+    "REPOSoftTech",
+    "RN_Cygnus",
+    "RN_Misc",
+    "RN_Salyut",
+    "RN_Skylab",
+    "RN_Soviet_Probes",
+    "RN_Soviet_Rockets",
+    "RN_Soyuz",
+    "RN_US_Probes",
+    "RN_US_Rockets",
+    "ROCapsules",
+    "ROEngines",
+    "ROLib",
+    "ROSolar",
+    "ROTanks",
+    "ROUtils",
+    "RP2000",
+    "RSS-Textures",
+    "RSSDateTime",
+    "RSSVE",
+    "RealAntennas",
+    "RealChute",
+    "RealEnginesPack",
+    "RealFuels",
+    "RealHeat",
+    "RealPlume",
+    "RealSolarSystem",
+    "RealismOverhaul",
+    "Resurfaced",
+    "RetractableLiftingSurface",
+    "SPACE_SHUTTLE_SYSTEM",
+    "Scatterer",
+    "ScattererAtmosphereCache",
+    "Shabby",
+    "SimpleAdjustableFairings",
+    "SimpleAdjustableFairings-KWRocketry",
+    "SmokeScreen",
+    "SolverEngines",
+    "SovietEngines",
+    "SpaceTuxLibrary",
+    "Squad",
+    "StagedAnimation",
+    "StarshipExpansionProject",
+    "StockAlarmClockDisabler",
+    "StockScattererConfigs",
+    "StockVolumetricClouds",
+    "Switch",
+    "TDProps",
+    "TUFX",
+    "Telemachus",
+    "ThunderAerospace",
+    "Trajectories",
+    "TriggerTech",
+    "TundraSpaceCenter",
+    "VABOrganizer",
+    "VABOrganizer-Sheepdog",
+    "WasdEditorCamera",
+    "WasdMainMenu",
+    "Waterfall",
+    "WaypointManager",
+    "ZTheme",
+    "ZZZ_HullcamRO",
+    "ZZZ_RP2000_Fixes",
+    "ZZZ_SoyuzIVAFix",
+    "kRPC",
+    "samv_server",
+    "zzz_Deferred"
+  ],
+  "disabled_mods": [
+    "SSTU",
+    "StarshipExpansionProject-3.1.0",
+    "kRPC"
+  ],
+  "ckan_modules": {
+    "CommunityResourcePack": {
+      "name": "Community Resource Pack",
+      "version": "v112.0.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.6.0",
+      "ksp_version_max": "1.99.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Common resources for KSP mods",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/83007-*",
+        "repository": "https://github.com/UmbraSpaceIndustries/CommunityResourcePack",
+        "bugtracker": "https://github.com/UmbraSpaceIndustries/CommunityResourcePack/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "CommunityResourcePack"
+      ]
+    },
+    "KerbalChangelog": {
+      "name": "Kerbal Changelog",
+      "version": "v1.4.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.9",
+      "ksp_version_max": "1.12",
+      "license": "MIT",
+      "abstract": "Small QOL KSP mod for modders that allows them to provide in-game changelogs for their mods",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/200702--kerbal-changelog",
+        "repository": "https://github.com/HebaruSan/KerbalChangelog",
+        "bugtracker": "https://github.com/HebaruSan/KerbalChangelog/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KerbalChangelog"
+      ]
+    },
+    "KSCSwitcher": {
+      "name": "KSC Switcher",
+      "version": "v2.2.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": null,
+      "license": "BSD-2-clause",
+      "abstract": "Allows you to move KSC to other locations on Kerbin from the Tracking Station.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/106206-*",
+        "repository": "https://github.com/KSP-RO/KSCSwitcher",
+        "bugtracker": "https://github.com/KSP-RO/KSCSwitcher/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "KSCSwitcher"
+      ]
+    },
+    "Scatterer-sunflare": {
+      "name": "Scatterer Sunflare",
+      "version": "3:v0.0878",
+      "ksp_version": null,
+      "ksp_version_min": "1.9",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "Scatterer's default sunflare. If you're not sure which one to pick, pick this.",
+      "depends": [],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/103963-wip-scatterer-atmospheric-scattering",
+        "spacedock": "https://spacedock.info/mod/141/Scatterer",
+        "repository": "https://github.com/LGhassen/Scatterer",
+        "bugtracker": "https://github.com/LGhassen/Scatterer/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "StockScattererConfigs"
+      ]
+    },
+    "TweakScaleRescaled-Redist": {
+      "name": "TweakScale Rescaled Redistributable",
+      "version": "3.3.2.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "CC-BY-NC-SA",
+      "abstract": "Faster, more features, fewer bugs. Provides a mechanism for other mods to interact with TweakScaleRescaled. This plugin has no overhead when TweakScaleRescaled is not installed.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/223692-1125-tweakscalerescaled-scale-your-parts-in-the-editor/",
+        "spacedock": "https://spacedock.info/mod/3514/TweakScale%20Rescaled",
+        "repository": "https://github.com/JonnyOThan/TweakScale",
+        "bugtracker": "https://github.com/JonnyOThan/TweakScale/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": []
+    },
+    "ModuleManager": {
+      "name": "Module Manager",
+      "version": "4.2.3",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "CC-BY-SA",
+      "abstract": "Modify KSP configs without conflict",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/50533-*",
+        "repository": "https://github.com/sarbian/ModuleManager"
+      },
+      "auto_installed": true,
+      "gamedata_folders": []
+    },
+    "Harmony2": {
+      "name": "Harmony 2",
+      "version": "2.2.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "A library for patching, replacing and decorating .NET and Mono methods during runtime",
+      "depends": [],
+      "resources": {
+        "repository": "https://github.com/KSPModdingLibs/HarmonyKSP",
+        "bugtracker": "https://github.com/KSPModdingLibs/HarmonyKSP/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "000_Harmony"
+      ]
+    },
+    "ClickThroughBlocker": {
+      "name": "ClickThrough Blocker",
+      "version": "1:2.1.10.23",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "Helps eliminate the clickthrough problem with mods",
+      "depends": [
+        "ToolbarController"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/170747-131-click-through-blocker/",
+        "spacedock": "https://spacedock.info/mod/1689/Click%20Through%20Blocker",
+        "repository": "https://github.com/linuxgurugamer/ClickThroughBlocker",
+        "bugtracker": "https://github.com/linuxgurugamer/ClickThroughBlocker/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "000_ClickThroughBlocker"
+      ]
+    },
+    "CustomBarnKit": {
+      "name": "Custom Barn Kit",
+      "version": "1.1.22.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "A small plugin to change a bunch of parameters related to career, science, the buildings upgrade cost and when various features are unlocked.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/109027-*",
+        "repository": "https://github.com/sarbian/CustomBarnKit"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "CustomBarnKit"
+      ]
+    },
+    "KSPCommunityFixes": {
+      "name": "KSP Community Fixes",
+      "version": "1:1.41.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "Fixes for stock bugs, also provides various QoL/UI improvements",
+      "depends": [
+        "ModuleManager",
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/204002-*",
+        "repository": "https://github.com/KSPModdingLibs/KSPCommunityFixes",
+        "bugtracker": "https://github.com/KSPModdingLibs/KSPCommunityFixes/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KSPCommunityFixes"
+      ]
+    },
+    "Shabby": {
+      "name": "Shabby",
+      "version": "0.4.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "GPL-3.0",
+      "abstract": "Shader asset bundle loader for KSP",
+      "depends": [
+        "Harmony2"
+      ],
+      "resources": {
+        "repository": "https://github.com/KSPModdingLibs/Shabby",
+        "bugtracker": "https://github.com/KSPModdingLibs/Shabby/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Shabby"
+      ]
+    },
+    "ModularFlightIntegrator": {
+      "name": "ModularFlightIntegrator",
+      "version": "1.2.10.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.0",
+      "ksp_version_max": "1.12.90",
+      "license": "MIT",
+      "abstract": "This is an amazing addon that will Modularly Integrate your Flight Models.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/106369-*",
+        "repository": "https://github.com/sarbian/ModularFlightIntegrator"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "ModularFlightIntegrator"
+      ]
+    },
+    "B9PartSwitch": {
+      "name": "B9 Part Switch",
+      "version": "v2.21.0.4",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "LGPL-3.0",
+      "abstract": "A Kerbal Space Program plugin designed to implement switching of part meshes, resources, and nodes",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "repository": "https://github.com/KSPModStewards/B9PartSwitch",
+        "bugtracker": "https://github.com/KSPModStewards/B9PartSwitch/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "B9PartSwitch"
+      ]
+    },
+    "HangerExtenderExtended": {
+      "name": "Hangar Extender",
+      "version": "3.6.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "Extend your VAB/SPH so you can build really massive rockets",
+      "depends": [
+        "ToolbarController"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/162790-13-hanger-extender-release-imminent/",
+        "spacedock": "https://spacedock.info/mod/1428/HangarExtender",
+        "repository": "https://github.com/linuxgurugamer/FShangarExtender",
+        "bugtracker": "https://github.com/linuxgurugamer/FShangarExtender/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "FShangarExtender"
+      ]
+    },
+    "Scatterer-config": {
+      "name": "Scatterer Default Config",
+      "version": "3:v0.0878",
+      "ksp_version": null,
+      "ksp_version_min": "1.9",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "Scatterer's default configuration. If you're not sure which one to pick, pick this.",
+      "depends": [],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/103963-wip-scatterer-atmospheric-scattering",
+        "spacedock": "https://spacedock.info/mod/141/Scatterer",
+        "repository": "https://github.com/LGhassen/Scatterer",
+        "bugtracker": "https://github.com/LGhassen/Scatterer/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Scatterer",
+        "StockScattererConfigs"
+      ]
+    },
+    "BackgroundResources": {
+      "name": "Background Resources",
+      "version": "1:v0.18.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "REPOSoftTech Background Resources plugin",
+      "depends": [],
+      "resources": {
+        "homepage": "https://github.com/KSP-RO/TacLifeSupport/wiki",
+        "repository": "https://github.com/KSP-RO/TacLifeSupport",
+        "bugtracker": "https://github.com/KSP-RO/TacLifeSupport/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "REPOSoftTech"
+      ]
+    },
+    "FlyByWireSASMode": {
+      "name": "Fly By Wire SAS Mode",
+      "version": "1.2.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "Adds a new \"fly by wire\" SAS mode. When enabled, pitch and yaw inputs don't control the vessel directly anymore, but instead control the position of a custom navball direction marker that the SAS will follow automatically.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/224632-*",
+        "repository": "https://github.com/gotmachine/FlyByWireSASMode",
+        "bugtracker": "https://github.com/gotmachine/FlyByWireSASMode/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "FlyByWireSASMode"
+      ]
+    },
+    "EditorExtensionsRedux": {
+      "name": "Editor Extensions Redux",
+      "version": "3.4.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.1",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "Tweaks and features for the in-game vessel editor, e.g. alignment and symmetry aids. Now includes SelectRoot mod",
+      "depends": [
+        "ClickThroughBlocker"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/127378-editor-extensions-redux-301-released-with-selectroot-merge/&do=findComment&comment=2314915",
+        "spacedock": "https://spacedock.info/mod/48/Editor%20Extensions%20Redux",
+        "repository": "https://github.com/linuxgurugamer/EditorExtensionsRedux",
+        "bugtracker": "https://github.com/linuxgurugamer/EditorExtensionsRedux/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "EditorExtensionsRedux"
+      ]
+    },
+    "RetractableLiftingSurface": {
+      "name": "Retractable Lifting Surface Module",
+      "version": "0.2.1.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "Small mod to control retractable/foldable lifing surfaces",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/145583-*",
+        "repository": "https://github.com/linuxgurugamer/RetractableLiftingSurface",
+        "bugtracker": "https://github.com/linuxgurugamer/RetractableLiftingSurface/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RetractableLiftingSurface"
+      ]
+    },
+    "PlanetShine-Config-Default": {
+      "name": "PlanetShine - Default configuration",
+      "version": "0.2.6.6",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.999",
+      "license": "Apache-2.0",
+      "abstract": "Planets and moons reflects their light to your vessel + other ambient light improvements",
+      "depends": [
+        "PlanetShine"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/173138-*",
+        "repository": "https://github.com/PapaJoesSoup/ksp-planetshine",
+        "bugtracker": "https://github.com/PapaJoesSoup/ksp-planetshine/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "PlanetShine"
+      ]
+    },
+    "ToolbarController": {
+      "name": "Toolbar Controller",
+      "version": "1:0.1.9.14",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "Wrapper mod around the Blizzy and stock toolbars",
+      "depends": [
+        "ClickThroughBlocker"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/169509-141-toolbar-controller-for-modders/",
+        "spacedock": "https://spacedock.info/mod/1931/ToolbarController",
+        "repository": "https://github.com/linuxgurugamer/ToolbarControl",
+        "bugtracker": "https://github.com/linuxgurugamer/ToolbarControl/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "001_ToolbarControl"
+      ]
+    },
+    "KSPBurst-Lite": {
+      "name": "KSPBurst Plugins",
+      "version": "v1.7.4.11",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "unknown",
+      "abstract": "Mods that require KSPBurst can run with this alone, but this does not improve performance unless the burst compiler is also installed.",
+      "depends": [
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/201112-*",
+        "repository": "https://github.com/KSPModdingLibs/KSPBurst",
+        "bugtracker": "https://github.com/KSPModdingLibs/KSPBurst/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "000_KSPBurst"
+      ]
+    },
+    "PlanetShine": {
+      "name": "PlanetShine",
+      "version": "0.2.6.6",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.999",
+      "license": "Apache-2.0",
+      "abstract": "Planets and moons reflects their light to your vessel + other ambient light improvements",
+      "depends": [
+        "PlanetShine-Config"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/173138-*",
+        "repository": "https://github.com/PapaJoesSoup/ksp-planetshine",
+        "bugtracker": "https://github.com/PapaJoesSoup/ksp-planetshine/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "PlanetShine"
+      ]
+    },
+    "BDAnimationModules": {
+      "name": "BahamutoD Animation Modules",
+      "version": "1:v0.6.7.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-2.0",
+      "abstract": "Animation modules plugin for KSP",
+      "depends": [],
+      "resources": {
+        "homepage": "https://github.com/raidernick/BDAnimationModules",
+        "repository": "https://github.com/raidernick/BDAnimationModules",
+        "bugtracker": "https://github.com/raidernick/BDAnimationModules/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "BahaSP"
+      ]
+    },
+    "SpaceTuxLibrary": {
+      "name": "SpaceTux Library",
+      "version": "0.0.9",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "A library of small functions for use by mods",
+      "depends": [],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/2210/SpaceTux%20Library",
+        "repository": "https://github.com/linuxgurugamer/SpaceTuxLibrary",
+        "bugtracker": "https://github.com/linuxgurugamer/SpaceTuxLibrary/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "SpaceTuxLibrary"
+      ]
+    },
+    "RSSTextures4096": {
+      "name": "Real Solar System Textures - 4096 x 2048",
+      "version": "v18.6.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-SA",
+      "abstract": "Textures for Real Solar Systems",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/177216-*",
+        "repository": "https://github.com/KSP-RO/RSS-Textures",
+        "bugtracker": "https://github.com/KSP-RO/RSS-Textures/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RSS-Textures"
+      ]
+    },
+    "Deferred": {
+      "name": "Deferred",
+      "version": "1.3.5.0",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "Add deferred rendering to KSP",
+      "depends": [
+        "Shabby"
+      ],
+      "resources": {
+        "homepage": "https://www.patreon.com/posts/deferred-106557481",
+        "repository": "https://github.com/LGhassen/Deferred",
+        "bugtracker": "https://github.com/LGhassen/Deferred/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "zzz_Deferred"
+      ]
+    },
+    "RN-Skylab": {
+      "name": "Skylab",
+      "version": "1:v1.8.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This mod comes with everything you need to create your own Skylab, broken solar panels and all!",
+      "depends": [
+        "BDAnimationModules",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/77855-*",
+        "repository": "https://github.com/KSP-RO/Skylab",
+        "bugtracker": "https://github.com/KSP-RO/Skylab/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Skylab"
+      ]
+    },
+    "TUFX": {
+      "name": "TUFX",
+      "version": "1.1.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12",
+      "license": "GPL-3.0",
+      "abstract": "Post-processing FX for KSP",
+      "depends": [
+        "ModuleManager",
+        "Shabby",
+        "ClickThroughBlocker",
+        "ToolbarController"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/192212-*",
+        "repository": "https://github.com/KSPModStewards/TUFX",
+        "bugtracker": "https://github.com/KSPModStewards/TUFX/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "TUFX"
+      ]
+    },
+    "SolverEngines": {
+      "name": "Solver Engines plugin",
+      "version": "v3.14.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "LGPL-2.1",
+      "abstract": "SolverEngines is at its heart a replacement paradigm for how KSP deals with engines",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/110746-*",
+        "repository": "https://github.com/KSP-RO/SolverEngines",
+        "bugtracker": "https://github.com/KSP-RO/SolverEngines/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "SolverEngines"
+      ]
+    },
+    "ROUtils": {
+      "name": "ROUtils",
+      "version": "v1.1.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Base library for KSP-RO group mods",
+      "depends": [
+        "KSPCommunityFixes",
+        "KerbalChangelog"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/190040-*",
+        "repository": "https://github.com/KSP-RO/ROUtils",
+        "bugtracker": "https://github.com/KSP-RO/ROUtils/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "ROUtils"
+      ]
+    },
+    "RealFuels": {
+      "name": "Real Fuels",
+      "version": "1:v15.15.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "Real fuels and tanks for KSP",
+      "depends": [
+        "ModuleManager",
+        "RealFuels-Engine-Configs",
+        "CommunityResourcePack",
+        "SolverEngines",
+        "ROUtils"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?showtopic=58236",
+        "repository": "https://github.com/KSP-RO/RealFuels",
+        "bugtracker": "https://github.com/KSP-RO/RealFuels/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RealFuels"
+      ]
+    },
+    "CommunityCategoryKit": {
+      "name": "Community Category Kit",
+      "version": "v112.0.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.99.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Common parts categories for KSP mods",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/149840-*",
+        "repository": "https://github.com/UmbraSpaceIndustries/CommunityCategoryKit",
+        "bugtracker": "https://github.com/UmbraSpaceIndustries/CommunityCategoryKit/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "CommunityCategoryKit"
+      ]
+    },
+    "TUFXProfileVision": {
+      "name": "TUFX Profile | Vision",
+      "version": "R1",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "Realistic TUFX Profile for KSP",
+      "depends": [
+        "TUFX"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/3946/TUFX%20Profile%20|%20Vision",
+        "repository": "https://github.com/jongshh/JSIA-Vision",
+        "bugtracker": "https://github.com/jongshh/JSIA-Vision/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "JSIA Vision"
+      ]
+    },
+    "TexturesUnlimited": {
+      "name": "Textures Unlimited",
+      "version": "1.6.4.30",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "KSP Shader, Texture, and Modeling Utilities",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/167450-*",
+        "repository": "https://github.com/KSPModStewards/TexturesUnlimited",
+        "bugtracker": "https://github.com/KSPModStewards/TexturesUnlimited/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "000_TexturesUnlimited"
+      ]
+    },
+    "FerramAerospaceResearchContinued": {
+      "name": "Ferram Aerospace Research Continued",
+      "version": "3:0.16.1.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "FAR replaces KSP's stock part-centered aerodynamics model with one based on real-life physics.",
+      "depends": [
+        "ModuleManager",
+        "ModularFlightIntegrator",
+        "TweakScale-Redist",
+        "KSPBurst"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/179445-*",
+        "repository": "https://github.com/KSPModStewards/Ferram-Aerospace-Research",
+        "bugtracker": "https://github.com/KSPModStewards/Ferram-Aerospace-Research/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "FerramAerospaceResearch"
+      ]
+    },
+    "Scatterer": {
+      "name": "Scatterer",
+      "version": "3:v0.0878",
+      "ksp_version": null,
+      "ksp_version_min": "1.9",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "Atmospheric scattering shaders",
+      "depends": [
+        "Scatterer-sunflare",
+        "Scatterer-config"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/103963-wip-scatterer-atmospheric-scattering",
+        "spacedock": "https://spacedock.info/mod/141/Scatterer",
+        "repository": "https://github.com/LGhassen/Scatterer",
+        "bugtracker": "https://github.com/LGhassen/Scatterer/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Scatterer"
+      ]
+    },
+    "SmokeScreen": {
+      "name": "SmokeScreen - Extended FX Plugin",
+      "version": "2.8.14.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.90",
+      "license": "BSD-2-clause",
+      "abstract": "SmokeScreen is a plugin that build on the engine FX added in .23 and adds new features to them. Most of the features ideas comes from Nothke.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/64987-*",
+        "repository": "https://github.com/sarbian/SmokeScreen"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "SmokeScreen"
+      ]
+    },
+    "MechJeb2": {
+      "name": "MechJeb 2",
+      "version": "2.15.3.0",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "Anatid Robotics and Multiversal Mechatronics proudly presents the first flight assistant autopilot: MechJeb",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/154834-*",
+        "repository": "https://github.com/MuMech/MechJeb2"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "MechJeb2"
+      ]
+    },
+    "RealChute": {
+      "name": "RealChute Parachute Systems",
+      "version": "v1.4.9.5",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "Complete rework of the stock parachute module to fix a few of its inconveniences and get more realistic results out of parachutes!",
+      "depends": [
+        "ClickThroughBlocker",
+        "ToolbarController"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/52931-0",
+        "repository": "https://github.com/ChrisViral/RealChute",
+        "bugtracker": "https://github.com/ChrisViral/RealChute/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "RealChute"
+      ]
+    },
+    "ProceduralParts": {
+      "name": "Procedural Parts",
+      "version": "v2.8.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.1",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "ProceduralParts allows you to procedurally generate a number of different parts in a range of sizes and shapes.",
+      "depends": [
+        "ModuleManager",
+        "KSPCommunityFixes",
+        "ROUtils"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/204080-*",
+        "repository": "https://github.com/KSP-RO/ProceduralParts",
+        "bugtracker": "https://github.com/KSP-RO/ProceduralParts/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ProceduralParts"
+      ]
+    },
+    "CrewVessels": {
+      "name": "Crew Vessels",
+      "version": "0.3",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY",
+      "abstract": "Pack of spacecraft and station modules for RP-2000",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://github.com/tylerraiz/CrewVessels",
+        "spacedock": "https://spacedock.info/mod/3696/Crew%20Vessels",
+        "repository": "https://github.com/tylerraiz/CrewVessels",
+        "bugtracker": "https://github.com/tylerraiz/CrewVessels/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "EDBMods"
+      ]
+    },
+    "RSSVE-LR": {
+      "name": "RSS Visual Enhancements - Low Resolution",
+      "version": "v3.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "A visual enhancement pack for the Kerbal Space Program RealSolarSystem mod.",
+      "depends": [
+        "ModuleManager",
+        "EnvironmentalVisualEnhancements",
+        "RealSolarSystem",
+        "Scatterer"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/153511-rssve",
+        "repository": "https://github.com/KSP-RO/RSSVE",
+        "bugtracker": "https://github.com/KSP-RO/RSSVE/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RSSVE"
+      ]
+    },
+    "AdvancedJetEngine": {
+      "name": "Advanced Jet Engine",
+      "version": "v2.20.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.10.0",
+      "ksp_version_max": "1.12.99",
+      "license": "LGPL-2.0",
+      "abstract": "Gives jets, propellers, and rotors realistic performance.",
+      "depends": [
+        "FAR",
+        "SolverEngines",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?showtopic=139868",
+        "repository": "https://github.com/KSP-RO/AJE",
+        "bugtracker": "https://github.com/KSP-RO/AJE/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "AJE"
+      ]
+    },
+    "Kopernicus": {
+      "name": "Kopernicus Planetary System Modifier",
+      "version": "2:release-1.12.1-247",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "LGPL-3.0",
+      "abstract": "Allows users to replace the planetary system used by the game",
+      "depends": [
+        "KSPTextureLoader",
+        "ModuleManager",
+        "ModularFlightIntegrator",
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/200143-*",
+        "repository": "https://github.com/Kopernicus/Kopernicus",
+        "bugtracker": "https://github.com/Kopernicus/Kopernicus/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Kopernicus"
+      ]
+    },
+    "TriggerAu-Flags": {
+      "name": "TriggerAu Flags",
+      "version": "v2.11.0.0",
+      "ksp_version": null,
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "Flags contained in TriggerAu's Addons",
+      "depends": [],
+      "resources": {
+        "repository": "https://github.com/TriggerAu/AlternateResourcePanel",
+        "bugtracker": "https://github.com/TriggerAu/AlternateResourcePanel/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "TriggerTech"
+      ]
+    },
+    "TundraSpaceCenter": {
+      "name": "Tundra's Space Center",
+      "version": "2.0.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.1",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "A mod that is focusing on the next generation launchpads for Kerbal Konstruct.",
+      "depends": [
+        "ModuleManager",
+        "KerbalKonstructs"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/174368-143-tundras-space-center-v09-april-28th-stockalike-spacex-lc-40-launchpad/&tab=comments#comment-3366232",
+        "spacedock": "https://spacedock.info/mod/1831/Tundra's%20Space%20Center"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "TundraSpaceCenter"
+      ]
+    },
+    "KSPBurst": {
+      "name": "KSPBurst Compiler",
+      "version": "v1.7.4.11",
+      "ksp_version": null,
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "unknown",
+      "abstract": "Better multithreaded performance for mods that use it. Requires Mono on Linux and macOS (you have it if you're running CKAN).",
+      "depends": [
+        "KSPBurst-Lite"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/201112-*",
+        "repository": "https://github.com/KSPModdingLibs/KSPBurst",
+        "bugtracker": "https://github.com/KSPModdingLibs/KSPBurst/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "000_KSPBurst"
+      ]
+    },
+    "AnimatedDecouplers": {
+      "name": "Animated Decouplers",
+      "version": "v1.5.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": null,
+      "license": "CC-BY-SA-4.0",
+      "abstract": "Extensions of KSP's decouplers that play animations.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/170880-*",
+        "repository": "https://github.com/Starwaster/AnimatedDecouplers",
+        "bugtracker": "https://github.com/Starwaster/AnimatedDecouplers/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "AnimatedDecouplers"
+      ]
+    },
+    "TransferWindowPlannerFork": {
+      "name": "Transfer Window Planner - Fork",
+      "version": "v1.9.1.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "A fork of TriggerAu's Transfer Window Planner mod. Instead of assuming an equatorial orbit with a plane change in the ejection burn, this version shows the required parking orbit plane such that the ejection burn is purely prograde. This can save a lot of \u0394v when the planes of the departure and destination body are not exactly the same as that of the departure body's equator.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://discordapp.com/invite/ZGbR6nv",
+        "repository": "https://github.com/Nazfib/TransferWindowPlanner",
+        "bugtracker": "https://github.com/Nazfib/TransferWindowPlanner/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "TriggerTech"
+      ]
+    },
+    "CxAerospace": {
+      "name": "CxAerospace: Station Parts Pack",
+      "version": "1.6.2",
+      "ksp_version": "1.3.0",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "restricted",
+      "abstract": "ISS-Inspired Station Modules with IVAs, including Pressurized Mating Adapter, Common Berthing Mechanisms, and APAS Docking Ports",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/138910-112-cxaerospace-stations-parts-pack-v10-2016-05-03/",
+        "spacedock": "https://spacedock.info/mod/64/CxAerospace:%20Station%20Parts%20Pack"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "CxAerospace"
+      ]
+    },
+    "RN-SovietProbes": {
+      "name": "Soviet Probes",
+      "version": "1:v3.5",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This pack includes early Soviet probes such as Sputnik, Luna, Molniya and Polyot. Probes are meant to be used with my Soviet Rockets pack.",
+      "depends": [
+        "BDAnimationModules",
+        "ModuleManager",
+        "TexturesUnlimited"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/79433-*",
+        "repository": "https://github.com/KSP-RO/SovietProbes",
+        "bugtracker": "https://github.com/KSP-RO/SovietProbes/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Soviet_Probes"
+      ]
+    },
+    "KerbalAlarmClock": {
+      "name": "Kerbal Alarm Clock Updated",
+      "version": "1:3.14.2.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "A plugin that allows you to create reminder alarms at future periods to help you manage your flights and not warp past important times",
+      "depends": [
+        "ToolbarController",
+        "ClickThroughBlocker"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/230939-112x-kerbal-alarm-clock-updated/",
+        "spacedock": "https://spacedock.info/mod/4287/Kerbal%20Alarm%20Clock%20Updated",
+        "repository": "https://github.com/linuxgurugamer/KerbalAlarmClock",
+        "bugtracker": "https://github.com/linuxgurugamer/KerbalAlarmClock/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "TriggerTech"
+      ]
+    },
+    "DistantObject-default": {
+      "name": "Distant Object Enhancement /L default config",
+      "version": "v2.2.1.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.3.1",
+      "ksp_version_max": "1.12.5",
+      "license": "CC-BY-4.0",
+      "abstract": "Default planets colors",
+      "depends": [
+        "DistantObject"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/205063-*",
+        "spacedock": "https://spacedock.info/mod/2274/Distant%20Object%20Enhancement%20/L",
+        "repository": "https://github.com/net-lisias-ksp/DistantObject",
+        "bugtracker": "https://github.com/net-lisias-ksp/DistantObject/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "DistantObject"
+      ]
+    },
+    "SwitchsTUFX": {
+      "name": "Switch's TUFX Profiles",
+      "version": "1.2",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-SA",
+      "abstract": "A unique set of TUFX Profiles.",
+      "depends": [
+        "TUFX"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/4292/Switch's%20TUFX%20Profiles"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Switch"
+      ]
+    },
+    "RN-SalyutStations": {
+      "name": "Salyut Stations",
+      "version": "1:v3.8",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This is a salyut mod for the DOS & OPS style stations. It contains fully functional replicas of Salyut 1, 4, 6 and 7. It also now contains Almaz 2, 3 and 5.",
+      "depends": [
+        "BDAnimationModules",
+        "ModuleManager",
+        "TexturesUnlimited"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/79732-*",
+        "repository": "https://github.com/KSP-RO/SalyutStations",
+        "bugtracker": "https://github.com/KSP-RO/SalyutStations/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Salyut"
+      ]
+    },
+    "TACLS": {
+      "name": "TAC Life Support (TACLS)",
+      "version": "1:v0.18.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-3.0",
+      "abstract": "Life Support from Thunder Aerospace Corporation",
+      "depends": [
+        "ModuleManager",
+        "CommunityResourcePack",
+        "BackgroundResources"
+      ],
+      "resources": {
+        "homepage": "https://github.com/KSP-RO/TacLifeSupport/wiki",
+        "repository": "https://github.com/KSP-RO/TacLifeSupport",
+        "bugtracker": "https://github.com/KSP-RO/TacLifeSupport/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ThunderAerospace"
+      ]
+    },
+    "EnvironmentalVisualEnhancements": {
+      "name": "Environmental Visual Enhancements Redux",
+      "version": "3:1.11.7.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "Version of EVE plugins which highly improves performance. Use as a replacement for regular EVE: Visual enhancements including clouds, lights, etc. Based on the work of rbray89, WazWaz, R-T-B, BIOZ",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/196411-19-111x-eve-redux-performance-enhanced-eve-build-v11121-31012021/",
+        "spacedock": "https://spacedock.info/mod/2631/Environmental%20Visual%20Enhancements%20Redux",
+        "repository": "https://github.com/LGhassen/EnvironmentalVisualEnhancements",
+        "bugtracker": "https://github.com/LGhassen/EnvironmentalVisualEnhancements/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "EnvironmentalVisualEnhancements"
+      ]
+    },
+    "TDProps": {
+      "name": "TDProps",
+      "version": "1.4.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.6.0",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "Props for IVAs for reuse",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/207179-112x-tiktaalik-dreaming-props/",
+        "spacedock": "https://spacedock.info/mod/1546/TDProps",
+        "repository": "https://github.com/linuxgurugamer/TDProps"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "TDProps"
+      ]
+    },
+    "CommunityTechTree": {
+      "name": "Community Tech Tree",
+      "version": "1:3.4.5",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-4.0",
+      "abstract": "Community-developed tech tree extension, with support for many mods.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/90530-16x-community-tech-tree-january-21/",
+        "spacedock": "https://spacedock.info/mod/534/Community%20Tech%20Tree",
+        "repository": "https://github.com/post-kerbin-mining-corporation/CommunityTechTree",
+        "bugtracker": "https://github.com/post-kerbin-mining-corporation/CommunityTechTree/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "CommunityTechTree"
+      ]
+    },
+    "KSPTextureLoader": {
+      "name": "KSP Texture Loader",
+      "version": "1.0.36",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "MIT",
+      "abstract": "A library for loading textures in KSP with as little overhead as possible",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/229418-112x-ksp-texture-loader-a-library-for-loading-textures-quickly-and-asynchronously/",
+        "repository": "https://github.com/Phantomical/KSPTextureLoader",
+        "bugtracker": "https://github.com/Phantomical/KSPTextureLoader/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KSPTextureLoader"
+      ]
+    },
+    "JustReadTheInstructions": {
+      "name": "Just Read The Instructions",
+      "version": "v2.3.0",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "Spiritual successor to OCISLY, allows you to stream your HullCam cameras on a local webpage!",
+      "depends": [
+        "HullcamVDSContinued"
+      ],
+      "resources": {
+        "homepage": "https://github.com/RELMYMathieu/JustReadTheInstructions",
+        "spacedock": "https://spacedock.info/mod/4212/Just%20Read%20The%20Instructions",
+        "repository": "https://github.com/RELMYMathieu/JustReadTheInstructions",
+        "bugtracker": "https://github.com/RELMYMathieu/JustReadTheInstructions/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "JustReadTheInstructions"
+      ]
+    },
+    "CameraTools": {
+      "name": "Camera Tools continued",
+      "version": "v1.37.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "A continuation of Camera Tools (https://spacedock.info/mod/274/Camera%20Tools, most recently maintained by JR) with a variety of bug-fixes and improvements.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/201063-camera-tools-continued-v1150/",
+        "spacedock": "https://spacedock.info/mod/2657/Camera%20Tools%20continued",
+        "repository": "https://github.com/BrettRyland/CameraTools",
+        "bugtracker": "https://github.com/BrettRyland/CameraTools/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "CameraTools"
+      ]
+    },
+    "SimpleAdjustableFairings": {
+      "name": "Simple Adjustable Fairings - Plugin",
+      "version": "v1.12.0",
+      "ksp_version": "1.11.2",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "LGPL-3.0",
+      "abstract": "A plugin that allows the creation of good looking, easy to use, single part payload farings.",
+      "depends": [],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?showtopic=159101",
+        "repository": "https://github.com/blowfishpro/SimpleAdjustableFairings",
+        "bugtracker": "https://github.com/blowfishpro/SimpleAdjustableFairings/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "SimpleAdjustableFairings"
+      ]
+    },
+    "BlazesTUFX": {
+      "name": "BlazesTUFX",
+      "version": "1.1",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "TUFX Profile",
+      "depends": [
+        "TUFX"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/4416/BlazesTUFX"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "BlazesTUFX"
+      ]
+    },
+    "kRPC-MechJeb": {
+      "name": "KRPC MechJeb",
+      "version": "v0.7.1",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "kRPC service for MechJeb2 (Kerbal Space Program)",
+      "depends": [
+        "kRPC",
+        "MechJeb2"
+      ],
+      "resources": {
+        "homepage": "https://genhis.github.io/KRPC.MechJeb/",
+        "repository": "https://github.com/Genhis/KRPC.MechJeb",
+        "bugtracker": "https://github.com/Genhis/KRPC.MechJeb/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "kRPC"
+      ]
+    },
+    "ZTheme": {
+      "name": "ZTheme",
+      "version": "v1.2.2",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "A (very cool) dark UI mod for KSP",
+      "depends": [
+        "ModuleManager",
+        "HUDReplacer"
+      ],
+      "resources": {
+        "homepage": "https://github.com/zapSNH/ZTheme",
+        "spacedock": "https://spacedock.info/mod/3396/ZTheme",
+        "repository": "https://github.com/zapSNH/ZTheme",
+        "bugtracker": "https://github.com/zapSNH/ZTheme/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ZTheme"
+      ]
+    },
+    "KSPWheel": {
+      "name": "KSP Wheel",
+      "version": "1:0.16.14.33",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "Replacement for U4 wheel collider, geared for use in KSP.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/152782-*",
+        "repository": "https://github.com/shadowmage45/KSPWheel",
+        "bugtracker": "https://github.com/shadowmage45/KSPWheel/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KSPWheel"
+      ]
+    },
+    "ProceduralFairings": {
+      "name": "Procedural Fairings",
+      "version": "1:v6.7.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.10.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY",
+      "abstract": "Fairings that automatically reshape for any attached payload",
+      "depends": [
+        "ModuleManager",
+        "KSPCommunityFixes",
+        "ROUtils"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/184187-*",
+        "repository": "https://github.com/KSP-RO/ProceduralFairings",
+        "bugtracker": "https://github.com/KSP-RO/ProceduralFairings/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ProceduralFairings"
+      ]
+    },
+    "Trajectories": {
+      "name": "Trajectories",
+      "version": "v2.4.5.4",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "The mod displays trajectory predictions, accounting for atmospheric drag, lift, etc. Works with the stock aerodynamic model, and also with Ferram Aerospace Research (FAR).",
+      "depends": [
+        "ModuleManager",
+        "ToolbarController",
+        "SpaceTuxLibrary"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/162324-131-181",
+        "spacedock": "https://spacedock.info/mod/396/Trajectories",
+        "repository": "https://github.com/linuxgurugamer/KSPTrajectories",
+        "bugtracker": "https://github.com/linuxgurugamer/KSPTrajectories/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Trajectories"
+      ]
+    },
+    "RealHeat": {
+      "name": "RealHeat",
+      "version": "v5.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": null,
+      "license": "CC-BY-SA",
+      "abstract": "Improves the realism of KSP's thermodynamics",
+      "depends": [
+        "ModuleManager",
+        "ModularFlightIntegrator"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/115066-*",
+        "repository": "https://github.com/KSP-RO/RealHeat",
+        "bugtracker": "https://github.com/KSP-RO/RealHeat/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "RealHeat"
+      ]
+    },
+    "ASETAgency": {
+      "name": "ASET Consolidated Agency",
+      "version": "v2.0.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.1",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-3.0",
+      "abstract": "ASET Consolidated Agency and Flag",
+      "depends": [],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/3248/ASET%20Consolidated%20Agency",
+        "repository": "https://github.com/StoneBlue/ASET-Consolidated-Agency",
+        "bugtracker": "https://github.com/StoneBlue/ASET-Consolidated-Agency/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "ASET"
+      ]
+    },
+    "SpaceShuttleSystem": {
+      "name": "Space Shuttle System",
+      "version": "1.01",
+      "ksp_version": "1.2.2",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-2.0",
+      "abstract": "Realistic Space Shuttle replica for KSP",
+      "depends": [
+        "ASETAvionics",
+        "CommunityResourcePack",
+        "RasterPropMonitor",
+        "KSPWheel",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/132975-122-space-shuttle-system-new-release-26012017",
+        "spacedock": "https://spacedock.info/mod/1178/Space%20Shuttle%20System"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "SPACE_SHUTTLE_SYSTEM",
+        "SSTU"
+      ]
+    },
+    "ASETAvionics": {
+      "name": "ASET Consolidated Avionics Pack",
+      "version": "v3.0.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.1",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-3.0",
+      "abstract": "An Aircraft-style \"props\" pack for use in IVAs.",
+      "depends": [
+        "ModuleManager",
+        "ASETAgency",
+        "ASETProps",
+        "RasterPropMonitor-Core"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/211905-wip-1125-181-aset-consolidated-avionics-props-iva-packs",
+        "spacedock": "https://spacedock.info/mod/3239/ASET%20Consolidated%20Avionics%20Pack",
+        "repository": "https://github.com/StoneBlue/ASET-Consolidated-Avionics",
+        "bugtracker": "https://github.com/StoneBlue/ASET-Consolidated-Avionics/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "ASET"
+      ]
+    },
+    "RN-MiscParts": {
+      "name": "RNMisc",
+      "version": "1:v1.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.3.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This mod contains miscellaneous parts I have fixed or re-textured and can re-release under authors original license terms",
+      "depends": [
+        "BDAnimationModules"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/132194-*",
+        "repository": "https://github.com/KSP-RO/RNMisc",
+        "bugtracker": "https://github.com/KSP-RO/RNMisc/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Misc"
+      ]
+    },
+    "B9-PWings-Fork": {
+      "name": "B9 Aerospace Procedural Wings - Fork",
+      "version": "3:0.46.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.10.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Fork of Bac9's Procedural Wings mod for KSP",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/203629-*",
+        "repository": "https://github.com/B9-Procedural-Wings/B9-PWings-Modified",
+        "bugtracker": "https://github.com/B9-Procedural-Wings/B9-PWings-Modified/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "B9_Aerospace_ProceduralWings"
+      ]
+    },
+    "SimpleAdjustableFairings-KWRocketry": {
+      "name": "Simple Adjustable Fairings - KW Rocketry Pack",
+      "version": "v1.4.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.0",
+      "ksp_version_max": "1.11.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "The original KW Rocketry fairings implemented using the Simple Adjustable Fairings plugin.  Models by Kickasskyle and Winston.",
+      "depends": [
+        "SimpleAdjustableFairings"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?showtopic=159101",
+        "repository": "https://github.com/blowfishpro/SimpleAdjustableFairings-KWRocketry",
+        "bugtracker": "https://github.com/blowfishpro/SimpleAdjustableFairings-KWRocketry/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "SimpleAdjustableFairings-KWRocketry"
+      ]
+    },
+    "CustomPreLaunchChecks": {
+      "name": "Custom Pre Launch Checks",
+      "version": "1.8.1.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "A C# API so you can write your own prelaunch Checks, that run when you press the launch button in the VAB or SPH",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/204210-*",
+        "repository": "https://github.com/KSP-RO/CustomPreLaunchChecks"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "CustomPreLaunchChecks"
+      ]
+    },
+    "kRPC": {
+      "name": "kRPC: Remote Procedure Call Server",
+      "version": "v0.6.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "kRPC allows you to control the game from external programs. It comes with client libraries for several popular languages including Python, C++, C#, Java and Lua. Programs communicate with the game over a TCP/IP connection, and can be configured to work on just the local machine or even over the wider internet.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://krpc.github.io/krpc",
+        "repository": "https://github.com/krpc/krpc",
+        "bugtracker": "https://github.com/krpc/krpc/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "kRPC"
+      ]
+    },
+    "WasdEditorCameraContinued": {
+      "name": "WasdEditorCameraContinued",
+      "version": "0.7.3.3",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.1",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "WasdEditorCameraContinued",
+      "depends": [
+        "ToolbarController",
+        "ClickThroughBlocker"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/121386-wasd-editor-camera-continued/&do=findComment&comment=2190864",
+        "spacedock": "https://spacedock.info/mod/56/WasdEditorCameraContinued",
+        "repository": "https://github.com/linuxgurugamer/WasdEditorCameraContinued",
+        "bugtracker": "https://github.com/linuxgurugamer/WasdEditorCameraContinued/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "WasdEditorCamera"
+      ]
+    },
+    "VABOrganizer-SheepDog": {
+      "name": "VAB Organizer - SheepDog Institute's Configs",
+      "version": "v1.4.1",
+      "ksp_version": null,
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Config files for part mods to support VABOrganizer",
+      "depends": [
+        "ModuleManager",
+        "VABOrganizer"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/225797-*",
+        "repository": "https://github.com/Sheepdog2142/VABOrganizer-Sheepdog",
+        "bugtracker": "https://github.com/Sheepdog2142/VABOrganizer-Sheepdog/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "VABOrganizer-Sheepdog"
+      ]
+    },
+    "FirespitterCore": {
+      "name": "Firespitter Core",
+      "version": "v7.17",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "Core Firespitter.dll. Install `Firespitter` for the whole shebang",
+      "depends": [],
+      "resources": {
+        "homepage": "http://snjo.github.io/",
+        "repository": "https://github.com/snjo/Firespitter",
+        "bugtracker": "https://github.com/snjo/Firespitter/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Firespitter"
+      ]
+    },
+    "WaypointManager": {
+      "name": "WaypointManager",
+      "version": "2.8.4.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "Display waypoints while in flight, create custom waypoints.",
+      "depends": [
+        "ToolbarController",
+        "ClickThroughBlocker",
+        "SpaceTuxLibrary"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/194876-112x-waypoint-manager-new-dependency-added/",
+        "spacedock": "https://spacedock.info/mod/3107/WaypointManager",
+        "repository": "https://github.com/linuxgurugamer/WaypointManager",
+        "bugtracker": "https://github.com/linuxgurugamer/WaypointManager/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "WaypointManager"
+      ]
+    },
+    "RealAntennas": {
+      "name": "Real Antennas",
+      "version": "v2.12.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "KSP Mod to add better antenna / link calculations to CommNet.",
+      "depends": [
+        "ModuleManager",
+        "KSPBurst",
+        "ClickThroughBlocker",
+        "KSPCommunityFixes"
+      ],
+      "resources": {
+        "homepage": "https://github.com/KSP-RO/RealAntennas/wiki",
+        "repository": "https://github.com/KSP-RO/RealAntennas",
+        "bugtracker": "https://github.com/KSP-RO/RealAntennas/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RealAntennas"
+      ]
+    },
+    "BuranEnergia": {
+      "name": "[1.8-1.12.x] Buran Energia Mod - 2.1 [RSS/RO Compatible]",
+      "version": "2.1",
+      "ksp_version": "1.12.3",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "BURAN ENERGIA - NOW FULLY USABLE",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/199703-18-110-buran-energia-mod-rebalanced-and-fixed/",
+        "spacedock": "https://spacedock.info/mod/2966/[1.8-1.12.x]%20Buran%20Energia%20Mod%20-%202.1%20[RSS/RO%20Compatible]",
+        "repository": "https://github.com/MyNameIsBorat/KspBuran",
+        "bugtracker": "https://github.com/MyNameIsBorat/KspBuran/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Alcentar_Add-ons",
+        "DECQ_ENERGIA"
+      ]
+    },
+    "AntaresCygnus": {
+      "name": "Antares-Cygnus",
+      "version": "1:v1.9",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "A joint release between Kartoffelkuchen and Raidernick combining our Cygnus and Antares mods.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/111292-*",
+        "repository": "https://github.com/KSP-RO/Antares-Cygnus",
+        "bugtracker": "https://github.com/KSP-RO/Antares-Cygnus/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "KK_Antares",
+        "RN_Cygnus"
+      ]
+    },
+    "StockalikeStructures": {
+      "name": "Omega's Stockalike Structures: No Textures Required",
+      "version": "0.0.12",
+      "ksp_version": null,
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-ND-4.0",
+      "abstract": "ALPHA BUILD. A statics content pack for KERBAL KONSTRUCTS",
+      "depends": [
+        "ModuleManager",
+        "KerbalKonstructs"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/169891-wip-omega482s-dev-thread-omegas-stockalike-structures-no-textures-required/",
+        "spacedock": "https://spacedock.info/mod/2061/Omega's%20Stockalike%20Structures:%20No%20Textures%20Required"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "OSSNTR"
+      ]
+    },
+    "VABOrganizer": {
+      "name": "VAB Organizer",
+      "version": "1.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "Small UI plugin that shows visual size tags on parts in the VAB as well as dividing the parts drawer into defined subcategories",
+      "depends": [
+        "ModuleManager",
+        "Harmony2"
+      ],
+      "resources": {
+        "repository": "https://github.com/post-kerbin-mining-corporation/VABOrganizer",
+        "bugtracker": "https://github.com/KSPModStewards/VABOrganizer/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "VABOrganizer"
+      ]
+    },
+    "SurestrutEngines": {
+      "name": "Surestrut Engines",
+      "version": "0.5",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-SA",
+      "abstract": "Pack of Generic Engines and RCS thrusters for Realism Overhaul",
+      "depends": [
+        "ModuleManager",
+        "RealismOverhaul",
+        "TexturesUnlimited",
+        "RealPlume"
+      ],
+      "resources": {
+        "homepage": "https://github.com/tylerraiz/Surestrut-Engines",
+        "spacedock": "https://spacedock.info/mod/3412/Surestrut%20Engines",
+        "repository": "https://github.com/tylerraiz/Surestrut-Engines",
+        "bugtracker": "https://github.com/tylerraiz/Surestrut-Engines/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "EDBMods"
+      ]
+    },
+    "DE-IVAExtension": {
+      "name": "DE_IVAExtension",
+      "version": "v1.3.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-3.0",
+      "abstract": "Advanced IVAs for all stock pods!",
+      "depends": [
+        "ModuleManager",
+        "RasterPropMonitor-Core",
+        "ASETProps"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/211932-112x-de_ivaextension-adopted-aset-ivas-for-all-stock-pods/",
+        "spacedock": "https://spacedock.info/mod/2193/DE_IVAExtension",
+        "repository": "https://github.com/FirstPersonKSP/DE_IVAExtension",
+        "bugtracker": "https://github.com/FirstPersonKSP/DE_IVAExtension/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "DE_IVAExtension"
+      ]
+    },
+    "ConformalDecals": {
+      "name": "Conformal Decals",
+      "version": "0.4.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.12",
+      "ksp_version_max": "1.12.5",
+      "license": "Apache-2.0",
+      "abstract": "Add decals to any surface",
+      "depends": [
+        "ModuleManager",
+        "B9PartSwitch",
+        "Shabby"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/194802-*",
+        "spacedock": "https://spacedock.info/mod/2451/Conformal%20Decals",
+        "repository": "https://git.offworld.city/drewcassidy/KSP-Conformal-Decals",
+        "bugtracker": "https://git.offworld.city/drewcassidy/KSP-Conformal-Decals/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ConformalDecals"
+      ]
+    },
+    "KSCExtended": {
+      "name": "KSC Extended",
+      "version": "3.0.3",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "This is a collaboration between me and Omega482\u00a0to give you the best possible KSC experience we can offer.",
+      "depends": [
+        "KerbalKonstructs",
+        "TundraSpaceCenter",
+        "StockalikeStructures",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/203623-111-ksc-extended-30/",
+        "spacedock": "https://spacedock.info/mod/2062/KSC%20Extended",
+        "repository": "https://github.com/JadeOfMaar/KSC_Extended",
+        "bugtracker": "https://github.com/JadeOfMaar/KSC_Extended/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "KSCExtended"
+      ]
+    },
+    "ROLib": {
+      "name": "RO Library",
+      "version": "v2.1.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "ROLib contains the common code supporting multiple RO* modules",
+      "depends": [
+        "TexturesUnlimited"
+      ],
+      "resources": {
+        "repository": "https://github.com/KSP-RO/ROLibrary",
+        "bugtracker": "https://github.com/KSP-RO/ROLibrary/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ROLib"
+      ]
+    },
+    "KSPBridge": {
+      "name": "KSPBridge",
+      "version": "0.15.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "MQTT telemetry bridge for KSP 1.12.5. Publishes 18 vessel-state topics over MQTT for browsers, dashboards, ESP32s, Grafana, or any subscriber.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/230488-1125-kspbridge-v0151-mqtt-telemetry-bridge-for-ksp/",
+        "spacedock": "https://spacedock.info/mod/4242/KSPBridge",
+        "repository": "https://github.com/johnmknight/KSPBridge",
+        "bugtracker": "https://github.com/johnmknight/KSPBridge/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "KSPBridge"
+      ]
+    },
+    "HUDReplacer": {
+      "name": "HUD Replacer",
+      "version": "1.4.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "GPL-3.0",
+      "abstract": "A mod that allows you to replace the HUD/UI of Kerbal Space Program.",
+      "depends": [
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/229134-*",
+        "repository": "https://github.com/KSPModStewards/HUDReplacer",
+        "bugtracker": "https://github.com/KSPModStewards/HUDReplacer/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "HUDReplacer"
+      ]
+    },
+    "ATKPropulsionPack": {
+      "name": "ATK Propulsion Pack",
+      "version": "4.0",
+      "ksp_version": "1.7.2",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "restricted",
+      "abstract": "Add's various solid rocket motors from Orbital ATK to the game",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/115288-*",
+        "spacedock": "https://spacedock.info/mod/404/ATK%20Propulsion%20Pack"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ATK_Propulsion_Pack"
+      ]
+    },
+    "RealPlume": {
+      "name": "Real Plume",
+      "version": "2:v13.3.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA",
+      "abstract": "A set of expanding plume effects and basic configs that can be attached to any engine as appropriate.  Requires SmokeScreen and secondary configs to function correctly.",
+      "depends": [
+        "ModuleManager",
+        "SmokeScreen",
+        "RealPlumeConfigs"
+      ],
+      "resources": {
+        "homepage": "https://github.com/KSP-RO/RealPlume/wiki",
+        "repository": "https://github.com/KSP-RO/RealPlume",
+        "bugtracker": "https://github.com/KSP-RO/RealPlume/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "RealPlume"
+      ]
+    },
+    "KerbalJointReinforcementContinued": {
+      "name": "Kerbal Joint Reinforcement Continued",
+      "version": "v3.8.7.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "KJR tightens up the joints between parts and adds some physics-adjusting parameters to make vehicles more stable when loading on the launchpad or coming out of timewarp.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/184019-*",
+        "repository": "https://github.com/KSP-RO/Kerbal-Joint-Reinforcement-Continued",
+        "bugtracker": "https://github.com/KSP-RO/Kerbal-Joint-Reinforcement-Continued/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KerbalJointReinforcement"
+      ]
+    },
+    "RN-SovietSpacecraft": {
+      "name": "Soviet Spacecraft - Soyuz, Progress, Vostok/Voskhod, TKS/VA",
+      "version": "1:v1.8.9",
+      "ksp_version": null,
+      "ksp_version_min": "1.3.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "Soviet spacecraft pack that contains Soyuz 7K-T, 7K-OKA, 7K-OKP 7K-T-AF and Progress 7K-TG, and Vostok/Voskhod spacecraft, and TKS/VA",
+      "depends": [
+        "BDAnimationModules",
+        "ModuleManager",
+        "TexturesUnlimited"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/133579-*",
+        "repository": "https://github.com/KSP-RO/SovietSpacecraft",
+        "bugtracker": "https://github.com/KSP-RO/SovietSpacecraft/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Soyuz"
+      ]
+    },
+    "samv-server": {
+      "name": "Stand alone map view server",
+      "version": "2:1.0.0.3",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "A Kerbal Space Program mod that opens the map view in another window/monitor",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/211182-*/",
+        "repository": "https://github.com/linuxgurugamer/stand-alone-map-view",
+        "bugtracker": "https://github.com/linuxgurugamer/stand-alone-map-view/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "samv_server"
+      ]
+    },
+    "StagedAnimation": {
+      "name": "Staged Animation",
+      "version": "v2.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "Plays an animation when a part is staged",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/202317-*",
+        "repository": "https://github.com/KSP-RO/StagedAnimation",
+        "bugtracker": "https://github.com/KSP-RO/StagedAnimation/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "StagedAnimation"
+      ]
+    },
+    "DistantObject": {
+      "name": "Distant Object Enhancement /L",
+      "version": "v2.2.1.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.3.1",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-2.0, restricted",
+      "abstract": "Visual enhancement mod that makes objects realistically visible over large distances",
+      "depends": [
+        "DistantObject-config",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/205063-*",
+        "spacedock": "https://spacedock.info/mod/2274/Distant%20Object%20Enhancement%20/L",
+        "repository": "https://github.com/net-lisias-ksp/DistantObject",
+        "bugtracker": "https://github.com/net-lisias-ksp/DistantObject/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "DistantObject"
+      ]
+    },
+    "Waterfall": {
+      "name": "Waterfall Core",
+      "version": "0.11.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8",
+      "ksp_version_max": "1.12",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Core Waterfall plugin to drive engine effects, plus default effect templates. Does nothing on its own, other mods supply compatibility.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/196309-wip-waterfall-a-framework-for-continuous-mesh-driven-engine-effects-dec-19/",
+        "repository": "https://github.com/KSPModStewards/Waterfall",
+        "bugtracker": "https://github.com/KSPModStewards/Waterfall/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "Waterfall"
+      ]
+    },
+    "ROSolar": {
+      "name": "RO Solar",
+      "version": "v2.1.2.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.10.1",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-4.0",
+      "abstract": "ROSolar combines models from various external mods and adds rescaling features that affect the solar panel performance",
+      "depends": [
+        "ModuleManager",
+        "ROLib"
+      ],
+      "resources": {
+        "homepage": "https://discordapp.com/invite/ZGbR6nv",
+        "repository": "https://github.com/KSP-RO/ROSolar",
+        "bugtracker": "https://github.com/KSP-RO/ROSolar/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ROSolar"
+      ]
+    },
+    "TelemachusReborn": {
+      "name": "Telemachus Reborn",
+      "version": "1.12.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.5",
+      "license": "MIT",
+      "abstract": "Telemetry HTTP Api & Web Interface to KSP",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/179887-*",
+        "spacedock": "https://spacedock.info/mod/2012/Telemachus%20Reborn",
+        "repository": "https://github.com/TeaGuild/Telemachus-1",
+        "bugtracker": "https://github.com/TeaGuild/Telemachus-1/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Telemachus"
+      ]
+    },
+    "SmallRockets": {
+      "name": "Small Rockets",
+      "version": "0.9.4",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY",
+      "abstract": "Replicas of various modern small real-life rockets",
+      "depends": [
+        "ModuleManager",
+        "RealismOverhaul",
+        "TexturesUnlimited",
+        "RealPlume"
+      ],
+      "resources": {
+        "homepage": "https://github.com/tylerraiz/SmallRockets",
+        "spacedock": "https://spacedock.info/mod/3575/Small%20Rockets",
+        "repository": "https://github.com/tylerraiz/SmallRockets",
+        "bugtracker": "https://github.com/tylerraiz/SmallRockets/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "EDBMods"
+      ]
+    },
+    "Chatterer": {
+      "name": "Chatterer",
+      "version": "0.9.99",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "A plugin for Kerbal Space Program which adds some SSTV, beeps, and nonsensical radio chatter between your command pods and Mission Control.",
+      "depends": [],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/83290-105-chatterer-v097-keep-talking-11-nov-2015/&page=1",
+        "spacedock": "https://spacedock.info/mod/208/Chatterer",
+        "repository": "https://github.com/Athlonic/Chatterer",
+        "bugtracker": "https://github.com/Athlonic/Chatterer/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Chatterer"
+      ]
+    },
+    "SovietEnginePack": {
+      "name": "Soviet Engine Pack",
+      "version": "0.4",
+      "ksp_version": "1.3.1",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "Historical Soviet rocket engines made in very high detail.",
+      "depends": [],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/1345/Soviet%20Engine%20Pack",
+        "repository": "https://github.com/BobCat-Industries/SovietEnginePack"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "SovietEngines"
+      ]
+    },
+    "DepthMask": {
+      "name": "ModuleDepthMask",
+      "version": "1.1.3",
+      "ksp_version": null,
+      "ksp_version_min": "1.11",
+      "ksp_version_max": "1.12.5",
+      "license": "CC-BY-SA",
+      "abstract": "Portable Holes for your Parts!",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/185353-17x-moduledepthmask-portable-holes-for-your-parts/",
+        "spacedock": "https://spacedock.info/mod/2943/ModuleDepthMask",
+        "repository": "https://github.com/drewcassidy/KSP-DepthMask",
+        "bugtracker": "https://github.com/drewcassidy/KSP-DepthMask/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "DepthMask"
+      ]
+    },
+    "WasdMainMenu": {
+      "name": "WasdMainMenu",
+      "version": "1.4",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "With a press of a button it lets you move around the Main Menu without any restrictions.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/227434-112x-wasdmainmenu-wmm/",
+        "spacedock": "https://spacedock.info/mod/3846/WasdMainMenu",
+        "repository": "https://github.com/averageksp/WasdMainMenu",
+        "bugtracker": "https://github.com/averageksp/WasdMainMenu/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "WasdMainMenu"
+      ]
+    },
+    "DansTUFXProfile": {
+      "name": "Dan's TUFX",
+      "version": "1.1.1",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "MIT",
+      "abstract": "A pretty nice TUFX profile",
+      "depends": [
+        "TUFX"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/3510/Dan's%20TUFX"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Dan's TUFX"
+      ]
+    },
+    "StockAlarmClockDisabler": {
+      "name": "Stock Alarm Clock Disabler",
+      "version": "v1.2.1",
+      "ksp_version": "1.12",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-3.0",
+      "abstract": "A mod to disable the stock alarm clock app, suitable for those using KAC.",
+      "depends": [
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/219015-*",
+        "repository": "https://github.com/UltraJohn/StockAlarmClockDisabler",
+        "bugtracker": "https://github.com/UltraJohn/StockAlarmClockDisabler/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "StockAlarmClockDisabler"
+      ]
+    },
+    "HullcamVDSContinued": {
+      "name": "HullcamVDS Continued",
+      "version": "0.2.2.4",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.1",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "Many types of cameras for vessels",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/145633-113-hullcam-vds-continued/&do=findComment&comment=2710247",
+        "spacedock": "https://spacedock.info/mod/885/HullcamVDS%20Continued",
+        "repository": "https://github.com/linuxgurugamer/HullcamVDSContinued",
+        "bugtracker": "https://github.com/linuxgurugamer/HullcamVDSContinued/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "HullCameraVDS"
+      ]
+    },
+    "PatchManager": {
+      "name": "Patch Manager",
+      "version": "0.0.17.8",
+      "ksp_version": null,
+      "ksp_version_min": "1.9.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "In-game patch manager, makes adding/removing patches more friendly.",
+      "depends": [
+        "ToolbarController",
+        "ClickThroughBlocker"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/163072-*",
+        "repository": "https://github.com/linuxgurugamer/PatchManager",
+        "bugtracker": "https://github.com/linuxgurugamer/PatchManager/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "PatchManager"
+      ]
+    },
+    "ChattererExtended": {
+      "name": "Chatterer Extended",
+      "version": "0.6.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": null,
+      "license": "CC-BY-4.0",
+      "abstract": "This add-on for the formidable \"Chatterer\" mod by Athlonic will currently add 625 new kerbalized chatter-files for your hearing pleasure.",
+      "depends": [
+        "Chatterer"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/160545-122-chatterer-extended-more-kerbalized-chatter-for-chatterer-v06/",
+        "spacedock": "https://spacedock.info/mod/1367/Chatterer%20Extended"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Chatterer"
+      ]
+    },
+    "KSPCommunityPartModules": {
+      "name": "KSP Community Part Modules",
+      "version": "v0.5.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "A collection of part modules that are frequently used, Exists as a dependency for other mods.",
+      "depends": [
+        "Harmony2"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/3730/KSP%20Community%20Part%20Modules",
+        "repository": "https://github.com/KSPModdingLibs/KSPCommunityPartModules",
+        "bugtracker": "https://github.com/KSPModdingLibs/KSPCommunityPartModules/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KSPCommunityPartModules"
+      ]
+    },
+    "SpaceXLaunchVehicles": {
+      "name": "SpaceX Launch Vehicles - Real Size",
+      "version": "6.5",
+      "ksp_version": "1.10.1",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "restricted",
+      "abstract": "Crew Dragon, Starlink, Falcon 9, Falcon Heavy, Drone Ships to land your boosters on, Raptor engines and much more!",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/193933-19x-kks-spacex-pack-17-05-2020/",
+        "spacedock": "https://spacedock.info/mod/269/SpaceX%20Launch%20Vehicles"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Kartoffelkuchen",
+        "Launchers Pack"
+      ]
+    },
+    "KWRocketryRebalanced": {
+      "name": "KW Rocketry Rebalanced",
+      "version": "3.2.8.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA-3.0",
+      "abstract": "This is the full KW Rocketry with the tanks rebalanced to better values",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/164554-12-kw-rocketry-rebalanced/",
+        "spacedock": "https://spacedock.info/mod/1497/KW%20Rocketry%20Rebalanced",
+        "repository": "https://github.com/linuxgurugamer/KWRocketryRedux",
+        "bugtracker": "https://github.com/linuxgurugamer/KWRocketryRedux/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "KWRocketry"
+      ]
+    },
+    "VABOrganizer-Munk": {
+      "name": "VAB Organizer - Munk's Configs",
+      "version": "1.6",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "Have you ever installed a popular mod, such as KAS, KIS, or TAC Life Support, and were frustrated that every part was listed as \"Misc\" in the VAB? Not anymore!",
+      "depends": [
+        "ModuleManager",
+        "VABOrganizer"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/227751-112x-vab-organizer-munks-configs-bulkhead-profile-fixes/",
+        "spacedock": "https://spacedock.info/mod/3873/VAB%20Organizer%20-%20Munk's%20Configs",
+        "repository": "https://github.com/munktron239/Munks-Fixes",
+        "bugtracker": "https://github.com/munktron239/Munks-Fixes/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "MunksFixes"
+      ]
+    },
+    "RN-USProbesPack": {
+      "name": "US Probes Pack",
+      "version": "1:v0.88",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This pack will include pretty much all probes ever launched by NASA and the US military. It is a long term project and I will be adding to it slowly over time.",
+      "depends": [
+        "BDAnimationModules",
+        "TexturesUnlimited",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/84250-*",
+        "repository": "https://github.com/KSP-RO/USProbesPack",
+        "bugtracker": "https://github.com/KSP-RO/USProbesPack/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_US_Probes"
+      ]
+    },
+    "RCSBuildAid": {
+      "name": "RCS Build Aid",
+      "version": "v1.0.6",
+      "ksp_version": null,
+      "ksp_version_min": "1.11.0",
+      "ksp_version_max": "1.12.99",
+      "license": "LGPL-3.0",
+      "abstract": "This is something I made for placing RCS thrusters in the right positions in the first try without having to go back and forth between the VAB and the hacked gravity launchpad.  Features: Display thrust and torque forces caused by RCS or engines. Delta V readout for RCS. Dry center of mass marker. Average center of mass marker. Ability to resize editor's overlay markers. Display total mass of resources.",
+      "depends": [],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/33124-*/",
+        "repository": "https://github.com/m4v/RCSBuildAid",
+        "bugtracker": "https://github.com/m4v/RCSBuildAid/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RCSBuildAid"
+      ]
+    },
+    "RSSDateTimeFormatter": {
+      "name": "RSS DateTime Formatter",
+      "version": "v1.12.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "This is a very basic mod with one function, to replace the stock KSP displays of times and dates with an approach better suited for RSS players.  This includes things like showing calendar dates rather than awkward formats like 'Year 5, Day 200'.",
+      "depends": [],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/139335-*",
+        "repository": "https://github.com/KSP-RO/RSSTimeFormatter",
+        "bugtracker": "https://github.com/KSP-RO/RSSTimeFormatter/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RSSDateTime"
+      ]
+    },
+    "RN-SovietRockets": {
+      "name": "Soviet Rockets - R7/Proton/Zenit Rockets and more",
+      "version": "2:v3.11",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This mod contains various Soviet rockets derived from ICBM designs.",
+      "depends": [
+        "BDAnimationModules",
+        "ModuleManager",
+        "TexturesUnlimited"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/79433-*",
+        "repository": "https://github.com/KSP-RO/SovietRockets",
+        "bugtracker": "https://github.com/KSP-RO/SovietRockets/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_Soviet_Rockets"
+      ]
+    },
+    "RasterPropMonitor-Core": {
+      "name": "RasterPropMonitor Core",
+      "version": "1:v1.1.0.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "Plugin and props for use in IVAs",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/190737-18x-110x-rasterpropmonitor-adopted/",
+        "spacedock": "https://spacedock.info/mod/2534/RasterPropMonitor",
+        "repository": "https://github.com/FirstPersonKSP/RasterPropMonitor",
+        "bugtracker": "https://github.com/FirstPersonKSP/RasterPropMonitor/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "JSI"
+      ]
+    },
+    "ContractConfigurator": {
+      "name": "Contract Configurator",
+      "version": "v2.13.4.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.99",
+      "license": "MIT",
+      "abstract": "A config-file based solution for creating new contracts!",
+      "depends": [
+        "ModuleManager",
+        "Harmony2"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/190040--",
+        "repository": "https://github.com/KSP-RO/ContractConfigurator",
+        "bugtracker": "https://github.com/KSP-RO/ContractConfigurator/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ContractConfigurator"
+      ]
+    },
+    "RealEngines": {
+      "name": "RealEngines",
+      "version": "1:2.01",
+      "ksp_version": "1.3.1",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "GPL-2.0",
+      "abstract": "This add-on adds a pack of engines.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/171335-realenginespack-20-rework-old-engines-and-new-engines-24022018/",
+        "spacedock": "https://spacedock.info/mod/1212/RealEngines"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RealEnginesPack"
+      ]
+    },
+    "Resurfaced": {
+      "name": "Resurfaced",
+      "version": "v1.3",
+      "ksp_version": null,
+      "ksp_version_min": "1.10.1",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-3.0",
+      "abstract": "Replacement Stockalike Shaders for Kerbal Space Program",
+      "depends": [
+        "Shabby"
+      ],
+      "resources": {
+        "repository": "https://github.com/Tantares/Resurfaced",
+        "bugtracker": "https://github.com/Tantares/Resurfaced/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "Resurfaced"
+      ]
+    },
+    "KerbalKonstructs": {
+      "name": "Kerbal Konstructs",
+      "version": "v1.12.2.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "New buildings and launch sites",
+      "depends": [
+        "CustomPreLaunchChecks"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/204210-*",
+        "repository": "https://github.com/KSP-RO/Kerbal-Konstructs",
+        "bugtracker": "https://github.com/KSP-RO/Kerbal-Konstructs/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "KerbalKonstructs"
+      ]
+    },
+    "JanitorsCloset": {
+      "name": "The Janitor's Closet",
+      "version": "0.4.1.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-4.0",
+      "abstract": "Get your parts list under control",
+      "depends": [
+        "ModuleManager",
+        "ClickThroughBlocker",
+        "SpaceTuxLibrary"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/147463-end-your-parts-list-nightmare-introducing-the-janitors-closet/",
+        "spacedock": "https://spacedock.info/mod/944/The%20Janitor's%20Closet",
+        "repository": "https://github.com/linuxgurugamer/JanitorsCloset",
+        "bugtracker": "https://github.com/linuxgurugamer/JanitorsCloset/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "JanitorsCloset"
+      ]
+    },
+    "RasterPropMonitor": {
+      "name": "RasterPropMonitor",
+      "version": "1:v1.1.0.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.5",
+      "license": "GPL-3.0",
+      "abstract": "Modifies stock and some modded IVAs with functional props",
+      "depends": [
+        "ModuleManager",
+        "RasterPropMonitor-Core"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/190737-18x-110x-rasterpropmonitor-adopted/",
+        "spacedock": "https://spacedock.info/mod/2534/RasterPropMonitor",
+        "repository": "https://github.com/FirstPersonKSP/RasterPropMonitor",
+        "bugtracker": "https://github.com/FirstPersonKSP/RasterPropMonitor/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "JSI"
+      ]
+    },
+    "ModularLaunchPads": {
+      "name": "AlphaMensae's Modular Launch Pads",
+      "version": "2.9.1",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-SA-4.0",
+      "abstract": "Beyond launch clamps: Mix-and-match components to build all kinds of launch infrastructure",
+      "depends": [
+        "ModuleManager",
+        "B9PartSwitch",
+        "StagedAnimation",
+        "CommunityCategoryKit"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/173008-12x13x14x-alphamensaes-modular-launch-pads-101-soyuz-and-saturn-style-pads-for-almost-any-rocket/",
+        "spacedock": "https://spacedock.info/mod/1767/AlphaMensae's%20Modular%20Launch%20Pads",
+        "repository": "https://github.com/AlphaMensae/Modular-Launch-Pads",
+        "bugtracker": "https://github.com/AlphaMensae/Modular-Launch-Pads/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ModularLaunchPads"
+      ]
+    },
+    "RN-USRockets": {
+      "name": "US Rockets",
+      "version": "1:v1.5.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.3.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND-3.0",
+      "abstract": "This mod contains older, more obscure US rockets like Thor, Delta, Vanguard, Juno, Scout and even sounding rockets such as Aerobee.",
+      "depends": [
+        "BDAnimationModules",
+        "TexturesUnlimited",
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/98791-*",
+        "repository": "https://github.com/KSP-RO/USRockets",
+        "bugtracker": "https://github.com/KSP-RO/USRockets/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RN_US_Rockets"
+      ]
+    },
+    "ROCapsules": {
+      "name": "RO Capsules",
+      "version": "v2.7.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "Takes the best versions of capsules available and uses them as the in-game models for Realism Overhaul parts.",
+      "depends": [
+        "ModuleManager",
+        "RealismOverhaul",
+        "TexturesUnlimited",
+        "ROLib",
+        "B9PartSwitch",
+        "DepthMask",
+        "KSPWheel",
+        "StagedAnimation",
+        "BDAnimationModules"
+      ],
+      "resources": {
+        "homepage": "https://discordapp.com/invite/ZGbR6nv",
+        "repository": "https://github.com/KSP-RO/ROCapsules",
+        "bugtracker": "https://github.com/KSP-RO/ROCapsules/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ROCapsules"
+      ]
+    },
+    "ASETProps": {
+      "name": "ASET Consolidated Props Pack",
+      "version": "v2.0.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.8.1",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA-3.0",
+      "abstract": "A full-featured set of different devices & decoration elements for creation of interactive interior spaces for parts & crafts.",
+      "depends": [
+        "ModuleManager",
+        "ASETAgency",
+        "RasterPropMonitor-Core"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/211905-wip-1125-181-aset-consolidated-avionics-props-iva-packs/",
+        "spacedock": "https://spacedock.info/mod/3240/ASET%20Consolidated%20Props%20Pack",
+        "repository": "https://github.com/FirstPersonKSP/ASET_Props",
+        "bugtracker": "https://github.com/FirstPersonKSP/ASET_Props/issues"
+      },
+      "auto_installed": true,
+      "gamedata_folders": [
+        "ASET"
+      ]
+    },
+    "StarshipExpansionProject": {
+      "name": "Starship Expansion Project",
+      "version": "v.3.2.1",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.3",
+      "ksp_version_max": "1.12.99",
+      "license": "restricted",
+      "abstract": "Starship vehicle by SpaceX",
+      "depends": [
+        "ModuleManager",
+        "CommunityResourcePack",
+        "B9PartSwitch",
+        "Waterfall",
+        "KSPCommunityPartModules",
+        "KSPCommunityFixes",
+        "Harmony2",
+        "Shabby"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/topic/206555-1125-starship-expansion-project-sep-v300-december-31st-2025/",
+        "spacedock": "https://spacedock.info/mod/2959/Starship%20Expansion%20Project%20-%20SEP",
+        "repository": "https://github.com/Kari1407/Starship-Expansion-Project",
+        "bugtracker": "https://github.com/Kari1407/Starship-Expansion-Project/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "StarshipExpansionProject"
+      ]
+    },
+    "FreeIva": {
+      "name": "FreeIva",
+      "version": "0.2.20.2",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "GPL-2.0",
+      "abstract": "Get out of your seat in IVA and float around your ship",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/210548-112-freeiva/",
+        "spacedock": "https://spacedock.info/mod/3151/FreeIva",
+        "repository": "https://github.com/FirstPersonKSP/FreeIva",
+        "bugtracker": "https://github.com/FirstPersonKSP/FreeIva/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "FreeIva"
+      ]
+    },
+    "ROEngines": {
+      "name": "RO Engines",
+      "version": "v2.16.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-ND",
+      "abstract": "ROEngines is a mod that takes the best versions of engine models available and uses them as the in-game models for Realism Overhaul parts.",
+      "depends": [
+        "ModuleManager",
+        "ROLib",
+        "B9PartSwitch",
+        "RealFuels",
+        "PatchManager",
+        "RealismOverhaul",
+        "Resurfaced"
+      ],
+      "resources": {
+        "homepage": "https://discordapp.com/invite/ZGbR6nv",
+        "repository": "https://github.com/KSP-RO/ROEngines",
+        "bugtracker": "https://github.com/KSP-RO/ROEngines/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ROEngines"
+      ]
+    },
+    "TheLonesomeRobotsCollection": {
+      "name": "The LonesomeRobots Collection",
+      "version": "0.2.0",
+      "ksp_version": "1.12.5",
+      "ksp_version_min": null,
+      "ksp_version_max": null,
+      "license": "CC-BY-NC-SA",
+      "abstract": "The definitive collection of all of SilentVelcro's mods.",
+      "depends": [
+        "ModuleManager",
+        "AnimatedDecouplers",
+        "FirespitterCore",
+        "RasterPropMonitor-Core",
+        "TexturesUnlimited",
+        "ASETProps",
+        "ASETAvionics",
+        "TDProps"
+      ],
+      "resources": {
+        "spacedock": "https://spacedock.info/mod/3019/The%20LonesomeRobots%20Collection",
+        "repository": "https://github.com/AtomikkuSan/The-LonesomeRobots-Collection",
+        "bugtracker": "https://github.com/AtomikkuSan/The-LonesomeRobots-Collection/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "LonesomeRobots"
+      ]
+    },
+    "RealismOverhaul": {
+      "name": "Realism Overhaul",
+      "version": "v17.4.1.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "Multipatch to KSP to give spacecraft components realistic stats and sizes, and performance based on real-world spacecraft.",
+      "depends": [
+        "ModuleManager",
+        "AdvancedJetEngine",
+        "FAR",
+        "KerbalJointReinforcementContinued",
+        "RealChute",
+        "RealFuels",
+        "RealHeat",
+        "RealPlume",
+        "SmokeScreen",
+        "KSPCommunityFixes",
+        "KerbalChangelog"
+      ],
+      "resources": {
+        "homepage": "http://forum.kerbalspaceprogram.com/index.php?/topic/155700-122-realism-overhaul-v1150-05262017/",
+        "repository": "https://github.com/KSP-RO/RealismOverhaul",
+        "bugtracker": "https://github.com/KSP-RO/RealismOverhaul/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "EngineGroupController",
+        "RealismOverhaul"
+      ]
+    },
+    "FASA": {
+      "name": "FASA",
+      "version": "1:v7.2.7",
+      "ksp_version": null,
+      "ksp_version_min": "1.2.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "Re-release of FASA by Raidernick under the new management of Nathankell team.",
+      "depends": [
+        "ModuleManager"
+      ],
+      "resources": {
+        "homepage": "https://github.com/KSP-RO/FASA-RO",
+        "repository": "https://github.com/KSP-RO/FASA-RO",
+        "bugtracker": "https://github.com/KSP-RO/FASA-RO/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "FASA"
+      ]
+    },
+    "ROTanks": {
+      "name": "RO Tanks",
+      "version": "v2.10.0.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-SA",
+      "abstract": "ROTanks uses modified code of SSTU by Shadowmage45 to provide modular tanks (and more) for Realism Overhaul.",
+      "depends": [
+        "ModuleManager",
+        "ROLib",
+        "TexturesUnlimited",
+        "RealFuels"
+      ],
+      "resources": {
+        "homepage": "https://discordapp.com/invite/ZGbR6nv",
+        "repository": "https://github.com/KSP-RO/ROTanks",
+        "bugtracker": "https://github.com/KSP-RO/ROTanks/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "ROTanks"
+      ]
+    },
+    "RealSolarSystem": {
+      "name": "Real Solar System",
+      "version": "v20.1.3.0",
+      "ksp_version": null,
+      "ksp_version_min": "1.12.0",
+      "ksp_version_max": "1.12.99",
+      "license": "CC-BY-NC-SA",
+      "abstract": "Resizes and rearranges the Kerbal system to more closely resemble the Solar System",
+      "depends": [
+        "ModuleManager",
+        "Kopernicus",
+        "RSSTextures",
+        "KSPCommunityFixes"
+      ],
+      "resources": {
+        "homepage": "https://forum.kerbalspaceprogram.com/index.php?/topic/177216-*",
+        "repository": "https://github.com/KSP-RO/RealSolarSystem",
+        "bugtracker": "https://github.com/KSP-RO/RealSolarSystem/issues"
+      },
+      "auto_installed": false,
+      "gamedata_folders": [
+        "RealSolarSystem"
+      ]
+    }
+  },
+  "ckan_folder_owners": {
+    "CommunityResourcePack": [
+      "CommunityResourcePack"
+    ],
+    "KerbalChangelog": [
+      "KerbalChangelog"
+    ],
+    "KSCSwitcher": [
+      "KSCSwitcher"
+    ],
+    "StockScattererConfigs": [
+      "Scatterer-sunflare",
+      "Scatterer-config"
+    ],
+    "000_Harmony": [
+      "Harmony2"
+    ],
+    "000_ClickThroughBlocker": [
+      "ClickThroughBlocker"
+    ],
+    "CustomBarnKit": [
+      "CustomBarnKit"
+    ],
+    "KSPCommunityFixes": [
+      "KSPCommunityFixes"
+    ],
+    "Shabby": [
+      "Shabby"
+    ],
+    "ModularFlightIntegrator": [
+      "ModularFlightIntegrator"
+    ],
+    "B9PartSwitch": [
+      "B9PartSwitch"
+    ],
+    "FShangarExtender": [
+      "HangerExtenderExtended"
+    ],
+    "Scatterer": [
+      "Scatterer-config",
+      "Scatterer"
+    ],
+    "REPOSoftTech": [
+      "BackgroundResources"
+    ],
+    "FlyByWireSASMode": [
+      "FlyByWireSASMode"
+    ],
+    "EditorExtensionsRedux": [
+      "EditorExtensionsRedux"
+    ],
+    "RetractableLiftingSurface": [
+      "RetractableLiftingSurface"
+    ],
+    "PlanetShine": [
+      "PlanetShine-Config-Default",
+      "PlanetShine"
+    ],
+    "001_ToolbarControl": [
+      "ToolbarController"
+    ],
+    "000_KSPBurst": [
+      "KSPBurst-Lite",
+      "KSPBurst"
+    ],
+    "BahaSP": [
+      "BDAnimationModules"
+    ],
+    "SpaceTuxLibrary": [
+      "SpaceTuxLibrary"
+    ],
+    "RSS-Textures": [
+      "RSSTextures4096"
+    ],
+    "zzz_Deferred": [
+      "Deferred"
+    ],
+    "RN_Skylab": [
+      "RN-Skylab"
+    ],
+    "TUFX": [
+      "TUFX"
+    ],
+    "SolverEngines": [
+      "SolverEngines"
+    ],
+    "ROUtils": [
+      "ROUtils"
+    ],
+    "RealFuels": [
+      "RealFuels"
+    ],
+    "CommunityCategoryKit": [
+      "CommunityCategoryKit"
+    ],
+    "JSIA Vision": [
+      "TUFXProfileVision"
+    ],
+    "000_TexturesUnlimited": [
+      "TexturesUnlimited"
+    ],
+    "FerramAerospaceResearch": [
+      "FerramAerospaceResearchContinued"
+    ],
+    "SmokeScreen": [
+      "SmokeScreen"
+    ],
+    "MechJeb2": [
+      "MechJeb2"
+    ],
+    "RealChute": [
+      "RealChute"
+    ],
+    "ProceduralParts": [
+      "ProceduralParts"
+    ],
+    "EDBMods": [
+      "CrewVessels",
+      "SurestrutEngines",
+      "SmallRockets"
+    ],
+    "RSSVE": [
+      "RSSVE-LR"
+    ],
+    "AJE": [
+      "AdvancedJetEngine"
+    ],
+    "Kopernicus": [
+      "Kopernicus"
+    ],
+    "TriggerTech": [
+      "TriggerAu-Flags",
+      "TransferWindowPlannerFork",
+      "KerbalAlarmClock"
+    ],
+    "TundraSpaceCenter": [
+      "TundraSpaceCenter"
+    ],
+    "AnimatedDecouplers": [
+      "AnimatedDecouplers"
+    ],
+    "CxAerospace": [
+      "CxAerospace"
+    ],
+    "RN_Soviet_Probes": [
+      "RN-SovietProbes"
+    ],
+    "DistantObject": [
+      "DistantObject-default",
+      "DistantObject"
+    ],
+    "Switch": [
+      "SwitchsTUFX"
+    ],
+    "RN_Salyut": [
+      "RN-SalyutStations"
+    ],
+    "ThunderAerospace": [
+      "TACLS"
+    ],
+    "EnvironmentalVisualEnhancements": [
+      "EnvironmentalVisualEnhancements"
+    ],
+    "TDProps": [
+      "TDProps"
+    ],
+    "CommunityTechTree": [
+      "CommunityTechTree"
+    ],
+    "KSPTextureLoader": [
+      "KSPTextureLoader"
+    ],
+    "JustReadTheInstructions": [
+      "JustReadTheInstructions"
+    ],
+    "CameraTools": [
+      "CameraTools"
+    ],
+    "SimpleAdjustableFairings": [
+      "SimpleAdjustableFairings"
+    ],
+    "BlazesTUFX": [
+      "BlazesTUFX"
+    ],
+    "kRPC": [
+      "kRPC-MechJeb",
+      "kRPC"
+    ],
+    "ZTheme": [
+      "ZTheme"
+    ],
+    "KSPWheel": [
+      "KSPWheel"
+    ],
+    "ProceduralFairings": [
+      "ProceduralFairings"
+    ],
+    "Trajectories": [
+      "Trajectories"
+    ],
+    "RealHeat": [
+      "RealHeat"
+    ],
+    "ASET": [
+      "ASETAgency",
+      "ASETAvionics",
+      "ASETProps"
+    ],
+    "SPACE_SHUTTLE_SYSTEM": [
+      "SpaceShuttleSystem"
+    ],
+    "SSTU": [
+      "SpaceShuttleSystem"
+    ],
+    "RN_Misc": [
+      "RN-MiscParts"
+    ],
+    "B9_Aerospace_ProceduralWings": [
+      "B9-PWings-Fork"
+    ],
+    "SimpleAdjustableFairings-KWRocketry": [
+      "SimpleAdjustableFairings-KWRocketry"
+    ],
+    "CustomPreLaunchChecks": [
+      "CustomPreLaunchChecks"
+    ],
+    "WasdEditorCamera": [
+      "WasdEditorCameraContinued"
+    ],
+    "VABOrganizer-Sheepdog": [
+      "VABOrganizer-SheepDog"
+    ],
+    "Firespitter": [
+      "FirespitterCore"
+    ],
+    "WaypointManager": [
+      "WaypointManager"
+    ],
+    "RealAntennas": [
+      "RealAntennas"
+    ],
+    "Alcentar_Add-ons": [
+      "BuranEnergia"
+    ],
+    "DECQ_ENERGIA": [
+      "BuranEnergia"
+    ],
+    "KK_Antares": [
+      "AntaresCygnus"
+    ],
+    "RN_Cygnus": [
+      "AntaresCygnus"
+    ],
+    "OSSNTR": [
+      "StockalikeStructures"
+    ],
+    "VABOrganizer": [
+      "VABOrganizer"
+    ],
+    "DE_IVAExtension": [
+      "DE-IVAExtension"
+    ],
+    "ConformalDecals": [
+      "ConformalDecals"
+    ],
+    "KSCExtended": [
+      "KSCExtended"
+    ],
+    "ROLib": [
+      "ROLib"
+    ],
+    "KSPBridge": [
+      "KSPBridge"
+    ],
+    "HUDReplacer": [
+      "HUDReplacer"
+    ],
+    "ATK_Propulsion_Pack": [
+      "ATKPropulsionPack"
+    ],
+    "RealPlume": [
+      "RealPlume"
+    ],
+    "KerbalJointReinforcement": [
+      "KerbalJointReinforcementContinued"
+    ],
+    "RN_Soyuz": [
+      "RN-SovietSpacecraft"
+    ],
+    "samv_server": [
+      "samv-server"
+    ],
+    "StagedAnimation": [
+      "StagedAnimation"
+    ],
+    "Waterfall": [
+      "Waterfall"
+    ],
+    "ROSolar": [
+      "ROSolar"
+    ],
+    "Telemachus": [
+      "TelemachusReborn"
+    ],
+    "Chatterer": [
+      "Chatterer",
+      "ChattererExtended"
+    ],
+    "SovietEngines": [
+      "SovietEnginePack"
+    ],
+    "DepthMask": [
+      "DepthMask"
+    ],
+    "WasdMainMenu": [
+      "WasdMainMenu"
+    ],
+    "Dan's TUFX": [
+      "DansTUFXProfile"
+    ],
+    "StockAlarmClockDisabler": [
+      "StockAlarmClockDisabler"
+    ],
+    "HullCameraVDS": [
+      "HullcamVDSContinued"
+    ],
+    "PatchManager": [
+      "PatchManager"
+    ],
+    "KSPCommunityPartModules": [
+      "KSPCommunityPartModules"
+    ],
+    "Kartoffelkuchen": [
+      "SpaceXLaunchVehicles"
+    ],
+    "Launchers Pack": [
+      "SpaceXLaunchVehicles"
+    ],
+    "KWRocketry": [
+      "KWRocketryRebalanced"
+    ],
+    "MunksFixes": [
+      "VABOrganizer-Munk"
+    ],
+    "RN_US_Probes": [
+      "RN-USProbesPack"
+    ],
+    "RCSBuildAid": [
+      "RCSBuildAid"
+    ],
+    "RSSDateTime": [
+      "RSSDateTimeFormatter"
+    ],
+    "RN_Soviet_Rockets": [
+      "RN-SovietRockets"
+    ],
+    "JSI": [
+      "RasterPropMonitor-Core",
+      "RasterPropMonitor"
+    ],
+    "ContractConfigurator": [
+      "ContractConfigurator"
+    ],
+    "RealEnginesPack": [
+      "RealEngines"
+    ],
+    "Resurfaced": [
+      "Resurfaced"
+    ],
+    "KerbalKonstructs": [
+      "KerbalKonstructs"
+    ],
+    "JanitorsCloset": [
+      "JanitorsCloset"
+    ],
+    "ModularLaunchPads": [
+      "ModularLaunchPads"
+    ],
+    "RN_US_Rockets": [
+      "RN-USRockets"
+    ],
+    "ROCapsules": [
+      "ROCapsules"
+    ],
+    "StarshipExpansionProject": [
+      "StarshipExpansionProject"
+    ],
+    "FreeIva": [
+      "FreeIva"
+    ],
+    "ROEngines": [
+      "ROEngines"
+    ],
+    "LonesomeRobots": [
+      "TheLonesomeRobotsCollection"
+    ],
+    "EngineGroupController": [
+      "RealismOverhaul"
+    ],
+    "RealismOverhaul": [
+      "RealismOverhaul"
+    ],
+    "FASA": [
+      "FASA"
+    ],
+    "ROTanks": [
+      "ROTanks"
+    ],
+    "RealSolarSystem": [
+      "RealSolarSystem"
+    ]
+  },
+  "version_files": [
+    {
+      "file": "000_ClickThroughBlocker/ClickThroughBlocker.version",
+      "folder": "000_ClickThroughBlocker",
+      "name": "ClickThroughBlocker",
+      "version": "2.1.10.23",
+      "ksp_version": null,
+      "ksp_min": "1.11.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/ClickThroughBlocker/refs/heads/master/ClickThroughBlocker.version"
+    },
+    {
+      "file": "000_Harmony/Harmony.version",
+      "folder": "000_Harmony",
+      "name": "Harmony",
+      "version": "2.2.1.0",
+      "ksp_version": "1.8.0",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSPModdingLibs/HarmonyKSP/main/GameData/000_Harmony/Harmony.version"
+    },
+    {
+      "file": "000_KSPBurst/KSPBurst.version",
+      "folder": "000_KSPBurst",
+      "name": "KSPBurst",
+      "version": "1.7.4.11",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSPModdingLibs/KSPBurst/master/GameData/000_KSPBurst/KSPBurst.version"
+    },
+    {
+      "file": "000_TexturesUnlimited/TexturesUnlimited.version",
+      "folder": "000_TexturesUnlimited",
+      "name": "TexturesUnlimited",
+      "version": "1.6.4.30",
+      "ksp_version": "1.9.0",
+      "ksp_min": "1.9.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSPModStewards/TexturesUnlimited/main/GameData/000_TexturesUnlimited/TexturesUnlimited.version"
+    },
+    {
+      "file": "001_ToolbarControl/ToolbarControl.version",
+      "folder": "001_ToolbarControl",
+      "name": "ToolbarControl",
+      "version": "0.1.9.14",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.9.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/ToolbarControl/refs/heads/master/ToolbarControl.version"
+    },
+    {
+      "file": "999_Scale_Redist.version",
+      "folder": "999_Scale_Redist.version",
+      "name": "TweakScale-Redist",
+      "version": "3.3.2.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12",
+      "url": "https://github.com/JonnyOThan/TweakScale/releases/latest/download/999_Scale_Redist.version"
+    },
+    {
+      "file": "AJE/AJE.version",
+      "folder": "AJE",
+      "name": "Advanced Jet Engine",
+      "version": "2.20.0.0",
+      "ksp_version": "1.10.1",
+      "ksp_min": "1.10.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "https://raw.githubusercontent.com/KSP-RO/AJE/master/GameData/AJE/AJE.version"
+    },
+    {
+      "file": "ASET/ASET_Agency/ASET_Agency.version",
+      "folder": "ASET",
+      "name": "ASET Consolidated Agency",
+      "version": "2.0.2",
+      "ksp_version": null,
+      "ksp_min": "1.8.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/StoneBlue/ASET-Consolidated-Agency/main/GameData/ASET/ASET_Agency/ASET_Agency.version"
+    },
+    {
+      "file": "ASET/ASET_Avionics/ASET_Avionics.version",
+      "folder": "ASET",
+      "name": "ASET Consolidated Avionics Pack",
+      "version": "3.0.1",
+      "ksp_version": null,
+      "ksp_min": "1.8.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/StoneBlue/ASET-Consolidated-Avionics/main/GameData/ASET/ASET_Avionics/ASET_Avionics.version"
+    },
+    {
+      "file": "ASET/ASET_Props/ASET_Props.version",
+      "folder": "ASET",
+      "name": "ASET Consolidated Props Pack",
+      "version": "2.0.7",
+      "ksp_version": null,
+      "ksp_min": "1.8.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/StoneBlue/ASET-Consolidated-Props/main/GameData/ASET/ASET_Props/ASET_Props.version"
+    },
+    {
+      "file": "AnimatedDecouplers/AnimatedDecouplers.version",
+      "folder": "AnimatedDecouplers",
+      "name": "Animated Decouplers",
+      "version": "1.5",
+      "ksp_version": "1.12",
+      "ksp_min": "1.9.0",
+      "ksp_max": null,
+      "url": "http://raw.githubusercontent.com/Starwaster/AnimatedDecouplers/master/GameData/AnimatedDecouplers/AnimatedDecouplers.version"
+    },
+    {
+      "file": "B9PartSwitch/B9PartSwitch.version",
+      "folder": "B9PartSwitch",
+      "name": "B9PartSwitch",
+      "version": "2.21.0.4",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSPModStewards/B9PartSwitch/refs/heads/master/B9PartSwitch.version"
+    },
+    {
+      "file": "B9_Aerospace_ProceduralWings/B9_Aerospace_ProceduralWings.version",
+      "folder": "B9_Aerospace_ProceduralWings",
+      "name": "B9 Aerospace Procedural Wings",
+      "version": "0.46.1.0",
+      "ksp_version": "1.12.0",
+      "ksp_min": "1.10.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/B9-Procedural-Wings/B9-PWings-Modified/refs/heads/master/B9_Aerospace_ProceduralWings.version"
+    },
+    {
+      "file": "BahaSP/BDAnimationModules.version",
+      "folder": "BahaSP",
+      "name": "BD Animation Modules",
+      "version": "0.6.7.1",
+      "ksp_version": "1.12.0.0",
+      "ksp_min": "1.12.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "https://raw.githubusercontent.com/raidernick/BDAnimationModules/master/BahaSP/BDAnimationModules.version"
+    },
+    {
+      "file": "Benjee10_Orion/Booster/FX/PlumeParty/Version/PlumeParty.version",
+      "folder": "Benjee10_Orion",
+      "name": "Plume Party",
+      "version": "0.5.0.0",
+      "ksp_version": "1.7.0",
+      "ksp_min": "1.4.0",
+      "ksp_max": "1.7.9",
+      "url": "https://github.com/JadeOfMaar/PlumeParty/blob/master/Version/PlumeParty.version"
+    },
+    {
+      "file": "Benjee10_sharedAssets/Version/Benjee10_sharedAssets.version",
+      "folder": "Benjee10_sharedAssets",
+      "name": "Benjee10_sharedAssets",
+      "version": "0.2.1.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.11.99",
+      "url": "https://raw.githubusercontent.com/benjee10/Benjee10_sharedAssets/master/GameData/Benjee10_sharedAssets/Version/Benjee10_sharedAssets.version"
+    },
+    {
+      "file": "CameraTools/CameraTools.version",
+      "folder": "CameraTools",
+      "name": "CameraTools",
+      "version": "1.37.1.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.9.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/BrettRyland/CameraTools/master/CameraTools/Distribution/GameData/CameraTools/CameraTools.version"
+    },
+    {
+      "file": "Chatterer/ChattererExtended.version",
+      "folder": "Chatterer",
+      "name": "Chatterer Extended",
+      "version": "0.6.2.0",
+      "ksp_version": "1.4.2",
+      "ksp_min": "1.2.0",
+      "ksp_max": "1.4.99",
+      "url": "http://forum.kerbalspaceprogram.com/index.php?/topic/160545-122-chatterer-extended-more-kerbalized-chatter-for-chatterer-v06/"
+    },
+    {
+      "file": "Chatterer/Plugins/Chatterer.version",
+      "folder": "Chatterer",
+      "name": "Chatterer",
+      "version": "0.9.99.2788",
+      "ksp_version": "1.9.1",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.9.99",
+      "url": "http://ksp-avc.cybutek.net/version.php?id=27"
+    },
+    {
+      "file": "CommunityCategoryKit/CCK.version",
+      "folder": "CommunityCategoryKit",
+      "name": "Community Category Kit",
+      "version": "0.1.0.112",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.99.99",
+      "url": "https://raw.githubusercontent.com/UmbraSpaceIndustries/CommunityCategoryKit/main/FOR_RELEASE/GameData/CommunityCategoryKit/CCK.version"
+    },
+    {
+      "file": "CommunityResourcePack/CRP.version",
+      "folder": "CommunityResourcePack",
+      "name": "Community Resource Pack",
+      "version": "112.0.1.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.6.0",
+      "ksp_max": "1.99.99",
+      "url": "https://raw.githubusercontent.com/UmbraSpaceIndustries/CommunityResourcePack/main/FOR_RELEASE/GameData/CommunityResourcePack/CRP.version"
+    },
+    {
+      "file": "CommunityTechTree/Versioning/CommunityTechTree.version",
+      "folder": "CommunityTechTree",
+      "name": "CommunityTechTree",
+      "version": "3.4.5.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/post-kerbin-mining-corporation/CommunityTechTree/master/GameData/CommunityTechTree/Versioning/CommunityTechTree.version"
+    },
+    {
+      "file": "ConformalDecals/Versioning/ConformalDecals.version",
+      "folder": "ConformalDecals",
+      "name": "Conformal Decals",
+      "version": "0.4.2",
+      "ksp_version": "1.12",
+      "ksp_min": "1.12",
+      "ksp_max": "1.12",
+      "url": "https://git.offworldcolonies.nexus/drewcassidy/KSP-Conformal-Decals/releases/download/latest/ConformalDecals.version"
+    },
+    {
+      "file": "ContractConfigurator/ContractConfigurator.version",
+      "folder": "ContractConfigurator",
+      "name": "Contract Configurator",
+      "version": "2.13.4.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/ContractConfigurator/raw/master/GameData/ContractConfigurator/ContractConfigurator.version"
+    },
+    {
+      "file": "CustomBarnKit/CustomBarnKit.version",
+      "folder": "CustomBarnKit",
+      "name": "CustomBarnKit",
+      "version": "1.1.22.0",
+      "ksp_version": "1.12.99",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://ksp.sarbian.com/jenkins/job/CustomBarnKit/lastSuccessfulBuild/artifact/CustomBarnKit/CustomBarnKit.version"
+    },
+    {
+      "file": "CustomPreLaunchChecks/CustomPreLaunchChecks.version",
+      "folder": "CustomPreLaunchChecks",
+      "name": "CustomPrelaunchChecks",
+      "version": "1.8.1.1",
+      "ksp_version": "1.10.1",
+      "ksp_min": "1.8.0",
+      "ksp_max": null,
+      "url": "https://raw.githubusercontent.com/KSP-RO/CustomPreLaunchChecks/master/GameData/CustomPreLaunchChecks/CustomPreLaunchChecks.version"
+    },
+    {
+      "file": "DE_IVAExtension/DE_IVAExtension.version",
+      "folder": "DE_IVAExtension",
+      "name": "DE_IVAExtension",
+      "version": "1.3.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/FirstPersonKSP/DE_IVAExtension/releases/latest/download/DE_IVAExtension.version"
+    },
+    {
+      "file": "DeployableEngines/Versioning/DeployableEngines.version",
+      "folder": "DeployableEngines",
+      "name": "DeployableEngines",
+      "version": "1.3.1.0",
+      "ksp_version": "1.12.1",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/post-kerbin-mining-corporation/DeployableEngines/master/GameData/DeployableEngines/Versioning/DeployableEngines.version"
+    },
+    {
+      "file": "DepthMask/DepthMask.version",
+      "folder": "DepthMask",
+      "name": "DepthMask",
+      "version": "1.1.3.0",
+      "ksp_version": null,
+      "ksp_min": "1.11",
+      "ksp_max": "1.12",
+      "url": "https://github.com/drewcassidy/KSP-DepthMask/releases/latest/download/DepthMask.version"
+    },
+    {
+      "file": "DistantObject/DistantObject.version",
+      "folder": "DistantObject",
+      "name": "Distant Object Enhancement (DOE) /L",
+      "version": "2.2.1.7",
+      "ksp_version": null,
+      "ksp_min": "1.3.1",
+      "ksp_max": null,
+      "url": "https://raw.githubusercontent.com/net-lisias-ksp/DistantObject/master/DistantObject.version"
+    },
+    {
+      "file": "EditorExtensionsRedux/EditorExtensionsRedux.version",
+      "folder": "EditorExtensionsRedux",
+      "name": "EditorExtensionsRedux",
+      "version": "3.4.7.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.11.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/EditorExtensionsRedux/refs/heads/master/EditorExtensionsRedux.version"
+    },
+    {
+      "file": "EnvironmentalVisualEnhancements/EnvironmentalVisualEnhancements.version",
+      "folder": "EnvironmentalVisualEnhancements",
+      "name": "Environmental Visual Enhancements - Redux",
+      "version": "3.2.2.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/LGhassen/EnvironmentalVisualEnhancements/blob/raymarched-volumetrics/ContentEVE/GameData/EnvironmentalVisualEnhancements/EnvironmentalVisualEnhancements.version"
+    },
+    {
+      "file": "FASA/FASA.version",
+      "folder": "FASA",
+      "name": "FASA",
+      "version": "7.2.7.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/FASA-RO/master/GameData/FASA/FASA.version"
+    },
+    {
+      "file": "FShangarExtender/FShangarExtender.version",
+      "folder": "FShangarExtender",
+      "name": "FShangarExtender",
+      "version": "3.6.1.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/FShangarExtender/refs/heads/master/FShangarExtender.version"
+    },
+    {
+      "file": "FerramAerospaceResearch/FAR.version",
+      "folder": "FerramAerospaceResearch",
+      "name": "Ferram Aerospace Research",
+      "version": "0.16.1.2",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/dkavolis/Ferram-Aerospace-Research/master/GameData/FerramAerospaceResearch/FAR.version"
+    },
+    {
+      "file": "Firespitter/Firespitter.version",
+      "folder": "Firespitter",
+      "name": "Firespitter",
+      "version": "7.17.0",
+      "ksp_version": "1.11.0",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.11.99",
+      "url": "https://raw.githubusercontent.com/snjo/Firespitter/master/For%20release/Firespitter/Firespitter.version"
+    },
+    {
+      "file": "FlyByWireSASMode/FlyByWireSASMode.version",
+      "folder": "FlyByWireSASMode",
+      "name": "FlyByWireSASMode",
+      "version": "1.2.0.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12.5",
+      "url": "https://raw.githubusercontent.com/gotmachine/FlyByWireSASMode/master/GameData/FlyByWireSASMode/FlyByWireSASMode.version"
+    },
+    {
+      "file": "FreeIva/FreeIva.version",
+      "folder": "FreeIva",
+      "name": "FreeIva",
+      "version": "0.2.20.2",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/FirstPersonKSP/FreeIva/releases/latest/download/FreeIva.version"
+    },
+    {
+      "file": "HUDReplacer/HUDReplacer.version",
+      "folder": "HUDReplacer",
+      "name": "HUDReplacer",
+      "version": "1.4.2.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.8",
+      "ksp_max": "1.12",
+      "url": "https://github.com/KSPModStewards/HUDReplacer/releases/latest/download/HUDReplacer.version"
+    },
+    {
+      "file": "HabTechProps/Version/HabTechProps.version",
+      "folder": "HabTechProps",
+      "name": "HabTechProps",
+      "version": "0.2.0.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.11.99",
+      "url": "https://raw.githubusercontent.com/benjee10/HabTechProps/master/GameData/HabTechProps/Version/HabTechProps.version"
+    },
+    {
+      "file": "HullCameraVDS/HullcamVDSContinued.version",
+      "folder": "HullCameraVDS",
+      "name": "HullcamVDSContinued",
+      "version": "0.2.2.4",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.11.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/HullcamVDSContinued/refs/heads/master/HullcamVDSContinued.version"
+    },
+    {
+      "file": "JSI/RasterPropMonitor/RasterPropMonitor.version",
+      "folder": "JSI",
+      "name": "RasterPropMonitor",
+      "version": "1.1.0.1",
+      "ksp_version": "1.12",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12",
+      "url": "https://github.com/FirstPersonKSP/RasterPropMonitor/releases/latest/download/RasterPropMonitor.version"
+    },
+    {
+      "file": "JanitorsCloset/JanitorsCloset.version",
+      "folder": "JanitorsCloset",
+      "name": "JanitorsCloset",
+      "version": "0.4.1.7",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/JanitorsCloset/refs/heads/master/JanitorsCloset.version"
+    },
+    {
+      "file": "KK_Antares/Antares-Cygnus.version",
+      "folder": "KK_Antares",
+      "name": "Antares-Cygnus",
+      "version": "1.9.0.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/Antares-Cygnus/master/GameData/KK_Antares/Antares-Cygnus.version"
+    },
+    {
+      "file": "KSCExtended/Version/KSC_Extended.version",
+      "folder": "KSCExtended",
+      "name": "KSC Extended",
+      "version": "3.0.3.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": null,
+      "ksp_max": null,
+      "url": "https://github.com/JadeOfMaar/KSC_Extended"
+    },
+    {
+      "file": "KSCSwitcher/KSCSwitcher.version",
+      "folder": "KSCSwitcher",
+      "name": "KSC Switcher",
+      "version": "2.2.0.0",
+      "ksp_version": "1.8.1.0",
+      "ksp_min": "1.8.0.0",
+      "ksp_max": null,
+      "url": "https://github.com/KSP-RO/KSCSwitcher/raw/master/GameData/KSCSwitcher/KSCSwitcher.version"
+    },
+    {
+      "file": "KSPBridge/KSPBridge.version",
+      "folder": "KSPBridge",
+      "name": "KSPBridge",
+      "version": "0.15.1.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.5",
+      "url": "https://raw.githubusercontent.com/johnmknight/KSPBridge/master/GameData/KSPBridge/KSPBridge.version"
+    },
+    {
+      "file": "KSPCommunityFixes/KSPCommunityFixes.version",
+      "folder": "KSPCommunityFixes",
+      "name": "KSPCommunityFixes",
+      "version": "1.41.1",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.5",
+      "url": "https://raw.githubusercontent.com/KSPModdingLibs/KSPCommunityFixes/master/GameData/KSPCommunityFixes/KSPCommunityFixes.version"
+    },
+    {
+      "file": "KSPTextureLoader/KSPTextureLoader.version",
+      "folder": "KSPTextureLoader",
+      "name": "KSPTextureLoader",
+      "version": "1.0.36.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.8",
+      "ksp_max": "1.12",
+      "url": "https://github.com/Phantomical/KSPTextureLoader/releases/latest/download/KSPTextureLoader.version"
+    },
+    {
+      "file": "KSPWheel/KSPWheel.version",
+      "folder": "KSPWheel",
+      "name": "KSPWheel",
+      "version": "0.16.14.33",
+      "ksp_version": "1.8.1",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.8.9",
+      "url": "http://ksp-avc.cybutek.net/version.php?id=429"
+    },
+    {
+      "file": "KWRocketry/KWRocketryRebalanced.version",
+      "folder": "KWRocketry",
+      "name": "KWRocketryRebalanced",
+      "version": "3.2.8.1",
+      "ksp_version": "1.4.1",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/KWRocketryRedux/refs/heads/master/KWRocketryRebalanced.version"
+    },
+    {
+      "file": "KerbalChangelog/KerbalChangelog.version",
+      "folder": "KerbalChangelog",
+      "name": "KerbalChangelog",
+      "version": "1.4.2",
+      "ksp_version": "1.11",
+      "ksp_min": "1.9",
+      "ksp_max": "1.11",
+      "url": "https://raw.githubusercontent.com/HebaruSan/KerbalChangelog/master/GameData/KerbalChangelog/KerbalChangelog.version"
+    },
+    {
+      "file": "KerbalJointReinforcement/KerbalJointReinforcement.version",
+      "folder": "KerbalJointReinforcement",
+      "name": "Kerbal Joint Reinforcement",
+      "version": "3.8.7",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": null,
+      "url": "https://raw.githubusercontent.com/KSP-RO/Kerbal-Joint-Reinforcement-Continued/master/GameData/KerbalJointReinforcement/KerbalJointReinforcement.version"
+    },
+    {
+      "file": "KerbalKonstructs/KerbalKonstructs.version",
+      "folder": "KerbalKonstructs",
+      "name": "KerbalKonstructs",
+      "version": "1.12.2.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/Kerbal-Konstructs/blob/master/GameData/KerbalKonstructs/KerbalKonstructs.version"
+    },
+    {
+      "file": "Kopernicus/Plugins/Kopernicus.version",
+      "folder": "Kopernicus",
+      "name": "Kopernicus",
+      "version": "1.12.1.247",
+      "ksp_version": "1.12",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/Kopernicus/Kopernicus/master/build/KSP19PLUS/GameData/Kopernicus/Plugins/Kopernicus.version"
+    },
+    {
+      "file": "ModularFlightIntegrator/ModularFlightIntegrator.version",
+      "folder": "ModularFlightIntegrator",
+      "name": "ModularFlightIntegrator",
+      "version": "1.2.10.0",
+      "ksp_version": "1.12.0",
+      "ksp_min": "1.11.0",
+      "ksp_max": "1.12.90",
+      "url": "https://ksp.sarbian.com/jenkins/job/ModularFlightIntegrator/lastSuccessfulBuild/artifact/ModularFlightIntegrator/ModularFlightIntegrator.version"
+    },
+    {
+      "file": "MunksFixes/Versioning/MunksFixes.version",
+      "folder": "MunksFixes",
+      "name": "MunksFixes",
+      "version": "1.6.0.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/munktron239/Munks-Fixes/refs/heads/main/Versioning/MunksFixes.version"
+    },
+    {
+      "file": "PatchManager/PatchManager.version",
+      "folder": "PatchManager",
+      "name": "PatchManager",
+      "version": "0.0.17.8",
+      "ksp_version": "1.12.4",
+      "ksp_min": "1.9.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/PatchManager/refs/heads/master/PatchManager.version"
+    },
+    {
+      "file": "PlanetShine/Plugins/PlanetShine.version",
+      "folder": "PlanetShine",
+      "name": "PlanetShine",
+      "version": "0.2.6.6",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.999",
+      "url": "https://github.com/papajoessoup/ksp-planetshine/raw/master/PlanetShine/Distribution/GameData/PlanetShine/Plugins/PlanetShine.version"
+    },
+    {
+      "file": "ProceduralFairings/ProceduralFairings.version",
+      "folder": "ProceduralFairings",
+      "name": "Procedural Fairings",
+      "version": "6.7.0.0",
+      "ksp_version": null,
+      "ksp_min": "1.10.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/ProceduralFairings/raw/master/GameData/ProceduralFairings/ProceduralFairings.version"
+    },
+    {
+      "file": "ProceduralParts/ProceduralParts.version",
+      "folder": "ProceduralParts",
+      "name": "Procedural Parts",
+      "version": "2.8.0.0",
+      "ksp_version": "1.8.1",
+      "ksp_min": "1.8.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ProceduralParts/master/GameData/ProceduralParts/ProceduralParts.version"
+    },
+    {
+      "file": "RCSBuildAid/RCSBuildAid.version",
+      "folder": "RCSBuildAid",
+      "name": "RCS Build Aid",
+      "version": "1.0.6",
+      "ksp_version": "1.11.1",
+      "ksp_min": "1.11.0",
+      "ksp_max": "1.11.1",
+      "url": "https://raw.githubusercontent.com/m4v/RCSBuildAid/master/RCSBuildAid.version"
+    },
+    {
+      "file": "RN_Misc/RNMisc.version",
+      "folder": "RN_Misc",
+      "name": "RNMisc",
+      "version": "1.7.0.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.3.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/RNMisc/master/GameData/RN_Misc/RNMisc.version"
+    },
+    {
+      "file": "RN_Salyut/SalyutStations.version",
+      "folder": "RN_Salyut",
+      "name": "Salyut Stations",
+      "version": "3.8.0.0",
+      "ksp_version": "1.12.2.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/SalyutStations/master/GameData/RN_Salyut/SalyutStations.version"
+    },
+    {
+      "file": "RN_Skylab/Skylab.version",
+      "folder": "RN_Skylab",
+      "name": "Skylab",
+      "version": "1.8.7.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/Skylab/master/GameData/RN_Skylab/Skylab.version"
+    },
+    {
+      "file": "RN_Soviet_Probes/SovietProbes.version",
+      "folder": "RN_Soviet_Probes",
+      "name": "Soviet Probes",
+      "version": "3.5.0.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/SovietProbes/master/GameData/RN_Soviet_Probes/SovietProbes.version"
+    },
+    {
+      "file": "RN_Soviet_Rockets/SovietRockets.version",
+      "folder": "RN_Soviet_Rockets",
+      "name": "Soviet Rockets",
+      "version": "3.11.0.0",
+      "ksp_version": "1.12.1.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/SovietRockets/master/GameData/RN_Soviet_Rockets/SovietRockets.version"
+    },
+    {
+      "file": "RN_Soyuz/SovietSpacecraft.version",
+      "folder": "RN_Soyuz",
+      "name": "Soviet Spacecraft",
+      "version": "1.8.9.0",
+      "ksp_version": "1.12.2.0",
+      "ksp_min": "1.3.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/SovietSpacecraft/master/GameData/RN_Soyuz/SovietSpacecraft.version"
+    },
+    {
+      "file": "RN_US_Probes/USProbesPack.version",
+      "folder": "RN_US_Probes",
+      "name": "US Probes Pack",
+      "version": "0.88.0.0",
+      "ksp_version": "1.12.2.0",
+      "ksp_min": "1.2.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/USProbesPack/master/GameData/RN_US_Probes/USProbesPack.version"
+    },
+    {
+      "file": "RN_US_Rockets/USRockets.version",
+      "folder": "RN_US_Rockets",
+      "name": "US Rockets",
+      "version": "1.5.0.0",
+      "ksp_version": "1.12.2.0",
+      "ksp_min": "1.3.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "http://raw.githubusercontent.com/KSP-RO/USRockets/master/GameData/RN_US_Rockets/USRockets.version"
+    },
+    {
+      "file": "ROCapsules/ROCapsules.version",
+      "folder": "ROCapsules",
+      "name": "ROCapsules",
+      "version": "2.7.1.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ROCapsules/master/GameData/ROCapsules/ROCapsules.version"
+    },
+    {
+      "file": "ROEngines/ROEngines.version",
+      "folder": "ROEngines",
+      "name": "ROEngines",
+      "version": "2.16.0.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ROEngines/master/GameData/ROEngines/ROEngines.version"
+    },
+    {
+      "file": "ROLib/ROLib.version",
+      "folder": "ROLib",
+      "name": "ROLibrary",
+      "version": "2.1.0.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ROLibrary/master/GameData/ROLib/ROLib.version"
+    },
+    {
+      "file": "ROSolar/ROSolar.version",
+      "folder": "ROSolar",
+      "name": "ROSolar",
+      "version": "2.1.2.0",
+      "ksp_version": null,
+      "ksp_min": "1.10.1",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/ROSolar/tree/master/GameData/ROSolar/ROSolar.version"
+    },
+    {
+      "file": "ROTanks/ROTanks.version",
+      "folder": "ROTanks",
+      "name": "ROTanks",
+      "version": "2.10.0.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ROTanks/master/GameData/ROTanks/ROTanks.version"
+    },
+    {
+      "file": "ROUtils/ROUtils.version",
+      "folder": "ROUtils",
+      "name": "ROUtils",
+      "version": "1.1.1.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/ROUtils/master/GameData/ROUtils/ROUtils.version"
+    },
+    {
+      "file": "RSSDateTime/RSSDateTime.version",
+      "folder": "RSSDateTime",
+      "name": "RSSDateTime",
+      "version": "1.12.1.0",
+      "ksp_version": "1.12.2",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": null
+    },
+    {
+      "file": "RSSVE/RSSVE.version",
+      "folder": "RSSVE",
+      "name": "RSSVE",
+      "version": "2.2.0",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/RSSVE/master/RSSVE/RSSVE.version"
+    },
+    {
+      "file": "RealAntennas/RealAntennas.version",
+      "folder": "RealAntennas",
+      "name": "RealAntennas",
+      "version": "2.12.0.0",
+      "ksp_version": null,
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/RealAntennas/blob/master/GameData/RealAntennas/RealAntennas.version"
+    },
+    {
+      "file": "RealChute/RealChute.version",
+      "folder": "RealChute",
+      "name": "RealChute",
+      "version": "1.4.9.5",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/ChrisViral/RealChute/master/Output/GameData/RealChute/RealChute.version"
+    },
+    {
+      "file": "RealFuels/RealFuels.version",
+      "folder": "RealFuels",
+      "name": "RealFuels",
+      "version": "15.15.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/RealFuels/master/RealFuels/RealFuels.version"
+    },
+    {
+      "file": "RealHeat/RealHeat.version",
+      "folder": "RealHeat",
+      "name": "Real Heat",
+      "version": "5.1.0.0",
+      "ksp_version": "1.8.1.0",
+      "ksp_min": "1.8.0.0",
+      "ksp_max": null,
+      "url": "https://forum.kerbalspaceprogram.com/index.php?/topic/115066-113-realheat-minimalist-v43-july-3/"
+    },
+    {
+      "file": "RealSolarSystem/RealSolarSystem.version",
+      "folder": "RealSolarSystem",
+      "name": "RealSolarSystem",
+      "version": "20.1.3.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/KSP-RO/RealSolarSystem/raw/master/GameData/RealSolarSystem/RealSolarSystem.version"
+    },
+    {
+      "file": "RealismOverhaul/RO.version",
+      "folder": "RealismOverhaul",
+      "name": "RealismOverhaul",
+      "version": "17.4.1.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/KSP-RO/RealismOverhaul/master/GameData/RealismOverhaul/RO.version"
+    },
+    {
+      "file": "RetractableLiftingSurface/RetractableLiftingSurface.version",
+      "folder": "RetractableLiftingSurface",
+      "name": "RetractableLiftingSurface",
+      "version": "0.2.1.2",
+      "ksp_version": "1.12.2",
+      "ksp_min": "1.12.0",
+      "ksp_max": null,
+      "url": "http://ksp.spacetux.net/avc/RetractableLiftingSurface"
+    },
+    {
+      "file": "Shabby/Shabby.version",
+      "folder": "Shabby",
+      "name": "Shabby",
+      "version": "0.4.2.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.8",
+      "ksp_max": "1.12",
+      "url": "https://github.com/KSPModdingLibs/Shabby/releases/latest/download/Shabby.version"
+    },
+    {
+      "file": "SimpleAdjustableFairings/SimpleAdjustableFairings.version",
+      "folder": "SimpleAdjustableFairings",
+      "name": "Simple Adjustable Fairings - Plugin",
+      "version": "1.12.0",
+      "ksp_version": "1.11.2",
+      "ksp_min": null,
+      "ksp_max": null,
+      "url": "https://raw.githubusercontent.com/blowfishpro/SimpleAdjustableFairings/master/GameData/SimpleAdjustableFairings/SimpleAdjustableFairings.version"
+    },
+    {
+      "file": "SimpleAdjustableFairings-KWRocketry/SimpleAdjustableFairings-KWRocketry.version",
+      "folder": "SimpleAdjustableFairings-KWRocketry",
+      "name": "Simple Adjustable Fairings - KW Rocketry Pack",
+      "version": "1.4.0",
+      "ksp_version": null,
+      "ksp_min": "1.11.0",
+      "ksp_max": "1.11.99",
+      "url": "https://raw.githubusercontent.com/blowfishpro/SimpleAdjustableFairings-KWRocketry/master/GameData/SimpleAdjustableFairings-KWRocketry/SimpleAdjustableFairings-KWRocketry.version"
+    },
+    {
+      "file": "SolverEngines/SolverEngines.version",
+      "folder": "SolverEngines",
+      "name": "SolverEngines",
+      "version": "3.14.0.0",
+      "ksp_version": "1.10.1",
+      "ksp_min": "1.8.0.0",
+      "ksp_max": "1.12.99.0",
+      "url": "https://raw.githubusercontent.com/KSP-RO/SolverEngines/master/GameData/SolverEngines/SolverEngines.version"
+    },
+    {
+      "file": "SpaceTuxLibrary/ButtonManager.version",
+      "folder": "SpaceTuxLibrary",
+      "name": "ButtonManager",
+      "version": "1.0.2.0",
+      "ksp_version": "1.12.2",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/SpaceTuxLibrary/refs/heads/master/ButtonManager.versionr"
+    },
+    {
+      "file": "SpaceTuxLibrary/SpaceTuxLibrary.version",
+      "folder": "SpaceTuxLibrary",
+      "name": "SpaceTuxLibrary",
+      "version": "0.0.9.0",
+      "ksp_version": "1.12.4",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/SpaceTuxLibrary/refs/heads/master/SpaceTuxLibrary.version"
+    },
+    {
+      "file": "SpaceTuxLibrary/VesselModuleSave.version",
+      "folder": "SpaceTuxLibrary",
+      "name": "VesselModuleSave",
+      "version": "1.0.2.0",
+      "ksp_version": "1.12.4",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/SpaceTuxLibrary/refs/heads/master/VesselModuleSave.version"
+    },
+    {
+      "file": "StarshipExpansionProject/Versioning/StarshipExpansionProject.version",
+      "folder": "StarshipExpansionProject",
+      "name": "Starship Expansion Project",
+      "version": "3.1.0.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.5",
+      "ksp_max": "1.12.99",
+      "url": "https://github.com/Kari1407/Starship-Expansion-Project/tree/main/GameData/StarshipExpansionProject/Versioning/StarshipExpansionProject.version"
+    },
+    {
+      "file": "TDProps/TDProps.version",
+      "folder": "TDProps",
+      "name": "TDProps",
+      "version": "1.4.0.0",
+      "ksp_version": "1.12.3",
+      "ksp_min": "1.6.0",
+      "ksp_max": null,
+      "url": "http://ksp.spacetux.net/avc/TDProps"
+    },
+    {
+      "file": "TUFX/TUFX.version",
+      "folder": "TUFX",
+      "name": "TUFX",
+      "version": "1.1.0.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12",
+      "url": "https://github.com/KSPModStewards/TUFX/releases/latest/download/TUFX.version"
+    },
+    {
+      "file": "Telemachus/TelemachusReborn.version",
+      "folder": "Telemachus",
+      "name": "Telemachus Reborn",
+      "version": "1.12.0.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.5",
+      "url": "https://raw.githubusercontent.com/TeaGuild/Telemachus-1/main/TelemachusReborn.version"
+    },
+    {
+      "file": "ThunderAerospace/TacLifeSupport/TacLifeSupport.version",
+      "folder": "ThunderAerospace",
+      "name": "TAC Life Support",
+      "version": "0.18.0.0",
+      "ksp_version": "1.12.0",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "http://ksp-avc.cybutek.net/version.php?id=9"
+    },
+    {
+      "file": "Trajectories/Trajectories.version",
+      "folder": "Trajectories",
+      "name": "Trajectories",
+      "version": "2.4.5.4",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.8.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/KSPTrajectories/refs/heads/master/Trajectories.version"
+    },
+    {
+      "file": "TriggerTech/KerbalAlarmClock/KerbalAlarmClock.version",
+      "folder": "TriggerTech",
+      "name": "Kerbal Alarm Clock Updated",
+      "version": "3.14.2.7",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/KerbalAlarmClock/master/KerbalAlarmClock.version"
+    },
+    {
+      "file": "TriggerTech/TransferWindowPlanner/TransferWindowPlanner.version",
+      "folder": "TriggerTech",
+      "name": "Transfer Window Planner",
+      "version": "1.9.1.1",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/Nazfib/TransferWindowPlanner/master/TransferWindowPlanner/TransferWindowPlanner.version"
+    },
+    {
+      "file": "TundraSpaceCenter/Versioning/TundraSpaceCenter.version",
+      "folder": "TundraSpaceCenter",
+      "name": "Tundra Space Center",
+      "version": "2.0.2.0",
+      "ksp_version": "1.8.1",
+      "ksp_min": "1.8.1",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/damonvv/TundraSpaceCenter/master/GameData/TundraSpaceCenter/Versioning/TundraSpaceCenter.version"
+    },
+    {
+      "file": "VABOrganizer/Versioning/VABOrganizer.version",
+      "folder": "VABOrganizer",
+      "name": "VABOrganizer",
+      "version": "1.1.0.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/post-kerbin-mining-corporation/VABOrganizer/master/GameData/VABOrganizer/Versioning/VABOrganizer.version"
+    },
+    {
+      "file": "WasdEditorCamera/WasdEditorCamera.version",
+      "folder": "WasdEditorCamera",
+      "name": "WASDEditorCameraContinued",
+      "version": "0.7.3.3",
+      "ksp_version": "1.12.1",
+      "ksp_min": "1.12.1",
+      "ksp_max": null,
+      "url": "http://ksp.spacetux.net/avc/WasdEditorCamera"
+    },
+    {
+      "file": "Waterfall/Waterfall.version",
+      "folder": "Waterfall",
+      "name": "Waterfall",
+      "version": "0.11.0.0",
+      "ksp_version": "1.12",
+      "ksp_min": "1.8",
+      "ksp_max": "1.12",
+      "url": "https://github.com/KSPModStewards/Waterfall/releases/latest/download/Waterfall.version"
+    },
+    {
+      "file": "WaypointManager/WaypointManager.version",
+      "folder": "WaypointManager",
+      "name": "Waypoint Manager",
+      "version": "2.8.4.7",
+      "ksp_version": "1.12.4",
+      "ksp_min": "1.12.0",
+      "ksp_max": "1.12.99",
+      "url": "https://raw.githubusercontent.com/linuxgurugamer/WaypointManager/refs/heads/master/WaypointManager.version"
+    },
+    {
+      "file": "kRPC/kRPC.version",
+      "folder": "kRPC",
+      "name": "kRPC",
+      "version": "0.6.0",
+      "ksp_version": "1.12.5",
+      "ksp_min": "1.12.3",
+      "ksp_max": "1.12.5",
+      "url": "http://ksp-avc.cybutek.net/version.php?id=254"
+    },
+    {
+      "file": "samv_server/StandAloneMapView.version",
+      "folder": "samv_server",
+      "name": "StandAloneMapView",
+      "version": "1.0.0.3",
+      "ksp_version": "1.12.4",
+      "ksp_min": "1.12.3",
+      "ksp_max": null,
+      "url": "http://ksp.spacetux.net/avc/StandAloneMapView"
+    }
+  ],
+  "loaded_assemblies": [
+    {
+      "assembly": "Assembly-CSharp",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "Scale_Redist",
+      "versions": "v3.3.2.0 / v3.3.2+7a6da95923eda986ca6065be237d2e29f0ef411c"
+    },
+    {
+      "assembly": "ModuleManager",
+      "versions": "v4.2.3.0"
+    },
+    {
+      "assembly": "ClickThroughBlocker",
+      "versions": "v2.1.10.23"
+    },
+    {
+      "assembly": "0Harmony",
+      "versions": "v2.2.1.0"
+    },
+    {
+      "assembly": "HarmonyInstallChecker",
+      "versions": "v2.2.1.0"
+    },
+    {
+      "assembly": "Unity.Burst.Unsafe",
+      "versions": "v4.0.5.0 / v1.0.0.0"
+    },
+    {
+      "assembly": "Unity.Mathematics",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "Microsoft.Extensions.FileSystemGlobbing",
+      "versions": "v6.0.0.0 / v6.0.0-preview.2.21154.6+3eaf1f316b8b1da73fdb98e9cca43c0ddaa12f45 / v6.0.21.15406"
+    },
+    {
+      "assembly": "System.IO.Compression",
+      "versions": "v4.0.0.0 / v4.6.57.0"
+    },
+    {
+      "assembly": "System.Runtime.CompilerServices.Unsafe",
+      "versions": "v4.0.6.0 / v3.1.3+8a3ffed558ddf943c1efa87d693227722d6af094 / v4.700.20.12001"
+    },
+    {
+      "assembly": "System.Runtime",
+      "versions": "v4.1.0.0 / v4.0.0.0"
+    },
+    {
+      "assembly": "Unity.Burst",
+      "versions": "v1.7.4.0"
+    },
+    {
+      "assembly": "System.IO.Compression.FileSystem",
+      "versions": "v4.0.0.0 / v4.6.57.0"
+    },
+    {
+      "assembly": "Unity.Collections",
+      "versions": "v0.8.0.0"
+    },
+    {
+      "assembly": "Unity.Jobs",
+      "versions": "v0.2.9.0"
+    },
+    {
+      "assembly": "KSPBurst",
+      "versions": "v1.7.4.10"
+    },
+    {
+      "assembly": "BlendshapeModelLoader",
+      "versions": "v1.6.4.30"
+    },
+    {
+      "assembly": "TexturesUnlimited",
+      "versions": "v1.6.4.30"
+    },
+    {
+      "assembly": "ToolbarControl",
+      "versions": "v0.1.9.14"
+    },
+    {
+      "assembly": "SolverEngines",
+      "versions": "v3.13.0.0 / v3.13.1.0"
+    },
+    {
+      "assembly": "AJE",
+      "versions": "v2.20.0.0"
+    },
+    {
+      "assembly": "ASETPropsIdentifier",
+      "versions": "v1.5.0.0"
+    },
+    {
+      "assembly": "AnimatedDecouplers",
+      "versions": "v1.4.2.19194"
+    },
+    {
+      "assembly": "B9PartSwitch",
+      "versions": "v2.21.0.4"
+    },
+    {
+      "assembly": "B9-PWings-Fork",
+      "versions": "v0.46.1.0 / v0.46.1"
+    },
+    {
+      "assembly": "BDAnimationModules",
+      "versions": "v0.6.7.1"
+    },
+    {
+      "assembly": "RNModules",
+      "versions": "v1.2.1.0"
+    },
+    {
+      "assembly": "CameraTools",
+      "versions": "v1.37.1.0 / v1.37.1"
+    },
+    {
+      "assembly": "Chatterer",
+      "versions": "v0.9.99.2788"
+    },
+    {
+      "assembly": "CCK",
+      "versions": "v5.1.0.0 / v5.1.0.0 for KSP v1"
+    },
+    {
+      "assembly": "Shabby",
+      "versions": "v0.0.0.0 / v0.4.2 / v0.4.2.0"
+    },
+    {
+      "assembly": "ConformalDecals",
+      "versions": "v0.0.0.0 / v0.4.2+aa30489f34b86a1aad7825e63755d5d292d32e4f / v0.4.2.0"
+    },
+    {
+      "assembly": "Unity.TextMeshPro",
+      "versions": "v2.1.6.0 / v2.1.6+aa30489f34b86a1aad7825e63755d5d292d32e4f / v2.1.6"
+    },
+    {
+      "assembly": "ContractConfigurator",
+      "versions": "v1.0.0.0 / v2.13.4.0 KSP-RO / v2.13.4.0"
+    },
+    {
+      "assembly": "CustomPreLaunchChecks",
+      "versions": "v1.0.0.0 / v1.8.1.0"
+    },
+    {
+      "assembly": "KerbalKonstructs",
+      "versions": "v2.0.0.0 / v1.12.2.0"
+    },
+    {
+      "assembly": "KerKonConConExt",
+      "versions": "v2.0.0.0 / v2.0.0"
+    },
+    {
+      "assembly": "CustomBarnKit",
+      "versions": "v1.1.22.0"
+    },
+    {
+      "assembly": "DeployableEngines",
+      "versions": "v2.2.0.0"
+    },
+    {
+      "assembly": "DepthMask",
+      "versions": "v1.1.3.0 / v1.1.3"
+    },
+    {
+      "assembly": "DistantObject",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "KSPe.Light.DOE",
+      "versions": "v2.5.5.3"
+    },
+    {
+      "assembly": "EditorExtensionsRedux",
+      "versions": "v3.4.7.0 / v3.4.7"
+    },
+    {
+      "assembly": "EngineGroupController",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "System.Core",
+      "versions": "v4.0.0.0 / v4.6.57.0"
+    },
+    {
+      "assembly": "System.Xml",
+      "versions": "v4.0.0.0 / v4.6.57.0"
+    },
+    {
+      "assembly": "System",
+      "versions": "v4.0.0.0 / v4.6.57.0"
+    },
+    {
+      "assembly": "UnityGUIFramework",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "Atmosphere",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "CelestialShadows",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "CityLights",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "EVEManager",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "PQSManager",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "PartFX",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "ShaderLoader",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "Terrain",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "TextureConfig",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "Utils",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "_BuildManager",
+      "versions": "v3.2.2.0"
+    },
+    {
+      "assembly": "HangerExtenderExtended",
+      "versions": "v3.6.1.0 / v3.6.1"
+    },
+    {
+      "assembly": "FerramAerospaceResearch.Base",
+      "versions": "v0.16.1.2"
+    },
+    {
+      "assembly": "ModularFlightIntegrator",
+      "versions": "v1.0.0.0 / v1.2.10.0"
+    },
+    {
+      "assembly": "FerramAerospaceResearch",
+      "versions": "v0.16.1.2"
+    },
+    {
+      "assembly": "ferramGraph",
+      "versions": "v1.3.0.0"
+    },
+    {
+      "assembly": "Firespitter",
+      "versions": "v7.3.7660.26532"
+    },
+    {
+      "assembly": "FlyByWireSASMode",
+      "versions": "v1.0.0.0 / v1.2.0.0"
+    },
+    {
+      "assembly": "FreeIva",
+      "versions": "v0.2.20.2 / v0.2.20.2+c013cb43ae19a8e0486cf472a68287d18f2f85f4"
+    },
+    {
+      "assembly": "HUDReplacer",
+      "versions": "v1.4.2.0 / v1.4.2+4ab67a18484a263597eefb6629454dd9dcafe4f9"
+    },
+    {
+      "assembly": "HullcamVDSContinued",
+      "versions": "v0.2.2.4"
+    },
+    {
+      "assembly": "MechJeb2",
+      "versions": "v2.15.0.0 / v / v2.15.3.0"
+    },
+    {
+      "assembly": "MechJebLib",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "RasterPropMonitor",
+      "versions": "v1.1.0.1 / v1.1.0.1+b443e7d42e18def074383d7dd657320b9961f7b8"
+    },
+    {
+      "assembly": "MechJebRPM",
+      "versions": "v1.1.0.1 / v1.1.0.1+b443e7d42e18def074383d7dd657320b9961f7b8"
+    },
+    {
+      "assembly": "JanitorsCloset",
+      "versions": "v0.4.1.7"
+    },
+    {
+      "assembly": "JustReadTheInstructions",
+      "versions": "v2.3.0.0"
+    },
+    {
+      "assembly": "KSCSwitcher",
+      "versions": "v2.0.0.0 / v2.2.0.0"
+    },
+    {
+      "assembly": "KSPBridge",
+      "versions": "v0.15.1.0 / v0.15.1+e76a953bad6c9de99a8c40aeb69704f4d46bfc7c"
+    },
+    {
+      "assembly": "MQTTnet.Extensions.ManagedClient",
+      "versions": "v4.3.7.1207 / v4.3.7.1207+740d605fd2c25922fad6ea60e78e8370356e95dd"
+    },
+    {
+      "assembly": "MQTTnet",
+      "versions": "v4.3.7.1207 / v4.3.7.1207+740d605fd2c25922fad6ea60e78e8370356e95dd"
+    },
+    {
+      "assembly": "0_MultipleModuleInPartAPI",
+      "versions": "v1.0.0.0 / v1.0.0+7969fdc50bf4e350193abe5ba2e89533b12ca02f"
+    },
+    {
+      "assembly": "KSPCommunityFixes",
+      "versions": "v1.41.0.0 / v1.41.1+7969fdc50bf4e350193abe5ba2e89533b12ca02f / v1.41.1.0"
+    },
+    {
+      "assembly": "KSPCommunityPartModules",
+      "versions": "v0.5.1.0 / v0.5.1"
+    },
+    {
+      "assembly": "KSPTextureLoader.Burst",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "SharpDX",
+      "versions": "v4.2.0.0 / v4.2.0+8e5df9f17b1d328c595a9df5851dbb2537b55621 / v4.2.0"
+    },
+    {
+      "assembly": "SharpDX.DXGI",
+      "versions": "v4.2.0.0 / v4.2.0+8e5df9f17b1d328c595a9df5851dbb2537b55621 / v4.2.0"
+    },
+    {
+      "assembly": "SharpDX.Direct3D11",
+      "versions": "v4.2.0.0 / v4.2.0+8e5df9f17b1d328c595a9df5851dbb2537b55621 / v4.2.0"
+    },
+    {
+      "assembly": "KSPTextureLoader",
+      "versions": "v1.0.36.0 / v1.0.36+cda0e0fea05c372369b8464c01035616501d8d28"
+    },
+    {
+      "assembly": "KSPWheel",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "KerbalChangelog",
+      "versions": "v1.4.2.0"
+    },
+    {
+      "assembly": "KerbalJointReinforcement",
+      "versions": "v3.8.7.0"
+    },
+    {
+      "assembly": "Kopernicus.Parser",
+      "versions": "v1.0.0.0 / v1.0.0.0+2398a50e208a22315a68553b89918c791ea0f073"
+    },
+    {
+      "assembly": "Kopernicus",
+      "versions": "v1.0.247.0 / v1.0.247+2398a50e208a22315a68553b89918c791ea0f073 / v1.12.247.0"
+    },
+    {
+      "assembly": "MechJebLibBindings",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "alglib",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "PatchManager",
+      "versions": "v0.0.17.8"
+    },
+    {
+      "assembly": "PlanetShine",
+      "versions": "v0.2.6.6"
+    },
+    {
+      "assembly": "ROUtils",
+      "versions": "v1.1.0.0 / v1.1.1.0"
+    },
+    {
+      "assembly": "ProceduralFairings",
+      "versions": "v6.0.0.0 / v6.7.0.0"
+    },
+    {
+      "assembly": "ProceduralParts",
+      "versions": "v2.0.0.0 / v2.8.0.0"
+    },
+    {
+      "assembly": "RCSBuildAid",
+      "versions": "v1.0.6.35359"
+    },
+    {
+      "assembly": "BackgroundResources",
+      "versions": "v1.12.0.0"
+    },
+    {
+      "assembly": "ROLib",
+      "versions": "v2.0.0.0 / v2.1.0.0"
+    },
+    {
+      "assembly": "ROEngines",
+      "versions": "v1.0.0.0 / v2.16.0.0"
+    },
+    {
+      "assembly": "RSSTimeFormatter",
+      "versions": "v1.12.0.0"
+    },
+    {
+      "assembly": "RealAntennas",
+      "versions": "v2.6.0.0 / v2.12.0.0"
+    },
+    {
+      "assembly": "RealChute",
+      "versions": "v1.4.9059.6703 / v1.4.9.5"
+    },
+    {
+      "assembly": "RealFuels",
+      "versions": "v1.0.0.0 / v15.15.0.0"
+    },
+    {
+      "assembly": "RealHeat",
+      "versions": "v5.1.0.0"
+    },
+    {
+      "assembly": "RealSolarSystem",
+      "versions": "v20.1.3.0"
+    },
+    {
+      "assembly": "ROInstallChecker",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "RealismOverhaul",
+      "versions": "v0.12.8.1 / v17.4.1.0"
+    },
+    {
+      "assembly": "RetractableLiftingSurface",
+      "versions": "v0.2.1.2"
+    },
+    {
+      "assembly": "scatterer",
+      "versions": "v0.905.0.0"
+    },
+    {
+      "assembly": "SimpleAdjustableFairings",
+      "versions": "v1.12.0.0 / vv1.12.0"
+    },
+    {
+      "assembly": "SmokeScreen",
+      "versions": "v2.8.14.0"
+    },
+    {
+      "assembly": "KSP_Log",
+      "versions": "v1.2.0.1"
+    },
+    {
+      "assembly": "ButtonManager",
+      "versions": "v1.0.2.0 / v1.0.2"
+    },
+    {
+      "assembly": "KSP_ColorPicker",
+      "versions": "v1.1.1.0 / v1.1.1"
+    },
+    {
+      "assembly": "KSP_PartHighlighter",
+      "versions": "v1.1.1.0 / v1.1.1"
+    },
+    {
+      "assembly": "SpaceTuxUtility",
+      "versions": "v1.0.2.0 / v1.0.2"
+    },
+    {
+      "assembly": "VesselModuleSave",
+      "versions": "v1.0.2.0 / v1.0.2"
+    },
+    {
+      "assembly": "KSPSteamCtrlr",
+      "versions": "v0.0.1.35"
+    },
+    {
+      "assembly": "StagedAnimation",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "Waterfall",
+      "versions": "v0.11.0.0 / v0.11.0+6be4f897ad86577c6ce2c17e6da0848b14d5250a"
+    },
+    {
+      "assembly": "StarshipExpansionProject",
+      "versions": "v3.3.2.0 / v3.3.2"
+    },
+    {
+      "assembly": "StockAlarmClockDisabler",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "TUFX",
+      "versions": "v1.1.1.0 / v1.1.1+a5d61676496ecbe8816c28c50b3dfd2e094803d5"
+    },
+    {
+      "assembly": "Telemachus",
+      "versions": "v1.7.0.0 / v1.7.0"
+    },
+    {
+      "assembly": "websocket-sharp",
+      "versions": "v1.0.2.59611"
+    },
+    {
+      "assembly": "TacLifeSupport",
+      "versions": "v0.18.0.0 / v0.18.0"
+    },
+    {
+      "assembly": "Trajectories",
+      "versions": "v2.4.5.4"
+    },
+    {
+      "assembly": "KerbalAlarmClock",
+      "versions": "v3.14.2.7"
+    },
+    {
+      "assembly": "TransferWindowPlanner",
+      "versions": "v1.9.1.1 / v1.9.1.1+705a76bb8c507c0d68b79702d8d689d44cad4f4d"
+    },
+    {
+      "assembly": "VABOrganizer",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "WasdEditorCameraContinued",
+      "versions": "v0.7.3.3"
+    },
+    {
+      "assembly": "WasdMainMenu",
+      "versions": "v1.0.0.0"
+    },
+    {
+      "assembly": "WaypointManager",
+      "versions": "v2.8.4.7 / v2.8.1"
+    },
+    {
+      "assembly": "Google.Protobuf",
+      "versions": "v3.10.1.0 / v3.10.1+d09d649aea36f02c03f8396ba39a8d4db8a607e4"
+    },
+    {
+      "assembly": "KRPC.Core",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.DockingCamera",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.Drawing",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.IO.Ports",
+      "versions": "v0.0.0.0"
+    },
+    {
+      "assembly": "KRPC.InfernalRobotics",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.KerbalAlarmClock",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.LiDAR",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.RemoteTech",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.SpaceCenter",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC.UI",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "KRPC",
+      "versions": "v0.6.0.0"
+    },
+    {
+      "assembly": "protobuf-net",
+      "versions": "v2.1.0.0 / v2.1.0"
+    },
+    {
+      "assembly": "samv_comms",
+      "versions": "v1.0.0.3"
+    },
+    {
+      "assembly": "samv_server",
+      "versions": "v1.0.0.3"
+    },
+    {
+      "assembly": "samv_utils",
+      "versions": "v1.0.0.3"
+    },
+    {
+      "assembly": "Deferred",
+      "versions": "v1.3.5.0"
+    }
+  ],
+  "modulemanager": {
+    "patches_applied": 69101,
+    "line": "[LOG 06:49:07.333] ModuleManager: 69101 patches applied, found 2 warnings"
+  },
+  "exceptions": [
+    {
+      "count": 3,
+      "message": "NullReferenceException: Object reference not set to an instance of an object"
+    },
+    {
+      "count": 2,
+      "message": "ArgumentException: Kernel 'CountPixelsMain' not found."
+    },
+    {
+      "count": 1,
+      "message": "ArgumentException: Invalid path"
+    },
+    {
+      "count": 1,
+      "message": "FileNotFoundException: Could not find file \"/Applications/KSP-RP2000/GameData/Scatterer/stbn.R8\""
+    },
+    {
+      "count": 1,
+      "message": "Exception: Terminating stock loader coroutine, this is intended and not an error"
+    },
+    {
+      "count": 1,
+      "message": "ArgumentException: An item with the same key has already been added. Key: berth"
+    },
+    {
+      "count": 1,
+      "message": "ArgumentException: Invalid version: 0.43.0.11b"
+    }
+  ],
+  "flags": [
+    {
+      "kind": "not-ckan-managed",
+      "folder": "AN-HTV"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "AN-JPLV"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "Benjee10_Orion"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "Benjee10_sharedAssets"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "DeployableEngines"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "HabTechProps"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "ISS_Comunity"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "KerbalConstructionTime"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "OhScrap"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "RP2000"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "ScattererAtmosphereCache"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "StockVolumetricClouds"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "ZZZ_HullcamRO"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "ZZZ_RP2000_Fixes"
+    },
+    {
+      "kind": "not-ckan-managed",
+      "folder": "ZZZ_SoyuzIVAFix"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "Benjee10_Orion",
+      "file": "Benjee10_Orion/Booster/FX/PlumeParty/Version/PlumeParty.version",
+      "ksp_max": "1.7.9"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "Benjee10_sharedAssets",
+      "file": "Benjee10_sharedAssets/Version/Benjee10_sharedAssets.version",
+      "ksp_max": "1.11.99"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "Chatterer",
+      "file": "Chatterer/ChattererExtended.version",
+      "ksp_max": "1.4.99"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "Chatterer",
+      "file": "Chatterer/Plugins/Chatterer.version",
+      "ksp_max": "1.9.99"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "Firespitter",
+      "file": "Firespitter/Firespitter.version",
+      "ksp_max": "1.11.99"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "HabTechProps",
+      "file": "HabTechProps/Version/HabTechProps.version",
+      "ksp_max": "1.11.99"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "KSPWheel",
+      "file": "KSPWheel/KSPWheel.version",
+      "ksp_max": "1.8.9"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "KerbalChangelog",
+      "file": "KerbalChangelog/KerbalChangelog.version",
+      "ksp_max": "1.11"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "RCSBuildAid",
+      "file": "RCSBuildAid/RCSBuildAid.version",
+      "ksp_max": "1.11.1"
+    },
+    {
+      "kind": "avc-max-below-installed-ksp",
+      "folder": "SimpleAdjustableFairings-KWRocketry",
+      "file": "SimpleAdjustableFairings-KWRocketry/SimpleAdjustableFairings-KWRocketry.version",
+      "ksp_max": "1.11.99"
+    }
+  ]
+}
