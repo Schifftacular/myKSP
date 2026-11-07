@@ -7,3 +7,5 @@ data/recordings/*.jsonl
 .DS_Store
 data/vendor/
 data/career-history.jsonl
+__pycache__/
+*.pyc
