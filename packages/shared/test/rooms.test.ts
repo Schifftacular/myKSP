@@ -322,5 +322,8 @@ PART
     expect(v.covered).toBe(2);
     expect(v.total).toBe(3);
     expect(v.p!).toBeCloseTo(0.81 ** 2, 10);
+    // An escape tower saved with no engine module is still an engine if the install says so.
+    const les = parseCraft('ship = X\nPART\n{\n  part = FASAApollo.LES_9\n  istg = 5\n}', new Set(['FASAApollo.LES']));
+    expect(les.engines).toEqual([{ part: 'FASAApollo.LES', config: null, count: 1, stage: 5 }]);
   });
 });

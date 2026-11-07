@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import YAML from 'yaml';
 import {
-  parseBodyCfg, parseCraft, parseTestFlight, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, summarizeCareer,
+  get, parseBodyCfg, parseCfg, parseCraft, parseTestFlight, parseElementEpoch, parseGroundStations, parseLoadmeta, parseTimeEpoch, summarizeCareer,
   type Body, type CraftMeta, type GroundStation, type EngineReliability, type TfEngine,
 } from '@myksp/shared';
 
@@ -106,8 +106,8 @@ export class InstallService {
   craftDetail(rel: string) {
     const file = path.resolve(this.kspRoot, rel);
     if (!file.startsWith(path.resolve(this.kspRoot) + path.sep) || !file.endsWith('.craft')) throw new Error('invalid craft path');
-    const craft = parseCraft(fs.readFileSync(file, 'utf8'));
     const tf = this.testFlight();
+    const craft = parseCraft(fs.readFileSync(file, 'utf8'), this.engineParts ?? undefined);
     const reliability: EngineReliability[] = craft.engines.map((e) => ({ ...e, tf: e.config ? tf.get(e.config) ?? null : null }));
     return { ...craft, reliability, testFlightConfigs: tf.size };
   }
@@ -117,13 +117,28 @@ export class InstallService {
    * *TestFlight*.cfg in GameData. Scanned once (about 800 entries), then every 10 minutes at most.
    */
   private tfCache: Map<string, TfEngine> | null = null;
+  /** Part names (`_` written as `.`, as in craft files) whose part config has a ModuleEngines* module. */
+  private engineParts: Set<string> | null = null;
   private tfAt = 0;
   testFlight(): Map<string, TfEngine> {
     if (this.tfCache && Date.now() - this.tfAt < 600_000) return this.tfCache;
     const out = new Map<string, TfEngine>();
     const gd = this.p('GameData');
     const files = [...walk(path.join(gd, 'RealismOverhaul', 'Engine_Configs'), 2)].filter((f) => f.endsWith('.cfg'));
-    for (const f of walk(gd, 6)) if (f.endsWith('.cfg') && /testflight/i.test(path.basename(f))) files.push(f);
+    const engineParts = new Set<string>();
+    for (const f of walk(gd, 6)) {
+      if (!f.endsWith('.cfg')) continue;
+      if (/testflight/i.test(path.basename(f))) files.push(f);
+      const text = this.read(f);
+      if (!text || !text.includes('ModuleEngines')) continue;
+      // Only plain part definitions ("PART" with a name), not @PART patches.
+      for (const node of parseCfg(text).nodes) {
+        if (node.name !== 'PART') continue;
+        const name = get(node, 'name');
+        if (name && node.nodes.some((m) => m.name === 'MODULE' && /^ModuleEngines/.test(get(m, 'name') ?? ''))) engineParts.add(name.replace(/_/g, '.'));
+      }
+    }
+    this.engineParts = engineParts;
     for (const dir of ['ROEngines', 'ROCapsules', path.join('RealismOverhaul', 'RO_SuggestedMods')]) {
       for (const f of walk(path.join(gd, dir), 4)) if (f.endsWith('.cfg')) files.push(f);
     }

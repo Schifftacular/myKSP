@@ -49,7 +49,12 @@ export interface CraftDetail {
 }
 
 /** Full craft parse: part positions for a silhouette, stage of each part, resource totals. */
-export function parseCraft(text: string): CraftDetail {
+/**
+ * `engineParts`: part names (with `.` for `_`) known from the install's part configs to carry an engine
+ * module. Craft files only save modules that have state, so some engines (e.g. FASA escape towers)
+ * show no engine module in the craft itself.
+ */
+export function parseCraft(text: string, engineParts?: Set<string>): CraftDetail {
   const root = parseCfg(text);
   const parts = children(root, 'PART').map((p) => {
     const pos = (get(p, 'pos') ?? '0,0,0').split(',').map(Number);
@@ -73,9 +78,9 @@ export function parseCraft(text: string): CraftDetail {
   for (const p of children(root, 'PART')) {
     const mods = children(p, 'MODULE');
     const mec = mods.find((m) => /^Module\w*EngineConfigs$/.test(get(m, 'name') ?? ''));
-    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, 'name') ?? ''));
-    if (!isEngine) continue;
     const part = (get(p, 'part') ?? '').replace(/_\d+$/, '');
+    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, 'name') ?? '')) || engineParts?.has(part.replace(/_/g, '.'));
+    if (!isEngine) continue;
     const config = mec ? get(mec, 'configuration') || null : null;
     const stage = getNum(p, 'istg') ?? 0;
     const k = `${stage}|${part}|${config}`;

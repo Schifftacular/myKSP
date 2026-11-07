@@ -11793,7 +11793,7 @@ function parseLoadmeta(text) {
     partNames: getAll(root, "partNames")
   };
 }
-function parseCraft(text) {
+function parseCraft(text, engineParts) {
   const root = parseCfg(text);
   const parts = children(root, "PART").map((p) => {
     const pos = (get(p, "pos") ?? "0,0,0").split(",").map(Number);
@@ -11817,9 +11817,9 @@ function parseCraft(text) {
   for (const p of children(root, "PART")) {
     const mods = children(p, "MODULE");
     const mec = mods.find((m) => /^Module\w*EngineConfigs$/.test(get(m, "name") ?? ""));
-    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, "name") ?? ""));
-    if (!isEngine) continue;
     const part = (get(p, "part") ?? "").replace(/_\d+$/, "");
+    const isEngine = mec || mods.some((m) => /^ModuleEngines/.test(get(m, "name") ?? "")) || engineParts?.has(part.replace(/_/g, "."));
+    if (!isEngine) continue;
     const config = mec ? get(mec, "configuration") || null : null;
     const stage = getNum(p, "istg") ?? 0;
     const k = `${stage}|${part}|${config}`;
@@ -12240,8 +12240,8 @@ var InstallService = class {
   craftDetail(rel) {
     const file = path3.resolve(this.kspRoot, rel);
     if (!file.startsWith(path3.resolve(this.kspRoot) + path3.sep) || !file.endsWith(".craft")) throw new Error("invalid craft path");
-    const craft = parseCraft(fs3.readFileSync(file, "utf8"));
     const tf = this.testFlight();
+    const craft = parseCraft(fs3.readFileSync(file, "utf8"), this.engineParts ?? void 0);
     const reliability = craft.engines.map((e) => ({ ...e, tf: e.config ? tf.get(e.config) ?? null : null }));
     return { ...craft, reliability, testFlightConfigs: tf.size };
   }
@@ -12250,13 +12250,27 @@ var InstallService = class {
    * *TestFlight*.cfg in GameData. Scanned once (about 800 entries), then every 10 minutes at most.
    */
   tfCache = null;
+  /** Part names (`_` written as `.`, as in craft files) whose part config has a ModuleEngines* module. */
+  engineParts = null;
   tfAt = 0;
   testFlight() {
     if (this.tfCache && Date.now() - this.tfAt < 6e5) return this.tfCache;
     const out = /* @__PURE__ */ new Map();
     const gd = this.p("GameData");
     const files = [...walk(path3.join(gd, "RealismOverhaul", "Engine_Configs"), 2)].filter((f) => f.endsWith(".cfg"));
-    for (const f of walk(gd, 6)) if (f.endsWith(".cfg") && /testflight/i.test(path3.basename(f))) files.push(f);
+    const engineParts = /* @__PURE__ */ new Set();
+    for (const f of walk(gd, 6)) {
+      if (!f.endsWith(".cfg")) continue;
+      if (/testflight/i.test(path3.basename(f))) files.push(f);
+      const text = this.read(f);
+      if (!text || !text.includes("ModuleEngines")) continue;
+      for (const node of parseCfg(text).nodes) {
+        if (node.name !== "PART") continue;
+        const name = get(node, "name");
+        if (name && node.nodes.some((m) => m.name === "MODULE" && /^ModuleEngines/.test(get(m, "name") ?? ""))) engineParts.add(name.replace(/_/g, "."));
+      }
+    }
+    this.engineParts = engineParts;
     for (const dir of ["ROEngines", "ROCapsules", path3.join("RealismOverhaul", "RO_SuggestedMods")]) {
       for (const f of walk(path3.join(gd, dir), 4)) if (f.endsWith(".cfg")) files.push(f);
     }
