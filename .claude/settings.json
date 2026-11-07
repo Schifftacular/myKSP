@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm ci)",
+      "Bash(npm test)",
+      "Bash(npm start)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)",
+      "Bash(npm run bridge)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run smoke)",
+      "Bash(npm run release)",
+      "Bash(./release/run.sh)",
+      "Bash(node release/bridge.mjs)"
+    ]
+  }
+}

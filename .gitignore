@@ -5,3 +5,5 @@ data/recordings/*.jsonl
 .env
 *.log
 .DS_Store
+data/vendor/
+data/career-history.jsonl
