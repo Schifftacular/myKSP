@@ -12272,7 +12272,21 @@ function* walk(dir, depth) {
 
 // services/bridge/src/main.ts
 var here = path4.dirname(fileURLToPath(import.meta.url));
-var repoRoot = path4.resolve(here, "../../..");
+function findRepoRoot() {
+  if (process.env.MYKSP_REPO) return path4.resolve(process.env.MYKSP_REPO);
+  let dir = here;
+  for (let i = 0; i < 6; i++) {
+    try {
+      if (JSON.parse(fs4.readFileSync(path4.join(dir, "package.json"), "utf8")).name === "myksp") return dir;
+    } catch {
+    }
+    const up = path4.dirname(dir);
+    if (up === dir) break;
+    dir = up;
+  }
+  return path4.resolve(here, "../../..");
+}
+var repoRoot = findRepoRoot();
 var cfg = {
   port: Number(process.env.MYKSP_PORT ?? 8787),
   // Loopback by default: the bridge serves save data. Set MYKSP_HOST=0.0.0.0 for a LAN tablet.

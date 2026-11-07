@@ -10,7 +10,22 @@ import { CareerService } from './careerService.js';
 import { InstallService } from './installService.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(here, '../../..');
+/** Repo root: MYKSP_REPO, else the nearest folder above this file whose package.json is "myksp".
+ *  Works both from services/bridge/src (dev) and from release/bridge.mjs (bundle). */
+function findRepoRoot(): string {
+  if (process.env.MYKSP_REPO) return path.resolve(process.env.MYKSP_REPO);
+  let dir = here;
+  for (let i = 0; i < 6; i++) {
+    try {
+      if (JSON.parse(fs.readFileSync(path.join(dir, 'package.json'), 'utf8')).name === 'myksp') return dir;
+    } catch { /* keep walking */ }
+    const up = path.dirname(dir);
+    if (up === dir) break;
+    dir = up;
+  }
+  return path.resolve(here, '../../..');
+}
+const repoRoot = findRepoRoot();
 
 const cfg = {
   port: Number(process.env.MYKSP_PORT ?? 8787),
