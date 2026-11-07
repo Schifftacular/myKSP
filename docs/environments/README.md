@@ -1,7 +1,22 @@
 # Environments: how to run and what is verified
 
 The environment design lives in [design.md](design.md); the backlog in [backlog.md](backlog.md).
-This page covers the Phase 1 vertical slice: the **Flight Control Room (FCR-1)**.
+Nine rooms are built, in the order a mission moves through them. Pick a room from the selector
+at the top, or press **[** and **]**. The URL hash names the room (`#lcc`, `#mer` …).
+
+| Room | Code | What it shows | Data |
+|---|---|---|---|
+| Program Office | PO | Manifest timeline 2026–2032 against the game date, contracts by program phase, funds/science/reputation trends, lunar base goal, facilities | Research manifest, contract metadata, save, save `Backup/` snapshots, bridge history log |
+| Mission Design Center | MDC | Moon declination, distance and phase for 30 days; Mars and Venus departure windows; Δv budget (LEO, TLI, LOI, descent, TMI) against the live vehicle | RSS Kopernicus orbit elements from the install, Telemachus |
+| Vehicle Integration Hall | VIH | 140 m high bay with the selected design stacked at true scale; design inventory with KSP's editor mass and cost; propellant and consumables load | `Ships/` and per-save craft files, `.loadmeta` |
+| Astronaut Office | CB | Roster, status, flights, bodies flown to and landed on, assignments, availability | Save roster and `CAREER_LOG` |
+| Launch Control Center | LCC-FR1 | Terminal count (Artemis II structure: built-in hold at T-10 min, auto-sequence at T-33 s), GO/NO-GO poll answered from live data, vehicle on the pad | Telemachus; count runs on game time |
+| Flight Control Room | FCR-1 | Live flight (Phase 1 slice) | Telemachus |
+| Network Operations | NET | RealAntennas ground stations, coverage footprints, elevation now and predicted AOS/LOS | RealAntennas RSS planet pack, Telemachus |
+| Mission Evaluation Room | MER | Scrub any recorded flight: plot, events, limit violations, contract objectives; replay in the FCR | Bridge recordings |
+| Lunar Surface Operations | LSOC | Lunar assets, manifest base sites, Sun elevation at each site (south-pole view), TAC LS days remaining, base contracts | Save, research manifest, orbit elements, TAC LS rates from the save |
+
+Every room says plainly when it has no data. Nothing in any room sends commands to KSP.
 
 ![Flight Control Room, overview seat](img/fcr-overview.png)
 
@@ -36,12 +51,35 @@ front end on <http://127.0.0.1:5173>).
 * **Front wall:** ground track with flown path and a predicted 1.5-revolution track, altitude
   and velocity against MET, orbit diagram drawn to scale, and a clock strip (MET, flight day,
   RSS game date, next apsis, link state).
-* **Program board** (console 8 / **P**): funds, science, reputation, active and offered
-  contracts with due dates, crew, vessels, facility levels, from the newest career save.
+* **Program board** (FCR console 8): funds, science, reputation, active and offered
+  contracts with due dates, crew, vessels, facility levels, from the newest career save. **P**
+  opens the Program Office, **L** the Launch Control Center.
+* **Planning data:** the Program Office, Mission Design Center and Lunar Surface Ops read
+  `docs/research/artemis-manifest.json` (research thread) and `contracts/manifest/contract-meta.json`
+  (contracts thread). Until those branches merge, copy the two files into `data/vendor/`
+  (gitignored) and the bridge picks them up.
 
 ![Flat mode](img/fcr-flat.png)
 
-## Verification status (2026-11-06)
+| | |
+|---|---|
+| ![Program Office](img/program.png) | ![Mission Design Center](img/mdc.png) |
+| ![Vehicle Integration Hall](img/vih.png) | ![Astronaut Office](img/astro.png) |
+| ![Launch Control Center](img/lcc.png) | ![Network Operations](img/netops.png) |
+| ![Mission Evaluation Room](img/mer.png) | ![Lunar Surface Operations](img/lsoc.png) |
+
+Screenshots: headless Chromium, software GL, SIM source with a copy of the AFSA career save (game date 2000-02-26).
+
+## Verification status, all rooms (2026-11-07, headless)
+
+| Item | Status |
+|---|---|
+| Unit tests (`npm test`) incl. new: body config parsing, Kepler propagation, Earth→Mars Hohmann (Δv 2.9–3.0 km/s, 255–262 d) and windows one synodic period apart, lunar Sun elevation, ground-station parsing and elevation, craft and loadmeta, countdown holds and auto-sequence hold, liftoff only during an active count, flight analysis, TAC LS rates | **Pass**, 31 tests |
+| Against the install copy: Sun declination −23.1° on 2000-01-01 and +23.4° on 21 June; next Mars window 2026-12-02 | **Pass** |
+| `scripts/rooms.mjs`: every room loads in headless Chromium against the bridge, with no page errors | **Pass**. Draw calls 13–87, CPU 0.5–5.5 ms per rendered frame in software GL |
+| Live check of the new rooms on the iMac | **Not yet done** (KSP was held by the contracts thread's test) |
+
+## Verification status, Flight Control Room (2026-11-06)
 
 | Item | Status |
 |---|---|
@@ -62,8 +100,13 @@ front end on <http://127.0.0.1:5173>).
   unauthenticated, so commanding waits for an authenticated path (kRPC or our own mod).
 * Maneuver nodes are not shown: those Telemachus keys throw in this build.
 * Telemachus ignores RealAntennas, so a comm blackout does not dim the room yet.
-* Game date assumes the RSS/RP-1 epoch (UT 0 = 1951-01-01). Saves with another epoch will show a
-  wrong calendar date; MET is unaffected.
+* Game date comes from the install's RSSDateTime epoch (RP2000: UT 0 = 2000-01-01).
+* Transfer windows are Hohmann (circular, coplanar): real porkchop minima differ by days to weeks.
+  Ground-station passes are geometry only (0° mask, current altitude held); RealAntennas link
+  budgets are not exposed by Telemachus. Lunar Sun elevation ignores libration (±1.5°).
+* Surface assets and consumables are as of the last save: Telemachus reports only the active vessel.
+* The vehicle stack in VIH and LCC is a silhouette built from part positions (the craft file has
+  no part shapes).
 * The simulator is a two-stage point-mass model for demos and tests, not a flight model.
 
 ## Launching and quitting KSP

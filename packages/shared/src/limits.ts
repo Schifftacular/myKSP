@@ -46,7 +46,7 @@ function lvl(value: number | null, caution: number, warning: number, higherIsWor
 const fmt = (v: number | null, digits = 1, unit = '') => (v === null ? 'no data' : `${v.toFixed(digits)}${unit}`);
 
 /** Evaluate every limit check for one frame. Pure function: same frame, same result. */
-export function evaluate(f: TelemetryFrame): Check[] {
+export function evaluate(f: TelemetryFrame, opts: { commNet?: boolean | null } = {}): Check[] {
   const checks: Check[] = [];
   const add = (position: Position, id: string, label: string, level: Level, detail: string) =>
     checks.push({ position, id, label, level, detail });
@@ -91,7 +91,12 @@ export function evaluate(f: TelemetryFrame): Check[] {
   if (inAtmo) add('EECOM', 'q', 'Dynamic pressure', lvl(f.vessel.q, 35, 50), `${fmt(f.vessel.q, 1, ' kPa')}`);
 
   // INCO: link.
-  add('INCO', 'signal', 'Signal', lvl(f.comm.signal, 0.25, 0.05, false), f.comm.signal === null ? 'no data' : `${(f.comm.signal * 100).toFixed(0)} %`);
+  if (opts.commNet === false) {
+    // With CommNet disabled in the save, Telemachus reports 0 % signal; that is not a fault.
+    add('INCO', 'signal', 'Signal', 'nodata', 'CommNet is off in this save: no link model');
+  } else {
+    add('INCO', 'signal', 'Signal', lvl(f.comm.signal, 0.25, 0.05, false), f.comm.signal === null ? 'no data' : `${(f.comm.signal * 100).toFixed(0)} %`);
+  }
   if (f.paused === 4) add('INCO', 'antenna', 'Antenna', 'warning', 'No antenna / no link');
 
   if (!inFlight) {

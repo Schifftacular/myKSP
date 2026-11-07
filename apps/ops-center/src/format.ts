@@ -36,14 +36,20 @@ export function fMet(s: number | null | undefined): string {
 }
 
 /**
- * RSS/RP-1 career UT 0 is 1951-01-01 00:00 UTC (RSSDateTime). Assumption recorded in the design
- * doc; sandbox saves may use another epoch.
+ * Game UT 0 as a calendar date. Read from the install's RSSDateTime config by the bridge
+ * (RP2000 sets `epoch = 2000-01-01T00:00:00`); 2000-01-01 is the default until that arrives.
  */
-export const RSS_EPOCH_MS = Date.UTC(1951, 0, 1);
+let epochMs = Date.UTC(2000, 0, 1);
+export function setEpoch(ms: number | null | undefined) { if (ms !== null && ms !== undefined && Number.isFinite(ms)) epochMs = ms; }
+export function utToDate(ut: number): Date { return new Date(epochMs + ut * 1000); }
+export function dateToUt(d: Date | number): number { return ((typeof d === 'number' ? d : d.getTime()) - epochMs) / 1000; }
 export function fUT(ut: number | null | undefined): string {
   if (ut === null || ut === undefined || !Number.isFinite(ut)) return DASH;
-  const d = new Date(RSS_EPOCH_MS + ut * 1000);
-  return d.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+  return utToDate(ut).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+}
+export function fDate(ut: number | null | undefined): string {
+  if (ut === null || ut === undefined || !Number.isFinite(ut)) return DASH;
+  return utToDate(ut).toISOString().slice(0, 10);
 }
 
 export function fPct(v: number | null | undefined, digits = 0): string {

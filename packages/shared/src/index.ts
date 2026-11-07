@@ -4,3 +4,7 @@ export * from './events.js';
 export * from './sfs.js';
 export * from './career.js';
 export * from './sim.js';
+export * from './bodies.js';
+export * from './craft.js';
+export * from './launch.js';
+export * from './analysis.js';

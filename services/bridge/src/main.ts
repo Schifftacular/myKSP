@@ -3,10 +3,11 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { WebSocketServer, WebSocket } from 'ws';
-import { AscentSim, EventDetector, type FlightEvent, type TelemetryFrame } from '@myksp/shared';
+import { AscentSim, EventDetector, analyzeFlight, type FlightEvent, type TelemetryFrame } from '@myksp/shared';
 import { TelemachusClient, type TelemachusStatus } from './telemachus.js';
 import { Recorder, listRecordings, loadRecording, play } from './recordings.js';
 import { CareerService } from './careerService.js';
+import { InstallService } from './installService.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '../../..');
@@ -27,6 +28,24 @@ const cfg = {
 type Mode = 'live' | 'sim' | 'replay';
 
 const career = new CareerService(path.join(cfg.kspRoot, 'saves'));
+const install = new InstallService(cfg.kspRoot, repoRoot);
+const historyFile = path.join(path.dirname(cfg.recordingsDir), 'career-history.jsonl');
+
+/** Append a career state to the history log when it changes (KSP saves are the only source). */
+const lastLogged = new Map<string, string>();
+function logCareer(save: string, s: { ut: number | null; funds: number | null; science: number | null; reputation: number | null }) {
+  const key = `${s.ut}|${s.funds}|${s.science}|${s.reputation}`;
+  if (s.ut === null || lastLogged.get(save) === key) return;
+  lastLogged.set(save, key);
+  try { fs.appendFileSync(historyFile, JSON.stringify({ save, ut: s.ut, funds: s.funds, science: s.science, reputation: s.reputation, at: new Date().toISOString() }) + '\n'); } catch { /* data dir not writable: trends fall back to backups */ }
+}
+
+/** The save KSP wrote most recently (any mode) is the one being played; its CommNet setting applies to live signal. */
+function activeSaveInfo() {
+  const s = career.list()[0];
+  if (!s) return { activeSave: null, commNet: null };
+  try { return { activeSave: s.name, commNet: career.summary(s.name).commNet }; } catch { return { activeSave: s.name, commNet: null }; }
+}
 const recorder = new Recorder(cfg.recordingsDir);
 const recordingDirs = [cfg.recordingsDir, path.join(cfg.kspRoot, '_AgentDocs')];
 
@@ -71,6 +90,7 @@ function status() {
     recording: recorder.current,
     kspRoot: cfg.kspRoot,
     savesAvailable: career.available(),
+    ...activeSaveInfo(),
   };
 }
 
@@ -125,7 +145,25 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/career') {
       const save = url.searchParams.get('save') ?? career.defaultSave();
       if (!save) return json(res, 404, { error: 'no career save found', savesDir: path.join(cfg.kspRoot, 'saves') });
-      return json(res, 200, { save, summary: career.summary(save) });
+      const summary = career.summary(save);
+      logCareer(save, summary);
+      return json(res, 200, { save, summary });
+    }
+    if (url.pathname === '/api/career/history') {
+      const save = url.searchParams.get('save') ?? career.defaultSave();
+      if (!save) return json(res, 404, { error: 'no career save found' });
+      const s = career.summary(save);
+      return json(res, 200, { save, points: install.history(save, s, historyFile) });
+    }
+    if (url.pathname === '/api/install') return json(res, 200, install.facts());
+    if (url.pathname === '/api/craft') return json(res, 200, { craft: install.craft() });
+    if (url.pathname === '/api/craft/detail') return json(res, 200, install.craftDetail(url.searchParams.get('file') ?? ''));
+    if (url.pathname === '/api/planning') return json(res, 200, install.planning());
+    if (url.pathname === '/api/recording') {
+      const name = path.basename(url.searchParams.get('file') ?? '');
+      const file = recordingDirs.map((d) => path.join(d, name)).find((p) => fs.existsSync(p));
+      if (!file || !name.endsWith('.jsonl')) return json(res, 404, { error: `recording not found: ${name}` });
+      return json(res, 200, { file: name, analysis: analyzeFlight(await loadRecording(file)) });
     }
     if (url.pathname === '/api/recordings') return json(res, 200, { recordings: listRecordings(recordingDirs) });
     if (url.pathname === '/api/events') return json(res, 200, { events });

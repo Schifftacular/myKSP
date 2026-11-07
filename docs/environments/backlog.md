@@ -9,20 +9,20 @@ Ordered. Each item names the acceptance check that closes it.
    Budget: ≤ 8 ms GPU per rendered frame; KSP's own frame rate drop ≤ 5 %.
 3. **Comm blackout from RealAntennas** (needs kRPC or a mod): INCO goes LOS, room dims.
 
-## Next (Phase 2)
-4. **Launch Control Center firing room**: countdown with player-set built-in holds and a
-   data-driven GO/NO-GO poll; hands over to FCR at tower clear.
-5. **Program Office as a 3D room** around the existing program board, with the Artemis
-   manifest timeline from `docs/research/artemis-manifest.yaml` and the contracts pack.
-6. **Mission Evaluation Room**: scrub any recording, mark limit violations and events, compare
-   with contract objectives.
-7. **Campaign view** (multi-launch missions, e.g. tanker flights) in FLIGHT and Program.
-8. Flight-day plan strip on the clock wall (research thread: Artemis plans by flight day).
+4. **Live check of the eight new rooms** on the iMac: LCC poll and count against a vehicle on the
+   pad, MER on a real recording, VIH stack of the live craft, NET elevation against a craft in
+   orbit, LSOC with a vessel at the Moon. Acceptance: each room's numbers match KSP's own readouts.
 
-## Later
-9. Mission Design Center (windows, Δv budget vs craft) · 10. Vehicle Integration Hall (craft
-   inventory, rollout) · 11. Astronaut Office · 12. Network Operations (DSN/RealAntennas) ·
-   13. Lunar Surface Operations Center (needs a life-support mod decision).
+## Done 2026-11-07
+Launch Control Center, Program Office, Mission Evaluation Room, Mission Design Center, Vehicle
+Integration Hall, Astronaut Office, Network Operations, Lunar Surface Operations (TAC LS is
+installed). CommNet-off now shows "CommNet off" instead of an INCO warning.
+
+## Next
+5. **Campaign view** (multi-launch missions, e.g. tanker flights) in FLIGHT and Program.
+6. Flight-day plan strip on the FCR clock wall from the manifest's `flight_plan`.
+7. Porkchop plot in MDC (Lambert solver) instead of Hohmann-only windows.
+8. Live consumables for the active vessel at the Moon (Telemachus `r.resource[Food]` etc.).
 
 ## Design debt
 * Original agency identity for the UI (research thread: do not use NASA marks).
@@ -34,6 +34,6 @@ Ordered. Each item names the acceptance check that closes it.
 * Measure the room's cost in Chrome or Safari, visible and hidden, with KSP in flight. Each 4 Hz
   frame currently redraws the clock strip and all eight console textures; cut that to changed
   consoles only if the GPU cost matters.
-* INCO signal reads 0 % on the "default" sandbox craft. Find out whether CommNet is off there, and
-  show "CommNet off" rather than a WARNING when it is.
+* ~~INCO signal reads 0 % on the "default" sandbox craft.~~ CommNet is off in that save
+  (`enableCommNet = False`); INCO now shows "CommNet off".
 * Re-check the three live fixes (number keys, wall lag, no-target) on the next live session.

@@ -22,6 +22,17 @@ export interface CrewMember {
   type: string | null;
   state: string | null;
   inactive: boolean;
+  gender: string | null;
+  veteran: boolean;
+  /** Completed flights (CAREER_LOG `flight`). */
+  flights: number;
+  /** Bodies this astronaut has flown to / landed on, from the career log. */
+  visited: string[];
+  landed: string[];
+  /** Vessel the astronaut is aboard, if any. */
+  vessel: string | null;
+  /** UT until which an inactive (resting) astronaut is unavailable. */
+  inactiveUntil: number | null;
 }
 
 export interface VesselSummary {
@@ -29,8 +40,19 @@ export interface VesselSummary {
   type: string | null;
   situation: string | null;
   body: number | null;
+  /** Stock-template name of the body (`Kerbin`, `Mun`, …) as the save records it. */
+  bodyIdent: string | null;
   met: number | null;
+  launchUT: number | null;
   crew: number;
+  crewNames: string[];
+  lat: number | null;
+  lon: number | null;
+  alt: number | null;
+  landedAt: string | null;
+  parts: number;
+  resources: Record<string, { amount: number; max: number }>;
+  orbit: { sma: number | null; ecc: number | null; inc: number | null } | null;
 }
 
 export interface CareerSummary {
@@ -43,9 +65,13 @@ export interface CareerSummary {
   science: number | null;
   reputation: number | null;
   facilities: { id: string; level: number | null }[];
-  contracts: { offered: ContractSummary[]; active: ContractSummary[]; completedCount: number; failedCount: number };
+  contracts: { offered: ContractSummary[]; active: ContractSummary[]; completedCount: number; failedCount: number; completedTypes: string[] };
   crew: CrewMember[];
   vessels: VesselSummary[];
+  /** Difficulty setting "CommNet": false means signal readings are meaningless. */
+  commNet: boolean | null;
+  /** TAC Life Support consumption rates per crew member per second, from the save's own settings (null without TAC LS). */
+  tacRates: { food: number; water: number; oxygen: number; electricity: number; maxNoFood: number | null; maxNoWater: number | null; maxNoOxygen: number | null } | null;
 }
 
 function scenario(game: CfgNode | undefined, name: string): CfgNode | undefined {
@@ -79,6 +105,10 @@ function contract(c: CfgNode): ContractSummary {
 }
 
 export function summarizeCareer(text: string): CareerSummary {
+  return summarize(text);
+}
+
+function summarize(text: string): CareerSummary {
   const root = parseCfg(text);
   const game = child(root, 'GAME');
   const facilitiesNode = scenario(game, 'ScenarioUpgradeableFacilities');
@@ -86,7 +116,10 @@ export function summarizeCareer(text: string): CareerSummary {
   const all = children(contractSystem, 'CONTRACT').map(contract);
   const finished = children(contractSystem, 'CONTRACT_FINISHED');
   const flight = child(game, 'FLIGHTSTATE');
-  return {
+  const vessels = children(flight, 'VESSEL').map(vessel);
+  const aboard = new Map<string, string>();
+  for (const v of vessels) for (const n of v.crewNames) aboard.set(n, v.name);
+  const summary = {
     title: get(game, 'Title') ?? null,
     mode: get(game, 'Mode') ?? null,
     gameVersion: get(game, 'versionFull') ?? get(game, 'version') ?? null,
@@ -101,21 +134,87 @@ export function summarizeCareer(text: string): CareerSummary {
       active: all.filter((c) => c.state === 'Active'),
       completedCount: all.filter((c) => c.state === 'Completed').length + finished.filter((c) => get(c, 'state') === 'Completed').length,
       failedCount: all.filter((c) => /Failed|DeadlineExpired|Cancelled/.test(c.state)).length + finished.filter((c) => /Failed|DeadlineExpired|Cancelled/.test(get(c, 'state') ?? '')).length,
+      completedTypes: [...all.filter((c) => c.state === 'Completed'), ...finished.filter((c) => get(c, 'state') === 'Completed').map(contract)]
+        .map((c) => c.subtype ?? c.title),
     },
-    crew: children(child(game, 'ROSTER'), 'KERBAL').map((k) => ({
-      name: get(k, 'name') ?? 'Unknown',
-      trait: get(k, 'trait') ?? null,
-      type: get(k, 'type') ?? null,
-      state: get(k, 'state') ?? null,
-      inactive: get(k, 'inactive') === 'True',
-    })),
-    vessels: children(flight, 'VESSEL').map((v) => ({
-      name: get(v, 'name') ?? 'Unnamed',
-      type: get(v, 'type') ?? null,
-      situation: get(v, 'sit') ?? null,
-      body: getNum(child(v, 'ORBIT'), 'REF'),
-      met: getNum(v, 'met'),
-      crew: children(v, 'PART').reduce((n, p) => n + children(p, 'crew').length + p.values.filter(([k]) => k === 'crew').length, 0),
-    })),
+    crew: children(child(game, 'ROSTER'), 'KERBAL').map((k) => kerbal(k, aboard)),
+    vessels,
+    tacRates: tacRates(text),
+    commNet: /^\s*enableCommNet = (True|False)/m.exec(text)?.[1] === undefined ? null : /^\s*enableCommNet = True/m.test(text),
   };
+  return summary;
+}
+
+function kerbal(k: CfgNode, aboard: Map<string, string>): CrewMember {
+  const log = child(k, 'CAREER_LOG');
+  const visited = new Set<string>(), landed = new Set<string>();
+  for (const [key, val] of log?.values ?? []) {
+    if (!/^\d+$/.test(key)) continue;
+    const [what, where] = val.split(',');
+    if (!where) continue;
+    const body = BODY_NAMES[where] ?? where;
+    if (/Flight|Orbit|Suborbit|Escape|Flyby/.test(what)) visited.add(body);
+    if (what === 'Land') landed.add(body);
+  }
+  const name = get(k, 'name') ?? 'Unknown';
+  const until = getNum(k, 'inactiveTimeEnd');
+  return {
+    name,
+    trait: get(k, 'trait') ?? null,
+    type: get(k, 'type') ?? null,
+    state: get(k, 'state') ?? null,
+    inactive: get(k, 'inactive') === 'True',
+    gender: get(k, 'gender') ?? null,
+    veteran: get(k, 'veteran') === 'True',
+    flights: getNum(log, 'flight') ?? 0,
+    visited: [...visited],
+    landed: [...landed],
+    vessel: aboard.get(name) ?? null,
+    inactiveUntil: until && until > 0 ? until : null,
+  };
+}
+
+/** Saves record bodies by their stock template names; RSS renames them. */
+export const BODY_NAMES: Record<string, string> = { Kerbin: 'Earth', Mun: 'Moon', Minmus: 'Minmus', Duna: 'Mars', Eve: 'Venus', Moho: 'Mercury', Jool: 'Jupiter', Sun: 'Sun' };
+
+function vessel(v: CfgNode): VesselSummary {
+  const parts = children(v, 'PART');
+  const crewNames = parts.flatMap((p) => p.values.filter(([key]) => key === 'crew').map(([, n]) => n));
+  const resources: VesselSummary['resources'] = {};
+  for (const p of parts) {
+    for (const r of children(p, 'RESOURCE')) {
+      const n = get(r, 'name');
+      if (!n) continue;
+      const e = (resources[n] ??= { amount: 0, max: 0 });
+      e.amount += getNum(r, 'amount') ?? 0;
+      e.max += getNum(r, 'maxAmount') ?? 0;
+    }
+  }
+  const o = child(v, 'ORBIT');
+  const ident = get(o, 'IDENT') ?? null;
+  return {
+    name: get(v, 'name') ?? 'Unnamed',
+    type: get(v, 'type') ?? null,
+    situation: get(v, 'sit') ?? null,
+    body: getNum(o, 'REF'),
+    bodyIdent: ident,
+    met: getNum(v, 'met'),
+    launchUT: getNum(v, 'lct'),
+    crew: crewNames.length,
+    crewNames,
+    lat: getNum(v, 'lat'),
+    lon: getNum(v, 'lon'),
+    alt: getNum(v, 'alt'),
+    landedAt: get(v, 'landedAt') || null,
+    parts: parts.length,
+    resources,
+    orbit: o ? { sma: getNum(o, 'SMA'), ecc: getNum(o, 'ECC'), inc: getNum(o, 'INC') } : null,
+  };
+}
+
+function tacRates(text: string): CareerSummary['tacRates'] {
+  const n = (k: string) => { const m = new RegExp(`^\\s*${k} = ([-\\d.Ee+]+)`, 'm').exec(text); return m ? Number(m[1]) : null; };
+  const food = n('FoodConsumptionRate'), water = n('WaterConsumptionRate'), oxygen = n('OxygenConsumptionRate');
+  if (food === null || water === null || oxygen === null) return null;
+  return { food, water, oxygen, electricity: n('ElectricityConsumptionRate') ?? 0, maxNoFood: n('MaxTimeWithoutFood'), maxNoWater: n('MaxTimeWithoutWater'), maxNoOxygen: n('MaxTimeWithoutOxygen') };
 }

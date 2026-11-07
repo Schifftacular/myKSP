@@ -57,7 +57,7 @@ export function rowsFor(p: Position, f: TelemetryFrame | null, checks: Check[]):
     }
     case 'INCO':
       return [
-        ['Signal', fPct(f.comm.signal), lvlOf(checks, 'signal')], ['Source', f.source.toUpperCase()],
+        ['Signal', checks.find((c) => c.id === 'signal')?.detail.startsWith('CommNet is off') ? 'CommNet off' : fPct(f.comm.signal), lvlOf(checks, 'signal')], ['Source', f.source.toUpperCase()],
         ['Telemetry', f.paused === null ? '—' : ['OK', 'PAUSED', 'NO POWER', 'OFF', 'NO ANTENNA', 'NOT IN FLIGHT'][f.paused] ?? String(f.paused)],
         ['Time warp', f.control.warp === null ? '—' : `${f.control.warp}×`],
       ];

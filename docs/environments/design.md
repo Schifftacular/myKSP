@@ -1,6 +1,6 @@
 # myKSP Environments: Design Spec
 
-Status: living document, owned by the Environments thread. Last revised 2026-11-06.
+Status: living document, owned by the Environments thread. Last revised 2026-11-07 (all nine rooms built; see README for verification).
 
 This spec defines the immersive spaces of the myKSP front end, why each one exists, what real
 game state drives it, and in what order they get built. The rule from the project brief applies
@@ -21,7 +21,8 @@ Inspected on Mike's iMac (`/Applications/KSP-RP2000`, KSP 1.12.5.3190, macOS arm
 | **ContractConfigurator 2.13.4** + RP2000 contracts | Contract definitions the Contracts thread will extend. | Installed. |
 | **KSPBridge 0.15.1 (MQTT)** | Publishes telemetry to an MQTT broker under `ksp/telemetry/*`. | Installed. Needs a Mosquitto broker on `localhost:1883` (plus a 9002 WebSocket listener for browsers); none is running, so it publishes nothing today. Possible second telemetry source; see the Mods thread's `docs/mods/`. |
 | **KerbalConstructionTime** | Build/rollout queues. | Only `KCT_Presets` present, no plugin. **Not available.** Integration hall must not depend on it. |
-| **TAC Life Support** | Consumables. | Scenario node left in old saves, mod not installed. **Not available.** |
+| **TAC Life Support 0.18.0** | Consumables (Food, Water, Oxygen, CO₂, Waste, Waste water) on every crewed vessel; per-crew consumption rates in the save's `TAC_SettingsParms_Sec2`. | **Installed** (`GameData/ThunderAerospace`, listed in the save's `_modVersions`; corrected 2026-11-07, an earlier note said it was missing). Lunar Surface Ops computes days remaining from the save's own rates. |
+| **RSSDateTime (RP2000)** | Calendar epoch `RSSTimeFormatter { epoch = 2000-01-01T00:00:00 }` in `GameData/RP2000/RSSDateTimePatch.cfg`. Body elements from `RSSKopernicus/**.cfg`, element epoch from `RSSKopernicusSettings.cfg`. | Read by the bridge (`/api/install`). UT 0 = 2000-01-01 in this install, not the RP-1 1951 epoch. |
 
 Consequences:
 

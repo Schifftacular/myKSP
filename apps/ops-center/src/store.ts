@@ -6,6 +6,8 @@ export interface BridgeStatus {
   telemachus: { connected: boolean; lastFrameAt: number | null; lastError: string | null; url: string };
   recording: string | null;
   savesAvailable: boolean;
+  activeSave?: string | null;
+  commNet?: boolean | null;
 }
 
 export interface Sample { met: number; alt: number | null; vel: number | null; lat: number | null; lon: number | null }
@@ -25,6 +27,7 @@ export class Store {
   career: { save: string; summary: CareerSummary } | null = null;
   careerError: string | null = null;
   history: Sample[] = [];
+  recordings: { file: string; bytes: number; modified: string }[] = [];
   private historyVessel: string | null = null;
   private listeners = new Set<(what: 'frame' | 'event' | 'status' | 'career') => void>();
   static readonly HISTORY_MAX = 7200; // 30 min at 4 Hz
@@ -40,7 +43,7 @@ export class Store {
     }
     this.frame = f;
     this.frameAt = performance.now();
-    this.checks = evaluate(f);
+    this.checks = evaluate(f, { commNet: this.status?.commNet });
     this.levels = rollup(this.checks);
     if (f.vessel.met !== null) {
       this.history.push({ met: f.vessel.met, alt: f.vessel.alt, vel: f.vessel.vOrb, lat: f.vessel.lat, lon: f.vessel.lon });

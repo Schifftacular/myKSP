@@ -27,8 +27,8 @@ export const PAL = {
   accent: '#5fb3d9',
 };
 
-const MONO = '"JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace';
-const SANS = '"Inter", "SF Pro Text", system-ui, -apple-system, "Segoe UI", sans-serif';
+export const MONO = '"JetBrains Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace';
+export const SANS = '"Inter", "SF Pro Text", system-ui, -apple-system, "Segoe UI", sans-serif';
 
 export function makeCanvas(w: number, h: number): HTMLCanvasElement {
   const c = document.createElement('canvas');
@@ -56,9 +56,11 @@ function rings(): Ring[] {
 }
 
 /** Static map layer, drawn once and blitted. */
-let mapBase: HTMLCanvasElement | null = null;
-function baseMap(w: number, h: number): HTMLCanvasElement {
-  if (mapBase && mapBase.width === w && mapBase.height === h) return mapBase;
+const mapBases = new Map<string, HTMLCanvasElement>();
+export function baseMap(w: number, h: number, stationsLayer = true): HTMLCanvasElement {
+  const cacheKey = `${w}x${h}${stationsLayer ? 's' : ''}`;
+  const cached = mapBases.get(cacheKey);
+  if (cached) return cached;
   const c = makeCanvas(w, h);
   const g = c.getContext('2d')!;
   g.fillStyle = PAL.bg;
@@ -87,14 +89,15 @@ function baseMap(w: number, h: number): HTMLCanvasElement {
   g.strokeStyle = PAL.gridStrong;
   g.beginPath(); g.moveTo(0, Y(0)); g.lineTo(w, Y(0)); g.stroke();
   // Tracking stations (RealAntennas default DSN-style network). Positions: public DSN complexes.
-  const stations: [string, number, number][] = [['GDS', 35.43, -116.89], ['MAD', 40.43, -4.25], ['CAN', -35.4, 148.98], ['KSC', 28.57, -80.65]];
+  const stations: [string, number, number][] = stationsLayer ? [['GDS', 35.43, -116.89], ['MAD', 40.43, -4.25], ['CAN', -35.4, 148.98], ['KSC', 28.57, -80.65]] : [];
   g.font = `600 ${Math.round(h * 0.022)}px ${SANS}`;
   for (const [n, la, lo] of stations) {
     g.fillStyle = PAL.dim;
     g.fillRect(X(lo) - 3, Y(la) - 3, 6, 6);
     g.fillText(n, X(lo) + 6, Y(la) + 4);
   }
-  return (mapBase = c);
+  mapBases.set(cacheKey, c);
+  return c;
 }
 
 const SIDEREAL_DAY: Record<string, number> = { Earth: 86164.1, Moon: 2360591.5, Mars: 88642.7 };
@@ -140,7 +143,7 @@ function trueFromMean(M: number, e: number) {
   return 2 * Math.atan2(Math.sqrt(1 + e) * Math.sin(E / 2), Math.sqrt(1 - e) * Math.cos(E / 2));
 }
 
-function polyline(g: CanvasRenderingContext2D, pts: [number, number][], w: number, h: number) {
+export function polyline(g: CanvasRenderingContext2D, pts: [number, number][], w: number, h: number) {
   const X = (lon: number) => ((lon + 180) / 360) * w;
   const Y = (lat: number) => ((90 - lat) / 180) * h;
   g.beginPath();
@@ -195,16 +198,16 @@ export function drawGroundTrack(c: HTMLCanvasElement, f: TelemetryFrame | null, 
   }
 }
 
-function pTag(f: TelemetryFrame) { return f.source === 'sim' ? '  · SIM' : f.source === 'replay' ? '  · REPLAY' : ''; }
+export function pTag(f: TelemetryFrame) { return f.source === 'sim' ? '  · SIM' : f.source === 'replay' ? '  · REPLAY' : ''; }
 
-function header(g: CanvasRenderingContext2D, w: number, h: number, title: string, right: string) {
+export function header(g: CanvasRenderingContext2D, w: number, h: number, title: string, right: string) {
   g.fillStyle = 'rgba(5,8,12,0.85)';
   g.fillRect(0, 0, w, h * 0.075);
   label(g, title, h * 0.03, h * 0.052, h * 0.036, PAL.dim, 'left', 700);
   label(g, right, w - h * 0.03, h * 0.052, h * 0.036, right.includes('SIM') || right.includes('REPLAY') ? PAL.sim : PAL.text, 'right', 600);
 }
 
-function label(g: CanvasRenderingContext2D, s: string, x: number, y: number, size: number, color: string, align: CanvasTextAlign = 'left', weight = 500, mono = false) {
+export function label(g: CanvasRenderingContext2D, s: string, x: number, y: number, size: number, color: string, align: CanvasTextAlign = 'left', weight = 500, mono = false) {
   g.font = `${weight} ${Math.round(size)}px ${mono ? MONO : SANS}`;
   g.fillStyle = color;
   g.textAlign = align;
@@ -255,7 +258,7 @@ export function drawTrajectory(c: HTMLCanvasElement, f: TelemetryFrame | null, h
   label(g, fMet(t1), R, B + h * 0.08, h * 0.035, PAL.dim, 'right');
 }
 
-function niceMax(v: number) {
+export function niceMax(v: number) {
   const p = Math.pow(10, Math.floor(Math.log10(v)));
   for (const m of [1, 2, 2.5, 5, 10]) if (m * p >= v) return m * p;
   return 10 * p;
@@ -314,7 +317,7 @@ export function drawOrbit(c: HTMLCanvasElement, f: TelemetryFrame | null) {
   });
 }
 
-function disc(g: CanvasRenderingContext2D, x: number, y: number, r: number) {
+export function disc(g: CanvasRenderingContext2D, x: number, y: number, r: number) {
   const grad = g.createRadialGradient(x - r * 0.3, y - r * 0.3, r * 0.1, x, y, r);
   grad.addColorStop(0, '#2b5f7f'); grad.addColorStop(1, '#0d2533');
   g.fillStyle = grad; g.beginPath(); g.arc(x, y, Math.max(2, r), 0, Math.PI * 2); g.fill();
@@ -336,7 +339,7 @@ export function drawClocks(c: HTMLCanvasElement, f: TelemetryFrame | null, linkL
   const prelaunch = f?.vessel.situation ? /pre.?launch/i.test(f.vessel.situation) : false;
   cell(w * 0.01, 'MISSION ELAPSED', prelaunch ? 'T\u2212 HOLD' : fMet(met));
   cell(w * 0.215, 'FLIGHT DAY', met === null ? '\u2014' : `FD ${Math.floor(met / 86400) + 1}`);
-  cell(w * 0.31, 'GAME DATE (RSS UT)', fUT(f?.ut ?? null).slice(0, 16));
+  cell(w * 0.31, 'GAME DATE (UTC)', fUT(f?.ut ?? null).slice(0, 16));
   let next = '\u2014';
   if (f && f.orbit.timeToAp !== null && f.orbit.timeToPe !== null && (f.orbit.ecc ?? 1) < 1) {
     next = f.orbit.timeToAp < f.orbit.timeToPe ? `Ap ${fDur(f.orbit.timeToAp)}` : `Pe ${fDur(f.orbit.timeToPe)}`;
