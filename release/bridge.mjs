@@ -12467,16 +12467,23 @@ function status() {
     mode,
     replayFile,
     telemachus: telemachus.status,
+    liveVessel,
     recording: recorder.current,
     kspRoot: cfg.kspRoot,
     savesAvailable: career.available(),
     ...activeSaveInfo()
   };
 }
+var liveVessel = null;
 var telemachus = new TelemachusClient(
   cfg.telemachus,
   cfg.rateMs,
   (f) => {
+    const flying = f.paused !== 5 && !!f.vessel.situation;
+    const next = flying ? { name: f.vessel.name, situation: f.vessel.situation, at: f.t } : null;
+    const changed = (next?.name ?? null) !== (liveVessel?.name ?? null) || (next?.situation ?? null) !== (liveVessel?.situation ?? null);
+    liveVessel = next;
+    if (changed) broadcast(status());
     recorder.push(f);
     if (mode === "live") emit(f);
   },

@@ -4,6 +4,8 @@ export interface BridgeStatus {
   mode: 'live' | 'sim' | 'replay';
   replayFile: string | null;
   telemachus: { connected: boolean; lastFrameAt: number | null; lastError: string | null; url: string };
+  /** The vessel KSP is flying now (null at the menus), even while the rooms show a replay or SIM. */
+  liveVessel?: { name: string | null; situation: string | null; at: number } | null;
   recording: string | null;
   savesAvailable: boolean;
   activeSave?: string | null;
