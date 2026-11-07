@@ -49,7 +49,7 @@ To refresh the inventory after a mod change, see [tools/mod-inventory](../../too
 6. **The one existing lunar-base contract has bugs** (`RP2000/NewContracts/MoonBaseCreate.cfg`). Its notes ask for 4 crew while the check requires 6, and a duplicated `name` key in its `HasCrew` parameter. The contracts workstream should replace it, not extend it. See [contracts.md](contracts.md).
 7. **Life support is TAC-LS** (Food, Water, Oxygen, CO2, Waste, WasteWater). Kerbalism is not installed. Base contracts should check TAC-LS resources.
 8. **196 parts are unreachable in career** because their tech nodes do not exist in the RP2000 tree: most ROCapsules and ROTanks parts, RO launch clamps, and the Starship Block 3 parts added by a SEP update after the August orphan fix. See [backlog.md](backlog.md) item 1.
-9. **The visual stack is in a mixed state.** Early-access EVE 3.2.2 and Scatterer 0.0906 are loaded alongside RSSVE and a second Scatterer planet list, and CKAN's registry no longer matches. See [environments.md](environments.md).
+9. **The visual stack is in a mixed state.** Early-access EVE 3.2.2 and Scatterer 0.0906 are loaded alongside the legacy RSSVE configs, and CKAN's registry no longer matches. See [environments.md](environments.md).
 10. **Most of the stack is current for 1.12.5.** Ten `.version` files declare a KSP max below 1.12 (Firespitter, KSPWheel, Chatterer, RCSBuildAid, Benjee10 shared assets, and others). They all load, and most are well-known "works on 1.12" mods, but they are the first suspects when something breaks.
 
 ## Version boundary

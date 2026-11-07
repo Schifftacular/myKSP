@@ -19,18 +19,18 @@ An earlier attempt (2026-08-21, `_AgentDocs/volumetrics-install-20260821.md`) in
 | Scatterer | **0.0906** (DLL 0.905) | 0.0878 |
 | StockVolumetricClouds | present (Sep 1), raymarched configs for stock bodies | not tracked |
 | Blackrack_TUFX.cfg | present at GameData root | not tracked |
-| RSSVE | legacy RSSVE configs (Aug 18) with its own Scatterer planet list | RSSVE-LR 3.1.0 |
-| StockScattererConfigs | present, **second** `Scatterer_planetsList` | not tracked |
+| RSSVE | legacy RSSVE configs (Aug 18); patches the Scatterer planet list for RSS bodies | RSSVE-LR 3.1.0 |
+| StockScattererConfigs | present; supplies the base `Scatterer_planetsList` that RSSVE patches | not tracked |
 | Deferred | `zzz_Deferred` 1.3.5 | 1.3.5 |
 | TUFX | 1.1.1 with profiles Blackrack, Blaze, Dan, Switch, JSIA Vision | matches |
 
-So after the August rollback, the early-access EVE/Scatterer and StockVolumetricClouds came back (folder dates Aug 23 and Sep 1), while RSSVE and StockScattererConfigs are also present. Three consequences:
+So after the August rollback, the early-access EVE/Scatterer and StockVolumetricClouds came back (folder dates Aug 23 and Sep 1), while RSSVE and StockScattererConfigs are also present. What that means:
 
-1. **Two Scatterer planet lists** (`RSSVE/Configs/Scatterer_Configs/RSSVE_Scatterer_Planetlist_Config.cfg` and `StockScattererConfigs/planetsList.cfg`). The August notes call this out as the thing to avoid. Only one should exist.
-2. **Scatterer cannot find its blue-noise texture.** `FileNotFoundException: .../GameData/Scatterer/stbn.R8`. The file exists at `GameData/EnvironmentalVisualEnhancements/stbn.R8`, which is where the EA EVE build put it.
+1. **The planet list is fine.** `StockScattererConfigs/planetsList.cfg` defines the one `Scatterer_planetsList`, and `RSSVE_Scatterer_Planetlist_Config.cfg` is a `@Scatterer_planetsList:FOR[RSSVE]` patch on top of it. The resolved `ModuleManager.ConfigCache` holds exactly one list. (The first survey misread the patch as a second definition.)
+2. **Scatterer could not find its blue-noise texture.** `FileNotFoundException: .../GameData/Scatterer/stbn.R8`. The file ships in `GameData/EnvironmentalVisualEnhancements/`. **Fixed 2026-11-07:** copied into `GameData/Scatterer/`; takes effect at the next launch.
 3. **CKAN's registry no longer describes the visual stack.** A CKAN upgrade or "install dependencies" pass can overwrite the EA files. Decline any CKAN prompt touching EVE or Scatterer until the stack is settled.
 
-The environments workstream should pick one visual baseline, measure frame time for it (see budgets below), and then make the install match: one planet list, `stbn.R8` where Scatterer expects it, and CKAN either told the truth (mark the EA files as manually installed) or kept away from those modules.
+The environments workstream should pick one visual baseline, measure frame time for it (see budgets below), and then make the install match it, with CKAN either told the truth (mark the EA files as manually installed) or kept away from those modules.
 
 ## The rest of the immersion stack
 
