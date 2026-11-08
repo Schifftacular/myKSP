@@ -1,6 +1,6 @@
 {
-  "manifest_version": 3,
-  "as_of": "2026-11-07",
+  "manifest_version": 4,
+  "as_of": "2026-11-08",
   "career_goal": "Permanent crewed lunar base at the lunar south pole, mirroring NASA's three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032, Phase 3 2032+).",
   "program_context": [
     {
@@ -47,12 +47,29 @@
     },
     {
       "key": "clps_cadence",
-      "fact": "Isaacman wants about 10 CLPS deliveries per year for three years starting 2027. NASA (Aug 2026): Phase I includes \"more than twenty robotic landings\" through 2029. CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack.",
+      "fact": "Isaacman wants about 10 CLPS deliveries per year for three years starting 2027. NASA (Aug 2026): Phase I includes \"more than twenty robotic landings\" through 2029. CLPS 2.0 awarded 2026-11-07: eight companies (Blue Origin, Firefly, Intuitive Machines, ispace-U.S., Lockheed Martin, Northrop Grumman, SpaceX, Voyager) on a 10-year IDIQ with a combined maximum of $10B. CLPS 1.0 ceiling raised from $2.6B to $4.2B; it runs through Nov 2028, with deliveries allowed through Nov 2033. Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack.",
       "confidence": "likely",
       "sources": [
         "spo-2026-05-26",
         "nasa-2026-05-26",
-        "nasa-2026-08-04-landers"
+        "nasa-2026-08-04-landers",
+        "nasa-2026-11-07-awards"
+      ]
+    },
+    {
+      "key": "moon_base_transport",
+      "fact": "2026-11-07: six VADR task orders (about $1.3B combined) to Arrow Science and Technology, Blue Origin and Impulse Space to integrate and carry Moon Base cargo: CAPSTONE 02 to deep space, MoonFall and more Phase 1 assets to the south pole, and cislunar orbital-transfer demos. Launchers named: New Glenn, Terran R, Falcon 9. In-space transport: Blue Origin, Firefly, Impulse Space, Quantum Space. NASA did not say which order covers which mission.",
+      "confidence": "confirmed",
+      "sources": [
+        "nasa-2026-11-07-awards"
+      ]
+    },
+    {
+      "key": "minicast_power",
+      "fact": "miniCAST (Mini-Communications and Solar Tower): NASA buys commercial components, with Honeybee Robotics (energy storage), Redwire (power generation) and Yank Technologies (wireless power transfer). Marshall assembles and tests. Work starts \"within months\"; a call for fully integrated power systems is expected early 2027. A NextSTEP-3 B directed call will target Moon Base data gaps. No flight date yet.",
+      "confidence": "likely",
+      "sources": [
+        "nasa-2026-11-07-awards"
       ]
     },
     {
@@ -685,8 +702,10 @@
       ],
       "sources": [
         "nasa-2026-07-24-capstone2",
-        "advancedspace-2026-08"
-      ]
+        "advancedspace-2026-08",
+        "nasa-2026-11-07-awards"
+      ],
+      "notes": "NASA (2026-11-07) bought its ride to deep space as one of six VADR Moon Base transport task orders; vehicle not named per mission."
     },
     {
       "id": "BLUE-GHOST-M2",
@@ -827,9 +846,10 @@
       ],
       "sources": [
         "nasa-2026-05-26",
-        "spo-2026-05-26"
+        "spo-2026-05-26",
+        "nasa-2026-11-07-awards"
       ],
-      "notes": "NASA says four drones; one briefing said three or four. Firefly subcontract $75M excluding launch."
+      "notes": "NASA says four drones; one briefing said three or four. Firefly subcontract $75M excluding launch. Launch and transport covered by the 2026-11-07 VADR task orders (vehicle not named)."
     },
     {
       "id": "PEREGRINE-2",
@@ -1152,7 +1172,7 @@
         "nasa-2026-06-30-clps",
         "sfn-2026-03-25"
       ],
-      "notes": "Only announced as a plan. ESA is studying its Lunar Link element as part of Moonlight."
+      "notes": "Only announced as a plan. ESA is studying its Lunar Link element as part of Moonlight. First concrete step is CISLUNAR-COMMS-DEMO (SpaceX, Starship, 2028)."
     },
     {
       "id": "CANADARM3-SURFACE",
@@ -1181,6 +1201,73 @@
         "spaceq-canadarm3"
       ],
       "notes": "Repurposed from the paused Gateway. CSA's separate lunar utility rover is still in concept studies."
+    },
+    {
+      "id": "PROMISE",
+      "name": "PROMISE (Polar Rover for Observation, Mapping, and In-Situ Exploration)",
+      "category": "robotic",
+      "phase": "moon_base_phase_1",
+      "agency": "NASA (JPL; CLPS CX-2 expansion)",
+      "provider": "JPL (rover); Blue Origin (delivery on Blue Moon MK1)",
+      "status": "planned",
+      "confidence": "likely",
+      "target": "Late 2028 launch (announced 2026-11-07); 18-month mission",
+      "window": {
+        "start": "2028-Q4",
+        "end": "2029-Q2"
+      },
+      "launch_vehicle": "New Glenn",
+      "spacecraft": "Blue Moon MK1 + six-wheeled nuclear-powered rover",
+      "destination": "Lunar south pole",
+      "payloads": [
+        "Drill to ~1 m (3 ft)",
+        "spectrometers",
+        "sensors",
+        "cameras",
+        "High Performance Spaceflight Computing"
+      ],
+      "objectives": [
+        "Map and sample south-pole terrain and volatiles for 18 months using a nuclear power source"
+      ],
+      "base_contribution": "Long-duration prospecting through lunar nights; first nuclear-powered surface rover of the Moon Base.",
+      "game_hooks": [
+        "Deliver a heavy RTG rover; keep it alive through at least one lunar night and drill at N sites."
+      ],
+      "dependencies": [
+        "NEW-GLENN-RTF"
+      ],
+      "sources": [
+        "nasa-2026-11-07-awards"
+      ],
+      "notes": "Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option, expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it."
+    },
+    {
+      "id": "CISLUNAR-COMMS-DEMO",
+      "name": "Cislunar Communications Deployment Demonstration",
+      "category": "robotic",
+      "phase": "moon_base_phase_1",
+      "agency": "NASA (lunar logistics, Specialized Delivery Mission task order)",
+      "provider": "SpaceX",
+      "status": "planned",
+      "confidence": "likely",
+      "target": "2028 (announced 2026-11-07)",
+      "window": {
+        "start": "2028-Q1",
+        "end": "2028-Q4"
+      },
+      "launch_vehicle": "Starship",
+      "destination": "Cislunar space",
+      "objectives": [
+        "Deploy communications satellites between Earth and the Moon from a Starship"
+      ],
+      "base_contribution": "First piece of the relay network the base and rovers will depend on.",
+      "game_hooks": [
+        "Launch a stack of small comms satellites and release them into distinct cislunar orbits."
+      ],
+      "sources": [
+        "nasa-2026-11-07-awards"
+      ],
+      "notes": "NASA's X post groups this with LCRNS; the release itself does not use that name. Exact orbits and satellite count not given."
     }
   ],
   "sites": [
@@ -1383,6 +1470,12 @@
     ]
   },
   "sources": {
+    "nasa-2026-11-07-awards": {
+      "title": "NASA Awards Moon Base Transportation, Technology, Science Projects",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/",
+      "publisher": "NASA",
+      "date": "2026-11-07"
+    },
     "nasa-2026-11-04": {
       "title": "NASA Shares Plans to Accelerate Artemis, Return to Moon",
       "url": "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/",
