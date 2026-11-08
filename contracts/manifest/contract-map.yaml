@@ -7,7 +7,7 @@
 # pre-2026 missions kept because RP2000 careers start on 2000-01-01.
 
 manifest: docs/research/artemis-manifest.yaml
-manifest_version_reviewed: 2   # as_of 2026-11-07 (sites[], slips, new ids)
+manifest_version_reviewed: 4   # as_of 2026-11-08 (PROMISE, CISLUNAR-COMMS-DEMO, VADR transport, miniCAST)
 
 missions:
   ARTEMIS-II: [MKSP_Artemis2]
@@ -26,6 +26,7 @@ missions:
   CAPSTONE-02: [MKSP_Precursor_CAPSTONE02]
   BLUE-GHOST-M2: [MKSP_CLPS_FarSide]
   VIPER: [MKSP_Precursor_VIPER]
+  PROMISE: [MKSP_Precursor_PROMISE]
   LTV-DELIVERY: [MKSP_LTV_Delivery]
   MOONFALL: [MKSP_CLPS_MoonFall]
   BLUE-GHOST-M3: [MKSP_CLPS_Gruithuisen]  # Gruithuisen is BG M3's awarded site (Dec 2024)
@@ -34,6 +35,7 @@ missions:
   CLPS-2028-OTHER: [MKSP_CLPS_Delivery]   # Firefly + Intuitive Machines June 2026 awards
   JAXA-PRESSURIZED-ROVER: [MKSP_Base_PressurizedRover]
   LUNAR-RELAY-CONSTELLATION: [MKSP_Precursor_LunarRelay]
+  CISLUNAR-COMMS-DEMO: [MKSP_Precursor_LunarRelay]   # Starship comms deployment; relay contract is repeatable x3
   LID-1: [MKSP_LID_Node]                # repeatable x3
   LID-2: [MKSP_LID_Node]
   LID-3: [MKSP_LID_Node]
@@ -44,6 +46,8 @@ program_context:
   moon_base_program: [MKSP_Base_ISRU, MKSP_Base_PressurizedRover, MKSP_Base_Permanent]
   landing_cadence: [MKSP_Ops_CrewRotation]
   clps_cadence: [MKSP_CLPS_Delivery, MKSP_Ops_Resupply]
+  moon_base_transport: [MKSP_CLPS_MoonFall, MKSP_Precursor_CAPSTONE02, MKSP_Ops_Resupply]   # VADR task orders
+  minicast_power: [MKSP_Base_FissionPower]
   gateway_paused: []        # no Gateway contracts by design
 
 # Manifest ids that deliberately have no contract.

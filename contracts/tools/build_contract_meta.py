@@ -30,7 +30,8 @@ PHASE_LABEL = {
 }
 # program_context keys have no phase in the manifest; place them by intent.
 CONTEXT_PHASE = {"moon_base_program": "moon_base_phase_3", "landing_cadence": "moon_base_phase_2",
-                 "clps_cadence": "moon_base_phase_1"}
+                 "clps_cadence": "moon_base_phase_1",
+                 "moon_base_transport": "moon_base_phase_1", "minicast_power": "moon_base_phase_2"}
 
 
 def contracts():

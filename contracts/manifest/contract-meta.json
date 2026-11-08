@@ -1,7 +1,7 @@
 {
   "generated_by": "contracts/tools/build_contract_meta.py",
-  "manifest_version": 2,
-  "manifest_as_of": "2026-11-07",
+  "manifest_version": 4,
+  "manifest_as_of": "2026-11-08",
   "phases": [
     {
       "id": "heritage",
@@ -194,6 +194,10 @@
         {
           "id": "CAPSTONE-02",
           "name": "CAPSTONE 02"
+        },
+        {
+          "id": "moon_base_transport",
+          "name": "moon_base_transport"
         }
       ],
       "phase": "moon_base_phase_1",
@@ -216,6 +220,10 @@
         {
           "id": "LUNAR-RELAY-CONSTELLATION",
           "name": "NASA lunar comms and navigation relay constellation"
+        },
+        {
+          "id": "CISLUNAR-COMMS-DEMO",
+          "name": "Cislunar Communications Deployment Demonstration"
         }
       ],
       "phase": "moon_base_phase_1",
@@ -332,6 +340,10 @@
         {
           "id": "MOONFALL",
           "name": "MoonFall"
+        },
+        {
+          "id": "moon_base_transport",
+          "name": "moon_base_transport"
         }
       ],
       "phase": "moon_base_phase_1",
@@ -403,6 +415,24 @@
       "phase": "moon_base_phase_1",
       "window": {
         "start": "2028-Q3",
+        "end": "2029-Q2"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_Precursor_PROMISE": {
+      "title": "Nuclear Polar Prospecting Rover",
+      "group": "MKSP_Precursors",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/01_Precursors/PROMISE.cfg",
+      "missions": [
+        {
+          "id": "PROMISE",
+          "name": "PROMISE (Polar Rover for Observation, Mapping, and In-Situ Exploration)"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2028-Q4",
         "end": "2029-Q2"
       },
       "confidence": "likely"
@@ -511,6 +541,10 @@
         {
           "id": "clps_cadence",
           "name": "clps_cadence"
+        },
+        {
+          "id": "moon_base_transport",
+          "name": "moon_base_transport"
         }
       ],
       "phase": "moon_base_phase_2",
@@ -547,6 +581,10 @@
         {
           "id": "FISSION-SURFACE-POWER",
           "name": "Lunar Fission Surface Power reactor"
+        },
+        {
+          "id": "minicast_power",
+          "name": "minicast_power"
         }
       ],
       "phase": "moon_base_phase_2",

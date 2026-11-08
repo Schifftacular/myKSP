@@ -5,7 +5,7 @@ player through NASA's real and likely lunar program, from robotic precursors
 to a **permanently crewed base on the Shackleton connecting ridge** at the
 lunar south pole.
 
-- 30 contracts in 6 sub-groups under one top-level group, `MKSP_Artemis`
+- 31 contracts in 6 sub-groups under one top-level group, `MKSP_Artemis`
 - every contract is keyed to a mission id in the research thread's manifest
   (`docs/research/artemis-manifest.yaml`); see [manifest/contract-map.yaml](manifest/contract-map.yaml)
 - self-contained in `GameData/myKSP_Artemis/`: delete that folder to remove it
@@ -33,7 +33,7 @@ Lunar Polar Mapping Orbiter (LRO heritage)  Artemis I  uncrewed capsule
   CAPSTONE 02 proximity-ops smallsat          Artemis II crewed flyby
   Lunar Relay (x3)                              Artemis III LEO docking test
     Far-Side Landing (Blue Ghost M2)              (needs prop transfer)
-  VIPER ice rover                                 Artemis IV first landing    Fission Surface Power
+  VIPER -> PROMISE nuclear rover                  Artemis IV first landing    Fission Surface Power
   Moon Base I cargo lander on the ridge             (needs HLS demo)           (needs Artemis IV)
     MoonFall hopper                                 Artemis V base-site + LTV  First Surface Habitat
     LID nodes (x3)  -> Base ISRU                      Artemis VI week at base    Resupply (repeatable)
