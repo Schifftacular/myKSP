@@ -1,5 +1,29 @@
 # Manifest changelog
 
+## v4 — 2026-11-08 (daily check)
+
+Source: NASA release 2026-11-07, "NASA Awards Moon Base Transportation, Technology, Science Projects" (MAX POWER expo, KSC).
+
+Added (contracts: new ids):
+- `PROMISE`: JPL nuclear-powered six-wheel south-pole rover, delivered by Blue Origin on Blue Moon MK1 ($94M + $140M option). Launch late 2028, 18-month mission.
+- `CISLUNAR-COMMS-DEMO`: SpaceX launches comms satellites on Starship to cislunar space in 2028.
+
+Changed:
+- `CAPSTONE-02`, `MOONFALL`: transport now bought through six VADR task orders (~$1.3B, Arrow Science and Technology, Blue Origin, Impulse Space). Dates unchanged.
+- `LUNAR-RELAY-CONSTELLATION`: note links the 2028 demo.
+- `clps_cadence`: CLPS 2.0 awarded to eight companies ($10B max, 10 years); CLPS 1.0 ceiling $4.2B.
+- New world-state keys: `moon_base_transport`, `minicast_power`.
+
+No Moon Base I/II/III or Artemis IV date changes were announced.
+
+Still open: Firefly/IM 2028 sites; ESA I-Hab decision (Dec 2026); Artemis IV crew and lander; exact Shackleton ridge aim point.
+
+## v3 — 2026-11-07 (daily check)
+
+- `PEREGRINE-2`, `PEREGRINE-3`: Gruithuisen Domes site confirmed from Astrobotic's release; payloads listed (LETS, SCALPSS, LRA). No contract change needed.
+- `clps_cadence`: NASA says Phase I has more than twenty robotic landings through 2029.
+- NASA's Moon Base news conference is at 22:00 UTC today (after this check); the next daily check covers it.
+
 ## v2 — 2026-11-07
 
 31 missions (+4), 14 landing sites (new), 58 sources.
