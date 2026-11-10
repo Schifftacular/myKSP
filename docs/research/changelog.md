@@ -1,5 +1,13 @@
 # Manifest changelog
 
+## v5 — 2026-11-10 (daily check)
+
+Source: SpacePolicyOnline 2026-11-09 report on NASA's Nov 7 briefing.
+
+- `MOON-BASE-II`: delayed to NET January 2027 (NASA's García-Galán). The window moves to 2027-Q1..Q2. No Moon Base mission launches in 2026.
+- `clps_cadence`: NASA expects only four CLPS missions in 2027 (Moon Base I, II, III and one Firefly flight). The 10-per-year rate now starts in 2028.
+- `PROMISE`: note adds the $400M JPL rover commitment.
+
 ## v4 — 2026-11-08 (daily check)
 
 Source: NASA release 2026-11-07, "NASA Awards Moon Base Transportation, Technology, Science Projects" (MAX POWER expo, KSC).
