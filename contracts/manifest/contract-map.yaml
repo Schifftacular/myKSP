@@ -7,7 +7,7 @@
 # pre-2026 missions kept because RP2000 careers start on 2000-01-01.
 
 manifest: docs/research/artemis-manifest.yaml
-manifest_version_reviewed: 4   # as_of 2026-11-08 (PROMISE, CISLUNAR-COMMS-DEMO, VADR transport, miniCAST)
+manifest_version_reviewed: 5   # as_of 2026-11-10 (Moon Base II slips to NET Jan 2027; CLPS 2027 count)
 
 missions:
   ARTEMIS-II: [MKSP_Artemis2]

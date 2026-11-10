@@ -1,7 +1,7 @@
 {
   "generated_by": "contracts/tools/build_contract_meta.py",
-  "manifest_version": 4,
-  "manifest_as_of": "2026-11-08",
+  "manifest_version": 5,
+  "manifest_as_of": "2026-11-10",
   "phases": [
     {
       "id": "heritage",
@@ -131,24 +131,6 @@
       },
       "confidence": "likely"
     },
-    "MKSP_MoonBase2_Griffin": {
-      "title": "Moon Base II: Lander with Deployable Rover",
-      "group": "MKSP_CLPS",
-      "maxCompletions": 1,
-      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase2_Griffin.cfg",
-      "missions": [
-        {
-          "id": "MOON-BASE-II",
-          "name": "Moon Base II — Griffin-1"
-        }
-      ],
-      "phase": "moon_base_phase_1",
-      "window": {
-        "start": "2026-Q4",
-        "end": "2027-Q2"
-      },
-      "confidence": "likely"
-    },
     "MKSP_MoonBase1_Endurance": {
       "title": "Moon Base I: Cargo Lander to Shackleton Ridge",
       "group": "MKSP_CLPS",
@@ -164,6 +146,24 @@
       "window": {
         "start": "2027-Q1",
         "end": "2027-Q3"
+      },
+      "confidence": "likely"
+    },
+    "MKSP_MoonBase2_Griffin": {
+      "title": "Moon Base II: Lander with Deployable Rover",
+      "group": "MKSP_CLPS",
+      "maxCompletions": 1,
+      "file": "contracts/GameData/myKSP_Artemis/Contracts/02_CLPS/MoonBase2_Griffin.cfg",
+      "missions": [
+        {
+          "id": "MOON-BASE-II",
+          "name": "Moon Base II — Griffin-1"
+        }
+      ],
+      "phase": "moon_base_phase_1",
+      "window": {
+        "start": "2027-Q1",
+        "end": "2027-Q2"
       },
       "confidence": "likely"
     },
