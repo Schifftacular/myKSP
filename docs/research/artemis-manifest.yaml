@@ -17,8 +17,8 @@
 #   * Bump `manifest_version` and add a line to changelog.md on every edit.
 #   * Run: python3 tools/validate_manifest.py
 #
-manifest_version: 2
-as_of: "2026-11-07"
+manifest_version: 5
+as_of: "2026-11-10"
 career_goal: >-
   Permanent crewed lunar base at the lunar south pole, mirroring NASA's
   three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032,
@@ -70,11 +70,35 @@ program_context:
     sources: [sfn-2026-03-25, nasa-2026-03-03]
   - key: clps_cadence
     fact: >-
-      Isaacman wants about 10 CLPS deliveries per year for three years starting 2027.
-      CLPS 2.0 RFP released 2026-05-15 (responses due 2026-06-30). Every CLPS task
-      order so far has slipped substantially; schedule all robotic missions with slack.
+      The March plan's 10 CLPS deliveries per year now starts in 2028 (NASA, Oct-Nov 2026).
+      NASA expects only four CLPS missions in 2027: Moon Base I, II, III and one Firefly flight.
+      NASA (Aug 2026): Phase I includes "more than twenty robotic landings" through 2029.
+      CLPS 2.0 awarded 2026-11-07: eight companies (Blue Origin, Firefly, Intuitive
+      Machines, ispace-U.S., Lockheed Martin, Northrop Grumman, SpaceX, Voyager) on a
+      10-year IDIQ with a combined maximum of $10B. CLPS 1.0 ceiling raised from $2.6B to
+      $4.2B; it runs through Nov 2028, with deliveries allowed through Nov 2033. Every CLPS
+      task order so far has slipped substantially; schedule all robotic missions with slack.
     confidence: likely
-    sources: [spo-2026-05-26, nasa-2026-05-26]
+    sources: [spo-2026-05-26, nasa-2026-05-26, nasa-2026-08-04-landers, nasa-2026-11-07-awards, spo-2026-11-09]
+  - key: moon_base_transport
+    fact: >-
+      2026-11-07: six VADR task orders (about $1.3B combined) to Arrow Science and
+      Technology, Blue Origin and Impulse Space to integrate and carry Moon Base cargo:
+      CAPSTONE 02 to deep space, MoonFall and more Phase 1 assets to the south pole, and
+      cislunar orbital-transfer demos. Launchers named: New Glenn, Terran R, Falcon 9.
+      In-space transport: Blue Origin, Firefly, Impulse Space, Quantum Space. NASA did not
+      say which order covers which mission.
+    confidence: confirmed
+    sources: [nasa-2026-11-07-awards]
+  - key: minicast_power
+    fact: >-
+      miniCAST (Mini-Communications and Solar Tower): NASA buys commercial components,
+      with Honeybee Robotics (energy storage), Redwire (power generation) and Yank
+      Technologies (wireless power transfer). Marshall assembles and tests. Work starts
+      "within months"; a call for fully integrated power systems is expected early 2027.
+      A NextSTEP-3 B directed call will target Moon Base data gaps. No flight date yet.
+    confidence: likely
+    sources: [nasa-2026-11-07-awards]
   - key: two_lander_strategy
     fact: >-
       Both SpaceX Starship HLS and Blue Origin Blue Moon MK2 are in the plan; neither
@@ -413,10 +437,10 @@ missions:
     phase: moon_base_phase_1
     agency: NASA (CLPS)
     provider: Astrobotic (acquired by Voyager Technologies, agreement signed 2026-06-01)
-    status: scheduled
+    status: delayed
     confidence: likely
-    target: "NASA (Oct 2026): late 2026; other reports NET January 2027"
-    window: {start: 2026-Q4, end: 2027-Q2}
+    target: "NET January 2027 (NASA, 2026-11-07; was late 2026)"
+    window: {start: 2027-Q1, end: 2027-Q2}
     launch_vehicle: Falcon Heavy (LC-39A)
     spacecraft: Griffin lander
     destination: Nobile crater region near Mons Mouton, lunar south pole
@@ -427,8 +451,8 @@ missions:
     game_hooks:
       - Land a lander that deploys a small rover; rover drive-distance objective.
     site: SP-NOBILE-CRATER
-    sources: [nasa-2026-05-26, nasa-moonbase-phases, nasa-2026-10-20-rovers, wiki-griffin-1]
-    notes: Environmental testing at JPL finished 2026-10-13. Only CLPS mission still aiming for 2026. Not launched as of 2026-11-07.
+    sources: [nasa-2026-05-26, nasa-moonbase-phases, nasa-2026-10-20-rovers, wiki-griffin-1, spo-2026-11-09]
+    notes: Environmental testing at JPL finished 2026-10-13. NASA's García-Galán (2026-11-07) said Griffin "will not launch until January at the earliest" (lunar launch windows, engine testing). No Moon Base mission launches in 2026.
 
   - id: MOON-BASE-III
     name: Moon Base III — IM-3 "Trinity"
@@ -471,7 +495,8 @@ missions:
     base_contribution: Navigation and rendezvous experience for crew-to-lander dockings in lunar orbit.
     game_hooks:
       - Launch two small spacecraft to lunar orbit; perform rendezvous with each acting as chaser once.
-    sources: [nasa-2026-07-24-capstone2, advancedspace-2026-08]
+    sources: [nasa-2026-07-24-capstone2, advancedspace-2026-08, nasa-2026-11-07-awards]
+    notes: NASA (2026-11-07) bought its ride to deep space as one of six VADR Moon Base transport task orders; vehicle not named per mission.
 
   - id: BLUE-GHOST-M2
     name: Blue Ghost Mission 2
@@ -559,8 +584,8 @@ missions:
     base_contribution: High-resolution site survey and base perimeter mapping.
     game_hooks:
       - Release multiple small landers from one carrier; each must visit waypoints by hopping.
-    sources: [nasa-2026-05-26, spo-2026-05-26]
-    notes: NASA says four drones; one briefing said three or four. Firefly subcontract $75M excluding launch.
+    sources: [nasa-2026-05-26, spo-2026-05-26, nasa-2026-11-07-awards]
+    notes: NASA says four drones; one briefing said three or four. Firefly subcontract $75M excluding launch. Launch and transport covered by the 2026-11-07 VADR task orders (vehicle not named).
 
   - id: PEREGRINE-2
     name: Peregrine Mission Two
@@ -574,13 +599,13 @@ missions:
     window: {start: 2028-Q2, end: 2029-Q1}
     spacecraft: Peregrine lander
     destination: Gruithuisen Domes (near side)
-    payloads: [LETS radiation spectrometer, plus two other NASA payloads]
+    payloads: [LETS radiation spectrometer, SCALPSS, LRA]
     base_contribution: Radiation environment data for crew dose planning.
     game_hooks:
       - Non-polar science landing; radiation-monitoring experiment running for N days.
     site: NS-GRUITHUISEN-GAMMA
     sources: [astrobotic-2026-06-30, wiki-clps]
-    notes: Site per Astrobotic's June 2026 release; Wikipedia lists no site, and Gruithuisen was also Peregrine Mission One's (failed) target. Re-check.
+    notes: Site confirmed in Astrobotic's 2026-06-30 release ("an autonomous landing near the Gruithuisen Domes"). NASA's own pages have not named the site yet. Payloads LETS, SCALPSS, LRA.
 
   - id: PEREGRINE-3
     name: Peregrine Mission Three
@@ -594,13 +619,13 @@ missions:
     window: {start: 2028-Q2, end: 2029-Q1}
     spacecraft: Peregrine lander
     destination: Gruithuisen Domes (near side)
-    payloads: [three NASA-sponsored payloads]
+    payloads: [LETS radiation spectrometer, SCALPSS, LRA]
     base_contribution: Science and environment data.
     game_hooks:
       - Second landing at the same site; precision landing near Peregrine-2.
     site: NS-GRUITHUISEN-GAMMA
     sources: [astrobotic-2026-06-30, wiki-clps]
-    notes: Same site caveat as PEREGRINE-2.
+    notes: Same site and payloads as PEREGRINE-2 per Astrobotic's release.
 
   - id: CLPS-2028-OTHER
     name: Firefly and Intuitive Machines Moon Base deliveries (late 2028)
@@ -767,7 +792,7 @@ missions:
     game_hooks:
       - Place N relay satellites so a south-pole site has continuous coverage.
     sources: [nasa-2026-06-30-clps, sfn-2026-03-25]
-    notes: Only announced as a plan. ESA is studying its Lunar Link element as part of Moonlight.
+    notes: Only announced as a plan. ESA is studying its Lunar Link element as part of Moonlight. First concrete step is CISLUNAR-COMMS-DEMO (SpaceX, Starship, 2028).
 
   - id: CANADARM3-SURFACE
     name: Canadarm3 repurposed for surface robotics
@@ -787,6 +812,49 @@ missions:
       - Deliver a robotic arm module; later contracts require unloading cargo landers without EVA.
     sources: [mda-2026-08-06, spaceq-canadarm3]
     notes: Repurposed from the paused Gateway. CSA's separate lunar utility rover is still in concept studies.
+
+  - id: PROMISE
+    name: PROMISE (Polar Rover for Observation, Mapping, and In-Situ Exploration)
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (JPL; CLPS CX-2 expansion)
+    provider: JPL (rover); Blue Origin (delivery on Blue Moon MK1)
+    status: planned
+    confidence: likely
+    target: "Late 2028 launch (announced 2026-11-07); 18-month mission"
+    window: {start: 2028-Q4, end: 2029-Q2}
+    launch_vehicle: New Glenn
+    spacecraft: Blue Moon MK1 + six-wheeled nuclear-powered rover
+    destination: Lunar south pole
+    payloads: ["Drill to ~1 m (3 ft)", spectrometers, sensors, cameras, High Performance Spaceflight Computing]
+    objectives:
+      - Map and sample south-pole terrain and volatiles for 18 months using a nuclear power source
+    base_contribution: Long-duration prospecting through lunar nights; first nuclear-powered surface rover of the Moon Base.
+    game_hooks:
+      - Deliver a heavy RTG rover; keep it alive through at least one lunar night and drill at N sites.
+    dependencies: [NEW-GLENN-RTF]
+    sources: [nasa-2026-11-07-awards, spo-2026-11-09]
+    notes: Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option; JPL rover work is a $400M firm commitment (SpacePolicyOnline), expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it.
+
+  - id: CISLUNAR-COMMS-DEMO
+    name: Cislunar Communications Deployment Demonstration
+    category: robotic
+    phase: moon_base_phase_1
+    agency: NASA (lunar logistics, Specialized Delivery Mission task order)
+    provider: SpaceX
+    status: planned
+    confidence: likely
+    target: "2028 (announced 2026-11-07)"
+    window: {start: 2028-Q1, end: 2028-Q4}
+    launch_vehicle: Starship
+    destination: Cislunar space
+    objectives:
+      - Deploy communications satellites between Earth and the Moon from a Starship
+    base_contribution: First piece of the relay network the base and rovers will depend on.
+    game_hooks:
+      - Launch a stack of small comms satellites and release them into distinct cislunar orbits.
+    sources: [nasa-2026-11-07-awards]
+    notes: NASA's X post groups this with LCRNS; the release itself does not use that name. Exact orbits and satellite count not given.
 
 # ---------------------------------------------------------------------------
 # Landing sites. Selenographic degrees, longitude east-positive (-180..180), south negative.
@@ -829,6 +897,8 @@ clps_template:
 # Sources (accessed 2026-11-06 unless noted)
 # ---------------------------------------------------------------------------
 sources:
+  spo-2026-11-09: {title: "NASA Shares Moon Base Progress, Contract Awards", url: "https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/", publisher: SpacePolicyOnline, date: 2026-11-09}
+  nasa-2026-11-07-awards: {title: "NASA Awards Moon Base Transportation, Technology, Science Projects", url: "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/", publisher: NASA, date: 2026-11-07}
   nasa-2026-11-04: {title: "NASA Shares Plans to Accelerate Artemis, Return to Moon", url: "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/", publisher: NASA, date: 2026-11-04}
   nasa-2026-10-23-landers: {title: "NASA, Partners Accelerate Lander Development for 2028 Moon Missions", url: "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/", publisher: NASA, date: 2026-10-23}
   nasa-2026-10-23-blog: {title: "NASA Shares Artemis Acceleration Plans for Moon Missions", url: "https://www.nasa.gov/blogs/missions/2026/10/23/nasa-shares-artemis-acceleration-plans-for-moon-missions/", publisher: NASA, date: 2026-10-23}
@@ -887,3 +957,4 @@ sources:
   nasa-artemis-iv-page: {title: "Artemis IV", url: "https://www.nasa.gov/mission/artemis-iv/", publisher: NASA, date: 2026-03-16}
   sciam-2026-10-23-a3-schedule: {title: "NASA lays out a packed 14-day schedule for 2027's Artemis III moon mission", url: "https://www.scientificamerican.com/article/nasa-lays-out-a-packed-14-day-schedule-for-2027s-artemis-iii-moon-mission/", publisher: Scientific American, date: 2026-10-23}
   nasa-2026-04-10-fd10: {title: "Artemis II Flight Day 10: Crew Sets for Final Burn, Splashdown", url: "https://www.nasa.gov/blogs/missions/2026/04/10/artemis-ii-flight-day-10-crew-sets-for-final-burn-splashdown/", publisher: NASA, date: 2026-04-10}
+  nasa-2026-08-04-landers: {title: "NASA Provides Updates on Moon Base Cargo Landers, Tech Demonstrations", url: "https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/", publisher: NASA, date: 2026-08-04}
