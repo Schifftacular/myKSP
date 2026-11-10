@@ -17,8 +17,8 @@
 #   * Bump `manifest_version` and add a line to changelog.md on every edit.
 #   * Run: python3 tools/validate_manifest.py
 #
-manifest_version: 4
-as_of: "2026-11-08"
+manifest_version: 5
+as_of: "2026-11-10"
 career_goal: >-
   Permanent crewed lunar base at the lunar south pole, mirroring NASA's
   three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032,
@@ -70,7 +70,8 @@ program_context:
     sources: [sfn-2026-03-25, nasa-2026-03-03]
   - key: clps_cadence
     fact: >-
-      Isaacman wants about 10 CLPS deliveries per year for three years starting 2027.
+      The March plan's 10 CLPS deliveries per year now starts in 2028 (NASA, Oct-Nov 2026).
+      NASA expects only four CLPS missions in 2027: Moon Base I, II, III and one Firefly flight.
       NASA (Aug 2026): Phase I includes "more than twenty robotic landings" through 2029.
       CLPS 2.0 awarded 2026-11-07: eight companies (Blue Origin, Firefly, Intuitive
       Machines, ispace-U.S., Lockheed Martin, Northrop Grumman, SpaceX, Voyager) on a
@@ -78,7 +79,7 @@ program_context:
       $4.2B; it runs through Nov 2028, with deliveries allowed through Nov 2033. Every CLPS
       task order so far has slipped substantially; schedule all robotic missions with slack.
     confidence: likely
-    sources: [spo-2026-05-26, nasa-2026-05-26, nasa-2026-08-04-landers, nasa-2026-11-07-awards]
+    sources: [spo-2026-05-26, nasa-2026-05-26, nasa-2026-08-04-landers, nasa-2026-11-07-awards, spo-2026-11-09]
   - key: moon_base_transport
     fact: >-
       2026-11-07: six VADR task orders (about $1.3B combined) to Arrow Science and
@@ -436,10 +437,10 @@ missions:
     phase: moon_base_phase_1
     agency: NASA (CLPS)
     provider: Astrobotic (acquired by Voyager Technologies, agreement signed 2026-06-01)
-    status: scheduled
+    status: delayed
     confidence: likely
-    target: "NASA (Oct 2026): late 2026; other reports NET January 2027"
-    window: {start: 2026-Q4, end: 2027-Q2}
+    target: "NET January 2027 (NASA, 2026-11-07; was late 2026)"
+    window: {start: 2027-Q1, end: 2027-Q2}
     launch_vehicle: Falcon Heavy (LC-39A)
     spacecraft: Griffin lander
     destination: Nobile crater region near Mons Mouton, lunar south pole
@@ -450,8 +451,8 @@ missions:
     game_hooks:
       - Land a lander that deploys a small rover; rover drive-distance objective.
     site: SP-NOBILE-CRATER
-    sources: [nasa-2026-05-26, nasa-moonbase-phases, nasa-2026-10-20-rovers, wiki-griffin-1]
-    notes: Environmental testing at JPL finished 2026-10-13. Only CLPS mission still aiming for 2026. Not launched as of 2026-11-07.
+    sources: [nasa-2026-05-26, nasa-moonbase-phases, nasa-2026-10-20-rovers, wiki-griffin-1, spo-2026-11-09]
+    notes: Environmental testing at JPL finished 2026-10-13. NASA's García-Galán (2026-11-07) said Griffin "will not launch until January at the earliest" (lunar launch windows, engine testing). No Moon Base mission launches in 2026.
 
   - id: MOON-BASE-III
     name: Moon Base III — IM-3 "Trinity"
@@ -832,8 +833,8 @@ missions:
     game_hooks:
       - Deliver a heavy RTG rover; keep it alive through at least one lunar night and drill at N sites.
     dependencies: [NEW-GLENN-RTF]
-    sources: [nasa-2026-11-07-awards]
-    notes: Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option, expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it.
+    sources: [nasa-2026-11-07-awards, spo-2026-11-09]
+    notes: Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option; JPL rover work is a $400M firm commitment (SpacePolicyOnline), expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it.
 
   - id: CISLUNAR-COMMS-DEMO
     name: Cislunar Communications Deployment Demonstration
@@ -896,6 +897,7 @@ clps_template:
 # Sources (accessed 2026-11-06 unless noted)
 # ---------------------------------------------------------------------------
 sources:
+  spo-2026-11-09: {title: "NASA Shares Moon Base Progress, Contract Awards", url: "https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/", publisher: SpacePolicyOnline, date: 2026-11-09}
   nasa-2026-11-07-awards: {title: "NASA Awards Moon Base Transportation, Technology, Science Projects", url: "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/", publisher: NASA, date: 2026-11-07}
   nasa-2026-11-04: {title: "NASA Shares Plans to Accelerate Artemis, Return to Moon", url: "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/", publisher: NASA, date: 2026-11-04}
   nasa-2026-10-23-landers: {title: "NASA, Partners Accelerate Lander Development for 2028 Moon Missions", url: "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/", publisher: NASA, date: 2026-10-23}

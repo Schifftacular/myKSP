@@ -1,6 +1,6 @@
 # NASA lunar mission manifest, now through 2030
 
-_Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by hand: run `python3 tools/render_manifest.py`._
+_Generated from `artemis-manifest.yaml` (v5, as of 2026-11-10). Do not edit by hand: run `python3 tools/render_manifest.py`._
 
 **Career goal:** Permanent crewed lunar base at the lunar south pole, mirroring NASA's three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032, Phase 3 2032+).
 
@@ -11,7 +11,7 @@ _Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by h
 | Window | Mission | Type | Status | Confidence |
 |---|---|---|---|---|
 | 2026-Q2 | **Artemis II** (`ARTEMIS-II`) | crewed | flown | ✅ confirmed |
-| 2026-Q4 → 2027-Q2 | **Moon Base II — Griffin-1** (`MOON-BASE-II`) | robotic | scheduled | 🟡 likely |
+| 2027-Q1 → 2027-Q2 | **Moon Base II — Griffin-1** (`MOON-BASE-II`) | robotic | delayed | 🟡 likely |
 | 2027-Q1 → 2027-Q2 | **New Glenn return to flight** (`NEW-GLENN-RTF`) | robotic | delayed | 🟡 likely |
 | 2027-Q1 → 2027-Q3 | **Moon Base I — Blue Moon MK1 "Endurance"** (`MOON-BASE-I`) | robotic | delayed | 🟡 likely |
 | 2027-Q1 → 2027-Q3 | **Moon Base III — IM-3 "Trinity"** (`MOON-BASE-III`) | robotic | delayed | 🟡 likely |
@@ -50,7 +50,7 @@ _Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by h
 - **sls_block1_only** (✅ confirmed): SLS Block 1B, Block 2, the Exploration Upper Stage and Mobile Launcher 2 were cancelled (announced 2026-02-26/27). SLS stays near-Block 1. For Artemis IV NASA is weighing the existing ICPS or a stretched Centaur V upper stage. NASA has said it intends to move crews to commercial launchers after the current SLS flights; which vehicle is not decided. _Sources: [NASA](https://www.nasa.gov/directorates/esdmd/nasa-strengthens-artemis-adds-mission-refines-overall-architecture/), [SatNews](https://satnews.com/2026/02/27/nasa-overhauls-artemis-program-scraps-sls-upgrades-adds-2027-leo-test-mission/), [NASA](https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/)_
 - **moon_base_program** (✅ confirmed): NASA "Moon Base" program announced at the Ignition event 2026-03-24: about $20B over seven years (Isaacman; Scientific American reported $30B by 2036), three phases at the south pole. Phase 1 "Now–2029" gain access / experiment / learn; Phase 2 2029–2032 "Build and Expand" (habitats, regular surface ops); Phase 3 2032+ "Live and Work on the Moon" (fission + solar power, crewed and uncrewed rovers, site-prep machines, surface comms network, lunar GPS, relay and observation constellations). _Sources: [Spaceflight Now](https://spaceflightnow.com/2026/03/25/nasa-outlines-ambitious-20-billion-plan-for-moon-base/), [NASA](https://www.nasa.gov/moonbase-phases/), [Scientific American](https://www.scientificamerican.com/article/nasa-unveils-new-ambitious-moon-base-plans/)_
 - **landing_cadence** (🟡 likely): Isaacman's stated goal is crewed landings about every six months with at least two lander providers. NASA's March architecture note said "about one lunar mission per year" after Artemis V. Treat two-per-year as the aspiration and one-per-year as the baseline. _Sources: [Spaceflight Now](https://spaceflightnow.com/2026/03/25/nasa-outlines-ambitious-20-billion-plan-for-moon-base/), [NASA](https://www.nasa.gov/directorates/esdmd/nasa-strengthens-artemis-adds-mission-refines-overall-architecture/)_
-- **clps_cadence** (🟡 likely): Isaacman wants about 10 CLPS deliveries per year for three years starting 2027. NASA (Aug 2026): Phase I includes "more than twenty robotic landings" through 2029. CLPS 2.0 awarded 2026-11-07: eight companies (Blue Origin, Firefly, Intuitive Machines, ispace-U.S., Lockheed Martin, Northrop Grumman, SpaceX, Voyager) on a 10-year IDIQ with a combined maximum of $10B. CLPS 1.0 ceiling raised from $2.6B to $4.2B; it runs through Nov 2028, with deliveries allowed through Nov 2033. Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack. _Sources: [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-awards-initial-moon-base-rover-and-lander-contracts/), [NASA](https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/), [NASA](https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/), [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/)_
+- **clps_cadence** (🟡 likely): The March plan's 10 CLPS deliveries per year now starts in 2028 (NASA, Oct-Nov 2026). NASA expects only four CLPS missions in 2027: Moon Base I, II, III and one Firefly flight. NASA (Aug 2026): Phase I includes "more than twenty robotic landings" through 2029. CLPS 2.0 awarded 2026-11-07: eight companies (Blue Origin, Firefly, Intuitive Machines, ispace-U.S., Lockheed Martin, Northrop Grumman, SpaceX, Voyager) on a 10-year IDIQ with a combined maximum of $10B. CLPS 1.0 ceiling raised from $2.6B to $4.2B; it runs through Nov 2028, with deliveries allowed through Nov 2033. Every CLPS task order so far has slipped substantially; schedule all robotic missions with slack. _Sources: [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-awards-initial-moon-base-rover-and-lander-contracts/), [NASA](https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/), [NASA](https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/), [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/), [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/)_
 - **moon_base_transport** (✅ confirmed): 2026-11-07: six VADR task orders (about $1.3B combined) to Arrow Science and Technology, Blue Origin and Impulse Space to integrate and carry Moon Base cargo: CAPSTONE 02 to deep space, MoonFall and more Phase 1 assets to the south pole, and cislunar orbital-transfer demos. Launchers named: New Glenn, Terran R, Falcon 9. In-space transport: Blue Origin, Firefly, Impulse Space, Quantum Space. NASA did not say which order covers which mission. _Sources: [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/)_
 - **minicast_power** (🟡 likely): miniCAST (Mini-Communications and Solar Tower): NASA buys commercial components, with Honeybee Robotics (energy storage), Redwire (power generation) and Yank Technologies (wireless power transfer). Marshall assembles and tests. Work starts "within months"; a call for fully integrated power systems is expected early 2027. A NextSTEP-3 B directed call will target Moon Base data gaps. No flight date yet. _Sources: [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/)_
 - **two_lander_strategy** (✅ confirmed): Both SpaceX Starship HLS and Blue Origin Blue Moon MK2 are in the plan; neither is assigned to a specific landing as of 2026-10-23. Starship reaches the Moon by refuelling in LEO (tanker count estimates range 6–8 to 22) and then carries itself to low lunar orbit to meet Orion. Blue Moon MK2 uses three Blue Moon MK1 derived transfer stages to reach an elliptical polar lunar orbit. Each provider must fly one uncrewed landing before a crewed one. _Sources: [NASA](https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/), [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-is-full-steam-ahead-on-artemis-iii-iv-and-v/), [SatNews](https://satnews.com/2026/11/03/nasa-graphic-outlines-artemis-iv-starship-refueling-architecture-as-launch-estimates-vary/)_
@@ -179,24 +179,6 @@ _Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by h
 
 ## Moon Base Phase 1 — gain access, experiment, learn (now–2029)
 
-### Moon Base II — Griffin-1  
-`MOON-BASE-II` · robotic · scheduled · 🟡 likely
-
-- **Target:** NASA (Oct 2026): late 2026; other reports NET January 2027
-- **Provider:** Astrobotic (acquired by Voyager Technologies, agreement signed 2026-06-01)
-- **Launch vehicle:** Falcon Heavy (LC-39A)
-- **Spacecraft:** Griffin lander
-- **Destination:** Nobile crater region near Mons Mouton, lunar south pole
-- **Site:** Nobile crater region (-85.28, 53.27; low)
-- **Payloads:** Astrolab FLIP rover; LDES (JSC); Lunar LiDAR Demonstration (Marshall); two LRAs (Goddard); METAL with Interlune (Ames); CubeRover; ESA LandCam-X
-- **Objectives:**
-  - Deliver a commercial rover to mature mobility for later LTV operations
-- **Toward the base:** Early surface mobility and resource (helium-3/regolith) prospecting.
-- **Contract hooks:**
-  - Land a lander that deploys a small rover; rover drive-distance objective.
-- **Notes:** Environmental testing at JPL finished 2026-10-13. Only CLPS mission still aiming for 2026. Not launched as of 2026-11-07.
-- **Sources:** [NASA](https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/), [NASA](https://www.nasa.gov/moonbase-phases/), [NASA](https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/), [Wikipedia](https://en.wikipedia.org/wiki/Griffin_Mission_One)
-
 ### Moon Base I — Blue Moon MK1 "Endurance"  
 `MOON-BASE-I` · robotic · delayed · 🟡 likely
 
@@ -216,6 +198,24 @@ _Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by h
 - **Depends on:** `NEW-GLENN-RTF`
 - **Notes:** Not launched as of 2026-11-07. New Glenn GS1-3 exploded in a static fire at LC-36 on 2026-05-28 (BE-4 main oxygen valve named 2026-08-06). Return to flight reported as early 2027 (Reuters, Oct 2026; a secondary report cites a January 2027 internal memo). In Sept 2026 NASA said MK1 Pathfinder 1 slipped to 2027.
 - **Sources:** [NASA](https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/), [NASA](https://www.nasa.gov/moonbase-phases/), [Spaceflight Now](https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/), [Spaceflight Now](https://spaceflightnow.com/2026/08/06/blue-origin-identifies-engine-issue-behind-new-glenn-explosion/), [Wikipedia](https://en.wikipedia.org/wiki/List_of_New_Glenn_launches)
+
+### Moon Base II — Griffin-1  
+`MOON-BASE-II` · robotic · delayed · 🟡 likely
+
+- **Target:** NET January 2027 (NASA, 2026-11-07; was late 2026)
+- **Provider:** Astrobotic (acquired by Voyager Technologies, agreement signed 2026-06-01)
+- **Launch vehicle:** Falcon Heavy (LC-39A)
+- **Spacecraft:** Griffin lander
+- **Destination:** Nobile crater region near Mons Mouton, lunar south pole
+- **Site:** Nobile crater region (-85.28, 53.27; low)
+- **Payloads:** Astrolab FLIP rover; LDES (JSC); Lunar LiDAR Demonstration (Marshall); two LRAs (Goddard); METAL with Interlune (Ames); CubeRover; ESA LandCam-X
+- **Objectives:**
+  - Deliver a commercial rover to mature mobility for later LTV operations
+- **Toward the base:** Early surface mobility and resource (helium-3/regolith) prospecting.
+- **Contract hooks:**
+  - Land a lander that deploys a small rover; rover drive-distance objective.
+- **Notes:** Environmental testing at JPL finished 2026-10-13. NASA's García-Galán (2026-11-07) said Griffin "will not launch until January at the earliest" (lunar launch windows, engine testing). No Moon Base mission launches in 2026.
+- **Sources:** [NASA](https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/), [NASA](https://www.nasa.gov/moonbase-phases/), [NASA](https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/), [Wikipedia](https://en.wikipedia.org/wiki/Griffin_Mission_One), [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/)
 
 ### Moon Base III — IM-3 "Trinity"  
 `MOON-BASE-III` · robotic · delayed · 🟡 likely
@@ -492,8 +492,8 @@ _Generated from `artemis-manifest.yaml` (v4, as of 2026-11-08). Do not edit by h
 - **Contract hooks:**
   - Deliver a heavy RTG rover; keep it alive through at least one lunar night and drill at N sites.
 - **Depends on:** `NEW-GLENN-RTF`
-- **Notes:** Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option, expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it.
-- **Sources:** [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/)
+- **Notes:** Built from Curiosity/Perseverance spares and engineering models. Blue Origin $94M base plus $140M performance option; JPL rover work is a $400M firm commitment (SpacePolicyOnline), expanding the May 2026 LTV delivery task order. Launcher not named; New Glenn inferred because Blue Moon MK1 flies on it.
+- **Sources:** [NASA](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/), [SpacePolicyOnline](https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/)
 
 ### Lunar Infrastructure Demo 3 (HALO-derived)  
 `LID-3` · robotic · planned · 🟡 likely
@@ -644,6 +644,7 @@ NASA buys delivery as a service: a commercial provider carries NASA payloads to 
 
 ## Sources
 
+- `spo-2026-11-09`: [NASA Shares Moon Base Progress, Contract Awards](https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/) (SpacePolicyOnline, 2026-11-09)
 - `nasa-2026-11-07-awards`: [NASA Awards Moon Base Transportation, Technology, Science Projects](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/) (NASA, 2026-11-07)
 - `nasa-2026-11-04`: [NASA Shares Plans to Accelerate Artemis, Return to Moon](https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/) (NASA, 2026-11-04)
 - `nasa-2026-10-23-landers`: [NASA, Partners Accelerate Lander Development for 2028 Moon Missions](https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/) (NASA, 2026-10-23)
