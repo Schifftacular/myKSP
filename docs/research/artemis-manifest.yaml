@@ -17,8 +17,8 @@
 #   * Bump `manifest_version` and add a line to changelog.md on every edit.
 #   * Run: python3 tools/validate_manifest.py
 #
-manifest_version: 5
-as_of: "2026-11-10"
+manifest_version: 6
+as_of: "2026-11-14"
 career_goal: >-
   Permanent crewed lunar base at the lunar south pole, mirroring NASA's
   three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032,
@@ -428,8 +428,8 @@ missions:
     base_contribution: Gates every Blue Moon MK1 delivery (Moon Base I, VIPER, LTVs) and Blue Moon MK2.
     game_hooks:
       - World event, not a player contract. Hold Blue-Origin-delivered contracts until it completes.
-    sources: [sfn-2026-05-29, sfn-2026-08-06-ng, newspace-2026-10-16, wiki-new-glenn-launches]
-    notes: Added in v2 because three NASA lunar deliveries depend on it.
+    sources: [sfn-2026-05-29, sfn-2026-08-06-ng, newspace-2026-10-16, wiki-new-glenn-launches, sfn-2026-06-04, nasa-2026-07-24-stennis]
+    notes: Added in v2 because three NASA lunar deliveries depend on it. NASA (June 2026) said it would like Blue Moon MK1, and possibly MK2, to launch on a rocket other than New Glenn, but none is named; the landers need a 7 m fairing and hydrogen servicing that no SpaceX pad offers. NASA is supporting New Glenn second-stage hot fires on the B-2 stand at Stennis (agreement 2026-07-24, testing from fall 2026).
 
   - id: MOON-BASE-II
     name: Moon Base II — Griffin-1
@@ -897,6 +897,8 @@ clps_template:
 # Sources (accessed 2026-11-06 unless noted)
 # ---------------------------------------------------------------------------
 sources:
+  sfn-2026-06-04: {title: "NASA head urges new launcher for Blue Origin's moon landers to meet Artemis mission deadlines", url: "https://spaceflightnow.com/2026/06/04/nasa-head-urges-new-launcher-for-blue-origins-moon-landers-to-meet-artemis-mission-deadlines/", publisher: Spaceflight Now, date: 2026-06-04}
+  nasa-2026-07-24-stennis: {title: "NASA to Support Blue Origin New Glenn Rocket Testing, Advance Artemis", url: "https://www.nasa.gov/news-release/nasa-to-support-blue-origin-new-glenn-rocket-testing-advance-artemis/", publisher: NASA, date: 2026-07-24}
   spo-2026-11-09: {title: "NASA Shares Moon Base Progress, Contract Awards", url: "https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/", publisher: SpacePolicyOnline, date: 2026-11-09}
   nasa-2026-11-07-awards: {title: "NASA Awards Moon Base Transportation, Technology, Science Projects", url: "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/", publisher: NASA, date: 2026-11-07}
   nasa-2026-11-04: {title: "NASA Shares Plans to Accelerate Artemis, Return to Moon", url: "https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/", publisher: NASA, date: 2026-11-04}

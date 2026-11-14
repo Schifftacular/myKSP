@@ -1,5 +1,10 @@
 # Manifest changelog
 
+## v6 — 2026-11-14 (daily check)
+
+No new NASA announcements since v5. Backfilled context:
+- `NEW-GLENN-RTF`: notes that NASA wants Blue Moon MK1 (and maybe MK2) moved off New Glenn, though no replacement rocket is named, and that NASA supports second-stage hot fires at Stennis B-2. Dates unchanged.
+
 ## v5 — 2026-11-10 (daily check)
 
 Source: SpacePolicyOnline 2026-11-09 report on NASA's Nov 7 briefing.

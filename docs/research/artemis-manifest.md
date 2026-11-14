@@ -1,6 +1,6 @@
 # NASA lunar mission manifest, now through 2030
 
-_Generated from `artemis-manifest.yaml` (v5, as of 2026-11-10). Do not edit by hand: run `python3 tools/render_manifest.py`._
+_Generated from `artemis-manifest.yaml` (v6, as of 2026-11-14). Do not edit by hand: run `python3 tools/render_manifest.py`._
 
 **Career goal:** Permanent crewed lunar base at the lunar south pole, mirroring NASA's three-phase Moon Base program (Phase 1 now–2029, Phase 2 2029–2032, Phase 3 2032+).
 
@@ -114,8 +114,8 @@ _Generated from `artemis-manifest.yaml` (v5, as of 2026-11-10). Do not edit by h
 - **Toward the base:** Gates every Blue Moon MK1 delivery (Moon Base I, VIPER, LTVs) and Blue Moon MK2.
 - **Contract hooks:**
   - World event, not a player contract. Hold Blue-Origin-delivered contracts until it completes.
-- **Notes:** Added in v2 because three NASA lunar deliveries depend on it.
-- **Sources:** [Spaceflight Now](https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/), [Spaceflight Now](https://spaceflightnow.com/2026/08/06/blue-origin-identifies-engine-issue-behind-new-glenn-explosion/), [New Space Economy (citing Reuters)](https://newspaceeconomy.ca/2026/10/16/why-is-blue-origins-new-glenn-rocket-now-expected-to-return-to-flight-in-2027/), [Wikipedia](https://en.wikipedia.org/wiki/List_of_New_Glenn_launches)
+- **Notes:** Added in v2 because three NASA lunar deliveries depend on it. NASA (June 2026) said it would like Blue Moon MK1, and possibly MK2, to launch on a rocket other than New Glenn, but none is named; the landers need a 7 m fairing and hydrogen servicing that no SpaceX pad offers. NASA is supporting New Glenn second-stage hot fires on the B-2 stand at Stennis (agreement 2026-07-24, testing from fall 2026).
+- **Sources:** [Spaceflight Now](https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/), [Spaceflight Now](https://spaceflightnow.com/2026/08/06/blue-origin-identifies-engine-issue-behind-new-glenn-explosion/), [New Space Economy (citing Reuters)](https://newspaceeconomy.ca/2026/10/16/why-is-blue-origins-new-glenn-rocket-now-expected-to-return-to-flight-in-2027/), [Wikipedia](https://en.wikipedia.org/wiki/List_of_New_Glenn_launches), [Spaceflight Now](https://spaceflightnow.com/2026/06/04/nasa-head-urges-new-launcher-for-blue-origins-moon-landers-to-meet-artemis-mission-deadlines/), [NASA](https://www.nasa.gov/news-release/nasa-to-support-blue-origin-new-glenn-rocket-testing-advance-artemis/)
 
 ### Artemis III  
 `ARTEMIS-III` · crewed · scheduled · ✅ confirmed
@@ -644,6 +644,8 @@ NASA buys delivery as a service: a commercial provider carries NASA payloads to 
 
 ## Sources
 
+- `sfn-2026-06-04`: [NASA head urges new launcher for Blue Origin's moon landers to meet Artemis mission deadlines](https://spaceflightnow.com/2026/06/04/nasa-head-urges-new-launcher-for-blue-origins-moon-landers-to-meet-artemis-mission-deadlines/) (Spaceflight Now, 2026-06-04)
+- `nasa-2026-07-24-stennis`: [NASA to Support Blue Origin New Glenn Rocket Testing, Advance Artemis](https://www.nasa.gov/news-release/nasa-to-support-blue-origin-new-glenn-rocket-testing-advance-artemis/) (NASA, 2026-07-24)
 - `spo-2026-11-09`: [NASA Shares Moon Base Progress, Contract Awards](https://spacepolicyonline.com/news/nasa-shares-moon-base-progress-contract-awards/) (SpacePolicyOnline, 2026-11-09)
 - `nasa-2026-11-07-awards`: [NASA Awards Moon Base Transportation, Technology, Science Projects](https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/) (NASA, 2026-11-07)
 - `nasa-2026-11-04`: [NASA Shares Plans to Accelerate Artemis, Return to Moon](https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/) (NASA, 2026-11-04)
